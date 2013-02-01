@@ -11,6 +11,7 @@ namespace proxy
 {
     public class MyRealProxy<T> : RealProxy
     {
+        //测试中文
         private T _target;
         public MyRealProxy(T target)
             : base(typeof(T))
