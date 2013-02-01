@@ -1,0 +1,1564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="a2664378-efc6-40b2-885f-cb90db0ac1b9" name="UMLClassDiagram1" linkedPackageId="9ea0bb8f-508a-4d8d-a52e-7981bf250ba6" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="58feee1b-c093-46d5-b150-9fbfab13a4a5">
+      <elementDefinition Id="dbe7d9fa-b4e1-4cb4-a28f-1150f45ce8ea" />
+      <body>return PolicyInjection.Wrap(this._serviceContractType, serviceInstance);</body>
+    </comment>
+    <comment Id="0ce90ce5-1978-4954-b3e7-08b3b5a05f5f">
+      <elementDefinition Id="d20dbb6d-3a8c-4915-ac99-055a6c96b3b3" />
+      <body> dispatchRuntime.InstanceProvider = new PolicyInjectionInstanceProvider(serviceContractType,</body>
+      <annotatedElements>
+        <classMoniker Id="6dfc60bb-24a4-4bf1-a193-45ca6dc3fb55" LastKnownName="PolicyInjectionBehaviorAttribute" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="b7b6f47a-5bee-4dbd-bdd3-df1c2a06dfa6">
+      <profileInstance Id="79ce49b9-5bb9-4526-9202-9ad1f563e691" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="d30066b8-7186-404a-a6a2-7eeb05f4bbaa">
+      <profileInstance Id="094417a0-2194-4e74-a656-f2ad506ae58c" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="817f1dd3-5d7e-47f6-a886-918f53b88815">
+      <profileInstance Id="2024aac2-d143-4897-95f0-b132580e0d04" name="CSharpProfile">
+        <elementDefinition Id="53657d68-5e25-44df-ab73-4002fb647246" />
+      </profileInstance>
+      <elementDefinition Id="77f6476f-ebe3-49f7-91ea-61a0f619f451" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="6dfc60bb-24a4-4bf1-a193-45ca6dc3fb55" name="PolicyInjectionBehaviorAttribute" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="4e69ca82-7bfb-4810-a45e-6c7449dc26b3" handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute" tag="ViewCode">
+            <elementDefinition Id="7d49142a-433d-4f70-9ec1-7ee82f0f023c" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="c7282d97-2b6f-4c99-948e-9d864cd8de51" name="class" profile="CSharpProfile">
+            <elementDefinition Id="442c6ac7-08b8-41f2-bf96-c6e28103fb4c" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="def4ebfe-0b79-41af-8e4c-565603fb3a9f">
+                <propertyInstance Id="a10796cb-7b6d-4139-a250-0605b5e0c126" name="ClrAttributes">
+                  <elementDefinition Id="3134b33b-9071-43af-a22e-edbc7f33ade3" />
+                </propertyInstance>
+                <elementDefinition Id="eca848b6-a01a-4427-a6dc-143673b6dbae" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="713a4b2e-a03a-436b-9a2c-85e8578b815d">
+                <propertyInstance Id="2194fb82-4838-4f15-b313-4145d3a7bfc4" name="IsPartial" value="false">
+                  <elementDefinition Id="1f73b907-233c-4f1e-9731-7fd7d053fac1" />
+                </propertyInstance>
+                <elementDefinition Id="95c95b85-b239-4334-8e0b-81cfc957477d" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="cd3deae0-53f0-4276-9d65-a1e12826d4ce">
+                <propertyInstance Id="54b6e245-63f7-40c0-b8cc-b854632e0947" name="IsStatic" value="False">
+                  <elementDefinition Id="3bae52d6-7e8d-4917-90a2-a61417a42d0f" />
+                </propertyInstance>
+                <elementDefinition Id="8bcffafd-7be4-48da-972f-5edf62dd2f52" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="22ccef6d-7c03-4b2a-bc36-2e34a8e0fbe8">
+                <propertyInstance Id="39567483-7b2a-435b-a149-325c8aa845a4" name="IsUnsafe" value="false">
+                  <elementDefinition Id="e401d3e8-b1a0-4344-9a61-8b70912b8141" />
+                </propertyInstance>
+                <elementDefinition Id="cf2a4c17-277d-430b-a6dc-ca2b66b00966" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="0515883f-2e43-42d1-bc66-50b26f6897ce">
+                <propertyInstance Id="559131ca-3be1-4655-be7e-4c51bd573833" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="dc52c58f-8d28-4d51-8e9c-264207eec26e" />
+                </propertyInstance>
+                <elementDefinition Id="48efc29e-dc07-421a-b1e3-a8a32e9a1248" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="e4ebe27d-e00a-4871-8281-76c1ffc1cb89" />
+        <suppliersInternal>
+          <interfaceRealization Id="6a452891-fa88-4538-a142-bece17ad1b29">
+            <interfaceMoniker Id="873b3cad-315e-4e9b-aa14-4c92a5410cc7" LastKnownName="IContractBehavior" />
+            <elementDefinition Id="2cd26015-bc1a-4a1a-a2dd-d39e99e59738" />
+          </interfaceRealization>
+          <dependency Id="dfa7caef-2555-44b5-b82d-7673f58640bb">
+            <classMoniker Id="16019493-3f9a-40a5-8391-5a882d0a8f49" LastKnownName="PolicyInjectionInstanceProvider" />
+            <elementDefinition Id="32aae7f7-38b3-4218-9a31-699208fca895" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation Id="5c74120f-e235-4e06-8435-904cc6b5a372" name="AddBindingParameters" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="ef6cb0b9-6966-48cf-a0ea-b5704e0e4a50" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=AddBindingParameters OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Channels Type=BindingParameterCollection)])" tag="ViewCode">
+                <elementDefinition Id="de352be4-601e-4a00-aabc-1c3ca2782162" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="e83d2428-494d-4246-bfa3-b725ea9517ce" name="method" profile="CSharpProfile">
+                <elementDefinition Id="8031af8c-ceb2-46da-9b9d-8257f2c6ba5e" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="60a00f64-2a70-4037-ab9c-96bddfa512cd">
+                    <propertyInstance Id="dbb3989e-ef7a-4082-819c-e638765c7d8e" name="ClrAttributes">
+                      <elementDefinition Id="7bf86e45-a334-4284-9779-f0ffbafe1779" />
+                    </propertyInstance>
+                    <elementDefinition Id="347a80ed-864c-442f-9acd-37b5f57d85e0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="036632cf-e04e-4103-9601-11e6f799cc3d">
+                    <propertyInstance Id="1ab288a2-b045-49fe-8836-a4033a749841" name="IsPartial" value="false">
+                      <elementDefinition Id="682fa273-380a-4290-927e-36a71bd3a4f2" />
+                    </propertyInstance>
+                    <elementDefinition Id="f02e8c71-a88d-404d-b682-3dd91f2b8360" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f2e71804-9101-48fc-99fd-2488a1ea3c0a">
+                    <propertyInstance Id="b28e7b9e-b8c9-4df4-97a9-aad30741ea0f" name="IsUnsafe" value="false">
+                      <elementDefinition Id="a0269357-45a7-48bf-bfee-cea5f20de74f" />
+                    </propertyInstance>
+                    <elementDefinition Id="759a180b-ab3b-48f8-8d74-73cfee9092a3" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="cf556d4e-d873-46b5-b023-c99fff5b5699">
+                    <propertyInstance Id="cfbfb6fe-6015-4c55-a2d3-858e651b1965" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="644c95cc-2b70-4f6f-b0a8-4685f9145700" />
+                    </propertyInstance>
+                    <elementDefinition Id="2aa0ee8f-7275-4056-bddc-0e19af4898f8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="eb45dbdc-cf57-404b-81d3-a242f487d9fd">
+                    <propertyInstance Id="8afae959-7414-46d4-95a5-7d2eeb5b659a" name="params" value="false">
+                      <elementDefinition Id="9ad3495c-24fc-4d2d-b5fa-695e9a5191ed" />
+                    </propertyInstance>
+                    <elementDefinition Id="1ab8b7a4-2990-4945-b7ea-e28839b95221" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="4340277c-3328-4546-8086-0ef3ce84fcea" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ad857401-7541-4463-95b0-4c3b09fab85f" name="contractDescription" direction="In">
+                  <referencesInternal>
+                    <reference Id="581d630f-ecbf-46ea-bc45-1a871415b73b" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=AddBindingParameters OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Channels Type=BindingParameterCollection)]) ParameterIdentifier=contractDescription" tag="ViewCode">
+                      <elementDefinition Id="c27d0322-0f3f-439a-b8d4-bc96b809cb0f" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="2b964cf6-fa90-43e9-93fb-49cf10e72085" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6f82a4df-d2a8-4fbb-8031-59974e81b88e" LastKnownName="ContractDescription" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="24d02aba-a2e6-4489-92fc-3cceb207449d" name="endpoint" direction="In">
+                  <referencesInternal>
+                    <reference Id="2b563a8b-a290-4717-8544-e86126419cf1" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=AddBindingParameters OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Channels Type=BindingParameterCollection)]) ParameterIdentifier=endpoint" tag="ViewCode">
+                      <elementDefinition Id="3ddf75a7-9fe1-4b64-aa23-7b0322866584" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="391a7929-541c-42ae-a101-f2aa5ebfed28" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3b27c1ab-5d5b-449b-8ce7-728ca9cadab1" LastKnownName="ServiceEndpoint" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f640868a-9a08-41a9-b40f-03c1a210eaa6" name="bindingParameters" direction="In">
+                  <referencesInternal>
+                    <reference Id="9e1d21f0-2222-40ee-b537-6432d7213548" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=AddBindingParameters OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Channels Type=BindingParameterCollection)]) ParameterIdentifier=bindingParameters" tag="ViewCode">
+                      <elementDefinition Id="b0aab2be-3e0b-4b36-88d7-fb48025bee12" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="831b72e1-7223-4392-a6e7-a07e0bb0d4fe" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7c20f227-258b-4c35-847e-aa0905e8e36c" LastKnownName="BindingParameterCollection" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="44d9a8f1-28bd-46b8-a270-a65c01c284a4" name="ApplyClientBehavior" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="613e60b8-a715-4f20-b9d5-f1ae0c8cb23a" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=ApplyClientBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=ClientRuntime)])" tag="ViewCode">
+                <elementDefinition Id="d6d122ff-522d-4017-a9d3-cd6c8874b8f7" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="74cd8d09-7d99-4913-936f-fedd0aa13e03" name="method" profile="CSharpProfile">
+                <elementDefinition Id="4c61c840-8d70-472c-81f8-d7640f7dae67" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d54f5f73-12f1-4188-9844-34b143a0aa71">
+                    <propertyInstance Id="f6375237-048d-41d9-8dfd-5f600c15f022" name="ClrAttributes">
+                      <elementDefinition Id="d2c621c8-3da3-4336-b353-0b3b093bd988" />
+                    </propertyInstance>
+                    <elementDefinition Id="cf9aa3a7-e1d1-48c0-aa5b-1d446bbe7b5f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3deeb611-99e2-4520-ae6b-cd0b9d4506c9">
+                    <propertyInstance Id="fcb3492b-37a3-4ecb-86d8-6f45e547ff1b" name="IsPartial" value="false">
+                      <elementDefinition Id="7fb775fa-fcb9-42a0-9185-76a325e23203" />
+                    </propertyInstance>
+                    <elementDefinition Id="3bcf59e2-9ef0-4ba4-98d3-73e8b316036c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6ca1eef3-1458-4505-a948-f2adafdaf249">
+                    <propertyInstance Id="e1071028-2596-43d6-a738-f6b4ba8cac95" name="IsUnsafe" value="false">
+                      <elementDefinition Id="b246a2a2-3c42-4b9b-a4e0-8485ea4f9bd2" />
+                    </propertyInstance>
+                    <elementDefinition Id="3c26226b-35cd-4ed8-b944-9e773196faa7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e0acc506-549c-4812-b59e-2530ca570ce3">
+                    <propertyInstance Id="d7010381-80b1-42d4-9cba-33383ef2172d" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="c7286c24-eaa2-466f-8622-de22856b3821" />
+                    </propertyInstance>
+                    <elementDefinition Id="eba2db53-31ae-4dc0-883e-defebbf2b39e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ac8a6d48-929a-40a5-960c-e643b7a183dd">
+                    <propertyInstance Id="bcc4e9e3-3ef9-465a-926d-7df477023b56" name="params" value="false">
+                      <elementDefinition Id="9738d6ab-df68-4be1-9cfe-9792b7eed63d" />
+                    </propertyInstance>
+                    <elementDefinition Id="86f105b7-90e7-46ef-b580-b24fa210490d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="5b893937-db4c-4e92-9cde-319fe8519374" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9d763668-0e98-4749-b1da-96ad7a0ef3dc" name="contractDescription" direction="In">
+                  <referencesInternal>
+                    <reference Id="d9bd0700-e593-4f97-8f36-f0863052806c" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=ApplyClientBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=ClientRuntime)]) ParameterIdentifier=contractDescription" tag="ViewCode">
+                      <elementDefinition Id="b4a7dd9e-ae48-4489-8912-87d8b2a3f83f" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="d51fbd4a-2306-495b-a9e7-06e196f19833" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6f82a4df-d2a8-4fbb-8031-59974e81b88e" LastKnownName="ContractDescription" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9d0f3fc6-201e-4b89-a8d8-6367bb5bedea" name="endpoint" direction="In">
+                  <referencesInternal>
+                    <reference Id="c1b491fd-317f-401f-8d81-38dc4f66ae1a" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=ApplyClientBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=ClientRuntime)]) ParameterIdentifier=endpoint" tag="ViewCode">
+                      <elementDefinition Id="850faaba-6488-4b04-a977-5ed4cdeff2fc" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="9a54f8e0-7d13-46b4-9fa5-459c1856009a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3b27c1ab-5d5b-449b-8ce7-728ca9cadab1" LastKnownName="ServiceEndpoint" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="aa2cbcff-1824-4359-bfb6-0fe7a756a5fe" name="clientRuntime" direction="In">
+                  <referencesInternal>
+                    <reference Id="56045c41-cb67-49eb-92a4-74c98c332f8e" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=ApplyClientBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=ClientRuntime)]) ParameterIdentifier=clientRuntime" tag="ViewCode">
+                      <elementDefinition Id="7444b723-69ef-4a64-8c17-2acf49af5d4d" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="93e1199b-aa76-49c8-ab19-fcbc773df43c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="febe32f0-df0d-4545-9de8-8af8291e6d32" LastKnownName="ClientRuntime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="bfe89bdc-42fa-4c20-b6d8-f1b283b5f5af" name="ApplyDispatchBehavior" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="e26cf49a-5db6-40fe-aca3-bb977a3cab90" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=ApplyDispatchBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=DispatchRuntime)])" tag="ViewCode">
+                <elementDefinition Id="6b667aab-e71c-4062-b044-236ac32717d3" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="9ca9a5ee-bd9e-4aba-80fa-08df29bb56ca" name="method" profile="CSharpProfile">
+                <elementDefinition Id="2998a100-d69c-449b-8127-4eb3ba57a97b" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6b1d0a13-a269-4590-88f9-b5b6bd94bc0d">
+                    <propertyInstance Id="2cd5523d-4559-4533-9c37-058c6e61c2c6" name="ClrAttributes">
+                      <elementDefinition Id="f05a965b-d62a-4f67-86ca-b04ebb7dd773" />
+                    </propertyInstance>
+                    <elementDefinition Id="dee59fe8-68da-4f71-bd5b-619062504969" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="01b2c2e8-5ae1-4799-8252-65e3bc0d6eb2">
+                    <propertyInstance Id="159c973d-6cde-4bb3-9265-48da0683ef80" name="IsPartial" value="false">
+                      <elementDefinition Id="85a741e9-7f83-4d44-870b-3befd1cd29f4" />
+                    </propertyInstance>
+                    <elementDefinition Id="dc90ca58-dbdf-4d07-a4e9-98fb07bab992" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b2497b75-e16a-49f6-95ab-9a46e83af87a">
+                    <propertyInstance Id="85597f09-bc7b-4935-98f0-d54a1cd50ccb" name="IsUnsafe" value="false">
+                      <elementDefinition Id="0bdd9d51-6206-4f8b-8170-c8af3b0ac301" />
+                    </propertyInstance>
+                    <elementDefinition Id="be58add4-0c9a-4cd5-90bb-afad79ab83b9" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ca7e4baa-3fbb-45c6-a384-b0e353d706dd">
+                    <propertyInstance Id="3cf036c8-0cdc-4b9a-b296-8a0a4742881b" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="c3a65c6d-ca4d-4e3f-aa9a-e8611b9ff434" />
+                    </propertyInstance>
+                    <elementDefinition Id="cd789dda-2780-483c-a552-594411386e07" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="56b4a65e-883f-435a-bbe0-bab6c467c3f0">
+                    <propertyInstance Id="17c912ad-3995-4163-8bd5-5c832a59e592" name="params" value="false">
+                      <elementDefinition Id="f30d4af8-90e6-4fda-a529-7a726c587981" />
+                    </propertyInstance>
+                    <elementDefinition Id="2408bc75-4e56-4509-b5b7-628cbe263a84" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="2019f1dd-ed76-48ba-b1e4-af2599f1e6c0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6069b60c-218e-4425-aa43-14577b30068e" name="contractDescription" direction="In">
+                  <referencesInternal>
+                    <reference Id="ef0c2408-72d9-4d41-adf2-30fe4a901f6c" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=ApplyDispatchBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=DispatchRuntime)]) ParameterIdentifier=contractDescription" tag="ViewCode">
+                      <elementDefinition Id="aef6a49e-f176-4d09-9074-5dc75f4b376a" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="ad5779f4-e123-4052-bf03-3353ee343c9d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6f82a4df-d2a8-4fbb-8031-59974e81b88e" LastKnownName="ContractDescription" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ccb62c2b-bcc6-4343-9571-238e7667dab0" name="endpoint" direction="In">
+                  <referencesInternal>
+                    <reference Id="36b5e7c8-6957-402d-8b46-9ded1d10135b" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=ApplyDispatchBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=DispatchRuntime)]) ParameterIdentifier=endpoint" tag="ViewCode">
+                      <elementDefinition Id="9480dafa-b77a-428b-baf2-7797db3f64f0" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="43fa0abf-163c-469c-ab98-c48dbf41d3d0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3b27c1ab-5d5b-449b-8ce7-728ca9cadab1" LastKnownName="ServiceEndpoint" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="89856a33-5c64-48a6-bebe-efc30e5711ec" name="dispatchRuntime" direction="In">
+                  <referencesInternal>
+                    <reference Id="0c56e32f-12b3-416e-afe6-c3ac1268ec15" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=ApplyDispatchBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=DispatchRuntime)]) ParameterIdentifier=dispatchRuntime" tag="ViewCode">
+                      <elementDefinition Id="7da237eb-b9ba-498f-b302-fbb88c9e4abb" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="b9e13fce-d5e6-4dc2-adee-0e2494430906" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fde408ec-09da-40b1-8939-a283a1d82013" LastKnownName="DispatchRuntime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="cbfae918-decb-4cf4-bb95-5a9f8db950d9" name="Validate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="0843db4e-31ed-4437-8218-10827b2a3ed7" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=Validate OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint)])" tag="ViewCode">
+                <elementDefinition Id="7c0c5359-fd70-4973-895c-cfc4c157ea18" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="6ba511d9-aaa2-4c35-a1f0-43cf83c7939f" name="method" profile="CSharpProfile">
+                <elementDefinition Id="37783c62-73a9-48ba-8719-e7666e4e5d3e" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="cb6b7557-b848-42ec-9278-0b5e1ef61c78">
+                    <propertyInstance Id="a977334d-f451-4097-84da-362f6322715d" name="ClrAttributes">
+                      <elementDefinition Id="3d085da0-45b6-4ad4-8198-898a4d7462fe" />
+                    </propertyInstance>
+                    <elementDefinition Id="6f5de65f-e894-46eb-8650-cb4eeceaf095" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f3989b28-1c36-4886-9f43-e56368c0e077">
+                    <propertyInstance Id="85116b15-263d-4225-84b8-5125ac74d6e6" name="IsPartial" value="false">
+                      <elementDefinition Id="130db5eb-2fbd-41f4-b458-90f8001e1794" />
+                    </propertyInstance>
+                    <elementDefinition Id="f57daaae-dc0c-4e43-8f70-057815872c0f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="df8600a2-44f2-4f1f-a423-44e63b68a5d3">
+                    <propertyInstance Id="03945e38-d863-4652-8342-62e2b12c2204" name="IsUnsafe" value="false">
+                      <elementDefinition Id="da97a7c7-a284-42b7-92fa-a3106ea3aa00" />
+                    </propertyInstance>
+                    <elementDefinition Id="0bc56386-fada-433b-8e78-feccc132c8fc" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="56de8a53-c3f2-4c03-9f1e-e2d90176d96c">
+                    <propertyInstance Id="fef9597c-bbbb-444c-b3fa-81650019ecc1" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="4e36cd98-b5ea-4fd9-ac97-ea7fc2a8ff2f" />
+                    </propertyInstance>
+                    <elementDefinition Id="78c5a875-b352-4a3c-a189-635d94235e9b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="91bccafc-66d6-4ab7-873c-938f8942fbbc">
+                    <propertyInstance Id="a057596f-316f-43ca-9721-1a1c3385a0bb" name="params" value="false">
+                      <elementDefinition Id="f9e0f899-1f66-429c-9b03-e56b41fe0377" />
+                    </propertyInstance>
+                    <elementDefinition Id="9fd572ed-f1cd-4ec1-8a83-cd1879624cca" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="639921fa-1d92-45a2-bd3f-fef1660951dd" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="48cf7475-9d72-4121-bc54-198af0480666" name="contractDescription" direction="In">
+                  <referencesInternal>
+                    <reference Id="13d5485c-afeb-40f5-9c64-98754d59c5a4" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=Validate OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint)]) ParameterIdentifier=contractDescription" tag="ViewCode">
+                      <elementDefinition Id="dbfb5602-2299-4723-8509-e9ec8c8fe133" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="ebe03691-ff40-48a5-9efe-e7a199826256" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6f82a4df-d2a8-4fbb-8031-59974e81b88e" LastKnownName="ContractDescription" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3358d432-bf56-495a-b6d1-db6d31f131a6" name="endpoint" direction="In">
+                  <referencesInternal>
+                    <reference Id="e59d973c-b34c-42e5-b041-d203c3bb9325" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=(Name=Validate OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ContractDescription),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint)]) ParameterIdentifier=endpoint" tag="ViewCode">
+                      <elementDefinition Id="14223d33-9b68-4354-b20c-4a531ddf8576" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="7bde03d6-d25e-41c2-b431-4d73efa27a2a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3b27c1ab-5d5b-449b-8ce7-728ca9cadab1" LastKnownName="ServiceEndpoint" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="eabea0c7-1b7e-42a7-a2a2-34c146384f28" name="PolicyInjectionBehaviorAttribute" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="f53b34dc-2ac9-4df9-a29e-a8c117099ce3" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorAttribute Member=.ctor" tag="ViewCode">
+                <elementDefinition Id="a31fc6ea-4cdd-4836-ad18-c4b50ba8d384" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="1291f203-1c84-43e7-ac14-250ef725bf60" name="method" profile="CSharpProfile">
+                <elementDefinition Id="e2cd6702-3bb0-4ea9-a7b3-5c01cfc8ef3e" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="aad416b8-9f5e-4132-94ca-120bcc3f1e26">
+                    <propertyInstance Id="66cbd614-dd98-462d-940c-701910db71b8" name="ClrAttributes">
+                      <elementDefinition Id="6816183c-c85c-449b-9be3-6f3ad5d0221e" />
+                    </propertyInstance>
+                    <elementDefinition Id="aa1e9279-b33d-440c-a035-74fbfb0c3846" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="adc5ba74-644d-4979-b7d1-f6f8821ea633">
+                    <propertyInstance Id="e66d97d7-dae8-46c7-a8ba-d7062dc86db4" name="IsPartial" value="false">
+                      <elementDefinition Id="ea10f0d4-7a99-4e18-81fc-3c0ab9acd47b" />
+                    </propertyInstance>
+                    <elementDefinition Id="230c6c0f-95f3-4f13-815a-edd67f4533aa" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f1c17d15-fe40-450c-aa02-9dc1fb5830b7">
+                    <propertyInstance Id="a291ba6c-0a09-41c7-837b-679e5fa1c39e" name="IsUnsafe" value="false">
+                      <elementDefinition Id="3b5c6588-c7a5-4632-80e7-c8a148ee0bee" />
+                    </propertyInstance>
+                    <elementDefinition Id="15f7f3e1-4cef-4e10-b757-9c8849bbb6a1" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3941f6d0-db29-4fa9-88a4-ccf9767122a3">
+                    <propertyInstance Id="d5b2c894-2bec-4f43-85b2-034f35516d93" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="5afc268e-543c-4e8a-96ae-ee720c334c5d" />
+                    </propertyInstance>
+                    <elementDefinition Id="bea5203e-d2e2-40b0-93fb-f3feb54ea5bf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="555aee2a-7552-47d7-820a-b44c172dc70d">
+                    <propertyInstance Id="44782dcb-1ef0-4443-ac2c-0255529277a9" name="params" value="false">
+                      <elementDefinition Id="88df73ca-ff3f-40d5-903a-fc40c3ad1462" />
+                    </propertyInstance>
+                    <elementDefinition Id="afd0b3bc-4c31-4123-8a7f-e97f61ad00d2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="3d4edf9d-7273-4e97-bd76-8ebbe82881da" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="ee6971ce-440e-442f-8c41-2c617436c451" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6f82a4df-d2a8-4fbb-8031-59974e81b88e" name="ContractDescription" isAbstract="false" isLeaf="false" cachedFullName="WCFEngineDesign::System::ServiceModel::Description::ContractDescription">
+        <elementDefinition Id="ea43afe3-ab87-4bfd-beee-c9ad2500a342" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3b27c1ab-5d5b-449b-8ce7-728ca9cadab1" name="ServiceEndpoint" isAbstract="false" isLeaf="false" cachedFullName="WCFEngineDesign::System::ServiceModel::Description::ServiceEndpoint">
+        <elementDefinition Id="469c11a0-b1de-4a7e-a7da-8c9f5a888a1d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7c20f227-258b-4c35-847e-aa0905e8e36c" name="BindingParameterCollection" isAbstract="false" isLeaf="false" cachedFullName="WCFEngineDesign::System::ServiceModel::Channels::BindingParameterCollection">
+        <elementDefinition Id="4d85f800-fddc-40bf-920c-1dabf27b1934" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="febe32f0-df0d-4545-9de8-8af8291e6d32" name="ClientRuntime" isAbstract="false" isLeaf="false" cachedFullName="WCFEngineDesign::System::ServiceModel::Dispatcher::ClientRuntime">
+        <elementDefinition Id="999eb9b0-294e-4b7f-934a-75d0a702be13" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fde408ec-09da-40b1-8939-a283a1d82013" name="DispatchRuntime" isAbstract="false" isLeaf="false" cachedFullName="WCFEngineDesign::System::ServiceModel::Dispatcher::DispatchRuntime">
+        <elementDefinition Id="7c5943a8-1cd1-49fa-bfdf-2802a9922f71" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7e5d64cc-c012-409b-9b02-df69278180f4" name="PolicyInjectionBehaviorElement" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="56504928-06e0-4a5a-ad39-1579d06595da" handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorElement" tag="ViewCode">
+            <elementDefinition Id="ae7dfb4b-a705-479f-9ed2-056b2953ef4c" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="4dbd6d7e-a9f5-4396-9328-8a7c056c8043" name="class" profile="CSharpProfile">
+            <elementDefinition Id="aad499c0-9471-4676-95a9-3c4c5404bf11" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="4d7dbc8e-6534-4ab7-8659-28961523474a">
+                <propertyInstance Id="61ac0990-ff70-42c5-a4c1-c51226ae8196" name="ClrAttributes">
+                  <elementDefinition Id="190f1819-b26e-4401-a4cf-221dddbe1da5" />
+                </propertyInstance>
+                <elementDefinition Id="f2a0c727-7ea9-4561-a051-42ef9633c997" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="04d2974d-43fd-4844-9dcc-a05b853b4fe1">
+                <propertyInstance Id="f80f3b43-d21f-4394-934c-a21f262f426c" name="IsPartial" value="false">
+                  <elementDefinition Id="f1327bd1-dfd7-4502-b60f-cc7b9e809aba" />
+                </propertyInstance>
+                <elementDefinition Id="1880772c-4327-444f-8d14-78c0a04113ae" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="2a4daa38-a222-4942-b8d9-aa39fd2f69a5">
+                <propertyInstance Id="6837dd12-ea99-4031-b50b-a534811fc0d6" name="IsStatic" value="False">
+                  <elementDefinition Id="afa6574f-8cd8-4f72-99d2-883605e7820c" />
+                </propertyInstance>
+                <elementDefinition Id="3df4c26f-dd97-43e8-88d8-1cf3f0496268" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="0b926d81-adc2-4e53-b0ab-ecfff1d9114c">
+                <propertyInstance Id="c8431f22-100b-4cbc-8a79-511b83ce67c8" name="IsUnsafe" value="false">
+                  <elementDefinition Id="0cceed55-0609-49a9-87ae-af30413ae813" />
+                </propertyInstance>
+                <elementDefinition Id="179d1756-4723-4db2-a218-c4a788c6d5d0" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="09b103a9-9a6f-40b8-9d94-270b5e5b407d">
+                <propertyInstance Id="13764407-7d6a-42fa-9f10-9eb7b55e772e" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="d4502521-c553-4df1-a646-d7065018078c" />
+                </propertyInstance>
+                <elementDefinition Id="73d73262-cb0d-4119-8318-9e581654771a" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="726fdabc-5e28-4d34-aa36-9611c465322d" />
+        <suppliersInternal>
+          <dependency Id="3ef726b9-22e1-469b-a139-c7361be9b566">
+            <classMoniker Id="89a3da07-2876-41b6-9577-42cfce511012" LastKnownName="PolicyInjectionBehavior" />
+            <elementDefinition Id="fb13e373-b670-4db1-837a-de92b6012c0e" />
+          </dependency>
+          <interfaceRealization Id="34696528-12d8-42ff-9328-0c56ef99c3d6">
+            <interfaceMoniker Id="e3a7d145-591f-41c8-a46c-bf36dccc3912" LastKnownName="BehaviorExtensionElement" />
+            <elementDefinition Id="82aa51e5-146a-495c-9ed7-45bbf4f6ac47" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="cd311ff0-8f94-4c5e-9c9b-beab5cfa5588" name="BehaviorType" isLeaf="false" isStatic="false" isReadOnly="true" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="2bb38f4a-957a-440b-84b3-def06ae776aa" handle="viewcode://./CodeSchema_Property?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorElement Member=BehaviorType" tag="ViewCode">
+                <elementDefinition Id="6d6129af-e01e-4155-bafb-0bc434a4a12d" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="cc7421c3-8f01-4dd5-99e1-3d5eb1f4c85b" name="property" profile="CSharpProfile">
+                <elementDefinition Id="a9766f93-e957-41f2-a708-6fcb605cee49" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="467de223-408d-448f-8ebb-ba28ab096f29">
+                    <propertyInstance Id="914e08ce-8165-43d6-b8be-20862b431cf4" name="ClrAttributes">
+                      <elementDefinition Id="275a65b7-4194-4660-a9ff-9e2216b60dd3" />
+                    </propertyInstance>
+                    <elementDefinition Id="4d3a4f3a-6fb8-4f46-8e83-dfb9c14fc5e2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="eb6f7471-87fd-418f-952d-22e9ce4e2fbd">
+                    <propertyInstance Id="29ce48df-439e-42b7-94c2-b79bb0801273" name="Get" value="public">
+                      <elementDefinition Id="d58b8755-3ddc-43e1-81d4-9b3e9c7d3506" />
+                    </propertyInstance>
+                    <elementDefinition Id="97dbb2f0-6017-45f6-ae52-e388af4ecbdf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="535ef9ce-2627-491e-bfec-4e38bf0c0f75">
+                    <propertyInstance Id="d788570a-be54-4ad0-a0e2-5e5eef87096f" name="HasBody" value="false">
+                      <elementDefinition Id="0d8122e7-babf-4c29-bb40-2ca531162385" />
+                    </propertyInstance>
+                    <elementDefinition Id="ba711a22-03f1-44ae-9d2b-c2a45af47835" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1996f67b-fb7d-47b3-ab23-3d430c7e923b">
+                    <propertyInstance Id="d48d00f1-d3af-44f1-a469-1080a4b89f04" name="IsUnsafe" value="false">
+                      <elementDefinition Id="27a97593-6bcd-41d3-93aa-de47974a1038" />
+                    </propertyInstance>
+                    <elementDefinition Id="d7a96570-c159-40f5-bd33-00f51d6a4e48" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e618b601-6ffa-40e4-a1d8-614203f607dc">
+                    <propertyInstance Id="dd1e52fa-7927-4d5f-ba8e-f3e22a1e8351" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="43701c2b-08c9-44c2-84ae-1c0522ce50fb" />
+                    </propertyInstance>
+                    <elementDefinition Id="10fb27ab-0d81-460d-9301-c1fb8c1e0173" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3fe7a2f0-a209-43a5-9d2c-50e6c804179f">
+                    <propertyInstance Id="e94d3b78-19f1-4a7c-ae24-697d9cc1ca09" name="Set" value="none">
+                      <elementDefinition Id="ee46186e-469a-4b69-8ddf-138a43611eb2" />
+                    </propertyInstance>
+                    <elementDefinition Id="9423f38f-8808-499d-8e5b-364d151ff6de" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="094371bc-6556-43a6-b544-66655a96c0ec" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9862fbc5-3b2a-4660-b57d-d1a441d2e8f5" LastKnownName="Type" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="91412f20-a337-4ac4-bd06-dd7436293dd3" name="PolicyInjectionBehaviorElement" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="46bf0f36-0769-4a25-a678-9eab83d8c791" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorElement Member=.ctor" tag="ViewCode">
+                <elementDefinition Id="dce501d4-ae3e-4537-8ccc-bb1028e6ab6b" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="99e1bde9-1bb0-40b9-96fb-237030e456f4" name="method" profile="CSharpProfile">
+                <elementDefinition Id="c64e83f3-1c4a-45b3-b72f-21c71e5823d7" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b584a3f6-0c85-4deb-b211-cf5aa0a65dcb">
+                    <propertyInstance Id="7c07451e-b458-452e-a732-0d3d484f9479" name="ClrAttributes">
+                      <elementDefinition Id="67736d9b-6c3d-43dc-b54a-a626e4a71379" />
+                    </propertyInstance>
+                    <elementDefinition Id="4189db8c-e200-4e9a-89a9-c07937625191" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="729fce5b-bbf9-40f0-82c8-f305703a8278">
+                    <propertyInstance Id="7c077b43-a7db-4631-98d7-7491ed3e160b" name="IsPartial" value="false">
+                      <elementDefinition Id="08d7efcd-d342-48d1-a04f-1024306268f4" />
+                    </propertyInstance>
+                    <elementDefinition Id="f958b555-436e-4e7d-b1af-a904f81dd3d6" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="81e97c74-d520-474d-b996-ea5260afa68f">
+                    <propertyInstance Id="a64a3a5d-dde8-420b-834d-278f852fb2ec" name="IsUnsafe" value="false">
+                      <elementDefinition Id="14969848-a695-43b4-b286-e10276051916" />
+                    </propertyInstance>
+                    <elementDefinition Id="f9601614-7caf-4ce1-9c32-c2c880fa1919" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="755d70e6-8c64-42fe-8439-85a07d6d7980">
+                    <propertyInstance Id="79ff38de-e895-4e7d-b9cc-fedaea5f0f78" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="0b96ed6a-61bd-4bf8-9461-4fe13d3577c4" />
+                    </propertyInstance>
+                    <elementDefinition Id="177c5843-9b8a-4491-a738-2b1e6c5421c7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b37246dd-f3d7-412c-bf19-a27b733610d8">
+                    <propertyInstance Id="593c4c60-24ca-4aba-b3f7-1de9502abd8e" name="params" value="false">
+                      <elementDefinition Id="0e62be89-2fe5-4d46-a035-5675721ba2f3" />
+                    </propertyInstance>
+                    <elementDefinition Id="840a7fd8-5bde-4e89-8d52-7c78b78c7cda" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="6ae9997c-f8f3-4ff9-8ee8-0d3dd02440da" />
+          </operation>
+          <operation Id="3bfeab64-7178-493c-9841-5a94015433de" name="CreateBehavior" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="aca0e32f-a875-4c74-ae37-ef4660531067" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehaviorElement Member=CreateBehavior" tag="ViewCode">
+                <elementDefinition Id="74c35d04-f55f-4910-8fe4-20ce70d46689" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="10454a9f-d1d0-4e9c-900a-7259dd3bf7e6" name="method" profile="CSharpProfile">
+                <elementDefinition Id="2685d125-0642-4d77-a528-90713133bb48" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4f8bee1b-f024-46e8-a4ca-9d9334314851">
+                    <propertyInstance Id="5c93622d-1fd0-4707-acc9-952aece6a1f1" name="ClrAttributes">
+                      <elementDefinition Id="779f383e-1148-442c-acd8-7d2165c93b42" />
+                    </propertyInstance>
+                    <elementDefinition Id="3b8a1f2b-e678-491f-b65f-a61ffa9307c9" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e37038de-8695-4e8f-9c53-a4f836fa6a54">
+                    <propertyInstance Id="0295c38d-0261-4b30-9820-d6e06f1d29a7" name="IsPartial" value="false">
+                      <elementDefinition Id="32c8a495-df49-49dc-acdc-cf0080c153d8" />
+                    </propertyInstance>
+                    <elementDefinition Id="8fd671fc-8b70-444d-8093-6eb5b2026015" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c42a8e45-47eb-465e-8515-edf55e13cac5">
+                    <propertyInstance Id="095f05be-443b-4b70-8d51-2bfda16788d7" name="IsUnsafe" value="false">
+                      <elementDefinition Id="eee5b1ac-bf40-4c18-8ac2-abb13b06e550" />
+                    </propertyInstance>
+                    <elementDefinition Id="59fffa74-98f8-4e4c-bb78-ddf817db5e86" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="07ff7e5c-3bfa-4efb-b1ba-b5f5fcea314c">
+                    <propertyInstance Id="0e576955-d9b5-4cf1-99d0-11449e05963b" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="459425cb-f8be-4912-b453-e4c545700fcd" />
+                    </propertyInstance>
+                    <elementDefinition Id="b7e36a94-ad7d-4f15-9a3e-13e2da364d15" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f1542710-3e3f-4264-a7b4-69447d40655c">
+                    <propertyInstance Id="0d24e87e-84ba-403b-8372-5f3f31db9f92" name="params" value="false">
+                      <elementDefinition Id="f9ed4d08-a6b0-4a98-b659-1e36f303667e" />
+                    </propertyInstance>
+                    <elementDefinition Id="1a78f96e-fa6c-43b3-97bc-a8e18e18b9cf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="c4628efb-8990-4dc3-af2e-646d91fc4c94" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="09781ac8-1bfc-489e-8eab-ab00d9844ab1" direction="Return">
+                  <elementDefinition Id="9d9e0ca5-dfc4-4cd2-8908-a5f6f8378e13" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d94e6bed-680e-4734-8fe3-90b84914c593" LastKnownName="Object" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="9862fbc5-3b2a-4660-b57d-d1a441d2e8f5" name="Type" isAbstract="false" isLeaf="false" cachedFullName="WCFEngineDesign::System::Type">
+        <elementDefinition Id="4203fdd8-0b0d-4926-9741-0b89cb9350a7" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d94e6bed-680e-4734-8fe3-90b84914c593" name="Object" isAbstract="false" isLeaf="false" cachedFullName="WCFEngineDesign::System::Object">
+        <elementDefinition Id="55ea5d2b-7171-47c5-a5e9-f086f0bfba8a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="16019493-3f9a-40a5-8391-5a882d0a8f49" name="PolicyInjectionInstanceProvider" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="099021a2-567d-4819-b9bc-847c4208905e" handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider" tag="ViewCode">
+            <elementDefinition Id="b3e1df25-ef57-446f-82f0-2c72541faf8f" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="acf33853-1169-491e-89d6-2e58404aa3bb" name="class" profile="CSharpProfile">
+            <elementDefinition Id="d3282218-b3c7-4e95-98ec-711ce5f92c3a" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="5751c77a-e35e-4a8c-8262-9ccd03fc56fd">
+                <propertyInstance Id="1aacc56c-9a9f-41c0-9f49-5355e49baf64" name="ClrAttributes">
+                  <elementDefinition Id="20704388-6989-46d8-a76d-eb54dd60e892" />
+                </propertyInstance>
+                <elementDefinition Id="d6139649-0add-449d-aa93-5b70bd447e9c" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="5e641aa7-3f81-4e17-847d-31d0eccb083f">
+                <propertyInstance Id="7cd69f9f-edd5-4c5e-acbb-e90dbe73d4c6" name="IsPartial" value="false">
+                  <elementDefinition Id="af528748-65f3-4121-a1ce-21b2adf56e1d" />
+                </propertyInstance>
+                <elementDefinition Id="a5827fde-26cd-4215-b586-6547b97b0f5a" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="45a7f566-4a0e-449a-96d6-b33164f4ac89">
+                <propertyInstance Id="581751f3-bd5f-4906-95fe-060cc1a8e2a0" name="IsStatic" value="False">
+                  <elementDefinition Id="d6fc6687-e074-4bfe-a8fc-4a115b331d4f" />
+                </propertyInstance>
+                <elementDefinition Id="be16b15c-47c9-4083-9681-823107b9b646" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="c629d491-267f-417f-98b3-1902f2526cf1">
+                <propertyInstance Id="3387b420-5c8e-465c-8da9-a1833aca445d" name="IsUnsafe" value="false">
+                  <elementDefinition Id="b8b2c80f-9a1e-494a-bc82-2c01818131af" />
+                </propertyInstance>
+                <elementDefinition Id="29fb2e04-699d-4c19-9031-b6d01c3e5166" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="36919498-c252-4ad3-9d66-401b54b92fc0">
+                <propertyInstance Id="39be52e3-d4a7-4301-9529-0d6da3bf2669" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="88d3b24b-f846-4cb6-88f5-940a859d4473" />
+                </propertyInstance>
+                <elementDefinition Id="ef8541b5-7166-4d59-9cbf-15f9dbcc453d" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="62d04cf9-70b9-4218-a1e8-0396befe6de8" />
+        <suppliersInternal>
+          <interfaceRealization Id="0ee00cc8-f07c-4c38-98f5-adf6df0687da">
+            <interfaceMoniker Id="76e2a1da-5892-453d-920b-853f200bfb86" LastKnownName="IInstanceProvider" />
+            <elementDefinition Id="80e06a88-6e2c-4bec-9ebb-bc8d149e1d45" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="80f06d03-4efd-41e4-a0f1-fe3e12ae52fc" name="_serviceContractType" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="690aecbe-68d7-4514-9031-4ff0738f4fba" handle="viewcode://./CodeSchema_Field?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider Member=_serviceContractType" tag="ViewCode">
+                <elementDefinition Id="4683f7b0-0b5f-4fb8-99f9-3546cb4e8c0a" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="7cbb27c8-b8ef-4eef-938e-1cbd935f5104" name="field" profile="CSharpProfile">
+                <elementDefinition Id="41f41e9f-d085-42a6-801b-3ae697d462c7" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="79da6bbd-573d-450a-9054-5657b22bf26d">
+                    <propertyInstance Id="b4829d93-d5ea-4b56-b45d-2520c733f3d2" name="ClrAttributes">
+                      <elementDefinition Id="32b7ced1-3aab-4c63-85c9-1dbde5dcc9f6" />
+                    </propertyInstance>
+                    <elementDefinition Id="46479260-85e5-43dd-8eb5-63916cecd770" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7c6e0544-f175-4026-ada9-f89aeb9ac292">
+                    <propertyInstance Id="16211fbb-5e26-424d-8bce-6dce45772bbe" name="IsConst" value="false">
+                      <elementDefinition Id="a64cafa1-6d07-4691-8420-79e428249b49" />
+                    </propertyInstance>
+                    <elementDefinition Id="9a26a144-3872-41db-a64e-34ccc4183763" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6d978ee0-ba3b-48a5-a6c7-8496637e66d9">
+                    <propertyInstance Id="83981b05-4089-4875-9712-ebc145a10723" name="IsNullable" value="false">
+                      <elementDefinition Id="32b34a45-523d-4ec6-b2e1-a6b1041eef11" />
+                    </propertyInstance>
+                    <elementDefinition Id="eac65231-1201-4ced-b5be-76426011088d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1704d774-d476-4ab5-b1cb-74954d8a55e7">
+                    <propertyInstance Id="0ab507a5-5a09-4730-b735-b1f7297680b0" name="IsVolatile" value="false">
+                      <elementDefinition Id="73900125-820f-4acc-ade7-2a712eea66cd" />
+                    </propertyInstance>
+                    <elementDefinition Id="e804a92b-e49e-4c87-b05d-adaf40973020" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0ace32d3-8395-4457-ba0e-78c6dfb93401">
+                    <propertyInstance Id="66f8f3ed-434a-40a4-a284-5976c541e8b0" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="f81726de-b633-412a-b3f5-c65cb976af95" />
+                    </propertyInstance>
+                    <elementDefinition Id="e602107e-00f4-40ca-9054-6a9764bd7836" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="abcc7eb4-6ae7-4318-905d-63698b2f7e63" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9862fbc5-3b2a-4660-b57d-d1a441d2e8f5" LastKnownName="Type" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="305b6fdb-bcaa-40c8-86e0-782abe1072ea" name="PolicyInjectionInstanceProvider" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="dc702837-41c1-4960-9ccb-5d3c3e07fda0" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider Member=(Name=.ctor OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Type),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String)])" tag="ViewCode">
+                <elementDefinition Id="a7537272-ba3c-4666-a366-b624149a014a" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="8ca2e8b7-f772-4b03-9550-74f975db4247" name="method" profile="CSharpProfile">
+                <elementDefinition Id="caf65185-0ea7-4b7c-941a-0a02eef538fc" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="dcecf7ac-06ee-4b0c-b6f1-3357ce01d98f">
+                    <propertyInstance Id="e7029513-b2d7-4a37-9e05-45547dfaa5db" name="ClrAttributes">
+                      <elementDefinition Id="70e31f5f-5c26-4ee6-9030-bb38baaca2f1" />
+                    </propertyInstance>
+                    <elementDefinition Id="bd3bdc5e-6117-4943-a61b-abfc65706986" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="58adf1ab-3899-40d3-ad9a-f6a4136c3dea">
+                    <propertyInstance Id="f40651f3-a23d-4f22-8d16-a771c23c26c8" name="IsPartial" value="false">
+                      <elementDefinition Id="dddc42c3-359e-401c-9535-ab026465e233" />
+                    </propertyInstance>
+                    <elementDefinition Id="bc256bae-dafc-44d0-8480-4a34fa7cfd94" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a1741ecf-5d40-45a1-9fd0-debf80abddd1">
+                    <propertyInstance Id="49ba76f0-b39a-4778-b602-7f06fca46428" name="IsUnsafe" value="false">
+                      <elementDefinition Id="f555a61a-5b8c-4638-bbea-b6e0d6ddfd0c" />
+                    </propertyInstance>
+                    <elementDefinition Id="b60c2d1b-a6eb-4dc9-a366-660cbb6c0ef2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a2a762ac-4377-465b-b5e4-1790c6f34d2a">
+                    <propertyInstance Id="7c57e050-2d80-448c-ade4-04206ef20eee" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="71a2258e-514d-4565-943c-abf44bb3f879" />
+                    </propertyInstance>
+                    <elementDefinition Id="174277d2-43a7-4dd8-b7d6-c89bb9b7ca9f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="64897701-67c7-4436-b48d-4625f23713ca">
+                    <propertyInstance Id="e3116c7c-1b02-4e05-9afc-0445ba672a1c" name="params" value="false">
+                      <elementDefinition Id="cbe19cb5-1b3a-4221-af30-480e5581f0be" />
+                    </propertyInstance>
+                    <elementDefinition Id="fc947dbe-921f-4af0-8460-e1c08caaa975" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="6b742ccb-4e4d-4966-95d0-edb3b82f2755" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="92001d6a-9e5c-4e33-b011-042044b8d599" name="serviceContractType" direction="In">
+                  <referencesInternal>
+                    <reference Id="530ed429-87a9-48fd-9485-8202b4bcc4ef" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider Member=(Name=.ctor OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Type),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String)]) ParameterIdentifier=serviceContractType" tag="ViewCode">
+                      <elementDefinition Id="f70972fb-5aeb-42b0-ae3e-5c7576ea9669" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="a7284555-ce61-48c3-a88f-ec9e4e667c2f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9862fbc5-3b2a-4660-b57d-d1a441d2e8f5" LastKnownName="Type" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b70bb2b0-9eea-4095-a542-86314c93ddf3" name="policyInjectorName" direction="In">
+                  <referencesInternal>
+                    <reference Id="53b03d0e-54cd-4bc7-ac2a-3be9577e9f7a" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider Member=(Name=.ctor OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Type),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String)]) ParameterIdentifier=policyInjectorName" tag="ViewCode">
+                      <elementDefinition Id="08f8937d-259c-4401-a375-eb903dd0ddaf" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="e6af7288-733a-46ab-9bae-f038976f4a9d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ee6971ce-440e-442f-8c41-2c617436c451" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="02644d5e-13d4-4c1d-a50a-8a9c64a8787a" name="GetInstance" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="a2b139db-9073-48df-a104-564e1f6cf58c" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider Member=(Name=GetInstance OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel Type=InstanceContext),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Channels Type=Message)])" tag="ViewCode">
+                <elementDefinition Id="7c6554c4-485a-474e-a33f-be958e7011f4" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="b31970af-6413-4fb4-acfd-b0ec0ea37d25" name="method" profile="CSharpProfile">
+                <elementDefinition Id="b0f225dd-eae4-41fa-82bd-4737a4e73023" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8b1d6009-4c0c-48b1-a4e8-c8cb7d95b0d6">
+                    <propertyInstance Id="cf84602f-9638-4c28-9db0-b60b9c47c071" name="ClrAttributes">
+                      <elementDefinition Id="33460df5-5a26-4f19-b5dd-9447fbb602a7" />
+                    </propertyInstance>
+                    <elementDefinition Id="e588a751-b4d9-4da1-aa55-647acebe5426" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4a7b451e-0cf6-41ac-a6d8-7610ae7af8ae">
+                    <propertyInstance Id="ec33f8cf-eef4-42e9-8362-9a8d4e166370" name="IsPartial" value="false">
+                      <elementDefinition Id="1679038d-09b3-419e-95c3-173b8a9f7661" />
+                    </propertyInstance>
+                    <elementDefinition Id="259c9d0c-832f-4a4c-9eea-3a3c404149af" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="51375fd9-7433-4bc7-957d-53351d274d65">
+                    <propertyInstance Id="22774e36-4900-4ef5-8619-f31caf0202e4" name="IsUnsafe" value="false">
+                      <elementDefinition Id="ec0e8665-4e92-4a3a-91f9-7ed993377d50" />
+                    </propertyInstance>
+                    <elementDefinition Id="48911be2-de17-433c-8181-2db0f4787886" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6b4748d7-54d8-4831-bdd4-3d3976fcf2e1">
+                    <propertyInstance Id="38d7d2b1-9425-45fd-9240-9f398bb56984" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="9b43f516-876e-4bc9-ac67-5a36aae534dd" />
+                    </propertyInstance>
+                    <elementDefinition Id="3e4f6095-56f4-4e58-ac8f-dc59466988dc" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9a173780-3cb7-43e7-bfd3-5125f6056a6c">
+                    <propertyInstance Id="bf5f7bb4-63cd-480e-b61f-2ee885a0e416" name="params" value="false">
+                      <elementDefinition Id="12996c2b-2800-4756-8a3c-2507e17cd3a8" />
+                    </propertyInstance>
+                    <elementDefinition Id="c6a06b48-6e68-4f0b-9808-19e302071e25" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="547a48a5-49c0-4335-9bc7-faa4014be151" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="edc8a5bb-cc9d-4caa-97a2-67d7d3e6e871" direction="Return">
+                  <elementDefinition Id="42fd2573-86c6-49ee-a1ca-fb431723ecc6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d94e6bed-680e-4734-8fe3-90b84914c593" LastKnownName="Object" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5520d8de-5d1a-4a12-9a8e-9b637820d91f" name="instanceContext" direction="In">
+                  <referencesInternal>
+                    <reference Id="c329bc80-444c-4bbd-bc71-c764b7ef1c37" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider Member=(Name=GetInstance OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel Type=InstanceContext),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Channels Type=Message)]) ParameterIdentifier=instanceContext" tag="ViewCode">
+                      <elementDefinition Id="c4fad34c-0921-41fd-9981-d8364719838b" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="b9813319-e1dc-4dff-a5fe-baa2e3920b96" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c6eeb9c6-bcdf-4842-8ee0-704225b42b20" LastKnownName="InstanceContext" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1fe52081-c7f2-4e5d-9b1c-49c5c894cc90" name="message" direction="In">
+                  <referencesInternal>
+                    <reference Id="4a5981df-63b7-41a8-953c-e4010aa90034" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider Member=(Name=GetInstance OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel Type=InstanceContext),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Channels Type=Message)]) ParameterIdentifier=message" tag="ViewCode">
+                      <elementDefinition Id="ff36e7e6-dfc1-4877-b442-57006e460ea4" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="e477b93f-126f-408d-a5cc-cd9838c8b4b4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a42a70e2-5d06-4ccf-bc98-f37e14b41b11" LastKnownName="Message" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="1fb83fb7-77eb-4fc4-b5ad-161dfa249ef1" name="GetInstance" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="c23a8235-610d-42bd-ad23-615199aec2f6" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider Member=(Name=GetInstance OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel Type=InstanceContext)])" tag="ViewCode">
+                <elementDefinition Id="03a98887-48c7-433d-bbdd-3439b78aad73" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="07af5adc-e20f-48fd-8c65-7a0452396fb6" name="method" profile="CSharpProfile">
+                <elementDefinition Id="cd86a769-beb4-4c12-85c0-1391acde17ce" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ea436b52-eadf-4955-9710-4ea8e7f85bcf">
+                    <propertyInstance Id="49eac012-8b14-46d8-b865-6f72833cba7b" name="ClrAttributes">
+                      <elementDefinition Id="ae8c896f-e3a4-473b-aa0b-8a62606a1716" />
+                    </propertyInstance>
+                    <elementDefinition Id="5db2bc1d-5636-43ba-bdbb-95ef9326f762" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3fd2227e-9eaf-4e62-bc8c-df197bf16a9f">
+                    <propertyInstance Id="b4fb4afc-db00-4dc8-8f9a-01bda4db6aa9" name="IsPartial" value="false">
+                      <elementDefinition Id="383ffadd-5629-422a-9cb4-35273e2430f0" />
+                    </propertyInstance>
+                    <elementDefinition Id="06b636b7-6948-4346-a7a4-9cc2f2e2ea31" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c99cac09-4bf7-4112-9eba-2c5829a62039">
+                    <propertyInstance Id="77602502-273f-4097-b591-5fd6a76d2a5a" name="IsUnsafe" value="false">
+                      <elementDefinition Id="96b1d514-d829-4865-a897-bdce0555467c" />
+                    </propertyInstance>
+                    <elementDefinition Id="941bd9a8-33c3-49c0-a4b1-14ee255e38d7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ed02a54d-7b2e-4e56-9ed4-4a39c3cb0527">
+                    <propertyInstance Id="5be21eb7-c006-4e6f-abab-536726e4d304" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="87c78894-c8e4-4b53-bfaa-4f0af9dd5870" />
+                    </propertyInstance>
+                    <elementDefinition Id="3961fd4e-73aa-4876-adfd-dd494e214c7c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d9029faf-2a1f-49a6-a9e2-d6f6ffd9ed9c">
+                    <propertyInstance Id="3bbf035a-2d83-40fa-b1f3-1b2af7f21d5d" name="params" value="false">
+                      <elementDefinition Id="ee7b4578-d08d-452d-8af3-006a8c61f493" />
+                    </propertyInstance>
+                    <elementDefinition Id="d0ae3212-4a5e-4ebb-824a-45df094812f2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="cf5ff436-243c-4e9f-853a-538b84e19be7" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c1d7273f-f7a9-49fb-b646-38dd4b87f5da" direction="Return">
+                  <elementDefinition Id="c0416700-8a8b-4c9b-931c-24c9bc4c0600" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d94e6bed-680e-4734-8fe3-90b84914c593" LastKnownName="Object" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a35d1a81-3d89-4fd5-b03a-3918788b1987" name="instanceContext" direction="In">
+                  <referencesInternal>
+                    <reference Id="51311576-80fc-4049-8a6f-c3ba9498ec08" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider Member=(Name=GetInstance OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel Type=InstanceContext)]) ParameterIdentifier=instanceContext" tag="ViewCode">
+                      <elementDefinition Id="29ecf1b5-0b8b-4ce8-8b3d-77a40a23643a" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="4e8f2feb-b529-4286-a1cc-20f550c668d9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c6eeb9c6-bcdf-4842-8ee0-704225b42b20" LastKnownName="InstanceContext" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="0e2c3458-f602-493a-b3a1-cacfec3d40b0" name="ReleaseInstance" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="2b57db21-929a-4049-a29f-69be308b79ad" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider Member=(Name=ReleaseInstance OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel Type=InstanceContext),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Object)])" tag="ViewCode">
+                <elementDefinition Id="0b1b0433-cf09-4017-8e18-70ed8a3e10e6" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="3cb20108-e3da-4a99-b358-2586e3ae6d14" name="method" profile="CSharpProfile">
+                <elementDefinition Id="2b809a38-1b5a-4006-831c-f46ef18b89bf" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="77942052-6ef4-4ea7-951f-f60b32f83b0d">
+                    <propertyInstance Id="23212c12-20d9-4bc3-9df8-4a084361a6a5" name="ClrAttributes">
+                      <elementDefinition Id="da218993-1f94-4b08-888e-df840dcefd19" />
+                    </propertyInstance>
+                    <elementDefinition Id="e06efd63-12d1-4990-aa84-1100741018cc" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c37dc88c-305a-4828-bcaf-b421703b9771">
+                    <propertyInstance Id="f79c1cdb-aa07-4de8-a7aa-e8a165463094" name="IsPartial" value="false">
+                      <elementDefinition Id="5f726fcc-4f94-4a69-92fa-ce096c66b575" />
+                    </propertyInstance>
+                    <elementDefinition Id="5bd58f58-b774-4808-94bb-aff2c8490b9c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6db2b795-62a9-469e-9f77-534cfe7d892b">
+                    <propertyInstance Id="38b9b227-b102-4f3f-bd15-4fcfd33b4520" name="IsUnsafe" value="false">
+                      <elementDefinition Id="b1b1289f-bcab-4e24-b308-d2d43abdd06a" />
+                    </propertyInstance>
+                    <elementDefinition Id="29171f73-de1f-4aec-bda8-0e84716b3217" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7c80b0e0-3498-49ff-98a8-b74b347b2075">
+                    <propertyInstance Id="cd224a34-eb91-403c-b661-eb96f5f2d5ce" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="4ef7f04e-fb57-417f-ba17-926a5ed0eb60" />
+                    </propertyInstance>
+                    <elementDefinition Id="7e971fa1-e8d4-4700-a60f-f7f364dce038" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="40c1fda3-6260-4d8e-abe4-8b6f491adab3">
+                    <propertyInstance Id="cedeca26-2392-44f0-9f8f-1d1192013ab0" name="params" value="false">
+                      <elementDefinition Id="f15544a1-01d5-4cd4-b866-0e4e213a23dc" />
+                    </propertyInstance>
+                    <elementDefinition Id="ea1d5ff5-5d33-4546-b4ce-c560ec9b4a1d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="967904f1-5c49-4def-9f56-fd5e079d532d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="882a82bd-0253-49bd-b02f-4b9ba39cdc6e" name="instanceContext" direction="In">
+                  <referencesInternal>
+                    <reference Id="7723f518-587a-4bf6-91a0-532ecddee8e9" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider Member=(Name=ReleaseInstance OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel Type=InstanceContext),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Object)]) ParameterIdentifier=instanceContext" tag="ViewCode">
+                      <elementDefinition Id="95271788-0dc0-4ecc-b4e8-838061f12ecc" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="6d8952cd-813f-45b0-9f9a-430b26f8796a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c6eeb9c6-bcdf-4842-8ee0-704225b42b20" LastKnownName="InstanceContext" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="eb10841a-e93e-47dd-be2b-39222e4c9f23" name="instance" direction="In">
+                  <referencesInternal>
+                    <reference Id="631eb329-381f-4216-ac78-7f6407ee0142" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionInstanceProvider Member=(Name=ReleaseInstance OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel Type=InstanceContext),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=Object)]) ParameterIdentifier=instance" tag="ViewCode">
+                      <elementDefinition Id="541aa216-a1d9-4449-a96e-adb46ab81566" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="2af26025-2470-434b-9a64-d070dcca27cd" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d94e6bed-680e-4734-8fe3-90b84914c593" LastKnownName="Object" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="c6eeb9c6-bcdf-4842-8ee0-704225b42b20" name="InstanceContext" isAbstract="false" isLeaf="false" cachedFullName="WCFEngineDesign::System::ServiceModel::InstanceContext">
+        <elementDefinition Id="30aa3ec9-49b9-432c-b09a-d08f1f366adc" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="a42a70e2-5d06-4ccf-bc98-f37e14b41b11" name="Message" isAbstract="false" isLeaf="false" cachedFullName="WCFEngineDesign::System::ServiceModel::Channels::Message">
+        <elementDefinition Id="6099a3f9-7c32-4986-9192-b8bcd47b311e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="89a3da07-2876-41b6-9577-42cfce511012" name="PolicyInjectionBehavior" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="2f1dc3ec-5daa-421c-bff4-9b87b4713f48" handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior" tag="ViewCode">
+            <elementDefinition Id="7b4b8d18-44a6-4f45-b6da-ccb59b6ee40a" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="7fe617ff-4c8f-4fc0-9b19-9703005bb4be" name="class" profile="CSharpProfile">
+            <elementDefinition Id="d58bc6b7-fcee-479d-b761-1c7fa9a0364b" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="84ad4005-4535-4f28-a574-b4b548967de5">
+                <propertyInstance Id="60b9417c-2aa4-49b0-8e6c-122acc32656d" name="ClrAttributes">
+                  <elementDefinition Id="9ea39c62-226b-424f-860d-9b1521937463" />
+                </propertyInstance>
+                <elementDefinition Id="58fa8758-9a8c-4178-a1b8-c2442a2a0457" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="ca5bd2eb-9b56-443c-95eb-a41f3cb95685">
+                <propertyInstance Id="dd805b66-6376-4053-82d8-c144f9be1a63" name="IsPartial" value="false">
+                  <elementDefinition Id="502861e7-18a1-478b-ba2a-259375fdc177" />
+                </propertyInstance>
+                <elementDefinition Id="6f1191e3-03d6-4392-ae48-becb7e64388c" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="bbc7686c-a2c2-4550-af29-bbc51b7104ee">
+                <propertyInstance Id="30161114-200d-4cd8-af9c-a042b18e0ffd" name="IsStatic" value="False">
+                  <elementDefinition Id="a472497b-e186-453b-8b2b-5fc13b3e50ce" />
+                </propertyInstance>
+                <elementDefinition Id="3f9c3b50-b86c-450a-91ac-c223a939d047" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="860b0281-baa2-4ed5-843b-8280a170e09e">
+                <propertyInstance Id="b0cb9e20-40a7-4ce0-add9-5baf6756149d" name="IsUnsafe" value="false">
+                  <elementDefinition Id="a923df94-fead-4a8d-b789-fd2a0c248560" />
+                </propertyInstance>
+                <elementDefinition Id="957db500-3240-498e-8fc1-357831a0079e" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="1ec72dc9-d664-4482-b555-723dbbf93c13">
+                <propertyInstance Id="def246e5-d056-49b4-a7de-8e1a50bbf756" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="40703c92-8cfb-4dc9-ac57-22aaf33b3752" />
+                </propertyInstance>
+                <elementDefinition Id="873656bf-15a7-418d-87ab-8d47c1618764" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="fd9d31b6-942e-4286-8543-88089d7abce2" />
+        <suppliersInternal>
+          <dependency Id="0e8bf8db-738d-480a-bfc9-3b675cbeef54">
+            <classMoniker Id="16019493-3f9a-40a5-8391-5a882d0a8f49" LastKnownName="PolicyInjectionInstanceProvider" />
+            <elementDefinition Id="0ea30685-756b-4ff1-90ca-d0ddb7466d68" />
+          </dependency>
+          <interfaceRealization Id="fce410bd-ca4d-4984-a876-0513fe751778">
+            <interfaceMoniker Id="125f744f-f35c-4a1b-980c-b39110062ce6" LastKnownName="IEndpointBehavior" />
+            <elementDefinition Id="f9781638-b0be-4308-af9c-d71169d48303" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation Id="38a0161e-924e-47fd-8ebe-05072b1a4fe8" name="PolicyInjectionBehavior" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="8857f662-2cc3-4047-adf1-3388c650f838" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=.ctor OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String)])" tag="ViewCode">
+                <elementDefinition Id="a529f6ed-cf89-4cdd-8eab-b3212b20ed9d" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="0a4e5a96-6652-46a0-91aa-3568550a9982" name="method" profile="CSharpProfile">
+                <elementDefinition Id="09333194-6640-4940-91e0-0d5c792fece3" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6096d6ca-7907-41ac-8c1a-aa7cd7cdc60d">
+                    <propertyInstance Id="93d02c77-1277-4b05-acd7-23ebba31e259" name="ClrAttributes">
+                      <elementDefinition Id="f4372da9-47e3-4e28-bdb4-84109900b411" />
+                    </propertyInstance>
+                    <elementDefinition Id="135e06b3-d691-415c-a86c-65fa99a3d5f9" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3b083567-63bf-4a76-848c-4396ede7ac1a">
+                    <propertyInstance Id="f3079673-89b4-40c3-aedc-7070d5fc308b" name="IsPartial" value="false">
+                      <elementDefinition Id="8b4a18ff-a54b-4b59-b082-eb1752d56471" />
+                    </propertyInstance>
+                    <elementDefinition Id="88a5f43e-07f4-4ee3-8a24-f6defb85431b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="63709d2c-5f2f-4a38-bf74-ca04f54ea602">
+                    <propertyInstance Id="9d0e24df-e4be-4962-bf5c-272136d6910d" name="IsUnsafe" value="false">
+                      <elementDefinition Id="1532adb0-51b5-4cb8-88e6-dc8af34011de" />
+                    </propertyInstance>
+                    <elementDefinition Id="848cf79c-e918-4e98-b603-55d69593fb6d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0657ed36-2e51-4878-8438-9227d1f73d54">
+                    <propertyInstance Id="18a09605-85dd-4cda-b65b-ccb16f58c3d8" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="68189f67-30d4-44f0-9f37-a964f6f4db93" />
+                    </propertyInstance>
+                    <elementDefinition Id="8e0f8ec3-54d6-426a-9179-3356bee0afbf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4c2175de-5237-4a26-bd49-dd5ddea46be1">
+                    <propertyInstance Id="b4af568d-ae4a-4f1a-a252-cc150a09c38c" name="params" value="false">
+                      <elementDefinition Id="4f2f64cf-b35e-4358-ba77-4ff9babe1044" />
+                    </propertyInstance>
+                    <elementDefinition Id="07addedc-e52e-4a3a-bf20-b8940965a5d3" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="7dc61aea-77d1-42ee-8829-5387cf940e93" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="db280355-3ec8-46c1-b5ed-cba59f9ef51e" name="policyInjectorName" direction="In">
+                  <referencesInternal>
+                    <reference Id="76810a60-4738-4789-a4d1-86df26cb10fe" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=.ctor OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System Type=String)]) ParameterIdentifier=policyInjectorName" tag="ViewCode">
+                      <elementDefinition Id="9c9f2f06-80db-432f-85b0-5ce1981e2ad3" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="e13fdcd9-d481-4405-b5df-ad6646ce3b05" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ee6971ce-440e-442f-8c41-2c617436c451" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="fd4368ba-fdbb-42a9-a905-1acbd7047eeb" name="AddBindingParameters" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="fd89ab84-6c1a-4702-98d8-c78bc11cebe5" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=AddBindingParameters OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Channels Type=BindingParameterCollection)])" tag="ViewCode">
+                <elementDefinition Id="b3c0b450-808e-48b2-a001-1a04f3521fb7" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="cb2ca5b8-9543-441f-aeba-cb928c25c0f4" name="method" profile="CSharpProfile">
+                <elementDefinition Id="f5a6b7fb-5c91-43ad-9180-9aa1d8beacc2" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5db56884-b942-4d7b-8501-10ebf161983b">
+                    <propertyInstance Id="0c2ea3e7-8580-40ee-bce5-570d63ad4b77" name="ClrAttributes">
+                      <elementDefinition Id="ad6b3181-5ed0-43c4-9bed-05bff2f4dc14" />
+                    </propertyInstance>
+                    <elementDefinition Id="3b11b7fd-457b-4312-92f3-4124fb3759ba" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a0e3564a-93ae-427c-9aaa-1a4d71a5e803">
+                    <propertyInstance Id="5cb76b05-6180-4a76-978d-65ea318369a4" name="IsPartial" value="false">
+                      <elementDefinition Id="77dbb6ca-d49b-4269-b1df-78539997411a" />
+                    </propertyInstance>
+                    <elementDefinition Id="526a6e88-0850-4d62-a8af-f4a39bd81ed7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="dcbfbcd1-6a6e-427c-a977-9d126de97aaa">
+                    <propertyInstance Id="30b920fc-cc7b-479e-bf6a-9086435a3c1f" name="IsUnsafe" value="false">
+                      <elementDefinition Id="0c4cff13-cf81-42cf-8d16-4b0c3e25bcc9" />
+                    </propertyInstance>
+                    <elementDefinition Id="634cecc5-f4a3-4a90-802e-ee107f43fc64" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ad7ec018-fb73-46a1-b145-2ea318b427ab">
+                    <propertyInstance Id="d4d4c0af-78e7-473e-b02a-3fff3839caef" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="dc7a938a-62a3-4682-8b46-b8e3b432b41d" />
+                    </propertyInstance>
+                    <elementDefinition Id="1fef869c-cb97-47a5-a39a-4ebfa3fcd97d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a7ab7e41-5987-4171-9409-b58d6c0c811f">
+                    <propertyInstance Id="3200d583-6bb3-47a6-90a3-0cd9665072a3" name="params" value="false">
+                      <elementDefinition Id="97d71bda-2855-4ee5-9dab-992933957e9b" />
+                    </propertyInstance>
+                    <elementDefinition Id="858f25c5-a7fb-4022-8727-c45e287ae050" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="03b316c2-dfb4-45b0-b124-34cb501a63c4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4ba47fe6-4b5f-4436-ab4b-53535fb63395" name="endpoint" direction="In">
+                  <referencesInternal>
+                    <reference Id="6efc755c-32eb-4ecc-a309-141e9a4cca99" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=AddBindingParameters OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Channels Type=BindingParameterCollection)]) ParameterIdentifier=endpoint" tag="ViewCode">
+                      <elementDefinition Id="b1339ba2-2dd5-4368-8084-c0a31b7b812e" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="4aef19bf-5029-415e-a895-d470c1d25195" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3b27c1ab-5d5b-449b-8ce7-728ca9cadab1" LastKnownName="ServiceEndpoint" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="515e832d-8c01-4381-9077-ccd26c4765c7" name="bindingParameters" direction="In">
+                  <referencesInternal>
+                    <reference Id="4b7ca4a3-5914-4fec-8230-e447a9630f3f" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=AddBindingParameters OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Channels Type=BindingParameterCollection)]) ParameterIdentifier=bindingParameters" tag="ViewCode">
+                      <elementDefinition Id="cf48b47f-5535-4563-a276-8b7dfbb9006f" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="0164f660-6f85-4cab-85d9-d621deffbbe8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7c20f227-258b-4c35-847e-aa0905e8e36c" LastKnownName="BindingParameterCollection" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="4cc92c72-e311-4234-8869-86e2953f3d90" name="ApplyClientBehavior" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="1ce6613d-1362-4b49-870c-737da61092d2" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=ApplyClientBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=ClientRuntime)])" tag="ViewCode">
+                <elementDefinition Id="ec8af23d-60a4-4dbc-9170-720c371a59d0" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="38168459-5764-4fc2-9402-891bd0a71333" name="method" profile="CSharpProfile">
+                <elementDefinition Id="0b5b2a54-e015-4f00-ae2b-facb9abefe7b" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1af6bc05-57f8-46e2-8c55-ad35e5a07ac5">
+                    <propertyInstance Id="0761fd3e-c02e-4f1b-974e-b6f6a968baff" name="ClrAttributes">
+                      <elementDefinition Id="37d61d96-c205-4428-97aa-0ccbbe13613a" />
+                    </propertyInstance>
+                    <elementDefinition Id="913170b3-1186-4c34-be31-05064cd3bb2d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f61654d0-3032-460c-9b91-d5342b0aa5f4">
+                    <propertyInstance Id="e7688f27-f160-42ba-9e58-bc4fd0f66af5" name="IsPartial" value="false">
+                      <elementDefinition Id="c2457e9a-382b-4a40-a0f1-08e07860decf" />
+                    </propertyInstance>
+                    <elementDefinition Id="2e9de0b4-6edf-4a52-8cd3-20a5c6b69885" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7e5c57a0-c5f4-4409-8964-a6c28103d309">
+                    <propertyInstance Id="bdfcbb80-e649-4840-8fc2-965bb31c968a" name="IsUnsafe" value="false">
+                      <elementDefinition Id="9331af9d-deab-4fc0-ad35-ac3436d9069b" />
+                    </propertyInstance>
+                    <elementDefinition Id="0b657a6d-841c-400a-a1e7-76d52b40d524" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6dba8aed-4e67-4863-8cad-9a2a26e649b5">
+                    <propertyInstance Id="5ac088fc-6b73-411d-b696-035788738f52" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="a2952e2d-7870-4749-929e-41e4b93908df" />
+                    </propertyInstance>
+                    <elementDefinition Id="4ea79831-2ed0-4a5c-a152-44ff4ae019cf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8bd08c85-2bf5-465d-963b-6ace853de674">
+                    <propertyInstance Id="a74fa52c-e39f-4035-876c-4d0d834f2f01" name="params" value="false">
+                      <elementDefinition Id="7f62d736-f231-40ee-9845-c44e58f2ae3e" />
+                    </propertyInstance>
+                    <elementDefinition Id="7ee14992-52be-4cae-9f4a-aef4e6ac857f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="0dedf142-0bad-4bbc-95cd-a507680cf838" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c7e1fdbe-7d2b-4ca8-85bf-4c7bf6971deb" name="endpoint" direction="In">
+                  <referencesInternal>
+                    <reference Id="2445ae06-118f-4102-b6b2-0ddd4b2cc963" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=ApplyClientBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=ClientRuntime)]) ParameterIdentifier=endpoint" tag="ViewCode">
+                      <elementDefinition Id="0ea6ea7c-d717-4759-ae11-a813aae6f850" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="94bd861c-665a-487a-a140-b7c549a5f54b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3b27c1ab-5d5b-449b-8ce7-728ca9cadab1" LastKnownName="ServiceEndpoint" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5cc12885-83f1-4ef5-8c2c-b87b5186071c" name="clientRuntime" direction="In">
+                  <referencesInternal>
+                    <reference Id="620bf51d-34e2-425a-9646-e730c2be9613" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=ApplyClientBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=ClientRuntime)]) ParameterIdentifier=clientRuntime" tag="ViewCode">
+                      <elementDefinition Id="69f9a5fd-259c-4f7d-904f-ac91958d87c4" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="732c1594-12b3-40bb-aeee-275f3d1b9a68" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="febe32f0-df0d-4545-9de8-8af8291e6d32" LastKnownName="ClientRuntime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="5e340def-6ea9-46d2-bbbd-665dd05be748" name="ApplyDispatchBehavior" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="7458f972-0eb3-425c-8155-a5bd53f32928" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=ApplyDispatchBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=EndpointDispatcher)])" tag="ViewCode">
+                <elementDefinition Id="cbd131fe-93ef-4630-bc9c-42e5d91c06d1" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="5e812fb9-b81a-48bc-ba6e-359804c474ef" name="method" profile="CSharpProfile">
+                <elementDefinition Id="4d0ad30c-8439-4bc4-8145-a7f24d1c3e84" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="37de5fa3-b90b-4657-b0f4-59d7bd1e4c88">
+                    <propertyInstance Id="71adb52f-0fd1-4080-9116-23f7a6ee6477" name="ClrAttributes">
+                      <elementDefinition Id="c2995679-5c5f-4d43-8010-e366f49445d2" />
+                    </propertyInstance>
+                    <elementDefinition Id="79752210-04fd-450b-9845-2ed78820e29b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="563c7c9a-2041-4f83-bc87-58847ac11214">
+                    <propertyInstance Id="1d18f8ba-1ddc-458c-b8e5-468634d97e22" name="IsPartial" value="false">
+                      <elementDefinition Id="4c1426a8-20f4-4dd3-914d-4aa79194f86b" />
+                    </propertyInstance>
+                    <elementDefinition Id="d5b521c7-1d33-41a6-aa74-6c6b810abe70" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c6c1635a-dbad-4a9a-86db-ba77814fa879">
+                    <propertyInstance Id="1eaba119-4f05-4712-a664-4d5db254733d" name="IsUnsafe" value="false">
+                      <elementDefinition Id="23ad5f0d-c6dc-4cbf-b97d-eb269a029ac7" />
+                    </propertyInstance>
+                    <elementDefinition Id="4f4e148e-b360-4788-822f-2ee85a4eb937" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6b28f950-23d3-4ed3-b4d8-375815179a7f">
+                    <propertyInstance Id="2eab7093-b993-449f-8d24-34b955cc59ee" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="613918b8-d2fc-43af-9be1-c741b24632d1" />
+                    </propertyInstance>
+                    <elementDefinition Id="889484e8-2c0e-412c-9a14-bdc3149aac60" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="82006b51-ec19-498d-bbbd-51cf84997063">
+                    <propertyInstance Id="27553273-8fc1-4f96-8ce4-6dc2d2b232e8" name="params" value="false">
+                      <elementDefinition Id="20cb965e-34d2-4236-9b11-0f859d5feb4a" />
+                    </propertyInstance>
+                    <elementDefinition Id="85a8c734-b2cb-44aa-ae0f-6e8c87019826" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="022f3e0e-e41f-446c-bf93-d65cbf9c5742" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cd6610c2-efb1-40d5-9ccc-e37f6424db3b" name="endpoint" direction="In">
+                  <referencesInternal>
+                    <reference Id="bcbb427d-eda1-4218-83a8-dcf12b01291e" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=ApplyDispatchBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=EndpointDispatcher)]) ParameterIdentifier=endpoint" tag="ViewCode">
+                      <elementDefinition Id="87ee9e21-ada4-48bc-a14c-768748ad3a26" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="8e9b1a14-ef62-407a-8b69-868e98b7229e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3b27c1ab-5d5b-449b-8ce7-728ca9cadab1" LastKnownName="ServiceEndpoint" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0aac31f3-4b54-4865-8230-46d680613921" name="endpointDispatcher" direction="In">
+                  <referencesInternal>
+                    <reference Id="2c917772-28b2-4375-bb65-0d632760ce86" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=ApplyDispatchBehavior OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint),(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Dispatcher Type=EndpointDispatcher)]) ParameterIdentifier=endpointDispatcher" tag="ViewCode">
+                      <elementDefinition Id="bcedd525-dfe5-4335-b24b-74afbfdac50a" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="41456569-de66-41d1-9314-36408370774c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="4589b008-4c89-4b61-80e7-8f84e073c25c" LastKnownName="EndpointDispatcher" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="c1f1cf04-d94f-4559-bbdf-42f768d4f524" name="Validate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="f91e75d7-ea7f-4186-b4ab-9a073a10ff69" handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=Validate OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint)])" tag="ViewCode">
+                <elementDefinition Id="7768bc72-cfed-4fba-a618-fec20d52f60e" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="519e2859-d07b-4863-95d0-35401bfbc54b" name="method" profile="CSharpProfile">
+                <elementDefinition Id="b4b0c974-0767-4e95-9a26-3f2699be9788" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a28d40a9-27a2-4bf7-b512-36097e43ed0a">
+                    <propertyInstance Id="f30232d2-7931-420f-ba9d-35f8321fa896" name="ClrAttributes">
+                      <elementDefinition Id="0c94a1b6-4f76-4e3a-b978-aba05d3adaeb" />
+                    </propertyInstance>
+                    <elementDefinition Id="65fa12fd-24cf-4ccd-ba37-be68ffdda158" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="945faf23-6392-421e-a209-c2b54360ad1f">
+                    <propertyInstance Id="3a47b709-2c80-4d78-bc1c-e6335f7504e5" name="IsPartial" value="false">
+                      <elementDefinition Id="22a8c27f-bb4b-4f7a-826b-1880e385fea8" />
+                    </propertyInstance>
+                    <elementDefinition Id="e930a96e-399e-400f-b577-b63fe867f606" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="219c28bc-b1ce-4a94-b591-3cc3f723b1e5">
+                    <propertyInstance Id="ac31f4a9-f0fb-46ae-99c5-1355aaae9763" name="IsUnsafe" value="false">
+                      <elementDefinition Id="31ad07ce-5035-420f-b84d-80b240e6a921" />
+                    </propertyInstance>
+                    <elementDefinition Id="acc9fd33-1113-49e8-9827-f4ccdea6f5cb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8fa0844e-7e0a-4998-a8ec-4103ea048b45">
+                    <propertyInstance Id="806b300a-1fba-4d22-963a-2150162894ed" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="9591c1f2-e8a0-4064-b96a-c69176cf0476" />
+                    </propertyInstance>
+                    <elementDefinition Id="3508d358-e359-4f8b-9d01-e7c01693f755" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f9fbf23b-e0f3-4c84-a2dd-17fb0c28f8f3">
+                    <propertyInstance Id="2247cc14-d7ad-48d9-a037-f4389740e4cd" name="params" value="false">
+                      <elementDefinition Id="f52943ec-4708-4441-a827-f6057bf8da4a" />
+                    </propertyInstance>
+                    <elementDefinition Id="8cd9ed46-8e2c-4d19-8220-0e0f9d2ddba6" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="f025adc5-53de-4388-9409-d1f2a943ab51" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0a80c191-cc5e-4a11-b2cd-acb4d0fb4453" name="endpoint" direction="In">
+                  <referencesInternal>
+                    <reference Id="0e9c5d13-4fcd-4540-b747-5542ee598e56" handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention Type=PolicyInjectionBehavior Member=(Name=Validate OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.ServiceModel.dll&quot; Namespace=System.ServiceModel.Description Type=ServiceEndpoint)]) ParameterIdentifier=endpoint" tag="ViewCode">
+                      <elementDefinition Id="cc7dfb61-274f-4593-9d7c-73a3af369f47" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="294a8f7f-aae0-4ac6-98af-2725ab46096f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3b27c1ab-5d5b-449b-8ce7-728ca9cadab1" LastKnownName="ServiceEndpoint" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="4589b008-4c89-4b61-80e7-8f84e073c25c" name="EndpointDispatcher" isAbstract="false" isLeaf="false" cachedFullName="WCFEngineDesign::System::ServiceModel::Dispatcher::EndpointDispatcher">
+        <elementDefinition Id="a2be8c14-99ec-4d48-8008-0a492a03e359" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="76e2a1da-5892-453d-920b-853f200bfb86" name="IInstanceProvider" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ec4c18b3-7ff6-46ba-9685-66c27a7f5e9b" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="873b3cad-315e-4e9b-aa14-4c92a5410cc7" name="IContractBehavior" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d2869f6f-3073-4901-bb1b-1e27d895aa8c" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="125f744f-f35c-4a1b-980c-b39110062ce6" name="IEndpointBehavior" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4b712076-1c05-43ea-b5e2-c266d4c22536" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="e3a7d145-591f-41c8-a46c-bf36dccc3912" name="BehaviorExtensionElement" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3351e320-9e1f-4e0b-993a-56548b20161a" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="9ea0bb8f-508a-4d8d-a52e-7981bf250ba6" name="WCFEngineDesign">
+    <elementDefinition Id="1dd62ead-a387-41ae-960e-ea4d83ac9596" />
+  </package>
+</logicalClassDesignerModel>

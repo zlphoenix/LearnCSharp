@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81FEE5F3-5CC1-4CD3-8104-2FFE726271E4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSharpFeatures</RootNamespace>
+    <AssemblyName>CSharpFeatures</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>r:\DemoAssemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\OpenSource\TP\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnonymousTypes\AnonymousType.cs" />
+    <Compile Include="AutoMapper\Mapper.cs" />
+    <Compile Include="BCL\LazyInit.cs" />
+    <Compile Include="BCL\Round.cs" />
+    <Compile Include="CallContext\CallContextcs.cs" />
+    <Compile Include="Data\MyDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Poco.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Poco.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Poco.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Poco.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Sue.cs">
+      <DependentUpon>Poco.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SueType.cs">
+      <DependentUpon>Poco.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewFeatures.cs" />
+    <Compile Include="DebugCanvas\CanvasTest.cs" />
+    <Compile Include="Delegate\CacheHelper.cs" />
+    <Compile Include="Delegate\Event.cs" />
+    <Compile Include="Diagnostics\StackTrace.cs" />
+    <Compile Include="ExtenedMethod\DynamicType.cs" />
+    <Compile Include="Generics\Generics_Templates.cs" />
+    <Compile Include="Lambda\ExpressionTree.cs" />
+    <Compile Include="Lambda\LinqToTerraServerProvider\Evaluator.cs" />
+    <Compile Include="Lambda\LinqToTerraServerProvider\ExpressionTreeHelpers.cs" />
+    <Compile Include="Lambda\LinqToTerraServerProvider\ExpressionTreeModifier.cs" />
+    <Compile Include="Lambda\LinqToTerraServerProvider\InnermostWhereFinder.cs" />
+    <Compile Include="Lambda\LinqToTerraServerProvider\InvalidQueryException.cs" />
+    <Compile Include="Lambda\LinqToTerraServerProvider\LocationFinder.cs" />
+    <Compile Include="Lambda\LinqToTerraServerProvider\PlaceDTO.cs" />
+    <Compile Include="Lambda\LinqToTerraServerProvider\QueryableTerraServerData.cs" />
+    <Compile Include="Lambda\LinqToTerraServerProvider\TerraServerQueryContext.cs" />
+    <Compile Include="Lambda\LinqToTerraServerProvider\TerraServerQueryProvider.cs" />
+    <Compile Include="Lambda\LinqToTerraServerProvider\TypeSystem.cs" />
+    <Compile Include="Lambda\LinqToTerraServerProvider\WebServiceHelper.cs" />
+    <Compile Include="Lambda\Sorting.cs" />
+    <Compile Include="MEF\AddinHost.cs" />
+    <Compile Include="MEF\MEFTest.cs" />
+    <Compile Include="Boxing\Nullable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\MyDataContractResolver.cs" />
+    <Compile Include="Serialization\Serializer.cs" />
+    <Compile Include="Serialization\Types.cs" />
+    <Compile Include="Service References\TerraServerReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ThreadStatic\StaticPropertyInMutliThreads.cs" />
+    <Compile Include="WCF\Binding\Client.cs" />
+    <Compile Include="WCF\Binding\Server.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Data\MyDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\Poco.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Poco.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Data\Poco.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Poco.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\TerraServerReference\CSharpFeatures.TerraServerReference.AreaBoundingBox.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TerraServerReference\CSharpFeatures.TerraServerReference.LonLatPt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TerraServerReference\CSharpFeatures.TerraServerReference.PlaceFacts.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TerraServerReference\CSharpFeatures.TerraServerReference.ThemeBoundingBox.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TerraServerReference\CSharpFeatures.TerraServerReference.ThemeInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TerraServerReference\CSharpFeatures.TerraServerReference.TileMeta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TerraServerReference\CSharpFeatures.TerraServerReference.UtmPt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TerraServerReference\TerraService2.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\TerraServerReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TerraServerReference\TerraService2.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TerraServerReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TerraServerReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TerraServerReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OpenSource\ExpressionTreeSerialization\ExpressionSerialization\ExpressionSerialization.csproj">
+      <Project>{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}</Project>
+      <Name>ExpressionSerialization</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\MyDataModel.edmx.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

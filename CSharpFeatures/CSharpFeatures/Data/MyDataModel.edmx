@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AppDemoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="AppDemoModelStoreContainer">
+    <EntitySet Name="Sues" EntityType="AppDemoModel.Store.Sues" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SueTypes" EntityType="AppDemoModel.Store.SueTypes" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SueTypeSue" Association="AppDemoModel.Store.SueTypeSue">
+      <End Role="SueType" EntitySet="SueTypes" />
+      <End Role="Sue" EntitySet="Sues" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Sues">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SysVersion" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="true" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="true" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SueCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EnforceOrgan" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RegisterDate" Type="datetime" Nullable="true" />
+    <Property Name="DelayApplyDate" Type="datetime" Nullable="true" />
+    <Property Name="IsEnd" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ConductResult" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="PunishOpion" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SueName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SueLevel" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SuePosition" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SueBigType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SueSmallType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SueSource" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SueContent" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SueReason" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Reporter" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ReportDate" Type="datetime" Nullable="true" />
+    <Property Name="EnforcePersons" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PartyName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PartyGender" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PartyAge" Type="int" Nullable="true" />
+    <Property Name="PartyVocation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PartyTel" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PartyCorporation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PartyPost" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PartyAddr" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RegisterCode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SuePunish" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SueFine" Type="decimal" Nullable="true" Precision="10" Scale="3" />
+    <Property Name="ConductDate" Type="datetime" Nullable="true" />
+    <Property Name="HotlineCaseCode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Longitude" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Latitude" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CoordinateType" Type="int" Nullable="true" />
+    <Property Name="IsDelay" Type="bit" Nullable="true" />
+    <Property Name="DelayDays" Type="datetime" Nullable="true" />
+    <Property Name="DelayApplyLoginName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IsDelayEnd" Type="bit" Nullable="true" />
+    <Property Name="DecisionCode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ReceiptCode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PunishType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="SueType_ID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SueTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SysVersion" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="true" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="true" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Pid" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="isBigType" Type="bit" Nullable="true" />
+    <Property Name="SueTypeIndex" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <Association Name="SueTypeSue">
+    <End Role="SueType" Type="AppDemoModel.Store.SueTypes" Multiplicity="1" />
+    <End Role="Sue" Type="AppDemoModel.Store.Sues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SueType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sue">
+        <PropertyRef Name="SueType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AppDemoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AppDemoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Sues" EntityType="AppDemoModel.Sue" />
+          <EntitySet Name="SueTypes" EntityType="AppDemoModel.SueType" />
+          <AssociationSet Name="SueTypeSue" Association="AppDemoModel.SueTypeSue">
+            <End Role="SueType" EntitySet="SueTypes" />
+            <End Role="Sue" EntitySet="Sues" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Sue">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="SysVersion" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UpdatedOn" Type="DateTime" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SueCode" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EnforceOrgan" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="RegisterDate" Type="DateTime" />
+          <Property Name="DelayApplyDate" Type="DateTime" />
+          <Property Name="IsEnd" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ConductResult" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EndDate" Type="DateTime" />
+          <Property Name="PunishOpion" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SueName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SueLevel" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SuePosition" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SueBigType" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SueSmallType" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SueSource" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SueContent" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SueReason" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Reporter" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ReportDate" Type="DateTime" />
+          <Property Name="EnforcePersons" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PartyName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PartyGender" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PartyAge" Type="Int32" />
+          <Property Name="PartyVocation" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PartyTel" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PartyCorporation" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PartyPost" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PartyAddr" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="RegisterCode" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SuePunish" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SueFine" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="ConductDate" Type="DateTime" />
+          <Property Name="HotlineCaseCode" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Longitude" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Latitude" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CoordinateType" Type="Int32" />
+          <Property Name="IsDelay" Type="Boolean" />
+          <Property Name="DelayDays" Type="DateTime" />
+          <Property Name="DelayApplyLoginName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IsDelayEnd" Type="Boolean" />
+          <Property Name="DecisionCode" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ReceiptCode" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PunishType" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" />
+          <NavigationProperty Name="SueType" Relationship="AppDemoModel.SueTypeSue" FromRole="Sue" ToRole="SueType" />
+        </EntityType>
+        <EntityType Name="SueType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="SysVersion" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UpdatedOn" Type="DateTime" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Code" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Pid" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="isBigType" Type="Boolean" />
+          <Property Name="SueTypeIndex" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Sues" Relationship="AppDemoModel.SueTypeSue" FromRole="SueType" ToRole="Sue" />
+        </EntityType>
+        <Association Name="SueTypeSue">
+          <End Type="AppDemoModel.SueType" Role="SueType" Multiplicity="1" />
+          <End Type="AppDemoModel.Sue" Role="Sue" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AppDemoModelStoreContainer" CdmEntityContainer="AppDemoEntities">
+    <EntitySetMapping Name="Sues">
+      <EntityTypeMapping TypeName="IsTypeOf(AppDemoModel.Sue)">
+        <MappingFragment StoreEntitySet="Sues">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SysVersion" ColumnName="SysVersion" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="SueCode" ColumnName="SueCode" />
+          <ScalarProperty Name="EnforceOrgan" ColumnName="EnforceOrgan" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="DelayApplyDate" ColumnName="DelayApplyDate" />
+          <ScalarProperty Name="IsEnd" ColumnName="IsEnd" />
+          <ScalarProperty Name="ConductResult" ColumnName="ConductResult" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="PunishOpion" ColumnName="PunishOpion" />
+          <ScalarProperty Name="SueName" ColumnName="SueName" />
+          <ScalarProperty Name="SueLevel" ColumnName="SueLevel" />
+          <ScalarProperty Name="SuePosition" ColumnName="SuePosition" />
+          <ScalarProperty Name="SueBigType" ColumnName="SueBigType" />
+          <ScalarProperty Name="SueSmallType" ColumnName="SueSmallType" />
+          <ScalarProperty Name="SueSource" ColumnName="SueSource" />
+          <ScalarProperty Name="SueContent" ColumnName="SueContent" />
+          <ScalarProperty Name="SueReason" ColumnName="SueReason" />
+          <ScalarProperty Name="Reporter" ColumnName="Reporter" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="EnforcePersons" ColumnName="EnforcePersons" />
+          <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+          <ScalarProperty Name="PartyGender" ColumnName="PartyGender" />
+          <ScalarProperty Name="PartyAge" ColumnName="PartyAge" />
+          <ScalarProperty Name="PartyVocation" ColumnName="PartyVocation" />
+          <ScalarProperty Name="PartyTel" ColumnName="PartyTel" />
+          <ScalarProperty Name="PartyCorporation" ColumnName="PartyCorporation" />
+          <ScalarProperty Name="PartyPost" ColumnName="PartyPost" />
+          <ScalarProperty Name="PartyAddr" ColumnName="PartyAddr" />
+          <ScalarProperty Name="RegisterCode" ColumnName="RegisterCode" />
+          <ScalarProperty Name="SuePunish" ColumnName="SuePunish" />
+          <ScalarProperty Name="SueFine" ColumnName="SueFine" />
+          <ScalarProperty Name="ConductDate" ColumnName="ConductDate" />
+          <ScalarProperty Name="HotlineCaseCode" ColumnName="HotlineCaseCode" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="CoordinateType" ColumnName="CoordinateType" />
+          <ScalarProperty Name="IsDelay" ColumnName="IsDelay" />
+          <ScalarProperty Name="DelayDays" ColumnName="DelayDays" />
+          <ScalarProperty Name="DelayApplyLoginName" ColumnName="DelayApplyLoginName" />
+          <ScalarProperty Name="IsDelayEnd" ColumnName="IsDelayEnd" />
+          <ScalarProperty Name="DecisionCode" ColumnName="DecisionCode" />
+          <ScalarProperty Name="ReceiptCode" ColumnName="ReceiptCode" />
+          <ScalarProperty Name="PunishType" ColumnName="PunishType" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SueTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(AppDemoModel.SueType)">
+        <MappingFragment StoreEntitySet="SueTypes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SysVersion" ColumnName="SysVersion" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Pid" ColumnName="Pid" />
+          <ScalarProperty Name="isBigType" ColumnName="isBigType" />
+          <ScalarProperty Name="SueTypeIndex" ColumnName="SueTypeIndex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SueTypeSue" TypeName="AppDemoModel.SueTypeSue" StoreEntitySet="Sues">
+      <EndProperty Name="SueType">
+        <ScalarProperty Name="ID" ColumnName="SueType_ID" />
+      </EndProperty>
+      <EndProperty Name="Sue">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="MyDataModel" ZoomLevel="68">
+        <EntityTypeShape EntityType="AppDemoModel.Sue" Width="1.5" PointX="1.25" PointY="0.75" Height="10.374899088541666" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDemoModel.SueType" Width="1.5" PointX="4.5" PointY="1" Height="3.1161507161458326" IsExpanded="true" />
+        <AssociationConnector Association="AppDemoModel.SueTypeSue">
+          <ConnectorPoint PointX="4.5" PointY="2.6535852050781248" />
+          <ConnectorPoint PointX="2.75" PointY="2.6535852050781248" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="0575b038-e096-47ea-895c-0ef02aa975b9"
+  name="CustomRule"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="d3261008-bb20-406d-a2ce-1dd5307c7e20"
+      handle="viewcode://./CodeSchema_Namespace?Namespace=ServiceExtention.CustomRule"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="82cef40b-83bd-42a1-8992-247f470201ff"
+        name="ServiceExtentionMatchRule"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="b73c906e-a13d-4e7a-9e6c-5038376b4569"
+            handle="viewcode://./CodeSchema_Class?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention.CustomRule Type=ServiceExtentionMatchRule"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="de95a174-fb6a-4ccb-8981-2924ac431a87"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a39acef5-640d-4761-92c6-01072b0b5532">
+                <propertyInstance
+                  Id="c58180d6-b870-419a-91ef-d22c69dc45d1"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="96c76127-51f9-4d77-a30c-fe4019818475">
+                <propertyInstance
+                  Id="8beb6d30-4631-4463-8e66-3ed8cab084d6"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b649e0b8-c115-42bb-8371-24c080fcbe4f">
+                <propertyInstance
+                  Id="3aaba801-be15-40be-8f24-45eb0d07815d"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4b337f66-08cf-40aa-a1b3-66e1c137798c">
+                <propertyInstance
+                  Id="ac5e6250-8ba9-46a5-bf30-c4b89576c4f7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c2252a29-3e31-4f59-92eb-d05867fb1117">
+                <propertyInstance
+                  Id="28ed15c2-6b92-4310-aa55-3b4bfafb5a62"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="ff5be11e-d41b-40ec-a3e8-35151494073a">
+            <interfaceMoniker
+              Id="9c66101d-b40c-494d-9e38-882cf92f49fb"
+              LastKnownName="IMatchingRule"
+              LastKnownLocation="Package5_1045.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="4c517f31-136b-4d88-a92e-d28fa234981e"
+            name="attributes"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="57d37960-8991-49c5-a43c-2ab05b2f67a7"
+                handle="viewcode://./CodeSchema_Field?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention.CustomRule Type=ServiceExtentionMatchRule Member=attributes"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="44fb0615-853e-4737-b6f8-b86f6b825d33"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1fc29b86-3238-43cd-aeae-edc4d2f56734">
+                    <propertyInstance
+                      Id="2018610a-bf74-4e43-89b0-776f963bdaeb"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6f3a01e2-3ab9-4ab0-907a-122bcd484871">
+                    <propertyInstance
+                      Id="151f3318-8232-4cdc-9bcb-c2cf3293e6bc"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94948065-9f98-4aba-9c1b-ff4a58b623d9">
+                    <propertyInstance
+                      Id="8820b873-0358-4666-905b-85fff3a77cf5"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="044a76df-aee9-4b72-8849-df392b21473e">
+                    <propertyInstance
+                      Id="d88eaca2-9c5b-443f-951a-d3dbda17a6ba"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="932cb294-6ce1-4f2a-aaf4-67ea38c469de">
+                    <propertyInstance
+                      Id="9e75fa53-f08e-4752-a6d4-a122b235094c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="7d898151-0451-4971-99d6-2b977255392a"
+                LastKnownName="NameValueCollection"
+                LastKnownLocation="Package1_1045.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="019dd236-ea47-4160-9c90-158a7adf8fe3"
+            name="ServiceExtentionMatchRule"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="8ad93733-2d26-409a-b737-78ed29fa7087"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention.CustomRule Type=ServiceExtentionMatchRule Member=(Name=.ctor OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.dll&quot; Namespace=System.Collections.Specialized Type=NameValueCollection)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="aec67241-d8ac-4db7-8cfb-5cc2b2f676c2"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f1e74bae-ad62-47ba-a321-a008146cc356">
+                    <propertyInstance
+                      Id="c4a8df06-0fa6-43bd-8e1f-67c0a4aac589"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2f93bcfb-30af-45c1-83f3-6c764785ac52">
+                    <propertyInstance
+                      Id="2240f3c7-4c5d-47df-a763-36fdd931d776"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f9ec1bd6-0ba8-47e8-96c0-a4f447c56206">
+                    <propertyInstance
+                      Id="edf290d4-4281-4365-8143-ae4f6a9d80ec"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="703082cf-4932-4803-a375-59600a10de80">
+                    <propertyInstance
+                      Id="41594ce1-e71e-4edf-ad53-3cf4e5c9458c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6b98fce5-e827-4060-bf6d-b566dda83a78">
+                    <propertyInstance
+                      Id="9819bcc4-057f-447d-ba9e-d1968869f75d"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="04968488-6560-4538-83d6-aa8144e3b418"
+                  name="attributes"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="cb4b7fa7-b210-495d-952e-be886aea6411"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention.CustomRule Type=ServiceExtentionMatchRule Member=(Name=.ctor OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/System.dll&quot; Namespace=System.Collections.Specialized Type=NameValueCollection)]) ParameterIdentifier=attributes"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="7d898151-0451-4971-99d6-2b977255392a"
+                      LastKnownName="NameValueCollection"
+                      LastKnownLocation="Package1_1045.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="54f74193-f90e-49f7-b2cb-a6e9ccac948c"
+            name="Matches"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1178a3d9-86ea-4bf8-a183-d1de856435ee"
+                handle="viewcode://./CodeSchema_Method?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention.CustomRule Type=ServiceExtentionMatchRule Member=(Name=Matches OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System.Reflection Type=MethodBase)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="94a5898b-386d-4741-8ad6-4ec195038053"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="daa90441-34a7-4c99-9404-b49f9b332840">
+                    <propertyInstance
+                      Id="c9610427-5841-44d0-938b-74c8dda2bd1f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a654a47a-155c-4180-85e8-d68f80587382">
+                    <propertyInstance
+                      Id="f5da07b4-7396-4697-8dfd-d25300297b0d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29ff92ab-438e-4d8b-a3a8-0ff43402a7fe">
+                    <propertyInstance
+                      Id="c413b82f-8c2a-42bd-bd94-e3dc90434d51"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="65077710-3358-46c1-b0ca-2a9a61e76a58">
+                    <propertyInstance
+                      Id="dd373a03-8707-4c36-a184-b1570ea03e16"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7bad0992-794e-4893-9e05-b45a1a5b3ac5">
+                    <propertyInstance
+                      Id="83985da0-11ed-4605-96e2-6e2f6b80c98a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6ff8cf3f-2743-416e-bc53-8e678f09641f"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="WCFEngineDesign.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="faed32c2-ccf9-4ea0-b7a0-d6ee5005bd2b"
+                  name="member"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="3dcae5a4-167c-407d-bec7-19949269874b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly=file:///D:/Doc/Study/MyPrj/CSharpFeatures/ServiceExtention/bin/Debug/ServiceExtention.dll Namespace=ServiceExtention.CustomRule Type=ServiceExtentionMatchRule Member=(Name=Matches OverloadingParameters=[(Assembly=&quot;file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework/.NETFramework/v4.0/mscorlib.dll&quot; Namespace=System.Reflection Type=MethodBase)]) ParameterIdentifier=member"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="fc3d0a2c-a0f2-4496-ae8b-4ac24c65153a"
+                      LastKnownName="MethodBase"
+                      LastKnownLocation="Package_1141.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

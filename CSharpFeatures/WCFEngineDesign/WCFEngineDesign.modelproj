@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{e3d0312b-e491-4b29-a06d-124c806a1a3e}</ProjectGuid>
+    <ArchitectureToolsVersion>1.0.0.0</ArchitectureToolsVersion>
+    <Name>WCFEngineDesign</Name>
+    <RootNamespace>WCFEngineDesign</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" />
+  <ItemGroup>
+    <Content Include="EntityEvent.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="EntityEvent.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>EntityEvent.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package1_1005.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package1_1045.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package1_1141.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package2_1005.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package2_1045.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package3_1005.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package3_1045.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package4_1005.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package4_1045.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package5_1005.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package5_1045.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package6_1005.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1005.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1045.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1141.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1439.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1513.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1516.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1518.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1542.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1553.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="PolicyInjection.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="PolicyInjection.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>PolicyInjection.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="PLDesign.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="PLDesign.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>PLDesign.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="WCFComponents.componentdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="WCFComponents.componentdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>WCFComponents.componentdiagram</DependentUpon>
+    </Content>
+    <Content Include="WCFCore.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="WCFCore.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>WCFCore.classdiagram</DependentUpon>
+    </Content>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\WCFEngineDesign.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+</Project>

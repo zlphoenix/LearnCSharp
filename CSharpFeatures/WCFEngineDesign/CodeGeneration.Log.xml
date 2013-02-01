@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/Program Files (x86)/Microsoft Visual Studio 10.0/Common7/IDE/Extensions/Microsoft/Visualization and Modeling Feature Pack/2.0/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log">
+  <Message Timestamp="2012-02-27T15:55:57" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2012-02-27T15:55:57" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2012-02-27T15:55:57" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2012-02-27T15:55:57" Importance="Diagnostic" Text="ProjectPath = ..\WCFEngineDesignLib\WCFEngineDesignLib.csproj" />
+  <Message Timestamp="2012-02-27T15:55:57" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2012-02-27T15:55:57" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2012-02-27T15:55:57" Importance="Diagnostic" Text="TemplateFilePath = C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2012-02-27T15:55:57" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2012-02-27T15:55:57" Importance="Medium" Text="WCFEngineDesign's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'WCFEngineDesign::EntityBase' -  (Class), 'WCFEngineDesign::Concrete Entity' -  (Class) " />
+  <Message Timestamp="2012-02-27T15:56:14" Importance="Medium" Text="Project Added: D:\Doc\Dropbox\仑\Code\CSharpFeatures\WCFEngineDesignLib\WCFEngineDesignLib.csproj" />
+  <Message Timestamp="2012-02-27T15:56:14" Importance="Medium" Text="'WCFEngineDesign::EntityBase' -  (Class) : success (file created) - D:\Doc\Dropbox\仑\Code\CSharpFeatures\WCFEngineDesignLib\GeneratedCode\EntityBase.cs" />
+  <Message Timestamp="2012-02-27T15:56:20" Importance="Medium" Text="'WCFEngineDesign::Concrete Entity' -  (Class) : success (file created) - D:\Doc\Dropbox\仑\Code\CSharpFeatures\WCFEngineDesignLib\GeneratedCode\Concrete Entity.cs" />
+  <Message Timestamp="2012-02-27T15:56:21" Importance="Diagnostic" Text="Name = InterfaceTemplate" />
+  <Message Timestamp="2012-02-27T15:56:21" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2012-02-27T15:56:21" Importance="Diagnostic" Text="ProjectPath = ..\WCFEngineDesignLib\WCFEngineDesignLib.csproj" />
+  <Message Timestamp="2012-02-27T15:56:21" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2012-02-27T15:56:21" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2012-02-27T15:56:21" Importance="Diagnostic" Text="TemplateFilePath = C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\InterfaceTemplate.t4" />
+  <Message Timestamp="2012-02-27T15:56:21" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\InterfaceTemplate.t4" />
+  <Message Timestamp="2012-02-27T15:56:21" Importance="Medium" Text="WCFEngineDesign's Text Template Binding: 'InterfaceTemplate' will apply InterfaceTemplate.t4 to: 'WCFEngineDesign::IPersistableObject' -  (Interface) " />
+  <Message Timestamp="2012-02-27T15:56:30" Importance="Medium" Text="'WCFEngineDesign::IPersistableObject' -  (Interface) : success (file created) - D:\Doc\Dropbox\仑\Code\CSharpFeatures\WCFEngineDesignLib\GeneratedCode\IPersistableObject.cs" />
+  <Message Timestamp="2012-02-27T15:56:30" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2012-02-27T15:56:30" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2012-02-27T15:56:30" Importance="Diagnostic" Text="ProjectPath = ..\WCFEngineDesignLib\WCFEngineDesignLib.csproj" />
+  <Message Timestamp="2012-02-27T15:56:30" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2012-02-27T15:56:30" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2012-02-27T15:56:30" Importance="Diagnostic" Text="TemplateFilePath = C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2012-02-27T15:56:30" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2012-02-27T15:56:30" Importance="Medium" Text="WCFEngineDesign's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'WCFEngineDesign::EntityBase' -  (Class), 'WCFEngineDesign::Concrete Entity' -  (Class) " />
+  <Message Timestamp="2012-02-27T15:56:32" Importance="Diagnostic" Text="'WCFEngineDesign::EntityBase' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2012-02-27T15:56:32" Importance="Diagnostic" Text="'WCFEngineDesign::Concrete Entity' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2012-02-27T15:56:32" Importance="Diagnostic" Text="Name = Template1" />
+  <Message Timestamp="2012-02-27T15:56:32" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2012-02-27T15:56:32" Importance="Diagnostic" Text="ProjectPath = ..\WCFEngineDesignLib\WCFEngineDesignLib.csproj" />
+  <Message Timestamp="2012-02-27T15:56:32" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2012-02-27T15:56:32" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2012-02-27T15:56:32" Importance="Diagnostic" Text="TemplateFilePath = " />
+  <Message Timestamp="2012-02-27T15:56:32" Importance="Diagnostic" Text="ResolvedTemplateFilePath = " />
+  <Message Timestamp="2012-02-27T15:56:32" Importance="Medium" Text="WCFEngineDesign::Concrete Entity's Text Template Binding: 'Template1' will apply  to: 'fe1d369a-385d-4142-b4de-55911ebeec43' -  (Generalization), 'WCFEngineDesign::Concrete Entity' -  (Class) " />
+  <Error Timestamp="2012-02-27T15:56:32" Importance="High" Text="The following Template File Path property for 'fe1d369a-385d-4142-b4de-55911ebeec43' -  (Generalization) does not exist: " />
+  <Message Timestamp="2012-02-27T15:56:32" Importance="Diagnostic" Text="'fe1d369a-385d-4142-b4de-55911ebeec43' -  (Generalization): no file generated because the 'AppliesToElement' method of the template '' evaluated to false." />
+  <Error Timestamp="2012-02-27T15:56:32" Importance="High" Text="The following Template File Path property for 'WCFEngineDesign::Concrete Entity' -  (Class) does not exist: " />
+  <Message Timestamp="2012-02-27T15:56:32" Importance="Diagnostic" Text="'WCFEngineDesign::Concrete Entity' -  (Class): no file generated because the 'AppliesToElement' method of the template '' evaluated to false." />
+  <Message Timestamp="2012-02-27T15:56:33" Importance="Diagnostic" Text="The selection included 3 elements which were not bound to a template." />
+  <Message Timestamp="2012-02-27T15:56:33" Importance="Diagnostic" Text="'WCFEngineDesign::' -  (InterfaceRealization): no bound template." />
+  <Message Timestamp="2012-02-27T15:56:33" Importance="Diagnostic" Text="'f0e0df28-43d9-482c-a5b8-de9299f5e9d9' -  (Comment): no bound template." />
+  <Message Timestamp="2012-02-27T15:56:33" Importance="Diagnostic" Text="'ac384b6a-97c8-4938-8c45-273cacc1844d' -  (Comment): no bound template." />
+  <Message Timestamp="2012-02-27T15:56:33" Importance="High" Text="Code generation complete. Errors: 2. Warnings: 0." />
+</Log>

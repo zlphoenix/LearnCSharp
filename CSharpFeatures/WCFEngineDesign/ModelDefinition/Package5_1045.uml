@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="27a17163-e511-4e85-8647-18dba2b62007"
+  name="InterceptionExtension"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="7527303a-247f-4b6f-94f2-f2c57f63953f"
+      handle="viewcode://./CodeSchema_Namespace?Namespace=Microsoft.Practices.Unity.InterceptionExtension"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="2a87f638-cdb7-4c9e-87b7-4796fea64e4e"
+        name="IMethodReturn"
+        visibility="Private"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="f6f0272e-aa6b-43e3-ab1f-a9ee761047f7"
+            handle="viewcode://./CodeSchema_Interface?Assembly=&quot;file:///C:/Program Files (x86)/Microsoft Enterprise Library 5.0/Bin/Microsoft.Practices.Unity.Interception.dll&quot; Namespace=Microsoft.Practices.Unity.InterceptionExtension Type=IMethodReturn"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="34e4d7da-cda5-4608-9c2a-c0408b950810"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9e08d19e-564f-4280-a25d-8fc3fc44e426">
+                <propertyInstance
+                  Id="522df878-98b6-47e6-bff6-f6e5f706db17"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cde6ce29-445d-4168-a536-7423b44edef5">
+                <propertyInstance
+                  Id="1ac4a29f-c7af-4132-b529-b137edab5872"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="69158419-edce-4911-a2e2-23a6346f3ac9">
+                <propertyInstance
+                  Id="2bd54ad6-4568-4220-8944-07dc42575f55"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ae2eb9f5-4c62-44ac-bdf1-689233552846">
+                <propertyInstance
+                  Id="5e6e1b06-9aaa-4b86-83d5-14d05312cf87"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="7a7a3cdd-fcf9-4716-8614-13ad8f98c4ce"
+        name="IMethodInvocation"
+        isAbstract="true"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="7c6d8de0-46ba-4899-aef5-ca7697a96753"
+            handle="viewcode://./CodeSchema_Interface?Assembly=&quot;file:///C:/Program Files (x86)/Microsoft Enterprise Library 5.0/Bin/Microsoft.Practices.Unity.Interception.dll&quot; Namespace=Microsoft.Practices.Unity.InterceptionExtension Type=IMethodInvocation"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="cf36cdf5-2bc0-4696-b626-3064cd30c518"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bedd9a26-1f81-41bc-bdc9-fd4e1b0c8b89">
+                <propertyInstance
+                  Id="bcc40372-8402-4c3b-8db1-88f68bdf555b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="23ed382d-7f12-4045-8030-378d18830593">
+                <propertyInstance
+                  Id="b5c2c248-663b-459e-be4e-a5e49eb8adb2"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5450e7af-3c0f-47b3-b105-7c5c81c390b7">
+                <propertyInstance
+                  Id="b2ca8c77-ec8c-4937-9bf3-822b3a16acc6"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f4d492ed-a287-42de-a205-0b42c35aca5f">
+                <propertyInstance
+                  Id="6256e328-6f15-42bc-a7e3-c3ea4421f681"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3d602113-5b13-490a-978e-08ecea93ff6c"
+        name="GetNextHandlerDelegate"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="6572d4c3-90fb-4daa-a989-76efb23f1869"
+            handle="viewcode://./CodeSchema_Delegate?Assembly=&quot;file:///C:/Program Files (x86)/Microsoft Enterprise Library 5.0/Bin/Microsoft.Practices.Unity.Interception.dll&quot; Namespace=Microsoft.Practices.Unity.InterceptionExtension Type=GetNextHandlerDelegate"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="2a6b9168-136a-4ea9-8afe-961c10de6db7"
+            name="delegate"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f4f9fe19-68d2-44bd-b171-2b2dc8029e2c">
+                <propertyInstance
+                  Id="93e24206-de29-4db8-b8a2-d6b7fc3eb39b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8296fbb9-f977-4df2-81e0-c2b14b33ca06">
+                <propertyInstance
+                  Id="196c535a-4d51-435c-9f5f-bc3cbd208ac2"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f91504c3-3a3e-4221-85cd-2bb7f2abb955">
+                <propertyInstance
+                  Id="c015905a-85f2-49a8-914e-5a12b4099451"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="cca11c79-35b0-4566-adf7-e225f3e7f588"
+        name="ICallHandler"
+        isAbstract="true"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="0c5bd8f4-71d5-4d53-9d46-4ac61b739371"
+            handle="viewcode://./CodeSchema_Interface?Assembly=&quot;file:///C:/Program Files (x86)/Microsoft Enterprise Library 5.0/Bin/Microsoft.Practices.Unity.Interception.dll&quot; Namespace=Microsoft.Practices.Unity.InterceptionExtension Type=ICallHandler"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="23ff6676-aaaa-4526-89e2-17874978bd13"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5d40cb15-c18f-4c6c-a73a-f0101ea08963">
+                <propertyInstance
+                  Id="d3376b4a-969f-4f96-931f-e2fccd3c15ce"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="65e496a8-f93c-4c6e-8170-813231345547">
+                <propertyInstance
+                  Id="67fd44c2-0426-482c-a754-1cf0b2e051d1"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6256f079-bcac-4128-b1af-1d74dc0b0d64">
+                <propertyInstance
+                  Id="e09d1d0c-7530-4b7a-b836-36690a1c030c"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="109a2fa1-f289-414a-8b2a-19ce8336a944">
+                <propertyInstance
+                  Id="c9cc4fbc-9850-457e-8f1b-c73475c0d196"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="9c66101d-b40c-494d-9e38-882cf92f49fb"
+        name="IMatchingRule"
+        isAbstract="true"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="e3c11828-dc1a-4396-8267-73bbc97ef36c"
+            handle="viewcode://./CodeSchema_Interface?Assembly=&quot;file:///C:/Program Files (x86)/Microsoft Enterprise Library 5.0/Bin/Microsoft.Practices.Unity.Interception.dll&quot; Namespace=Microsoft.Practices.Unity.InterceptionExtension Type=IMatchingRule"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="45698a00-d19c-48cf-adf0-461b9c0cf502"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5ff096de-de74-4667-ba93-736c866a8d03">
+                <propertyInstance
+                  Id="cc0db32d-33a0-4bd2-ab50-f1b115a7379a"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3b68af2c-31cd-48c5-b142-32aba34c0858">
+                <propertyInstance
+                  Id="00501f69-3ff9-42d7-8c4f-bbe317614a48"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dc4a187c-2c5f-481a-9b0d-a6d5859a5c86">
+                <propertyInstance
+                  Id="c36b457e-4590-4b01-a1c3-72d9c7abacba"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3558caed-e7bc-4a25-9aa0-875e095714ec">
+                <propertyInstance
+                  Id="9922e7a9-b1e2-4ecf-8794-f3b884138d9f"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

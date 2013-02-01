@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="NHDemo"
+      namespace="NHDemo.Entities">
+
+  <class name="Answer" table="Answer">
+    <id name="ID" column="id" type="Guid">
+      <!--<generator class="hilo"/>-->
+    </id>
+    <property name="Name" type="String"/>
+    <many-to-one name="Question" column="question_id" />
+    <!--<many-to-one name="Question" column="question_id" cascade="all"/>-->
+    <!--<property name="Question" not-null="true" />-->
+  </class>
+
+  <!--<class name="Dog">
+    -->
+  <!-- mapping for Dog could go here -->
+  <!--
+  </class>-->
+
+</hibernate-mapping>

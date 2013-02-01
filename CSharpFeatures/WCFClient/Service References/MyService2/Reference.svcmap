@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1e630e79-be2b-4c3b-b62f-5185b6db8eab" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/WCFService/MyService2/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="7ddf60a8-085a-4340-952b-51eb66fa54a8" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFService/MyService2/?xsd=xsd0" />
+    <MetadataFile FileName="MyService2.wsdl" MetadataType="Wsdl" ID="607b20dc-a1ff-4228-8d2e-6f9a77df02cc" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFService/MyService2/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="32675ba2-a014-48bc-9d1b-11fb68eb5b91" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFService/MyService2/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/Program Files (x86)/Microsoft Visual Studio 10.0/Common7/IDE/Extensions/Microsoft/Visualization and Modeling Feature Pack/2.0/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log">
+  <Message Timestamp="2011-12-06T11:54:07" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2011-12-06T11:54:07" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2011-12-06T11:54:07" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2011-12-06T11:54:07" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProject1Lib\ModelingProject1Lib.csproj" />
+  <Message Timestamp="2011-12-06T11:54:07" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2011-12-06T11:54:07" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2011-12-06T11:54:07" Importance="Diagnostic" Text="TemplateFilePath = C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2011-12-06T11:54:07" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2011-12-06T11:54:07" Importance="Medium" Text="ModelingProject1's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'ModelingProject1::Order' -  (Class) " />
+  <Message Timestamp="2011-12-06T11:54:08" Importance="Medium" Text="'ModelingProject1::Order' -  (Class) : success (file replaced) - D:\Doc\Study\MyPrj\CSharpFeatures\ModelingProject1Lib\GeneratedCode\Order.cs" />
+  <Message Timestamp="2011-12-06T11:54:08" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2011-12-06T11:54:08" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2011-12-06T11:54:08" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProject1Lib\ModelingProject1Lib.csproj" />
+  <Message Timestamp="2011-12-06T11:54:08" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2011-12-06T11:54:08" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2011-12-06T11:54:08" Importance="Diagnostic" Text="TemplateFilePath = C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2011-12-06T11:54:08" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft\Visualization and Modeling Feature Pack\2.0\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2011-12-06T11:54:08" Importance="Medium" Text="ModelingProject1's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'ModelingProject1::Order' -  (Class) " />
+  <Message Timestamp="2011-12-06T11:54:08" Importance="Diagnostic" Text="'ModelingProject1::Order' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2011-12-06T11:54:08" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>

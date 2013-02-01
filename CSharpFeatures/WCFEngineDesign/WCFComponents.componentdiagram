@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="0fd3a875-757e-4adb-9b94-bf30da1e080f" name="WCFComponents" linkedPackageId="43a78446-e92e-4ccb-8b3f-d0bc1972bfee" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="640c3f3c-f3d5-4587-8cc9-fcce06e0ee1e">
+      <profileInstance Id="29f9048e-0e30-45c4-9a0d-b93bc3b3d9d4" name="TextTemplateBindings">
+        <elementDefinition Id="5e8e7a4b-3612-4b74-ae8d-a7e56d6f19d1" />
+      </profileInstance>
+      <elementDefinition Id="d6d19c57-b722-4633-8edf-dd69958b271d" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <componentModelHasComponents>
+      <component Id="22c45b51-82a8-4f14-8e6c-f6ba01a6c64e" name="Implement" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="722bb348-778d-41c7-a6aa-62f39508cecb" />
+        <suppliersInternal>
+          <dependency Id="6d654ca8-2f33-4f9f-a2ae-d35ca84296ac">
+            <componentMoniker Id="a1e9f44b-f203-4ea4-9ece-e9e21b4af699" LastKnownName="Deploy" />
+            <elementDefinition Id="cfad4e0b-de5b-47d4-857b-ed62cf6e945e" />
+          </dependency>
+          <dependency Id="6241b5e2-3663-49f7-ac9a-75081331eacd">
+            <componentMoniker Id="e73af6c5-ca92-49fa-9de9-776fd784e64a" LastKnownName="ServiceExtention" />
+            <elementDefinition Id="38c19750-b3da-4bbb-ae8d-a2df0aafedb8" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="a1e9f44b-f203-4ea4-9ece-e9e21b4af699" name="Deploy" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4236c54c-08d1-41c3-9d0f-2ca68529a7f9" />
+        <suppliersInternal>
+          <dependency Id="e2ec56b9-3f62-4a88-baee-3cb9867bced6">
+            <componentMoniker Id="e73af6c5-ca92-49fa-9de9-776fd784e64a" LastKnownName="ServiceExtention" />
+            <elementDefinition Id="3ee32c7c-4fc7-4ae9-a7bd-e8d70d819c29" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <providedInterface Id="49719cf4-de76-4f0a-a727-c1a21a2e8d4b" name="Port1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="e23f3291-9314-444e-bbcb-19357c14a590" />
+            <type_NamedElement>
+              <interfaceMoniker Id="e98a8b21-585b-4b7b-bdce-d277072740ca" LastKnownName="Contracts" />
+            </type_NamedElement>
+          </providedInterface>
+          <providedInterface Id="310dfc14-83f8-4c97-94da-b0fc823b1c38" name="Port2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="8f93126f-6772-4274-ac55-f7f3b0c7102d" />
+            <type_NamedElement>
+              <interfaceMoniker Id="bcaf0d5c-52f2-49ba-8ebe-5c3164dd7892" LastKnownName="Exceptions" />
+            </type_NamedElement>
+          </providedInterface>
+          <providedInterface Id="6083ceed-3a2b-4d54-a307-8cc81cf2592d" name="Port3" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isService="false" isBehavior="false">
+            <elementDefinition Id="0d81d568-d56a-470f-ba01-7f8b69ceb9b1" />
+            <type_NamedElement>
+              <interfaceMoniker Id="9f137b62-0848-48fa-b7b6-9eac78fd5eb7" LastKnownName="DTOs" />
+            </type_NamedElement>
+          </providedInterface>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="d5510d8b-98aa-4cf8-9f49-483ec64d33f1" name="Agent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2049991e-1675-4e7a-8d4a-5318eb41496d" />
+        <suppliersInternal>
+          <dependency Id="4f703735-7deb-4ba0-b063-aeb4911436d0">
+            <componentMoniker Id="a1e9f44b-f203-4ea4-9ece-e9e21b4af699" LastKnownName="Deploy" />
+            <elementDefinition Id="b43da574-ceed-4957-a5e8-33a671c32474" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="b5f1479f-16c8-45ac-b372-aea2e89efe23" name="PIAB" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3a890015-c887-48e1-bfb1-b2f3fe1f921d" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="6d910985-3631-47ef-aa13-b87f8bb4c182" name="MEF" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0d472187-7ab7-4142-8ad9-24791580140f" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="e73af6c5-ca92-49fa-9de9-776fd784e64a" name="ServiceExtention" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bf8762a7-960a-46af-8735-42088136761c" />
+        <suppliersInternal>
+          <dependency Id="86793757-ab6d-4f9a-bb92-9ac9b65ae8b4">
+            <componentMoniker Id="6d910985-3631-47ef-aa13-b87f8bb4c182" LastKnownName="MEF" />
+            <elementDefinition Id="9b4f2878-d6ed-4815-b3b4-c4f19bbd41bd" />
+          </dependency>
+          <dependency Id="68443ae2-44fa-48e4-8506-7dd42a1f49a4">
+            <componentMoniker Id="b5f1479f-16c8-45ac-b372-aea2e89efe23" LastKnownName="PIAB" />
+            <elementDefinition Id="e8a47ecd-696d-4cc7-afe2-46d9ae172e41" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="a2273413-77fc-40b1-9d37-cad1960a2955" name="AppHost" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="71e25f90-1c08-4615-adc3-1c0a8adb0f75" />
+        <suppliersInternal>
+          <dependency Id="34d60ea3-7f4f-4a78-bc5c-66b982f35f54">
+            <componentMoniker Id="e73af6c5-ca92-49fa-9de9-776fd784e64a" LastKnownName="ServiceExtention" />
+            <elementDefinition Id="fc931684-d331-4181-af37-29af0ba81b8f" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <modelContainsNamedElements>
+      <Interface Id="e98a8b21-585b-4b7b-bdce-d277072740ca" name="Contracts" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a7e2ce6d-175f-4e93-895e-4fa07fba8e23" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="bcaf0d5c-52f2-49ba-8ebe-5c3164dd7892" name="Exceptions" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="11dc3484-bec3-45b9-90a9-e7a4d47ba62d" />
+      </Interface>
+    </modelContainsNamedElements>
+    <modelContainsNamedElements>
+      <Interface Id="9f137b62-0848-48fa-b7b6-9eac78fd5eb7" name="DTOs" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a31b5f46-36c1-47f9-9aad-d7dffeec7b22" />
+      </Interface>
+    </modelContainsNamedElements>
+    <componentModelHasComponents>
+      <component Id="2f67c874-5cc0-4a55-8db5-0dfbc440c128" name="Console" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bb1e47a5-0e1e-46c5-9eca-da276a1adbf4" />
+        <suppliersInternal>
+          <dependency Id="ad19540f-d475-47b7-a53c-27394a1fd4a2">
+            <componentMoniker Id="a2273413-77fc-40b1-9d37-cad1960a2955" LastKnownName="AppHost" />
+            <elementDefinition Id="3ff614ae-f58b-40f7-b2df-1d905309db7e" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="88b75783-449a-4500-a160-c9dc5edeb576" name="IIS" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ee7b4939-db71-472d-961d-b05e1e169468" />
+        <suppliersInternal>
+          <dependency Id="68b80abb-f45d-439c-a7b4-849aaa2530e3">
+            <componentMoniker Id="a2273413-77fc-40b1-9d37-cad1960a2955" LastKnownName="AppHost" />
+            <elementDefinition Id="75a8dec5-3abd-4992-8431-0a96a75e13df" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="cb75a78e-5b7b-46b4-8341-071babceeac1" name="WAS" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c14f9082-46fc-460d-b57d-efdc8b5d519a" />
+        <suppliersInternal>
+          <dependency Id="f6a28b46-a0e2-4ab7-a378-ffc96c1b483d">
+            <componentMoniker Id="a2273413-77fc-40b1-9d37-cad1960a2955" LastKnownName="AppHost" />
+            <elementDefinition Id="a1b699a5-9877-4882-b0e8-fbec17b6870f" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </componentModelHasComponents>
+  </packagedElements>
+  <package Id="43a78446-e92e-4ccb-8b3f-d0bc1972bfee" name="WCFEngineDesign">
+    <elementDefinition Id="1dd62ead-a387-41ae-960e-ea4d83ac9596" />
+    <profileInstances>
+      <packageHasProfileInstances Id="2c250bf5-6df4-42e4-8728-7f7f4048e2b6">
+        <profileInstance Id="b6bd7d87-4a6f-4322-9ddf-55c808fa3391" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="22bbe912-5bb4-440e-8c0b-0085a23aca3e">
+        <profileInstance Id="82a27ad4-e99e-4966-8b50-4663bd5a36a4" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="bd4899fe-c8a0-4e31-b173-1dea9abce543">
+        <profileInstance Id="b7a91154-d311-4898-b467-d2e13f6abf8d" name="CSharpProfile">
+          <elementDefinition Id="53657d68-5e25-44df-ab73-4002fb647246" />
+        </profileInstance>
+        <elementDefinition Id="77f6476f-ebe3-49f7-91ea-61a0f619f451" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</componentModel>

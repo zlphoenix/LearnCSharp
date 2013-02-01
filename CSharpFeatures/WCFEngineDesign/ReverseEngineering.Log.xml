@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/Program Files (x86)/Microsoft Visual Studio 10.0/Common7/IDE/Extensions/Microsoft/Visualization and Modeling Feature Pack/2.0/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log">
+  <Message Timestamp="2012-02-27T15:53:23" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2012-02-27T15:53:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2012-02-27T15:53:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'WCFEngineDesign::CSharpFeatures' -  (Package)" />
+  <Message Timestamp="2012-02-27T15:53:27" Importance="Medium" Text="Element reverse engineered into the UML model: 'WCFEngineDesign::CSharpFeatures::A' -  (Class)" />
+  <Message Timestamp="2012-02-27T15:53:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'WCFEngineDesign::CSharpFeatures::A::A' -  (Operation)" />
+  <Message Timestamp="2012-02-27T15:53:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'WCFEngineDesign::CSharpFeatures::A::Code' -  (Property)" />
+  <Message Timestamp="2012-02-27T15:53:27" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'WCFEngineDesign::CSharpFeatures::A::Name' -  (Property)" />
+  <Message Timestamp="2012-02-27T15:53:27" Importance="High" Text="(1) type(s) fully reverse engineered." />
+  <Message Timestamp="2012-02-27T15:53:27" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>

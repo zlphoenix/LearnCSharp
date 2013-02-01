@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="NHDemo"
+    namespace="NHDemo.Entities">
+
+  <class name="Cat" table="CATS" discriminator-value="C">
+    <id name="Id" column="id" type="Int64">
+      <generator class="hilo"/>
+    </id>
+    <discriminator column="subclass" type="Char"/>
+    <property name="BirthDate" type="Date"/>
+    <property name="Color" type="String"  not-null="true" />
+    <property name="Sex" type="Char" not-null="true" update="false"/>
+    <property name="Weight"/>
+    <property name="Name" type="String"/>
+    <!--对父实体的引用-->
+    <many-to-one name="Mate" column="mate_id"/>
+    <!--对子实体的引用-->
+    <set name="Kittens">
+      <key column="mother_id"/>
+      <one-to-many class="Cat"/>
+    </set>
+    <subclass name="DomesticCat" discriminator-value="D">
+      <property name="Name" type="String"/>
+    </subclass>
+  </class>
+
+  <!--<class name="Dog">
+    --><!-- mapping for Dog could go here --><!--
+  </class>-->
+
+</hibernate-mapping>
