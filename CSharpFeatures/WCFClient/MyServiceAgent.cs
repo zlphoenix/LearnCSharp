@@ -8,8 +8,6 @@ using System.ServiceModel;
 using WCFClient.MyService;
 
 
-
-
 namespace WCFClient
 {
     internal class MyServiceAgent : ProxyBase, IMyService
