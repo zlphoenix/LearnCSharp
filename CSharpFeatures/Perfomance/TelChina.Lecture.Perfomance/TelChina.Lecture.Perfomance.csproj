@@ -46,6 +46,10 @@
   <ItemGroup>
     <Compile Include="2.DealWithString.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Dotnet 平台开发培训.mmap" />
+    <None Include="性能比较.xlsx" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
