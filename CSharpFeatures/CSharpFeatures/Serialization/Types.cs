@@ -23,6 +23,7 @@ namespace CSharpFeatures.Serialization
     [DataContract]
     public class RegularCustomer : Customer
     {
+
     }
 
     [DataContract]

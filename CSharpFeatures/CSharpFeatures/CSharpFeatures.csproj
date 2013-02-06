@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper">
-      <HintPath>..\..\OpenSource\TP\AutoMapper.dll</HintPath>
+      <HintPath>..\..\lib\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -172,12 +172,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\OpenSource\ExpressionTreeSerialization\ExpressionSerialization\ExpressionSerialization.csproj">
-      <Project>{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}</Project>
-      <Name>ExpressionSerialization</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\MyDataModel.edmx.sql" />

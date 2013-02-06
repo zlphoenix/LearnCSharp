@@ -41,8 +41,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHDemoTest", "NHDemoTest\NH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate", "..\OpenSource\NH\src\NHibernate\NHibernate.csproj", "{5909BFE7-93CF-4E5F-BE22-6293368AF01D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionSerialization", "..\OpenSource\ExpressionTreeSerialization\ExpressionSerialization\ExpressionSerialization.csproj", "{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinService", "WinService\WinService.csproj", "{A6386765-726E-4ED4-A4EC-86437E36E074}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Perfomance", "Perfomance", "{53D9E833-8916-4EE1-B8AF-D88ABEDCECE2}"
@@ -52,6 +50,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelChina.Lecture.Perfomance.Test", "Perfomance\TelChina.Lecture.Perfomance.Test\TelChina.Lecture.Perfomance.Test.csproj", "{1A4E689B-524F-4E6A-8815-76F8E62D2460}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFSelfHosting", "WCFSelfHosting\WCFSelfHosting.csproj", "{099F1B17-4C47-4FEB-9B8F-71B5F17BE6B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionSerialization", "ExpressionTreeSerialization\ExpressionSerialization\ExpressionSerialization.csproj", "{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -186,16 +186,6 @@ Global
 		{5909BFE7-93CF-4E5F-BE22-6293368AF01D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{5909BFE7-93CF-4E5F-BE22-6293368AF01D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{5909BFE7-93CF-4E5F-BE22-6293368AF01D}.Release|x86.ActiveCfg = Release|Any CPU
-		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Release|x86.ActiveCfg = Release|Any CPU
 		{A6386765-726E-4ED4-A4EC-86437E36E074}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{A6386765-726E-4ED4-A4EC-86437E36E074}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{A6386765-726E-4ED4-A4EC-86437E36E074}.Debug|Mixed Platforms.Build.0 = Debug|x86
@@ -236,6 +226,16 @@ Global
 		{099F1B17-4C47-4FEB-9B8F-71B5F17BE6B1}.Release|Mixed Platforms.Build.0 = Release|x86
 		{099F1B17-4C47-4FEB-9B8F-71B5F17BE6B1}.Release|x86.ActiveCfg = Release|x86
 		{099F1B17-4C47-4FEB-9B8F-71B5F17BE6B1}.Release|x86.Build.0 = Release|x86
+		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -244,8 +244,8 @@ Global
 		{2F4C6811-E132-40C1-AB3A-704EDC94ACC3} = {1FF7BBBA-DF5B-4D94-B047-CAC7CA79B210}
 		{81FEE5F3-5CC1-4CD3-8104-2FFE726271E4} = {1FF7BBBA-DF5B-4D94-B047-CAC7CA79B210}
 		{6841F1DF-3B39-420A-A582-3DCFC2D98E91} = {1FF7BBBA-DF5B-4D94-B047-CAC7CA79B210}
-		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560} = {1FF7BBBA-DF5B-4D94-B047-CAC7CA79B210}
 		{A6386765-726E-4ED4-A4EC-86437E36E074} = {1FF7BBBA-DF5B-4D94-B047-CAC7CA79B210}
+		{01ABE4DB-4ABE-4B0E-878B-B42A8C9B6560} = {1FF7BBBA-DF5B-4D94-B047-CAC7CA79B210}
 		{E3D0312B-E491-4B29-A06D-124C806A1A3E} = {D17ACC39-A60C-4870-9126-8C7BB32D0962}
 		{1BA77AC1-49EA-4014-9D65-C6E64981BC82} = {32166AF3-835E-45D9-B2EF-1C1A1739BFF6}
 		{B1DF65BA-0A93-4E41-9C67-A8EF8D0F1A51} = {32166AF3-835E-45D9-B2EF-1C1A1739BFF6}

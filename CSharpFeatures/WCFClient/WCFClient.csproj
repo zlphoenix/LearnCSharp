@@ -36,9 +36,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Assembly\log4net.dll</HintPath>
+    <Reference Include="log4net">
+      <HintPath>..\..\lib\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,10 +49,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="TelChina.AF.Util.Logging">
-      <HintPath>..\..\Assembly\TelChina.AF.Util.Logging.dll</HintPath>
+      <HintPath>..\..\lib\TelChina.AF.Util.Logging.dll</HintPath>
     </Reference>
     <Reference Include="TelChina.AF.Util.TestUtil">
-      <HintPath>..\..\Assembly\TelChina.AF.Util.TestUtil.dll</HintPath>
+      <HintPath>..\..\lib\TelChina.AF.Util.TestUtil.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
