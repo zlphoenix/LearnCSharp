@@ -3,7 +3,7 @@
   <Description>These are test settings for Trace and Test Impact.</Description>
   <Deployment userDeploymentRoot="R:\Test" useDefaultDeploymentRoot="false" enabled="false" />
   <Execution>
-    <Hosts>
+    <Hosts skipUnhostableTests="false">
       <AspNet name="ASP.NET" executionType="WebDev" />
     </Hosts>
     <TestTypeSpecific>
