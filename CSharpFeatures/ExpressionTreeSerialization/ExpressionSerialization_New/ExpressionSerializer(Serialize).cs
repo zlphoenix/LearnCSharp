@@ -14,9 +14,9 @@ namespace ExpressionSerialization
 {
     public partial class ExpressionSerializer
     {
-		/// <summary>
-		/// generate XML attributes for these primitive Types.
-		/// </summary>
+        /// <summary>
+        /// generate XML attributes for these primitive Types.
+        /// </summary>
         static readonly Type[] primitiveTypes = new[] { typeof(string), typeof(int), typeof(bool), typeof(ExpressionType) };
         private Dictionary<string, ParameterExpression> parameters = new Dictionary<string, ParameterExpression>();
         private TypeResolver resolver;
@@ -25,10 +25,10 @@ namespace ExpressionSerialization
         public ExpressionSerializer(TypeResolver resolver, IEnumerable<CustomExpressionXmlConverter> converters = null)
         {
             this.resolver = resolver;
-			if (converters != null)
-				this.Converters = new List<CustomExpressionXmlConverter>(converters);
-			else
-				Converters = new List<CustomExpressionXmlConverter>();
+            if (converters != null)
+                this.Converters = new List<CustomExpressionXmlConverter>(converters);
+            else
+                Converters = new List<CustomExpressionXmlConverter>();
         }
 
         public ExpressionSerializer()
@@ -37,50 +37,50 @@ namespace ExpressionSerialization
             Converters = new List<CustomExpressionXmlConverter>();
         }
 
-        
-        
+
+
         /*
          * SERIALIZATION 
          */
 
         public XElement Serialize(Expression e)
         {
-			if (e.NodeType != ExpressionType.Lambda)
-				e = Evaluator.PartialEval(e);//TODO: decide should we call PartialEval or not at all?
+            if (e.NodeType != ExpressionType.Lambda)
+                e = Evaluator.PartialEval(e);//TODO: decide should we call PartialEval or not at all?
             return GenerateXmlFromExpressionCore(e);
         }
 
-      
-		/// <summary>
-		/// Uses first applicable custom serializer, then returns.
-		/// Does not attempt to use all custom serializers.
-		/// </summary>
-		/// <param name="e"></param>
-		/// <param name="result"></param>
-		/// <returns></returns>
+
+        /// <summary>
+        /// Uses first applicable custom serializer, then returns.
+        /// Does not attempt to use all custom serializers.
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
         bool TryCustomSerializers(Expression e, out XElement result)
         {
-			result = null;			
-			int i = 0;
-			while (i < this.Converters.Count)
-			{
-				if (this.Converters[i].TrySerialize(e, out result))
-					return true;
-				i++;
-			}
-			return false;
+            result = null;
+            int i = 0;
+            while (i < this.Converters.Count)
+            {
+                if (this.Converters[i].TrySerialize(e, out result))
+                    return true;
+                i++;
+            }
+            return false;
         }
 
-        
+
         private object GenerateXmlFromProperty(Type propType, string propName, object value)
         {
             if (primitiveTypes.Contains(propType))
                 return GenerateXmlFromPrimitive(propName, value);
 
-			if (propType.Equals(typeof(object)))//expected: caller invokes with value == a ConstantExpression.Value
-			{
-				return GenerateXmlFromObject(propName, value);
-			}                
+            if (propType.Equals(typeof(object)))//expected: caller invokes with value == a ConstantExpression.Value
+            {
+                return GenerateXmlFromObject(propName, value);
+            }
             if (typeof(Expression).IsAssignableFrom(propType))
                 return GenerateXmlFromExpression(propName, value as Expression);
             if (value is MethodInfo || propType.Equals(typeof(MethodInfo)))
@@ -104,65 +104,65 @@ namespace ExpressionSerialization
             throw new NotSupportedException(propName);
         }
 
-		/// <summary>
-		/// Called from somewhere on call stack... from ConstantExpression.Value
-		/// Modified since original code for this method was incorrectly getting the value as 
-		/// .ToString() for non-primitive types, which ExpressionSerializer was 
-		/// unable to later parse back into a value (ExpressionSerializer.ParseConstantFromElement).
-		/// </summary>
-		/// <param name="propName"></param>
-		/// <param name="value">ConstantExpression.Value</param>
-		/// <returns></returns>
+        /// <summary>
+        /// Called from somewhere on call stack... from ConstantExpression.Value
+        /// Modified since original code for this method was incorrectly getting the value as 
+        /// .ToString() for non-primitive types, which ExpressionSerializer was 
+        /// unable to later parse back into a value (ExpressionSerializer.ParseConstantFromElement).
+        /// </summary>
+        /// <param name="propName"></param>
+        /// <param name="value">ConstantExpression.Value</param>
+        /// <returns></returns>
         private object GenerateXmlFromObject(string propName, object value)
         {
-			Assembly mscorlib = typeof(string).Assembly;
+            Assembly mscorlib = typeof(string).Assembly;
             object result = null;
-			if (value is Type)
-				result = GenerateXmlFromTypeCore((Type)value);
-			else if (mscorlib.GetTypes().Any(t => t == value.GetType()))
-				result = value.ToString();
-			//else
-			//    throw new ArgumentException(string.Format("Unable to generate XML for value of Type '{0}'.\nType is not recognized.", value.GetType().FullName));
-			else
-			    result = value.ToString();
+            if (value is Type)
+                result = GenerateXmlFromTypeCore((Type)value);
+            else if (mscorlib.GetTypes().Any(t => t == value.GetType()))
+                result = value.ToString();
+            //else
+            //    throw new ArgumentException(string.Format("Unable to generate XML for value of Type '{0}'.\nType is not recognized.", value.GetType().FullName));
+            else
+                result = value.ToString();
             return new XElement(propName,
                 result);
         }
 
-		/// <summary>
-		/// For use with ConstantExpression.Value
-		/// </summary>
-		/// <param name="xName"></param>
-		/// <param name="instance"></param>
-		/// <returns></returns>
-		private object GenerateXmlFromKnownTypes(string xName, object instance, Type knownType)
-		{
-			string xml;
-			XElement xelement;
-			dynamic something = instance;
-			
-			if (typeof(IQueryable).IsAssignableFrom(instance.GetType()))
-			{
-				if (typeof(Query<>).MakeGenericType(knownType).IsAssignableFrom(instance.GetType()))
-				{
-					return instance.ToString();
-				}
-				something = LinqHelper.CastToGenericEnumerable((IQueryable)instance, knownType);
-				something = Enumerable.ToArray(something);
-			}
-			Type instanceType = something.GetType();
-			DataContractSerializer serializer = new DataContractSerializer(instanceType, this.resolver.knownTypes);
-			
-			using (MemoryStream ms = new MemoryStream())
-			{
-				serializer.WriteObject(ms, something);
-				ms.Position = 0;
-				StreamReader reader = new StreamReader(ms, Encoding.UTF8);
-				xml = reader.ReadToEnd();
-				xelement = new XElement(xName, xml);
-				return xelement;
-			}
-		}
+        /// <summary>
+        /// For use with ConstantExpression.Value
+        /// </summary>
+        /// <param name="xName"></param>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        private object GenerateXmlFromKnownTypes(string xName, object instance, Type knownType)
+        {
+            string xml;
+            XElement xelement;
+            dynamic something = instance;
+
+            if (typeof(IQueryable).IsAssignableFrom(instance.GetType()))
+            {
+                if (typeof(Query<>).MakeGenericType(knownType).IsAssignableFrom(instance.GetType()))
+                {
+                    return instance.ToString();
+                }
+                something = LinqHelper.CastToGenericEnumerable((IQueryable)instance, knownType);
+                something = Enumerable.ToArray(something);
+            }
+            Type instanceType = something.GetType();
+            DataContractSerializer serializer = new DataContractSerializer(instanceType, this.resolver.knownTypes);
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                serializer.WriteObject(ms, something);
+                ms.Position = 0;
+                StreamReader reader = new StreamReader(ms, Encoding.UTF8);
+                xml = reader.ReadToEnd();
+                xelement = new XElement(xName, xml);
+                return xelement;
+            }
+        }
         private bool IsIEnumerableOf<T>(Type propType)
         {
             if (!propType.IsGenericType)
@@ -176,19 +176,19 @@ namespace ExpressionSerialization
                 return false;
             return true;
         }
-		private bool IsIEnumerableOf(Type enumerableType, Type elementType)
-		{
-			if (!enumerableType.IsGenericType)
-				return false;
-			Type[] typeArgs = enumerableType.GetGenericArguments();
-			if (typeArgs.Length != 1)
-				return false;
-			if (!elementType.IsAssignableFrom(typeArgs[0]))
-				return false;
-			if (!typeof(IEnumerable<>).MakeGenericType(typeArgs).IsAssignableFrom(enumerableType))
-				return false;
-			return true;
-		}
+        private bool IsIEnumerableOf(Type enumerableType, Type elementType)
+        {
+            if (!enumerableType.IsGenericType)
+                return false;
+            Type[] typeArgs = enumerableType.GetGenericArguments();
+            if (typeArgs.Length != 1)
+                return false;
+            if (!elementType.IsAssignableFrom(typeArgs[0]))
+                return false;
+            if (!typeof(IEnumerable<>).MakeGenericType(typeArgs).IsAssignableFrom(enumerableType))
+                return false;
+            return true;
+        }
 
 
         private IEnumerable<T> AsIEnumerableOf<T>(object value)
@@ -216,10 +216,10 @@ namespace ExpressionSerialization
 
         private object GenerateXmlFromExpressionList(string propName, IEnumerable<Expression> expressions)
         {
-			XElement result = new XElement(propName,
+            XElement result = new XElement(propName,
                     from expression in expressions
                     select GenerateXmlFromExpressionCore(expression));
-			return result;
+            return result;
         }
 
         private object GenerateXmlFromMemberInfoList(string propName, IEnumerable<MemberInfo> members)
@@ -304,11 +304,11 @@ namespace ExpressionSerialization
                                 GenerateXmlFromTypeCore(parameter.ParameterType))
                     ));
 
-            else        
+            else
             {
                 //vsadov: GetGenericArguments returns args for nongeneric types 
                 //like arrays no need to save them.
-                if (type.IsGenericType)   
+                if (type.IsGenericType)
                 {
                     return new XElement("Type",
                                             new XAttribute("Name", type.GetGenericTypeDefinition().FullName),
@@ -317,7 +317,7 @@ namespace ExpressionSerialization
                 }
                 else
                 {
-                    return new XElement("Type",new XAttribute("Name", type.FullName));
+                    return new XElement("Type", new XAttribute("Name", type.FullName));
                 }
 
             }
@@ -382,7 +382,123 @@ namespace ExpressionSerialization
                                 GenerateXmlFromType("Type", param.ParameterType))));
         }
 
+        #region Deal With Closure
+        private static object ConvertType(object value, System.Type type)
+        {
+            if (value == null)
+                return null;
 
-      
+            if (type.IsInstanceOfType(value))
+                return value;
+
+            type = UnwrapIfNullable(type);
+
+            if (type.IsEnum)
+                return Enum.ToObject(type, value);
+
+            if (type.IsPrimitive)
+                return Convert.ChangeType(value, type);
+
+            throw new Exception(string.Format("Cannot convert '{0}' to {1}", value, type));
+        }
+
+        private static bool IsMemberExpression(Expression expression)
+        {
+            if (expression is ParameterExpression)
+                return true;
+
+            if (expression is MemberExpression)
+            {
+                MemberExpression memberExpression = (MemberExpression)expression;
+
+                if (memberExpression.Expression == null)
+                    return false;  // it's a member of a static class
+
+                if (IsMemberExpression(memberExpression.Expression))
+                    return true;
+
+                // if the member has a null value, it was an alias
+                return EvaluatesToNull(memberExpression.Expression);
+            }
+
+            if (expression is UnaryExpression)
+            {
+                var unaryExpression = (UnaryExpression)expression;
+
+                if (!IsConversion(unaryExpression.NodeType))
+                    throw new Exception("Cannot interpret member from " + expression.ToString());
+
+                return IsMemberExpression(unaryExpression.Operand);
+            }
+
+            var methodCallExpression = expression as MethodCallExpression;
+            if (methodCallExpression != null)
+            {
+                //string signature = Signature(methodCallExpression.Method);
+                //if (_customProjectionProcessors.ContainsKey(signature))
+                //    return true;
+
+                if (methodCallExpression.Method.Name == "First")
+                {
+                    if (IsMemberExpression(methodCallExpression.Arguments[0]))
+                        return true;
+
+                    return EvaluatesToNull(methodCallExpression.Arguments[0]);
+                }
+
+                if (methodCallExpression.Method.Name == "GetType"
+                    || methodCallExpression.Method.Name == "get_Item")
+                {
+                    if (IsMemberExpression(methodCallExpression.Object))
+                        return true;
+
+                    return EvaluatesToNull(methodCallExpression.Object);
+                }
+            }
+
+            return false;
+        }
+
+        //public static string Signature(MethodInfo methodInfo)
+        //{
+        //    while (methodInfo.IsGenericMethod && !methodInfo.IsGenericMethodDefinition)
+        //        methodInfo = methodInfo.GetGenericMethodDefinition();
+
+        //    return methodInfo.DeclaringType.FullName
+        //        + ":" + methodInfo.ToString();
+        //}
+
+        private static System.Type UnwrapIfNullable(System.Type type)
+        {
+            if (IsNullable(type))
+                return NullableOf(type);
+
+            return type;
+        }
+        private static bool IsNullable(System.Type type)
+        {
+            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+        }
+        private static System.Type NullableOf(System.Type type)
+        {
+            return type.GetGenericArguments()[0];
+        }
+
+        private static bool IsConversion(ExpressionType expressionType)
+        {
+            return (expressionType == ExpressionType.Convert || expressionType == ExpressionType.ConvertChecked);
+        }
+        private static bool EvaluatesToNull(Expression expression)
+        {
+            return FindValue(expression) == null;
+        }
+        private static object FindValue(Expression expression)
+        {
+            var valueExpression = Expression.Lambda(expression).Compile();
+            object value = valueExpression.DynamicInvoke();
+            return value;
+        }
+
+        #endregion
     }
 }
