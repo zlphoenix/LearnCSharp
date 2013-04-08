@@ -34,21 +34,26 @@ namespace CSharpFeaturesTest.Lambda
         {
             var serializer = GetSerializer();
 
-            Expression<Func<DTO, Boolean>> query = (dto) => dto.Name == "";
-            var serializedExpression = serializer.Serialize(query);
-            serializedExpression.Save("ContrantExpression.xml");
-
             var name = "";
-            query = (dto) => dto.Name == name;
-            serializedExpression = serializer.Serialize(query);
+            Expression<Func<DTO, Boolean>> query = (dto) => dto.Name == name;
+            var serializedExpression = serializer.Serialize(query);
             serializedExpression.Save("ClosureExpression.xml");
 
-            //query = (dto) => dto.Id == new Guid("66232792-DC47-4A98-A83B-73FE886352B0");
-            //serializedExpression = serializer.Serialize(query);
-            //serializedExpression.Save("InstanceExpression.xml");
+            query = (dto) => dto.Name == "";
+            serializedExpression = serializer.Serialize(query);
+            serializedExpression.Save("ContrantExpression.xml");
+
+
+            query = (dto) => dto.Name == GetName();
+            serializedExpression = serializer.Serialize(query);
+            serializedExpression.Save("FuncExpression.xml");
 
         }
 
+        private string GetName()
+        {
+            return null;
+        }
         [TestMethod]
         public void ClosureTransTest()
         {
@@ -81,14 +86,6 @@ namespace CSharpFeaturesTest.Lambda
             serializedExpression.Save("afterTransit.xml");
         }
 
-        private static ExpressionSerializer GetSerializer()
-        {
-            var tr = new TypeResolver(new Assembly[] { Assembly.GetAssembly(typeof(ExpressionSerializationTest)) },
-                                      new Type[] { typeof(DTO), typeof(Entity), typeof(BaseClass) });
-            var serializer = new ExpressionSerializer(tr, new List<CustomExpressionXmlConverter>());
-            return serializer;
-        }
-
         private void Transit(System.Xml.Linq.XElement expression)
         {
             if (expression == null)
@@ -111,6 +108,14 @@ namespace CSharpFeaturesTest.Lambda
                 attrib.Value = typeof(Entity).FullName;
                 //expression.ReplaceAttributes(new XAttribute("Name", typeof(Entity).FullName));
             }
+        }
+
+        private static ExpressionSerializer GetSerializer()
+        {
+            var tr = new TypeResolver(new Assembly[] { Assembly.GetAssembly(typeof(ExpressionSerializationTest)) },
+                                      new Type[] { typeof(DTO), typeof(Entity), typeof(BaseClass) });
+            var serializer = new ExpressionSerializer(tr, new List<CustomExpressionXmlConverter>());
+            return serializer;
         }
     }
     [Serializable]
