@@ -42,7 +42,7 @@ namespace ExpressionSerialization
         /*
          * SERIALIZATION 
          */
-
+      
         public XElement Serialize(Expression e)
         {
             if (e.NodeType != ExpressionType.Lambda)
