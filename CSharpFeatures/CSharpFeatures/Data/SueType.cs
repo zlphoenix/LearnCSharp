@@ -86,6 +86,7 @@ namespace CSharpFeatures.Data
         }
 
         #endregion
+
         #region Navigation Properties
     
         public virtual ICollection<Sue> Sues
@@ -121,6 +122,7 @@ namespace CSharpFeatures.Data
         private ICollection<Sue> _sues;
 
         #endregion
+
         #region Association Fixup
     
         private void FixupSues(object sender, NotifyCollectionChangedEventArgs e)
@@ -146,5 +148,6 @@ namespace CSharpFeatures.Data
         }
 
         #endregion
+
     }
 }

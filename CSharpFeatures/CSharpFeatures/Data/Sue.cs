@@ -314,6 +314,7 @@ namespace CSharpFeatures.Data
         }
 
         #endregion
+
         #region Navigation Properties
     
         public virtual SueType SueType
@@ -332,6 +333,7 @@ namespace CSharpFeatures.Data
         private SueType _sueType;
 
         #endregion
+
         #region Association Fixup
     
         private void FixupSueType(SueType previousValue)
@@ -351,5 +353,6 @@ namespace CSharpFeatures.Data
         }
 
         #endregion
+
     }
 }

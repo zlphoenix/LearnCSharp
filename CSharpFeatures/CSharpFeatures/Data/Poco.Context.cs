@@ -55,5 +55,6 @@ namespace CSharpFeatures.Data
         private ObjectSet<SueType> _sueTypes;
 
         #endregion
+
     }
 }
