@@ -2,9 +2,9 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Runtime.InteropServices;
-using TelChina.AF.Util.Logging;
+using Allen.Util.Logging;
 
-namespace TelChina.AF.Util.TestUtil
+namespace Allen.Util.TestUtil
 {
     /// <summary>
     /// 计时器

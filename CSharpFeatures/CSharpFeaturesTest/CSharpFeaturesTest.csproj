@@ -11,18 +11,20 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CSharpFeaturesTest</RootNamespace>
     <AssemblyName>CSharpFeaturesTest</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>r:\DemoAssemblies\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,16 +33,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Moq">
-      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
@@ -71,7 +68,9 @@
     <Compile Include="LazyInitTest.cs" />
     <Compile Include="MEF\MEFTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflector\ReflectorTest.cs" />
     <Compile Include="RoundTest.cs" />
+    <Compile Include="Serialize\SerializableTest.cs" />
     <Compile Include="Serialize\DataContractResoverTest.cs" />
     <Compile Include="SortingTest.cs" />
     <Compile Include="StringExtenedUseDynamicTypeTest.cs" />
@@ -79,22 +78,25 @@
     <Compile Include="WCF\Binding\BindingTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSharpFeatures\CSharpFeatures.csproj">
-      <Project>{81FEE5F3-5CC1-4CD3-8104-2FFE726271E4}</Project>
-      <Name>CSharpFeatures</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExpressionTreeSerialization\ExpressionSerialization_New\ExpressionSerialization_New.csproj">
-      <Project>{F8560EA1-BE52-4EBD-AB9E-315882689559}</Project>
-      <Name>ExpressionSerialization_New</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\CSharpFeatures\App.Config">
       <Link>App.Config</Link>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CSharpFeatures\CSharpFeatures.csproj">
+      <Project>{81fee5f3-5cc1-4cd3-8104-2ffe726271e4}</Project>
+      <Name>CSharpFeatures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExpressionTreeSerialization\ExpressionSerialization_New\ExpressionSerialization_New.csproj">
+      <Project>{f8560ea1-be52-4ebd-ab9e-315882689559}</Project>
+      <Name>ExpressionSerialization_New</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\Allen.Util.TestUtil\Allen.Util.TestUtil.csproj">
+      <Project>{372b6ab2-ecc1-475d-98e3-9e43256e8e93}</Project>
+      <Name>Allen.Util.TestUtil</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

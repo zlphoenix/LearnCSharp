@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <TestSettings name="Trace and Test Impact" id="5840fa9d-c9d3-47f6-bee5-4035f0723f5a" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are test settings for Trace and Test Impact.</Description>
-  <Deployment userDeploymentRoot="R:\Test" useDefaultDeploymentRoot="false" enabled="false" />
+  <!--<Deployment userDeploymentRoot="R:\Test" useDefaultDeploymentRoot="false">-->
+  <Deployment>
+  <DeploymentItem filename="D:\MyDoc\Study\GitHub\MyCode\lib\" />
+  </Deployment>
   <Execution>
-    <Hosts skipUnhostableTests="false">
-      <AspNet name="ASP.NET" executionType="WebDev" />
-    </Hosts>
+    <Hosts skipUnhostableTests="false" />
     <TestTypeSpecific>
       <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
         <AssemblyResolution>

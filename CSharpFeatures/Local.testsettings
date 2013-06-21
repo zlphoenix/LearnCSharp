@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <TestSettings name="Local" id="837c343b-3343-4106-ad3f-db57e35b2625" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description> These are default test settings for a local test run.</Description>
-  <Deployment userDeploymentRoot="R:\Test" useDefaultDeploymentRoot="false">
-    <DeploymentItem filename="D:\Doc\Dropbox\仑\Code\OpenSource\NH\lib\net\3.5\Remotion.Linq.dll" />
-    <DeploymentItem filename="D:\Work\Doc\Products\code\ThirdParty\Assembly\log4net.dll" />
+  <Deployment>
+    <DeploymentItem filename="D:\MyDoc\Study\GitHub\MyCode\lib\" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

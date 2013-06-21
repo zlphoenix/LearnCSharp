@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Allen.TestBase.PerformanceCounter")]
+[assembly: AssemblyTitle("Lanxum.Domas.Extension.LogManager")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Allen.TestBase.PerformanceCounter")]
-[assembly: AssemblyCopyright("Copyright ©  2011")]
+[assembly: AssemblyProduct("Lanxum.Domas.Extension.LogManager")]
+[assembly: AssemblyCopyright("Copyright ©  2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5f276c72-c4a1-4b04-b1e8-66d89bfba908")]
+[assembly: Guid("2fa43880-3630-4869-a8a3-d8575cd393f1")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,3 +34,6 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+//[assembly: log4net.Config.DOMConfigurator(ConfigFile = "Lanxum.Domas.Extension.Log.config", Watch = false)]
+

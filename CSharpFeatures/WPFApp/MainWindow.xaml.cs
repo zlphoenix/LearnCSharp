@@ -23,6 +23,12 @@ namespace WPFApp
         public MainWindow()
         {            
             InitializeComponent();
+            
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

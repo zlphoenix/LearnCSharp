@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Transactions;
-using TelChina.AF.Util.Logging;
+using Allen.Util.Logging;
 
-namespace TelChina.AF.Util.TestUtil
+namespace Allen.Util.TestUtil
 {
     public class TransInvoke
     {

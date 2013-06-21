@@ -132,7 +132,7 @@ namespace CSharpFeaturesTest.Lambda
     [Serializable]
     public class DTO : XObject
     {
-        public Guid Id { get; set; }
+        public new Guid Id { get; set; }
         public String Name { get; set; }
     }
 

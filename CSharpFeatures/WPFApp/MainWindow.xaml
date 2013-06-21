@@ -3,12 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="492.231" Width="859.801">
     <Page Name="MainPage">
-        <Style x:Name="YButton" TargetType="Button" >
+        <!--<Style x:Name="YButton" TargetType="Button" >
             <Setter Property="Control.Background" Value="Yellow"/>
-        </Style>
+        </Style>-->
         <StackPanel>
-            <Button Content="Button" VerticalAlignment="Top"  Height="20" Style="{YButton}" />
+            <Button Content="Button" VerticalAlignment="Top"  Height="20" />
             <Button Content="Button2" VerticalAlignment="Top" Height="20" />
+            <DataGrid x:Name="dg1" Height="210" SelectionChanged="DataGrid_SelectionChanged"/>
 
         </StackPanel>
     </Page>       

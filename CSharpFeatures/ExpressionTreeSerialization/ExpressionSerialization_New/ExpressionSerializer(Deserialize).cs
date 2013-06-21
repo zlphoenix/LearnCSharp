@@ -422,7 +422,7 @@ namespace ExpressionSerialization
 			if (left.Type != right.Type)
 			{
 				UnaryExpression unary;
-				LambdaExpression lambda;
+                //LambdaExpression lambda;
 				if (right is ConstantExpression)
 				{
 					unary = Expression.Convert(left, right.Type);
