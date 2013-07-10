@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="CallContextDemoTest.cs" />
     <Compile Include="CanvasTestTest.cs" />
+    <Compile Include="Dynamic\DynamicInvokeTest.cs" />
     <Compile Include="Lambda\CollectionTraversingTest.cs" />
     <Compile Include="Lambda\ExpressionSerializationTest.cs" />
     <Compile Include="GenericsNotTemplatesTest.cs" />

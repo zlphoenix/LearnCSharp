@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <TestLists xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestList name="DynamicInvoke" id="71568507-8fda-457b-b4a4-e0e77f31e342" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <Description>动态方法调用</Description>
+    <TestLinks>
+      <TestLink id="a64069b9-820f-daab-0ff3-8e99221a854a" name="DirectInvokeTest" storage="csharpfeaturestest\bin\debug\csharpfeaturestest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="8c9120e6-10fb-06d5-72da-163d9763cb29" name="LambdaInvokeTest" storage="csharpfeaturestest\bin\debug\csharpfeaturestest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="92be02ff-794c-9494-4f3b-9bfaa30685c2" name="DelegateInvokeTest" storage="csharpfeaturestest\bin\debug\csharpfeaturestest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="e54631c9-473a-6f9f-94e8-6d4458a6a89d" name="ReflectionInvokeTest" storage="csharpfeaturestest\bin\debug\csharpfeaturestest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="d8bc5287-fe99-2af7-6b01-0183012192a6" name="InterfaceInvokeTest" storage="csharpfeaturestest\bin\debug\csharpfeaturestest.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
   <TestList name="Lists of Tests" id="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
-    <RunConfiguration id="5840fa9d-c9d3-47f6-bee5-4035f0723f5a" name="Trace and Test Impact" storage="traceandtestimpact.testsettings" type="Microsoft.VisualStudio.TestTools.Common.TestRunConfiguration, Microsoft.VisualStudio.QualityTools.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <RunConfiguration id="5840fa9d-c9d3-47f6-bee5-4035f0723f5a" name="Trace and Test Impact" storage="traceandtestimpact.testsettings" type="Microsoft.VisualStudio.TestTools.Common.TestRunConfiguration, Microsoft.VisualStudio.QualityTools.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   </TestList>
 </TestLists>

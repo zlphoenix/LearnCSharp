@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ComponentModel.Composition.Hosting;
+﻿using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition;
+using System.Reflection;
 //using TelChina.TRF.Util.Logging;
 //using TelChina.TRF.Util.Common;
-using System.IO;
-using System.Reflection;
 
-namespace TelChina.TRF.Service.AppHosting
+namespace CSharpFeatures.MEF
 {
     /// <summary>
     /// 职责:装配服务

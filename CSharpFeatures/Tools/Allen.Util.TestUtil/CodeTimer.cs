@@ -58,6 +58,47 @@ namespace Allen.Util.TestUtil
             //Console.WriteLine();
         }
 
+        public static TResult Time<TParam, TResult>(string name, int iteration, Func<TParam, TResult> action, TParam param) where TResult : class
+        {
+            if (String.IsNullOrEmpty(name)) return null;
+            ILogger logger = LogManager.GetLogger("CodeTimer");
+            // 1.
+            //ConsoleColor currentForeColor = Console.ForegroundColor;
+            //Console.ForegroundColor = ConsoleColor.Yellow;
+            logger.Debug(name);
+
+            // 2.
+            GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced);
+            int[] gcCounts = new int[GC.MaxGeneration + 1];
+            for (int i = 0; i <= GC.MaxGeneration; i++)
+            {
+                gcCounts[i] = GC.CollectionCount(i);
+            }
+
+            // 3.
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+            TResult result = null;
+            ulong cycleCount = GetCycleCount();
+            for (int i = 0; i < iteration; i++) result = action(param);
+            ulong cpuCycles = GetCycleCount() - cycleCount;
+            watch.Stop();
+
+            // 4.
+            //Console.ForegroundColor = currentForeColor;
+            logger.Debug("\tTime Elapsed:\t" + watch.ElapsedMilliseconds.ToString("N0") + "ms");
+            logger.Debug("\tCPU Cycles:\t" + cpuCycles.ToString("N0"));
+
+            // 5.
+            for (int i = 0; i <= GC.MaxGeneration; i++)
+            {
+                int count = GC.CollectionCount(i) - gcCounts[i];
+                logger.Debug("\tGen " + i + ": \t\t" + count);
+            }
+            return result;
+            //Console.WriteLine();
+        }
+
 
         private static ulong GetCycleCount()
         {
