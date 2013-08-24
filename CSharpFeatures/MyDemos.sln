@@ -68,6 +68,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allen.Util.TestUtil", "Tool
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allen.Util.Logging", "Tools\Allen.Util.Logging\Allen.Util.Logging.csproj", "{4542480B-C0B1-442C-985F-F63114F1C817}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStructure", "DataStructure", "{64B67558-6181-4D09-8209-8F3892CE0446}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure", "DataStructure\DataStructure.csproj", "{C64A0EC7-D763-41C3-AC03-C05CDB129BC4}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = CSharpFeatures.vsmdi
@@ -301,6 +305,16 @@ Global
 		{4542480B-C0B1-442C-985F-F63114F1C817}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{4542480B-C0B1-442C-985F-F63114F1C817}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4542480B-C0B1-442C-985F-F63114F1C817}.Release|x86.ActiveCfg = Release|Any CPU
+		{C64A0EC7-D763-41C3-AC03-C05CDB129BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C64A0EC7-D763-41C3-AC03-C05CDB129BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C64A0EC7-D763-41C3-AC03-C05CDB129BC4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C64A0EC7-D763-41C3-AC03-C05CDB129BC4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C64A0EC7-D763-41C3-AC03-C05CDB129BC4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C64A0EC7-D763-41C3-AC03-C05CDB129BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C64A0EC7-D763-41C3-AC03-C05CDB129BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C64A0EC7-D763-41C3-AC03-C05CDB129BC4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C64A0EC7-D763-41C3-AC03-C05CDB129BC4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C64A0EC7-D763-41C3-AC03-C05CDB129BC4}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -328,6 +342,7 @@ Global
 		{D01575AF-8A17-4E57-8E83-36325FFE6CCD} = {672D05B5-CDD0-4335-B05A-1A859F65E210}
 		{372B6AB2-ECC1-475D-98E3-9E43256E8E93} = {42142C19-4552-433A-918A-FEB5D035051F}
 		{4542480B-C0B1-442C-985F-F63114F1C817} = {42142C19-4552-433A-918A-FEB5D035051F}
+		{C64A0EC7-D763-41C3-AC03-C05CDB129BC4} = {64B67558-6181-4D09-8209-8F3892CE0446}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.PolicyInjection.5.0.505.0\lib\NET35;packages\EntLibContrib.PolicyInjection.5.0.505.0\lib\NET35
