@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Allen.Util.TestUtil;
 using CSharpFeatures.Dynamic;
-using System.Linq.Expressions;
+using SysExpression = System.Linq.Expressions;
 
 namespace CSharpFeaturesTest.Dynamic
 {
@@ -211,15 +211,15 @@ namespace CSharpFeaturesTest.Dynamic
 
         private static Action<InvokeMethod, int> CreateLambda()
         {
-            var param_im = Expression.Parameter(typeof(InvokeMethod), "im");
-            var param_i = Expression.Parameter(typeof(int), "i");
+            var param_im = SysExpression.Expression.Parameter(typeof(InvokeMethod), "im");
+            var param_i = SysExpression.Expression.Parameter(typeof(int), "i");
             //var createObj = Expression.New(typeof(InvokeMethod));
             //var lambda = Expression.Lambda<Action<int>>(
             //    Expression.Call(typeof(InvokeMethod), "Do", new Type[] { typeof(int) }, new Expression[] { param_i }));
-            var lambda = Expression.Lambda<Action<InvokeMethod, int>>(
-                Expression.Call(param_im, typeof(InvokeMethod).GetMethod("Do"), param_i), param_im, param_i);
+            var lambda = SysExpression.Expression.Lambda<Action<InvokeMethod, int>>(
+                SysExpression.Expression.Call(param_im, typeof(InvokeMethod).GetMethod("Do"), param_i), param_im, param_i);
 
-            Expression<Action<InvokeMethod, int>> lambda2 = (im, i) => im.Do(i);
+            SysExpression.Expression<Action<InvokeMethod, int>> lambda2 = (im, i) => im.Do(i);
 
             var action = lambda.Compile();
             return action;
@@ -227,6 +227,19 @@ namespace CSharpFeaturesTest.Dynamic
 
         #endregion
 
+        [TestMethod]
+        public void DynamicCallTest()
+        {
+            dynamic d = new InvokeMethod();
+            Assert.IsNotNull(d.Str);
+
+
+            dynamic d2 = Activator.CreateInstance("CSharpFeatures", "CSharpFeatures.Dynamic.InvokeMethod2");
+            Assert.AreEqual("InvokeMethod2", d2.Str);
+
+            dynamic d3 = InvokeMethod.GetInstance();
+            Assert.AreEqual("InvokeMethod2", d3.Str);
+        }
 
     }
 }

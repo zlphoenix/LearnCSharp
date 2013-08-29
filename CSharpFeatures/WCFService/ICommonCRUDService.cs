@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ServiceModel;
-using TelChina.AF.Util.Logging;
+using Allen.Util.Logging;
 using System.Runtime.Serialization;
 using System.ServiceModel.Activation;
 

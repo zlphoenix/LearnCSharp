@@ -98,6 +98,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="ThreadStatic\StaticPropertyInMutliThreads.cs" />
+    <Compile Include="TPL\TaskFeature.cs" />
     <Compile Include="WCF\Binding\Client.cs" />
     <Compile Include="WCF\Binding\Server.cs" />
   </ItemGroup>

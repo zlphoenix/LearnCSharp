@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
 using System.ServiceModel.Description;
+using Allen.Util.Logging;
 using CSharpFeatures.Serialization;
-using TelChina.AF.Util.Logging;
 using WCFService;
 using WCFService.OuterLab;
 
