@@ -35,7 +35,7 @@ namespace CSharpFeatures.MEF
         {
             //log.Debug("AddinHost.Init started");
 
-            DirectoryCatalog catalog = null;
+            //DirectoryCatalog catalog = null;
             var aggregateCatalog = new AggregateCatalog();
 
 
@@ -48,7 +48,7 @@ namespace CSharpFeatures.MEF
             var currentcatalog = new DirectoryCatalog(currentpath);
             aggregateCatalog.Catalogs.Add(currentcatalog);
 
-            var container = new CompositionContainer(aggregateCatalog);
+            container = new CompositionContainer(aggregateCatalog);
             return container;
         }
     }

@@ -10,7 +10,7 @@ namespace CSharpFeatures.Reflactor
     {
         static void Main(string[] args)
         {
-            AppDomain.CurrentDomain.AppendPrivatePath("");
+            //AppDomain.CurrentDomain.AppendPrivatePath("");
             //得到新类型
             Type myType = BuildTypeWithCustomAttributesOnMethod();
 
