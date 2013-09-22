@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -37,8 +38,8 @@ namespace CSharpFeaturesTest.Dynamic
         public static void MyClassInitialize(TestContext testContext)
         {
             CodeTimer.Initialize();
-            InvokeTimes = 100;
-            CreateTimes = 100000;
+            InvokeTimes = 1000;
+            CreateTimes = 10000;
         }
         //
         // Use ClassCleanup to run code after all tests in a class have run
@@ -60,63 +61,92 @@ namespace CSharpFeaturesTest.Dynamic
         //
         #endregion
 
+        #region tests with create env
         public void DirectInvokeTest()
         {
-            CodeTimer.Time("DirectInvokeTest", 10000, DirectInvoke);
+            CodeTimer.Time("DirectInvokeTest", InvokeTimes, DirectInvoke);
         }
         public void InterfaceInvokeTest()
         {
-            CodeTimer.Time("InterfaceInvokeTest", 10000, InterfaceInvoke);
+            CodeTimer.Time("InterfaceInvokeTest", InvokeTimes, InterfaceInvoke);
         }
         public void DelegateInvokeTest()
         {
-            CodeTimer.Time("DelegateInvokeTest", 10000, DelegateInvoke);
+            CodeTimer.Time("DelegateInvokeTest", InvokeTimes, DelegateInvoke);
         }
         public void LambdaInvokeTest()
         {
-            CodeTimer.Time("LambdaInvokeTest", 10000, LambdaInvoke);
+            CodeTimer.Time("LambdaInvokeTest", InvokeTimes, LambdaInvoke);
         }
         public void ReflectionInvokeTest()
         {
-            CodeTimer.Time("ReflectionInvoke", 10000, ReflectionInvoke);
+            CodeTimer.Time("ReflectionInvoke", InvokeTimes, ReflectionInvoke);
         }
+        public void DynamicInstanceInvokeTest()
+        {
+            CodeTimer.Time("DynamicInvoke", InvokeTimes, DynamicInvoke);
+        }
+        public void IlEmitInvokeTest()
+        {
+            CodeTimer.Time("IL Emit Invoke", InvokeTimes, IlEmitInvoke);
+        }
+        #endregion
 
+        #region tests split create env
+        public void DirectInvokeTest2()
+        {
+            var obj = new InvokeMethod();
+            CodeTimer.Time("DirectInvokeTest.Create", CreateTimes, () => new InvokeMethod());
+            CodeTimer.Time("DirectInvokeTest", InvokeTimes, () => obj.Do(InvokeTimes));
+        }
         public void ReflectionInvokeTest2()
         {
             var obj = new InvokeMethod();
             MethodInfo m = null;
             CodeTimer.Time("ReflectionInvoke.Create", CreateTimes, () => m = CreateMethodInfo(obj));
-            CodeTimer.Time("ReflectionInvoke", 10000, () => ReflectionInvoke(m, obj));
+            CodeTimer.Time("ReflectionInvoke", InvokeTimes, () => ReflectionInvoke(m, obj));
         }
-        [TestMethod]
         public void LambdaInvokeTest2()
         {
             var obj = new InvokeMethod();
             Action<InvokeMethod, int> a =
                 CodeTimer.Time<int, Action<InvokeMethod, int>>("LambdaInvokeTest.Create",
-                    CreateTimes, (int i) => CreateLambda(), 100);
+                    CreateTimes, (int i) => CreateLambda(), InvokeTimes);
 
-            CodeTimer.Time<Tuple<InvokeMethod, Action<InvokeMethod, int>, int>, object>("LambdaInvokeTest", 10000, (tuple) =>
+            CodeTimer.Time<Tuple<InvokeMethod, Action<InvokeMethod, int>, int>, object>("LambdaInvokeTest", InvokeTimes, (tuple) =>
             {
                 tuple.Item2(tuple.Item1, tuple.Item3);
                 return null;
             }, new Tuple<InvokeMethod, Action<InvokeMethod, int>, int>(obj, a, InvokeTimes));// Tuple<InvokeMethod, Action<InvokeMethod, int>>());
         }
-
-
         public void DelegateInvokeTest2()
         {
             var obj = new InvokeMethod();
             Action<int> a = null;
             CodeTimer.Time("DelegateInvokeTest.Create", CreateTimes, () => a = CreateDelegate(obj));
-            CodeTimer.Time("DelegateInvokeTest", 10000, () => a.Invoke(InvokeTimes));
+            CodeTimer.Time("DelegateInvokeTest", InvokeTimes, () => a.Invoke(InvokeTimes));
         }
-        public void DirectInvokeTest2()
+
+        [TestMethod]
+        public void DynamicInvokeTest2()
         {
-            var obj = new InvokeMethod();
-            CodeTimer.Time("DirectInvokeTest.Create", CreateTimes, () => new InvokeMethod());
-            CodeTimer.Time("DirectInvokeTest", 10000, () => obj.Do(InvokeTimes));
+            CodeTimer.Time("DynamicInvokeTest.Create", CreateTimes, () => { dynamic a = new InvokeMethod(); });
+            dynamic b = new InvokeMethod();
+            CodeTimer.Time("DynamicInvokeTest", InvokeTimes, () => b.Do(InvokeTimes));
         }
+        [TestMethod]
+        public void IlEmitInvokeTest2()
+        {
+
+            Action<InvokeMethod, int> a = null;
+            CodeTimer.Time("IL Emit InvokeTest.Create", CreateTimes, () => a = CreateIlMethod());
+
+            var obj = new InvokeMethod();
+            CodeTimer.Time("IL Emit InvokeTest", InvokeTimes, () => a.Invoke(obj, InvokeTimes));
+        }
+        #endregion
+
+
         [TestCategory("DynamicInvoke"), TestMethod]
         public void AllTest()
         {
@@ -125,15 +155,19 @@ namespace CSharpFeaturesTest.Dynamic
             DelegateInvokeTest();
             LambdaInvokeTest();
             ReflectionInvokeTest();
+            DynamicInstanceInvokeTest();
+            IlEmitInvokeTest();
         }
         [TestCategory("DynamicInvoke"), TestMethod]
-        public void AllTest2()
+        public void AllTestSplitCreateTime()
         {
             DirectInvokeTest2();
             //InterfaceInvokeTest2();
             DelegateInvokeTest2();
             LambdaInvokeTest2();
             ReflectionInvokeTest2();
+            DynamicInvokeTest2();
+            IlEmitInvokeTest2();
         }
 
         #region Excute
@@ -162,6 +196,11 @@ namespace CSharpFeaturesTest.Dynamic
             m.Invoke(obj, new object[] { InvokeTimes });
         }
 
+        public static void DynamicInvoke()
+        {
+            dynamic obj = new InvokeMethod();
+            obj.Do(InvokeTimes);
+        }
         public static void DelegateInvoke()
         {
             var obj = new InvokeMethod();
@@ -174,6 +213,30 @@ namespace CSharpFeaturesTest.Dynamic
             var action = CreateLambda();
             action.Invoke(obj, InvokeTimes);
         }
+        [TestMethod]
+        public void IlEmitInvoke()
+        {
+            var add = CreateIlMethod();
+            //
+            var obj = new InvokeMethod();
+            add(obj, InvokeTimes);
+        }
+
+        private static Action<InvokeMethod, int> CreateIlMethod()
+        {
+            var doMethod = typeof(InvokeMethod).GetMethod("Do");
+            var dynamicMethod = new DynamicMethod("IlEmitInvokeTest", null, new[] { typeof(InvokeMethod), typeof(int) });
+            //
+            var il = dynamicMethod.GetILGenerator();
+            il.Emit(OpCodes.Ldarg_0);
+            il.Emit(OpCodes.Ldarg_1);
+            il.Emit(OpCodes.Callvirt, doMethod);
+            il.Emit(OpCodes.Ret);
+            //
+            var add = (Action<InvokeMethod, int>)dynamicMethod.CreateDelegate(typeof(Action<InvokeMethod, int>));
+            return add;
+        }
+
 
         public static void ReflectionInvoke(MethodInfo m, InvokeMethod obj)
         {
