@@ -7,7 +7,7 @@ namespace CSharpFeatures.NewFolder1
 {
     class Nullable
     {
-        private Nullable<int> a;
+        //private Nullable<int> a;
 
         private  void foo()
         {

@@ -35,20 +35,20 @@ namespace CSharpFeatures.MEF
         {
             //log.Debug("AddinHost.Init started");
 
-            DirectoryCatalog catalog = null;
+            //DirectoryCatalog catalog = null;
             var aggregateCatalog = new AggregateCatalog();
 
 
-            catalog = new DirectoryCatalog(Assembly.GetCallingAssembly().Location);
+            //catalog = new DirectoryCatalog(System.AppDomain.CurrentDomain.BaseDirectory);
 
-            aggregateCatalog.Catalogs.Add(catalog);
+            //aggregateCatalog.Catalogs.Add(catalog);
 
 
-            string currentpath = @".\";
+            const string currentpath = @".\";
             var currentcatalog = new DirectoryCatalog(currentpath);
             aggregateCatalog.Catalogs.Add(currentcatalog);
 
-            var container = new CompositionContainer(aggregateCatalog);
+            container = new CompositionContainer(aggregateCatalog);
             return container;
         }
     }

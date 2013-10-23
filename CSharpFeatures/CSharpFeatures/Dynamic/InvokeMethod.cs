@@ -34,5 +34,30 @@ namespace CSharpFeatures.Dynamic
                 }
             }
         }
+
+        public string Str
+        {
+            get { return "InvokeMethod"; }
+        }
+
+        public static object GetInstance()
+        {
+            return new InvokeMethod2();
+        }
+
+    }
+
+    internal class InvokeMethod2 : IInvokeMethod
+    {
+
+
+        public void Do(int i)
+        {
+            throw new NotImplementedException();
+        }
+        public string Str
+        {
+            get { return "InvokeMethod2"; }
+        }
     }
 }

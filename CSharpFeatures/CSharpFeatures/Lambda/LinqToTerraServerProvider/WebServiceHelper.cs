@@ -59,12 +59,12 @@ namespace CSharpFeatures.Lambda.LinqToTerraServerProvider
 
                 return places;
             }
-            catch (TimeoutException timeoutException)
+            catch (TimeoutException)
             {
                 client.Abort();
                 throw;
             }
-            catch (System.ServiceModel.CommunicationException communicationException)
+            catch (System.ServiceModel.CommunicationException)
             {
                 client.Abort();
                 throw;

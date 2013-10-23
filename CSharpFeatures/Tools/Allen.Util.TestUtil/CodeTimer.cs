@@ -18,6 +18,13 @@ namespace Allen.Util.TestUtil
             Time("", 1, () => { });
         }
 
+        public static void Time(string name, int iterationMax, int iterationMin, int multiple, Action action)
+        {
+            for (; iterationMin < iterationMax; iterationMin *= multiple)
+            {
+                Time(string.Format("action,{0},{1}", name, iterationMin), iterationMin, action);
+            }
+        }
         public static void Time(string name, int iteration, Action action)
         {
             if (String.IsNullOrEmpty(name)) return;
@@ -45,14 +52,14 @@ namespace Allen.Util.TestUtil
 
             // 4.
             //Console.ForegroundColor = currentForeColor;
-            logger.Debug("\tTime Elapsed:\t" + watch.ElapsedMilliseconds.ToString("N0") + "ms");
-            logger.Debug("\tCPU Cycles:\t" + cpuCycles.ToString("N0"));
+            logger.Debug("\tTime Elapsed,\t" + watch.ElapsedMilliseconds.ToString("D0") + "ms");
+            logger.Debug("\tCPU Cycles,\t" + cpuCycles.ToString("D0"));
 
             // 5.
             for (int i = 0; i <= GC.MaxGeneration; i++)
             {
                 int count = GC.CollectionCount(i) - gcCounts[i];
-                logger.Debug("\tGen " + i + ": \t\t" + count);
+                logger.Debug("\tGen " + i + ", \t\t" + count.ToString("D0"));
             }
 
             //Console.WriteLine();

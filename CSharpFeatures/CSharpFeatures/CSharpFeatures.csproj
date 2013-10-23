@@ -85,6 +85,7 @@
     <Compile Include="MEF\AddinHost.cs" />
     <Compile Include="MEF\MEFTest.cs" />
     <Compile Include="Boxing\Nullable.cs" />
+    <Compile Include="OO\ClassWith2Father.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflactor\InjectAttibute.cs" />
     <Compile Include="Reflactor\ReflectorPerformance.cs" />
@@ -98,6 +99,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="ThreadStatic\StaticPropertyInMutliThreads.cs" />
+    <Compile Include="TPL\TaskFeature.cs" />
     <Compile Include="WCF\Binding\Client.cs" />
     <Compile Include="WCF\Binding\Server.cs" />
   </ItemGroup>
