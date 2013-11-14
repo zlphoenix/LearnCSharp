@@ -56,7 +56,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">
       <Project>{C64A0EC7-D763-41C3-AC03-C05CDB129BC4}</Project>
-      <Name>DataStructure %28DataStructure\DataStructure%29</Name>
+      <Name>DataStructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

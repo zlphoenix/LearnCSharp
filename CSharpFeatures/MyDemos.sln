@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D17ACC39-A60C-4870-9126-8C7BB32D0962}"
 	ProjectSection(SolutionItems) = preProject
 		CSharpFeatures.vsmdi = CSharpFeatures.vsmdi
@@ -76,10 +78,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure", "DataStruct
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructureTest", "DataStructureTest\DataStructureTest.csproj", "{BE276461-16A4-4607-A9FF-5918243CCA34}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{DAF7B7ED-3D59-4601-ABF6-DD56FE9A3EA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2013OneWebApp", "VS2013OneWebApp\VS2013OneWebApp.csproj", "{555D5F28-2098-4C51-8466-40E6A0726FC6}"
+EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = CSharpFeatures.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -339,6 +342,16 @@ Global
 		{BE276461-16A4-4607-A9FF-5918243CCA34}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{BE276461-16A4-4607-A9FF-5918243CCA34}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{BE276461-16A4-4607-A9FF-5918243CCA34}.Release|x86.ActiveCfg = Release|Any CPU
+		{555D5F28-2098-4C51-8466-40E6A0726FC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{555D5F28-2098-4C51-8466-40E6A0726FC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{555D5F28-2098-4C51-8466-40E6A0726FC6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{555D5F28-2098-4C51-8466-40E6A0726FC6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{555D5F28-2098-4C51-8466-40E6A0726FC6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{555D5F28-2098-4C51-8466-40E6A0726FC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{555D5F28-2098-4C51-8466-40E6A0726FC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{555D5F28-2098-4C51-8466-40E6A0726FC6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{555D5F28-2098-4C51-8466-40E6A0726FC6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{555D5F28-2098-4C51-8466-40E6A0726FC6}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -369,8 +382,12 @@ Global
 		{4542480B-C0B1-442C-985F-F63114F1C817} = {42142C19-4552-433A-918A-FEB5D035051F}
 		{C64A0EC7-D763-41C3-AC03-C05CDB129BC4} = {64B67558-6181-4D09-8209-8F3892CE0446}
 		{BE276461-16A4-4607-A9FF-5918243CCA34} = {64B67558-6181-4D09-8209-8F3892CE0446}
+		{555D5F28-2098-4C51-8466-40E6A0726FC6} = {DAF7B7ED-3D59-4601-ABF6-DD56FE9A3EA6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.PolicyInjection.5.0.505.0\lib\NET35;packages\EntLibContrib.PolicyInjection.5.0.505.0\lib\NET35
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = CSharpFeatures.vsmdi
 	EndGlobalSection
 EndGlobal
