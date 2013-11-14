@@ -86,6 +86,7 @@
     <Compile Include="Container\CollectionsTest.cs" />
     <Compile Include="Container\SortedListTest.cs" />
     <Compile Include="Dynamic\DynamicInvokeTest.cs" />
+    <Compile Include="Dynamic\DynamicType.cs" />
     <Compile Include="Exception\PerfomenceOfExceptionTest.cs" />
     <Compile Include="Expression\ExpressionTest.cs" />
     <Compile Include="Lambda\CollectionTraversingTest.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Reflector\PrivateCtorTest.cs" />
     <Compile Include="Reflector\ReflectorTest.cs" />
     <Compile Include="Reflector\CustomerAttributeTest.cs" />
+    <Compile Include="Reflector\GenericTypeTest.cs" />
     <Compile Include="Roslyn\RoslynTest.cs" />
     <Compile Include="RoundTest.cs" />
     <Compile Include="Serialize\SerializableTest.cs" />
