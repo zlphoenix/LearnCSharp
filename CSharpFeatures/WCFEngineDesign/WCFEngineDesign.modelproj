@@ -23,6 +23,13 @@
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="false" />
   <ItemGroup>
+    <Content Include="AssemblyLoad.componentdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="AssemblyLoad.componentdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>AssemblyLoad.componentdiagram</DependentUpon>
+    </Content>
     <Content Include="EntityEvent.classdiagram">
       <SubType>Content</SubType>
     </Content>

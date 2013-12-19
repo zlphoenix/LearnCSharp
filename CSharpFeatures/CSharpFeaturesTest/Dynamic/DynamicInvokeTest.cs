@@ -10,12 +10,15 @@ using SysExpression = System.Linq.Expressions;
 
 namespace CSharpFeaturesTest.Dynamic
 {
+
     /// <summary>
     /// Summary description for DynamicInvokeTest
     /// </summary>
     [TestClass]
     public class DynamicInvokeTest
     {
+        delegate void JobAction(int i);
+
         public DynamicInvokeTest()
         {
             //
@@ -90,6 +93,11 @@ namespace CSharpFeaturesTest.Dynamic
         {
             CodeTimer.Time("IL Emit Invoke", InvokeTimes, IlEmitInvoke);
         }
+        public void GenerateDelegateInvokeTest()
+        {
+            CodeTimer.Time("Generate Delegate Invoke", InvokeTimes, GenerateDelegateInvoke);
+        }
+
         #endregion
 
         #region tests split create env
@@ -144,6 +152,15 @@ namespace CSharpFeaturesTest.Dynamic
             var obj = new InvokeMethod();
             CodeTimer.Time("IL Emit InvokeTest", InvokeTimes, () => a.Invoke(obj, InvokeTimes));
         }
+        public void GenerateDelegateInvokeTest2()
+        {
+
+            JobAction a = null;
+            CodeTimer.Time("Generate Delegate Create", CreateTimes, () => a = CreateDelegateAction());
+
+
+            CodeTimer.Time("Generated Delegate InvokeTest", InvokeTimes, () => a(InvokeTimes));
+        }
         #endregion
 
 
@@ -157,6 +174,7 @@ namespace CSharpFeaturesTest.Dynamic
             ReflectionInvokeTest();
             DynamicInstanceInvokeTest();
             IlEmitInvokeTest();
+            GenerateDelegateInvokeTest();
         }
         [TestCategory("DynamicInvoke"), TestMethod]
         public void AllTestSplitCreateTime()
@@ -168,6 +186,7 @@ namespace CSharpFeaturesTest.Dynamic
             ReflectionInvokeTest2();
             DynamicInvokeTest2();
             IlEmitInvokeTest2();
+            GenerateDelegateInvokeTest2();
         }
 
         #region Excute
@@ -220,6 +239,20 @@ namespace CSharpFeaturesTest.Dynamic
             //
             var obj = new InvokeMethod();
             add(obj, InvokeTimes);
+        }
+
+        [TestMethod]
+        public void GenerateDelegateInvoke()
+        {
+            var action = CreateDelegateAction();
+            action(InvokeTimes);
+        }
+
+        private static JobAction CreateDelegateAction()
+        {
+            var obj = new InvokeMethod();
+            var action = Delegate.CreateDelegate(typeof(JobAction), obj, CreateMethodInfo(obj)) as JobAction;
+            return action;
         }
 
         private static Action<InvokeMethod, int> CreateIlMethod()

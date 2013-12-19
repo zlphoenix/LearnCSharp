@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSharpFeatures.TPL
@@ -22,15 +23,32 @@ namespace CSharpFeatures.TPL
         }
 
 
-
         public string Foo()
         {
-            
+
             return string.Empty;
         }
         public void CallBack(string str)
         {
 
+        }
+
+
+        public void QueueNewJob()
+        {
+            ThreadPool.QueueUserWorkItem(WorkJob);
+            while (true)
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine("MainTread!");
+            }
+        }
+
+
+        private void WorkJob(object state)
+        {
+            Thread.Sleep(1000);
+            Console.WriteLine("WorkJob!");
         }
     }
 }

@@ -120,10 +120,6 @@
       <Project>{81fee5f3-5cc1-4cd3-8104-2ffe726271e4}</Project>
       <Name>CSharpFeatures</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ExpressionTreeSerialization\ExpressionSerialization_New\ExpressionSerialization_New.csproj">
-      <Project>{f8560ea1-be52-4ebd-ab9e-315882689559}</Project>
-      <Name>ExpressionSerialization_New</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Tools\Allen.Util.TestUtil\Allen.Util.TestUtil.csproj">
       <Project>{372b6ab2-ecc1-475d-98e3-9e43256e8e93}</Project>
       <Name>Allen.Util.TestUtil</Name>

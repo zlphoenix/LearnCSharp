@@ -61,6 +61,7 @@
     <Compile Include="BCL\Round.cs" />
     <Compile Include="CallContext\CallContextcs.cs" />
     <Compile Include="Dynamic\InvokeMethod.cs" />
+    <Compile Include="Iterators\Iterator.cs" />
     <Compile Include="NewFeatures.cs" />
     <Compile Include="DebugCanvas\CanvasTest.cs" />
     <Compile Include="Delegate\CacheHelper.cs" />

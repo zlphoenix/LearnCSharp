@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner"
   dslVersion="1.0.0.0"
   Id="1dd62ead-a387-41ae-960e-ea4d83ac9596"
   name="WCFEngineDesign" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -405,6 +405,13 @@
                       name="Set"
                       value="protected" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9fa2a9be-fe6d-4e21-a060-f71f2d2cea76">
+                    <propertyInstance
+                      Id="73f31ab6-2e74-4ce3-b2d9-d33b55475fe7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -477,6 +484,13 @@
                       Id="60e670f4-7e42-4e53-92e0-8749e55bd1a9"
                       name="Set"
                       value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="326b8aaf-5f03-4a15-99a8-8a9afe8135a5">
+                    <propertyInstance
+                      Id="af036a85-742e-4d77-9b86-8588b1d50eef"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -551,6 +565,13 @@
                       Id="94a459e8-43f7-4201-be84-2797af4f67ad"
                       name="Set"
                       value="protected" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="327fb411-15c1-484e-87ab-4c5a2419ba8f">
+                    <propertyInstance
+                      Id="fd796a43-b23a-4a2c-a868-28de77ebd1a9"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -629,6 +650,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="540807d0-7a5d-4ad4-a1fc-fa7d75e5b67d">
+                    <propertyInstance
+                      Id="82577163-105d-433f-a25c-4eccbf816617"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -702,6 +730,13 @@
                       Id="981993ab-d877-4deb-92be-755a49ef8c99"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0699a6bc-a269-4ea8-a37c-f44d45d787be">
+                    <propertyInstance
+                      Id="90a9eccc-2ffd-43a2-8b82-8ada006bd8cd"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -790,6 +825,13 @@
                       Id="ac0228f1-9c54-4ce0-b8fb-2799542279d6"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fbb5165f-3e90-4377-a0cc-9662742322ac">
+                    <propertyInstance
+                      Id="88fd1aaf-82da-4513-b179-b2e54ff51ead"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -987,6 +1029,13 @@
                       name="Set"
                       value="protected" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="037f02a9-a259-43b6-903c-e07239e1feeb">
+                    <propertyInstance
+                      Id="1ac24e25-e0f4-4d22-92ff-fd8b426179b9"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -1059,6 +1108,13 @@
                       Id="8279c4e7-3983-4651-8146-3875ab836dd5"
                       name="Set"
                       value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="607e0334-6963-49af-822e-560a736f9d15">
+                    <propertyInstance
+                      Id="780cab60-1271-4862-ad5c-8f2e46bfccd2"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -1134,6 +1190,13 @@
                       name="Set"
                       value="protected" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ec0c12b-5ca8-4abb-81c1-3f9a0b799bf9">
+                    <propertyInstance
+                      Id="81bf704c-839d-4f8f-b503-532296f176f0"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -1199,6 +1262,13 @@
                       Id="010980f3-39b0-438f-927b-ab09b07fb85a"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e5db9a8a-a724-4532-97a0-1579d19ce5cf">
+                    <propertyInstance
+                      Id="312fa9d3-b14c-446d-abe7-c03db299d762"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -1273,6 +1343,13 @@
                       Id="68fedbca-f0b4-4755-a3a2-e443bf8032d0"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d3e4dcad-a3f4-4d05-a8e7-30714773590a">
+                    <propertyInstance
+                      Id="f431ea1d-e81f-42d2-8fd7-59461129c291"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -1361,6 +1438,13 @@
                       Id="40f8aef7-1659-4215-b9dc-c2108d755210"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b6387b69-5c33-4225-9b34-ccf07d3c661d">
+                    <propertyInstance
+                      Id="0a149340-d6a7-44d5-8124-d29d597bdf04"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -1551,6 +1635,13 @@
                       name="Set"
                       value="protected" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d7bc14c1-40af-4054-b8a5-a49abe0797c7">
+                    <propertyInstance
+                      Id="b547ac92-559b-441b-aca8-e5cc07d1d8f6"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -1623,6 +1714,13 @@
                       Id="b7be8b04-f787-42fe-923e-a11747e67f35"
                       name="Set"
                       value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="df7ecfd3-af62-4b64-a4bf-662c3e9f349b">
+                    <propertyInstance
+                      Id="aca14bf1-6103-4137-91f9-b93e783b2e57"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -1698,6 +1796,13 @@
                       name="Set"
                       value="protected" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7d1cf4a4-978d-4a84-bfed-186c779302eb">
+                    <propertyInstance
+                      Id="5a009701-7a36-4d70-a448-fa76e810072d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -1763,6 +1868,13 @@
                       Id="c929ad9c-e4c3-4ca3-80b5-efd2e94875d9"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c56582f5-3945-4bab-8e69-4975988c687a">
+                    <propertyInstance
+                      Id="7c8ba962-2603-415d-a24e-3d41778dbdc8"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -1837,6 +1949,13 @@
                       Id="88340bc0-9d93-42b7-beea-466180ea309a"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d0ca3524-47cf-49b5-9e24-604a69b1a354">
+                    <propertyInstance
+                      Id="e075c0c0-d570-4a71-bdd8-c5e2d7362d4f"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -1925,6 +2044,13 @@
                       Id="bce9e578-a84e-4ccd-8458-dd368274984f"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="abb34a82-4987-4aa5-9c6f-10ba5b947d2e">
+                    <propertyInstance
+                      Id="78e7a051-983c-445b-b39c-e528db50d5f3"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -2115,6 +2241,13 @@
                       name="Set"
                       value="protected" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="79352290-ffee-49a2-b5c9-6a0fa12c23c2">
+                    <propertyInstance
+                      Id="947746f5-1a92-4f4f-b948-76af20ddd9df"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -2187,6 +2320,13 @@
                       Id="b865d2a8-acf7-4a73-b8db-2bf164d3607b"
                       name="Set"
                       value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="771a650b-36e8-4554-af9b-d55f063f7ade">
+                    <propertyInstance
+                      Id="877eff83-cda1-4677-bf6c-f9a9320c5cf8"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -2262,6 +2402,13 @@
                       name="Set"
                       value="protected" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6c97ea2b-52a8-4f43-a211-b1445266db66">
+                    <propertyInstance
+                      Id="0a212fef-95e9-48e6-8a6a-febc603b2f99"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -2327,6 +2474,13 @@
                       Id="28a6654e-2aeb-4e18-a814-0134462ed3ee"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c758a959-ff30-4c28-b67f-acf83cb6f1c1">
+                    <propertyInstance
+                      Id="d388bb97-40c2-4409-b8ff-c5baf3410612"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -2401,6 +2555,13 @@
                       Id="270dfd8b-65f4-444c-9308-a462a89900bd"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="40f07388-f142-434b-b275-ab5a557dd39c">
+                    <propertyInstance
+                      Id="03489a5b-6551-41b7-a0d1-215c058d57b4"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -2489,6 +2650,13 @@
                       Id="a8e4660e-2651-4d01-9c6b-f2c66bf47075"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b2faa50e-d74f-4205-8d21-b75a7c348f66">
+                    <propertyInstance
+                      Id="1dc70b90-b15a-42cb-a4cd-6fb863c31f52"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -2679,6 +2847,13 @@
                       name="Set"
                       value="protected" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="43ef3555-d1c5-4532-b7c0-04e444df7e28">
+                    <propertyInstance
+                      Id="195f7621-776b-42e5-a281-cef55da5c3a9"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -2751,6 +2926,13 @@
                       Id="31cfd07a-6dba-43c4-bac4-1833bfb8ccc4"
                       name="Set"
                       value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="33dd2fe9-26da-4de9-aca9-dd71955fc125">
+                    <propertyInstance
+                      Id="c25c0d4d-6589-48ac-891b-118e61ca6231"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -2826,6 +3008,13 @@
                       name="Set"
                       value="protected" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d557f1a6-4e25-439f-8758-548f56bcf5df">
+                    <propertyInstance
+                      Id="f84b7809-36f3-48c6-90a6-182183247c14"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -2891,6 +3080,13 @@
                       Id="6e6d1d15-4c10-4e27-b485-fd93910252ea"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8b9de9f-5263-4699-88f0-30a9e211ba89">
+                    <propertyInstance
+                      Id="8a5ea176-7101-4726-a81b-062fccc4490a"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -2965,6 +3161,13 @@
                       Id="7c233141-6a8f-45da-a313-47487cdd1568"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b14aa712-30a3-4020-9a9e-94032ac68015">
+                    <propertyInstance
+                      Id="8b0e9f51-caea-488c-a642-fa007226a3f6"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -3053,6 +3256,13 @@
                       Id="3091d336-800e-4ff7-ab3a-c9fdc6799148"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0cc92a45-a434-42dc-a62b-12ea7487bcb4">
+                    <propertyInstance
+                      Id="3bf5b564-0d5e-4298-9d58-ebffd9146011"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -3507,6 +3717,13 @@
                       name="Set"
                       value="public" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2e2ce0e3-0bef-466e-a422-aa22f188b757">
+                    <propertyInstance
+                      Id="8244a35e-b90a-43c8-b9a8-1a301cf78678"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -3580,6 +3797,13 @@
                       name="Set"
                       value="public" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca4351b1-2307-4a4c-abb6-e05f822fe129">
+                    <propertyInstance
+                      Id="4d61e152-5f9a-4fad-880a-9ed19bdc2120"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -3646,6 +3870,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3ea637e5-66fe-4ee3-a897-a035a9bdd5b1">
+                    <propertyInstance
+                      Id="aa1ca36c-3a07-411a-b42b-6bc3696b1e84"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -3703,6 +3934,13 @@
                       Id="a58eb09b-6525-4c01-b924-8f5837fdc045"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0f85bf21-3c8d-4733-8cd2-ff373dfea21b">
+                    <propertyInstance
+                      Id="3ed747d4-8d2b-4d5a-81f3-20ecd033f44f"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -3896,6 +4134,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a8087ec-544d-4e69-a50e-53691b160dec">
+                    <propertyInstance
+                      Id="d817aa54-c6c3-4fac-b290-ed77ef06364c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -3967,6 +4212,13 @@
                       Id="7e11dffd-88e4-4099-8d60-4dae3f1c5eda"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="476b3e1c-9202-424e-8d19-58822301b86d">
+                    <propertyInstance
+                      Id="77722582-4bb5-48a0-bdd6-c5ea44663507"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -4058,6 +4310,13 @@
                       Id="a35c7554-9ed1-4cc6-ba45-f93f7df4d651"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f8ed39d1-8d64-4bfd-929c-094a613c3e8b">
+                    <propertyInstance
+                      Id="0c041875-19c1-41d1-971d-e12b9f2db3db"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -4188,6 +4447,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="76d08a2b-0dfc-4a9d-8778-3aca989a2e49">
+                    <propertyInstance
+                      Id="b1d17d16-c8eb-4814-afd2-4b029435f3fb"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -4317,6 +4583,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7aff3806-9f86-4ad2-a1e4-46495996f436">
+                    <propertyInstance
+                      Id="27b95345-0293-4a1a-b136-24ba10c1a0ac"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -4407,6 +4680,13 @@
                       Id="a06e58f6-93ee-4f98-8fa7-4f8d2458131b"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d60160f4-ed69-413d-8a68-0c617dc94f5a">
+                    <propertyInstance
+                      Id="45279dee-b4d4-459a-ba9c-338425c9fea5"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -4556,6 +4836,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e7831b15-2903-4519-8715-179accbe6552">
+                    <propertyInstance
+                      Id="d4b99574-e68a-4ef6-a976-bafb64c68a07"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -4692,6 +4979,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c7dab951-49e9-4183-835c-6ee7afc38a44">
+                    <propertyInstance
+                      Id="d43eb094-75a2-4f27-902d-c570b8978825"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -4826,6 +5120,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8f6a31da-4a35-4169-99ee-8653fa2585e2">
+                    <propertyInstance
+                      Id="eb967403-c5f7-46ab-ab3d-1eb6aa541ac3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -4884,6 +5185,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7e79cd8b-1d3f-43cd-90ad-48a7ec660b74">
+                    <propertyInstance
+                      Id="7d4e2fb4-c038-4334-82b3-b56e758b4fbf"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -4941,6 +5249,13 @@
                       Id="8ddc623f-d4be-4f33-aca4-c7d0c899a6f6"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e4bdf2b-9b63-41ed-b91e-4f530e3f41d8">
+                    <propertyInstance
+                      Id="44d5b8cc-10d3-4545-a89b-2e4b03c050f1"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -5189,6 +5504,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7318e5df-1cfa-4655-8456-9c560aef7932">
+                    <propertyInstance
+                      Id="4dedba54-02e9-4631-b6ab-cd28f438e6fc"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -5247,6 +5569,13 @@
                       Id="4df04f1b-8677-4801-86e2-8dcf79746b94"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20607a7f-1d87-49c7-8533-91bc920f3751">
+                    <propertyInstance
+                      Id="af647b20-c84a-4366-b1c8-566cbecb6a70"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -5307,6 +5636,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="88672df7-d627-4e2e-ac92-510abfa3e422">
+                    <propertyInstance
+                      Id="26cafe20-aba7-472f-b919-7e029ec6612a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -5365,6 +5701,13 @@
                       Id="5c78b4e9-d13b-4b6f-aed1-3a6d38f07f5d"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d84146b9-cb70-43e0-84aa-13dc3d00dc0f">
+                    <propertyInstance
+                      Id="ede96e78-d7d3-464a-ad27-2b7d9badb72f"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -5477,6 +5820,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="79019b33-7ba1-4044-82df-c388fedd3031">
+                    <propertyInstance
+                      Id="3df24035-6d45-449c-bda2-17f853fd9972"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -5534,6 +5884,13 @@
                       Id="37893141-e1f9-4739-92b5-4ff8dad2a9cd"
                       name="params"
                       value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f75ab905-ae78-44ca-b376-1b7bbab42c04">
+                    <propertyInstance
+                      Id="c19412db-3183-4746-845d-bbefa589ab77"
+                      name="Inheritance"
+                      value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
@@ -5671,6 +6028,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b312a433-c481-4f60-922b-d9a4331aef2e">
+                    <propertyInstance
+                      Id="d349b2a4-46fb-48a8-bfe2-6f8062bd2d45"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -5730,6 +6094,13 @@
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a23c7cca-bdcc-41f8-858a-b8ddd7220ec3">
+                    <propertyInstance
+                      Id="1d9a221e-705e-40ec-a401-5d1985cbd637"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
@@ -5742,6 +6113,126 @@
         Id="2db8109c-4859-4954-b3f3-fcf18a05d598"
         LastKnownName="CSharpFeatures"
         LastKnownLocation="Package_1553.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="7a3c6fac-758e-436f-ac63-a7013088d65d"
+        name="Console"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="ffbb5755-68e7-44d6-8f46-47ac5ed06a64">
+            <componentMoniker
+              Id="7a101121-423f-4283-8799-c9e30f6da377"
+              LastKnownName="Contract"
+              LastKnownLocation="WCFEngineDesign.uml" />
+          </dependency>
+          <dependency
+            Id="0236c763-b960-488f-8606-7fc54630418d">
+            <componentMoniker
+              Id="80f74fdb-e0c1-446f-a3d6-8e6c2143a51b"
+              LastKnownName="Framework"
+              LastKnownLocation="WCFEngineDesign.uml" />
+          </dependency>
+        </suppliersInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="7a101121-423f-4283-8799-c9e30f6da377"
+        name="Contract"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="80f74fdb-e0c1-446f-a3d6-8e6c2143a51b"
+        name="Framework"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="54c171ac-b38c-48bb-9c0e-0ae88577078f"
+        name="Implement"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="5fb50484-8b8c-4e50-aeae-3aabcc368051">
+            <componentMoniker
+              Id="e3beaa0c-5a6a-4046-8e48-65d7800bd3cd"
+              LastKnownName="Referenced"
+              LastKnownLocation="WCFEngineDesign.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="d9f092c5-0e4e-4e78-aede-fbecfc2402da"
+            isSubstitutable="false">
+            <componentMoniker
+              Id="7a101121-423f-4283-8799-c9e30f6da377"
+              LastKnownName="Contract"
+              LastKnownLocation="WCFEngineDesign.uml" />
+          </generalization>
+        </generalsInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="06cc99fd-77a9-4559-bbd6-6ac36c95be20"
+        name="ImplementV2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="fd37546c-1d29-463d-a8f9-67f6018a7aa1">
+            <componentMoniker
+              Id="e3beaa0c-5a6a-4046-8e48-65d7800bd3cd"
+              LastKnownName="Referenced"
+              LastKnownLocation="WCFEngineDesign.uml" />
+          </dependency>
+          <dependency
+            Id="448f5649-3095-4b50-b745-49362d27c9e2">
+            <componentMoniker
+              Id="80f74fdb-e0c1-446f-a3d6-8e6c2143a51b"
+              LastKnownName="Framework"
+              LastKnownLocation="WCFEngineDesign.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="bedfca50-3967-4304-8643-fc640d3ccd45"
+            isSubstitutable="false">
+            <componentMoniker
+              Id="7a101121-423f-4283-8799-c9e30f6da377"
+              LastKnownName="Contract"
+              LastKnownLocation="WCFEngineDesign.uml" />
+          </generalization>
+        </generalsInternal>
+      </component>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="e3beaa0c-5a6a-4046-8e48-65d7800bd3cd"
+        name="Referenced"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="1785d70b-f3fc-45bb-a989-6d6226e42724"
+        name="ReferencedV2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
