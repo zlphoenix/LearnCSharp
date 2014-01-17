@@ -7,20 +7,26 @@ namespace CSharpFeatures.Generics
 {
     public class GenericsNotTemplates
     {
-        public static void DoIt<T>(T t)
+        /// <summary>
+        /// 泛型方法和非泛型方法同时存在,即使类型能够匹配也会使用泛型方法
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static string DoIt<T>(T t)
         {
-            ReallyDoIt(t);
+            return ReallyDoIt(t);
         }
-        private static void ReallyDoIt(string s)
+        private static string ReallyDoIt(string s)
         {
-            System.Console.WriteLine("string");
+            return "string";
         }
-        private static void ReallyDoIt<T>(T t)
+        private static string ReallyDoIt<T>(T t)
         {
-            System.Console.WriteLine("everything else");
+            return "everything else";
         }
     }
 
 
-  
+
 }

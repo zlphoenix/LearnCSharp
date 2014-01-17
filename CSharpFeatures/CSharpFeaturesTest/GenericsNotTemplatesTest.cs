@@ -72,7 +72,6 @@ namespace CSharpFeaturesTest
             T t = default(T); // TODO: Initialize to an appropriate value
             GenericsNotTemplates.DoIt<T>(t);
             GenericsNotTemplates.DoIt("string");
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
         }
 
         [TestMethod()]

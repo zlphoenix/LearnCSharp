@@ -90,7 +90,6 @@
     <Compile Include="Exception\PerfomenceOfExceptionTest.cs" />
     <Compile Include="Expression\ExpressionTest.cs" />
     <Compile Include="Lambda\CollectionTraversingTest.cs" />
-    <Compile Include="Lambda\ExpressionSerializationTest.cs" />
     <Compile Include="GenericsNotTemplatesTest.cs" />
     <Compile Include="Lambda\CustomLinqProviderTest.cs" />
     <Compile Include="LazyInitTest.cs" />
