@@ -38,6 +38,7 @@ namespace CSharpFeatures.Data
         #region 方法
         /// <summary>
         /// 测试不同schema的DataSet 合并规则
+        /// 合并会将Schema同步过去
         /// </summary>
         public static void DataSetMerageTest()
         {
@@ -53,6 +54,7 @@ namespace CSharpFeatures.Data
             dr["Id"] = "1";
             dr["Code"] = "No001";
             dr["Desc"] = "First";
+            dtSrc.Rows.Add(dr);
             dest.Merge(dsSource);
 
         }
