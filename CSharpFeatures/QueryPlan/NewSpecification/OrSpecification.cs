@@ -5,20 +5,26 @@ using System.Text;
 
 namespace Allen.Design.QueryPlan.NewSpecification
 {
-    class OrSpecification : Specification
+    class OrSpecification : CompositeSpecification
     {
-        private Specification leftSideSpecification;
-        private Specification rightSideSpecification;
 
-        public OrSpecification(Specification leftSideSpecification, Specification rightSideSpecification)
+        public OrSpecification(Specification leftSideSpecification, params Specification[] rightSideSpecification)
         {
-            // TODO: Complete member initialization
-            this.leftSideSpecification = leftSideSpecification;
-            this.rightSideSpecification = rightSideSpecification;
+
+            base.InnerSpecifications.Add(leftSideSpecification);
+            base.InnerSpecifications.AddRange(rightSideSpecification);
         }
+
         public override Expression SatisfiedBy()
         {
-            throw new NotImplementedException();
+            Expression result = null;
+            foreach (var innerSpecification in InnerSpecifications)
+            {
+                result = result == null
+                    ? innerSpecification.SatisfiedBy()
+                    : result.Or(innerSpecification.SatisfiedBy());
+            }
+            return result;
         }
     }
 }

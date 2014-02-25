@@ -7,12 +7,12 @@ namespace Allen.Design.QueryPlan.NewSpecification
 {
     class NotSpecification : Specification
     {
-        private Specification specification;
+        private Specification _originalSpecification;
 
         public NotSpecification(Specification specification)
         {
             // TODO: Complete member initialization
-            this.specification = specification;
+            _originalSpecification = specification;
         }
         public override Expression SatisfiedBy()
         {

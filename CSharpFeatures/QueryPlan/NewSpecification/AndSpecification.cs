@@ -7,21 +7,24 @@ namespace Allen.Design.QueryPlan.NewSpecification
 {
     class AndSpecification : CompositeSpecification
     {
-        private readonly Specification _leftSideSpecification;
-        private readonly Specification[] _rightSideSpecifications;
 
         public AndSpecification(Specification leftSideSpecification, params Specification[] rightSideSpecification)
         {
-            // TODO: Complete member initialization
-            _leftSideSpecification = leftSideSpecification;
-            _rightSideSpecifications = rightSideSpecification;
+
+            base.InnerSpecifications.Add(leftSideSpecification);
+            base.InnerSpecifications.AddRange(rightSideSpecification);
         }
 
         public override Expression SatisfiedBy()
         {
-            return _leftSideSpecification.SatisfiedBy()
-                .And(_rightSideSpecifications
-                    .Select(s => s.SatisfiedBy()).ToList());
+            Expression result = null;
+            foreach (var innerSpecification in InnerSpecifications)
+            {
+                result = result == null
+                    ? innerSpecification.SatisfiedBy()
+                    : result.And(innerSpecification.SatisfiedBy());
+            }
+            return result;
         }
     }
 }

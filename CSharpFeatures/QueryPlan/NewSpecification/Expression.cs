@@ -29,13 +29,22 @@ namespace Allen.Design.QueryPlan.NewSpecification
 
         //public abstract System.Linq.Expressions.Expression ToExpressionTree();
 
-        internal Expression And(IList<Expression> rightExpressions)
+        internal Expression And(params Expression[] rightExpressions)
         {
-            if (rightExpressions == null || !rightExpressions.Any())
+            if (rightExpressions == null)
             {
                 throw new ArgumentNullException("rightExpressions");
             }
             return new AndExpression(this, rightExpressions);
+        }
+
+        internal Expression Or(params Expression[] rightExpressions)
+        {
+            if (rightExpressions == null)
+            {
+                throw new ArgumentNullException("rightExpressions");
+            }
+            return new OrExpression(this, rightExpressions);
         }
     }
 
@@ -44,7 +53,6 @@ namespace Allen.Design.QueryPlan.NewSpecification
         public AndExpression(Expression expression
             , IList<Expression> rightExpressions)
         {
-
             if (rightExpressions == null || rightExpressions.Any())
                 throw new ArgumentException("And Expression Create Arg Error!", "rightExpressions");
             Operands.Add(expression);
@@ -60,7 +68,7 @@ namespace Allen.Design.QueryPlan.NewSpecification
                 queryStr.Append(Operands[i]);
                 if (i != Operands.Count - 1)
                 {
-                    queryStr.Append(" and");
+                    queryStr.Append(" and ");
                 }
             }
             return queryStr.ToString();
@@ -78,13 +86,13 @@ namespace Allen.Design.QueryPlan.NewSpecification
 
     internal class OrExpression : Expression
     {
-        public OrExpression(Expression expression
-            , params Specification[] rightSideSpecifications)
+        public OrExpression(Expression expression, 
+            Expression[] rightExpressions)
         {
-            if (rightSideSpecifications == null || rightSideSpecifications.Length <= 0)
-                throw new ArgumentException("And Expression Create Arg Error!", "rightSideSpecifications");
+            if (rightExpressions == null || rightExpressions.Any())
+                throw new ArgumentException("Or Expression Create Arg Error!", "rightExpressions");
             Operands.Add(expression);
-            Operands.AddRange(rightSideSpecifications.Select(s => s.SatisfiedBy()));
+            Operands.AddRange(rightExpressions);
             ReturnType = typeof(bool);
         }
 
@@ -96,7 +104,7 @@ namespace Allen.Design.QueryPlan.NewSpecification
                 queryStr.Append(Operands[i]);
                 if (i != Operands.Count - 1)
                 {
-                    queryStr.Append(" and");
+                    queryStr.Append(" or ");
                 }
             }
             return queryStr.ToString();
