@@ -57,7 +57,7 @@ namespace TelChina.TRF.Domain.Core.Specification
         /// <returns><see cref="TelChina.TRF.Domain.Core.Specification.ISpecification{TEntity}"/></returns>
         public override Expression<Func<TEntity, bool>> SatisfiedBy()
         {
-            
+            //Expression.Field()
             return Expression.Lambda<Func<TEntity,bool>>(Expression.Not(_OriginalCriteria.Body),
                                                          _OriginalCriteria.Parameters.Single());
         }

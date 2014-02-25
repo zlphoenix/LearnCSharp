@@ -21,7 +21,7 @@ namespace Allen.Design.QueryPlan.NewSpecification
         /// IsSatisFied Specification pattern method,
         /// </summary>
         /// <returns>Expression that satisfy this specification</returns>
-        public abstract Expression SatisfiedBy();
+        public abstract Expression.Expression SatisfiedBy();
 
         #endregion
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using Allen.Design.QueryPlan.NewSpecification;
+using Allen.Design.QueryPlan.NewSpecification.Expression;
 
 namespace TelChina.TRF.Domain.Core.Specification
 {

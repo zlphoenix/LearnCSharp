@@ -15,9 +15,9 @@ namespace Allen.Design.QueryPlan.NewSpecification
             base.InnerSpecifications.AddRange(rightSideSpecification);
         }
 
-        public override Expression SatisfiedBy()
+        public override Expression.Expression SatisfiedBy()
         {
-            Expression result = null;
+            Expression.Expression result = null;
             foreach (var innerSpecification in InnerSpecifications)
             {
                 result = result == null

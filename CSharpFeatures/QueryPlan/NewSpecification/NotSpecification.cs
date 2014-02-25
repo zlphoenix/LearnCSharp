@@ -14,7 +14,7 @@ namespace Allen.Design.QueryPlan.NewSpecification
             // TODO: Complete member initialization
             _originalSpecification = specification;
         }
-        public override Expression SatisfiedBy()
+        public override Expression.Expression SatisfiedBy()
         {
             throw new NotImplementedException();
         }
