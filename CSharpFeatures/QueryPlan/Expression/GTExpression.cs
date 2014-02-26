@@ -1,16 +1,16 @@
 ﻿namespace Allen.Design.QueryPlan.NewSpecification.Expression
 {
     /// <summary>
-    /// 大于 Great Than
+    ///     大于 Great Than
     /// </summary>
     public class GreaterThanExpression : Expression
     {
         public GreaterThanExpression(Expression left, Expression right)
         {
-            this.Operands.Add(left);
-            this.Operands.Add(right);
+            Operands.Add(left);
+            Operands.Add(right);
             //TODO validate ParamType
-            this.ReturnType = typeof(bool);
+            ReturnType = typeof (bool);
         }
 
         public override string ToString()

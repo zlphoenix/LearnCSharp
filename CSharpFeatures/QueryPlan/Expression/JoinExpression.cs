@@ -14,18 +14,14 @@
         public override string ToString()
         {
             return string.Format("{0} join {1} on {2} "
-                , WithAlia(Operands[0]), WithAlia(Operands[1]), Operands[2])
-                ;
+                , WithAlia(Operands[0]), WithAlia(Operands[1]), Operands[2]);
         }
 
         private string WithAlia(Expression expression)
         {
             var p = expression as ParameterExpression;
             if (p == null) return expression.ToString();
-            else
-            {
-                return string.Format(" {0} as {1} ", p.Name, p.Alia);
-            }
+            return string.Format(" {0} as {1} ", p.Name, p.Alia);
         }
     }
 }

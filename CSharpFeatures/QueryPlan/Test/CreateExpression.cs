@@ -15,8 +15,12 @@ namespace Allen.Design.QueryPlan.Test
         /// <returns></returns>
         public ExpressionContext On()
         {
-            var orderParam = new ParameterExpression() { Name = "Order", Type = typeof(Order) };
-
+            var orderParam = new ParameterExpression()
+            {
+                Name = "Order",
+                Alia = "Dest",
+                Type = typeof(Order)
+            };
             var exp = orderParam.Member("Qty")
                     .GT(new ConstantExpression(100))
                 .And(orderParam.Member("Customer")
@@ -28,18 +32,32 @@ namespace Allen.Design.QueryPlan.Test
                 Expression = exp,
             };
         }
-
+        /// <summary>
+        /// Src join Dest on Src.
+        /// </summary>
+        /// <returns></returns>
         public Expression Join()
         {
             var fromParam = new ParameterExpression()
             {
-                Name = "SrcOrder",
+                Name = "Order",
                 Alia = "Src",
                 Type = typeof(Order)
             };
-            var joinCtx = On();
-            var join = fromParam.Join(joinCtx.Parameters[0], joinCtx.Expression);
+
+
+            var destParam = new ParameterExpression()
+            {
+                Name = "Order",
+                Alia = "Dest",
+                Type = typeof(Order)
+            };
+            var joinOnCriteria = fromParam.Member("Id")
+                .Equal(destParam.Member("SourceOrder"));
+
+            var join = fromParam.Join(destParam, joinOnCriteria);
             return join;
+
         }
     }
 
@@ -51,6 +69,7 @@ namespace Allen.Design.QueryPlan.Test
     }
     public class Order
     {
+        public string Id { get; set; }
         public Order SourceOrder { get; set; }
         public string OrderNumber { get; set; }
         public decimal Qty { get; set; }

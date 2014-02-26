@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Allen.Design.QueryPlan.NewSpecification.Expression
+﻿namespace Allen.Design.QueryPlan.NewSpecification.Expression
 {
-    class NotExpression : Expression
+    internal class NotExpression : Expression
     {
         private readonly Expression _innerExpression;
 
         public NotExpression(Expression expression)
         {
-            this._innerExpression = expression;
+            _innerExpression = expression;
             ReturnType = typeof (bool);
         }
 
@@ -22,7 +17,7 @@ namespace Allen.Design.QueryPlan.NewSpecification.Expression
 
         public override string ToString()
         {
-            return string.Format(" not {0}", InnerExpression.ToString());
+            return string.Format(" not {0}", InnerExpression);
         }
     }
 }

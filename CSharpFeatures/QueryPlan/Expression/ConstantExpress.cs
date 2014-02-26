@@ -5,6 +5,7 @@ namespace Allen.Design.QueryPlan.NewSpecification.Expression
     public class ConstantExpression : Expression
     {
         private readonly object _value;
+
         public ConstantExpression(object value, Type ofType = null)
         {
             if (ofType != null)

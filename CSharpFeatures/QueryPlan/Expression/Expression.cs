@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace Allen.Design.QueryPlan.NewSpecification.Expression
 {
     /// <summary>
-    /// 表达式
+    ///     表达式
     /// </summary>
     public abstract class Expression
     {
+        private readonly List<Expression> _operands;
+
         protected Expression()
         {
             _operands = new List<Expression>();
         }
 
-        private readonly List<Expression> _operands;
-
         /// <summary>
-        ///  操作数
+        ///     操作数
         /// </summary>
         public List<Expression> Operands
         {
@@ -25,6 +24,7 @@ namespace Allen.Design.QueryPlan.NewSpecification.Expression
         }
 
         public Type ReturnType { get; set; }
+        public string Alia { get; set; }
 
         //public abstract System.Linq.Expressions.Expression ToExpressionTree();
 
@@ -45,9 +45,9 @@ namespace Allen.Design.QueryPlan.NewSpecification.Expression
             }
             return new OrExpression(this, rightExpressions);
         }
+
         public Expression Not()
         {
-
             return new NotExpression(this);
         }
 
@@ -58,15 +58,16 @@ namespace Allen.Design.QueryPlan.NewSpecification.Expression
         }
 
         /// <summary>
-        /// 大于
+        ///     大于
         /// </summary>
         /// <returns></returns>
         public Expression GT(Expression right)
         {
             return new GreaterThanExpression(this, right);
         }
+
         /// <summary>
-        /// 大于
+        ///     大于
         /// </summary>
         /// <returns></returns>
         public Expression Equal(Expression right)
@@ -76,7 +77,7 @@ namespace Allen.Design.QueryPlan.NewSpecification.Expression
 
         public Expression Join(Expression dest, Expression onCriteria)
         {
-            return new JoinExpression(this,dest,onCriteria);
+            return new JoinExpression(this, dest, onCriteria);
         }
     }
 }
