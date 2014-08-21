@@ -7,10 +7,12 @@ using Allen.Design.QueryPlan.NewSpecification.Expression;
 
 namespace Allen.Design.QueryPlan.Test
 {
+
     public class CreateExpression
     {
         /// <summary>
         /// Order.Qty > 100 and Order.Customer = "Zhang San" 
+        /// 100>Order.Price
         /// </summary>
         /// <returns></returns>
         public ExpressionContext On()
@@ -21,6 +23,7 @@ namespace Allen.Design.QueryPlan.Test
                 Alia = "Dest",
                 Type = typeof(Order)
             };
+          
             var exp = orderParam.Member("Qty")
                     .GT(new ConstantExpression(100))
                 .And(orderParam.Member("Customer")
@@ -33,7 +36,7 @@ namespace Allen.Design.QueryPlan.Test
             };
         }
         /// <summary>
-        /// Src join Dest on Src.
+        /// Src join Dest on Src.Id = Dest.SourceOrder
         /// </summary>
         /// <returns></returns>
         public Expression Join()
