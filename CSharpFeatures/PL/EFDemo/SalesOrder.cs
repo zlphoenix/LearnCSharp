@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EFDemo
 {
@@ -24,7 +21,7 @@ namespace EFDemo
         /// <summary>
         /// 创建时间
         /// </summary>
-        public DateTime CreatedOn { get; set; }
+        public DateTime? CreatedOn { get; set; }
 
         /// <summary>
         /// 修改人
@@ -50,10 +47,14 @@ namespace EFDemo
         /// 客户
         /// </summary>
         public virtual Customer Customer { get; set; }
-
         public virtual List<DocDetail> DocDetails { get; set; }
 
     }
+
+    public class NotRequiredAttribute : Attribute
+    {
+    }
+
     /// <summary>
     /// 入库状态
     /// </summary>
