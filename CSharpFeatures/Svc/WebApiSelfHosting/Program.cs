@@ -21,7 +21,7 @@ namespace WebApiSelfHosting
                 client.DefaultRequestHeaders
        .Accept
        .Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Add("Content-Type", "application/json");
+                //client.DefaultRequestHeaders.Add("Content-Type", "application/json");
                 HttpResponseMessage response = client.GetAsync(baseAddress + "api/values").Result;
 
                 Console.WriteLine(response);
