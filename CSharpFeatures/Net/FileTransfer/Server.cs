@@ -67,7 +67,7 @@ namespace J9Updater.FileTransferSvc
 
             StateObject state = new StateObject();
             state.workSocket = handler;
-            handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, SocketFlags.None, ReadCallback, state);
+            handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, SocketFlags.None, ReadCallbackFileRecive, state);
             flag = 0;
         }
 
@@ -115,7 +115,54 @@ namespace J9Updater.FileTransferSvc
         {
             Console.WriteLine("Data has been received");
         }
+        private void ReadCallbackFileRecive(IAsyncResult ar)
+        {
+            StateObject tempState = (StateObject)ar.AsyncState;
+            Socket handler = tempState.workSocket;
+            int bytesRead = handler.EndReceive(ar);
 
+            if (bytesRead <= 0)
+            {
+                return;
+            }
+
+            using (var memoryStream = new MemoryStream(tempState.buffer))
+            {
+                using (BinaryReader reader = new BinaryReader(memoryStream))
+                {
+                    //var length = reader.ReadInt32();
+                    var filename = reader.ReadString();
+
+                    //var md5Hash = reader.ReadString();
+                    var fileData = new byte[memoryStream.Length - memoryStream.Position];
+                    reader.Read(fileData, BitConverter.GetBytes(memoryStream.Position).Length, fileData.Length);
+                    try
+                    {
+                        using (var writer = new BinaryWriter(
+                            File.Open(Path.Combine(@"R:\ReceivedFiles\", filename), FileMode.Append)))
+                        {
+                            writer.Write(tempState.buffer, 0, bytesRead);
+                        }
+                    }
+                    catch (Exception error)
+                    {
+                        Console.WriteLine(error.Message);
+                        Thread.Sleep(30);
+                    }
+                    finally
+                    {
+                        // this method starts a new  AsyncCallback(ReadCallback)
+                        // and this method is ReadCallback so it works as a recursive method
+                        handler.BeginReceive(tempState.buffer,
+                            0,
+                            StateObject.BufferSize,
+                            0,
+                            new AsyncCallback(ReadCallbackFileRecive),
+                            tempState);
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// 执行与释放或重置非托管资源相关的应用程序定义的任务。
