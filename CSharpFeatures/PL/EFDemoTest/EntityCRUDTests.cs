@@ -1,12 +1,12 @@
-﻿using System;
+﻿using EFDemo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using EFDemo;
+using System;
 using System.Collections.Generic;
 
 namespace EFDemoTest
 {
     [TestClass]
-    public class EntityCRUDTests
+    public class EntityCrudTests
     {
         [TestMethod]
         public void CreateOrderTest()
@@ -18,9 +18,9 @@ namespace EFDemoTest
                     ID = Guid.NewGuid().ToString(),
                     Code = "Allen",
                     Name = "Allen",
-                    CreatedOn =DateTime.Now,
+                    CreatedOn = DateTime.Now,
                     ModifiedOn = DateTime.Now,
-                
+
                 };
                 db.Customers.Add(me);
 
