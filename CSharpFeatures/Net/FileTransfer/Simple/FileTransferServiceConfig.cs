@@ -6,6 +6,13 @@
     public class FileTransferServiceConfig
     {
         /// <summary>
+        /// 本地端口
+        /// </summary>
+        public int LocalPort
+        { get; set; }
+
+
+        /// <summary>
         /// 服务端口号
         /// </summary>
         public string ServerPort { get; set; }

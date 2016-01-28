@@ -40,12 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
-    <Compile Include="Server.cs" />
-    <Compile Include="FileTransferService.cs" />
-    <Compile Include="FileTransferServiceConfig.cs" />
-    <Compile Include="IFileTransferService.cs" />
+    <Compile Include="Simple\Client.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="Logging.cs" />
+    <Compile Include="Simple\Server.cs" />
+    <Compile Include="Simple\FileTransferService.cs" />
+    <Compile Include="Simple\FileTransferServiceConfig.cs" />
+    <Compile Include="Simple\IFileTransferService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service.cs" />
+    <Compile Include="TcpHandler.cs" />
+    <Compile Include="TcpRelay.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
