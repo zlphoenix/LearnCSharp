@@ -8,14 +8,17 @@
         /// <summary>
         /// 本地端口
         /// </summary>
-        public int LocalPort
-        { get; set; }
-
+        public int LocalPort { get; set; }
 
         /// <summary>
         /// 服务端口号
         /// </summary>
-        public string ServerPort { get; set; }
+        public int ServerPort { get; set; }
+
+        /// <summary>
+        /// 服务端地址
+        /// </summary>
+        public string ServerAddress { get; set; }
 
         /// <summary>
         /// 连接超时时间

@@ -4,13 +4,17 @@ using System.Net.Sockets;
 
 namespace J9Updater.FileTransferSvc
 {
-    class TcpRelay : IService
+    /// <summary>
+    /// ServiceRouter Ver 1
+    /// </summary>
+    class TcpBinding : IService
     {
         private DateTime lastSweepTime;
         public List<TcpHandler> Handlers { get; set; }
-        public TcpRelay()
+        public TcpBinding()
         {
             lastSweepTime = DateTime.Now;
+            this.Handlers = new List<TcpHandler>();
         }
 
         public bool Handle(byte[] firstPacket, int length, Socket socket, object state)
@@ -19,7 +23,7 @@ namespace J9Updater.FileTransferSvc
             {
                 return false;
             }
-            if (length < 2 || firstPacket[0] != 5)
+            if (length < 2)
             {
                 return false;
             }

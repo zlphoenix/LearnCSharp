@@ -7,10 +7,11 @@ namespace FileTransferServer
     {
         static void Main(string[] args)
         {
-            var server = new Server();
+            //var server = new Server();
+            var service = new ServiceHost();
+            service.Start();
 
-
-            var client = new Client();
+            var client = new ServiceClient();
             while (true)
             {
                 try

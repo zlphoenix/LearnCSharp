@@ -5,18 +5,19 @@ using System.Net.Sockets;
 
 namespace J9Updater.FileTransferSvc
 {
-    public class Service
+    public class ServiceHost
     {
         private readonly FileTransferServiceConfig config;
-        private List<IService> services;
+        private readonly List<IService> services;
 
-        public Service()
+        public ServiceHost()
         {
-            services = new List<IService>();
+            services = new List<IService> { new TcpBinding() };
+
 
             config = new FileTransferServiceConfig()
             {
-                LocalPort = 8090,
+                LocalPort = 9050,
             };
         }
 
