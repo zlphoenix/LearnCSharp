@@ -19,6 +19,7 @@ namespace J9Updater.FileTransferSvc
             {
                 LocalPort = 9050,
             };
+
         }
 
         public void Start()

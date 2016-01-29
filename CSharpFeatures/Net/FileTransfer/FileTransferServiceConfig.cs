@@ -24,5 +24,12 @@
         /// 连接超时时间
         /// </summary>
         public long ConnectionTimeout { get; set; }
+
+        public int BufferSize { get; set; }
+
+        public FileTransferServiceConfig()
+        {
+            BufferSize = 8192;
+        }
     }
 }

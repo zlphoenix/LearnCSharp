@@ -10,7 +10,7 @@ namespace J9Updater.FileTransferSvc
     {
         private bool closed;
         public FileTransferServiceConfig Config { get; set; }
-
+        public int BufferSize { get; set; }
         public ServiceClient()
         {
             this.Config = new FileTransferServiceConfig
@@ -19,13 +19,13 @@ namespace J9Updater.FileTransferSvc
                 ServerPort = 9050,
                 //LocalPort =
             };
-            BufferSize = 8192;
+            BufferSize = Config.BufferSize;
         }
         public void SendFile(string filePath)
         {
             if (string.IsNullOrEmpty(filePath)) filePath = GetFileName();
-            //var fileInfo = new FileInfo(filePath);
-            //var fName = fileInfo.Name;
+            //var FileInfo = new FileInfo(filePath);
+            //var fName = FileInfo.Name;
             //byte[] preBuffer;
             //using (var memoryStream = new MemoryStream())
             //{
@@ -106,7 +106,8 @@ namespace J9Updater.FileTransferSvc
             var state = (Tuple<Socket, FileInfo>)ar.AsyncState;
             var clientSocket = state.Item1;
             SocketError error;
-            var sendResutl = clientSocket.EndSend(ar, out error);
+            var sendResult = clientSocket.EndSend(ar, out error);
+            Logging.Debug(string.Format("Client:HandShake,Send:{0},Error:{1}", sendResult, error));
             byte[] response = new byte[BufferSize];
             clientSocket.BeginReceive(response, 0, response.Length, SocketFlags.None, ResponseCallBack,
                 new Tuple<Socket, byte[], FileInfo>(clientSocket, response, state.Item2));
@@ -119,6 +120,7 @@ namespace J9Updater.FileTransferSvc
             var clientSocket = state.Item1;
             SocketError error;
             var responseBytes = clientSocket.EndReceive(ar, out error);
+
             if (responseBytes <= 0) throw new Exception("连接失败," + error);
 
             var response = state.Item2;
@@ -131,20 +133,22 @@ namespace J9Updater.FileTransferSvc
 
             var fileInfo = state.Item3;
             byte[] fileBytes = new byte[BufferSize];
-            //fileBytes[0] = 1;//Ver
+            //FileBytes[0] = 1;//Ver
             var readFileBytes = 0;
-            var fileStream = fileInfo.OpenRead();
+            var fileStream = new FileStream(fileInfo.FullName, FileMode.Open,
+                FileAccess.Read, FileShare.Read, BufferSize,
+                FileOptions.Asynchronous);
 
             //TODO buffer size
             fileStream.BeginRead(fileBytes, 0, fileBytes.Length, AfterReadFileToBuffer,
                 new SendFileState()
                 {
-                    fileStream = fileStream,
-                    fileBytes = fileBytes,
-                    clientSocket = clientSocket,
-                    readFileByteCount = readFileBytes,
-                    fileInfo = fileInfo,
-                    filseSize = fileInfo.Length,
+                    FileStream = fileStream,
+                    FileBytes = fileBytes,
+                    Connection = clientSocket,
+                    TransmitedByteCount = readFileBytes,
+                    FileInfo = fileInfo,
+                    FileSize = fileInfo.Length,
                 });
 
         }
@@ -152,11 +156,22 @@ namespace J9Updater.FileTransferSvc
         private void AfterReadFileToBuffer(IAsyncResult ar)
         {
             var state = (SendFileState)ar.AsyncState;
-            var readingBytes = state.fileStream.EndRead(ar);
+            try
+            {
 
-            //readFileByteCount
-            state.clientSocket.BeginSend(state.fileBytes, 0,
-                readingBytes, SocketFlags.None, SendFileCallBack, state);
+                var readingBytes = state.FileStream.EndRead(ar);
+                Logging.Debug(string.Format("Client:ReadBytesFromFile:{0}", readingBytes));
+                //TransmitedByteCount
+                state.Connection.BeginSend(state.FileBytes, 0,
+                    readingBytes, SocketFlags.None, SendFileCallBack, state);
+            }
+            catch (Exception e)
+            {
+
+                Logging.LogUsefulException(e);
+                state.Close();
+            }
+
         }
 
 
@@ -165,20 +180,39 @@ namespace J9Updater.FileTransferSvc
             var state = (SendFileState)ar.AsyncState;
 
             SocketError error;
-            var sentBytes = state.clientSocket.EndSend(ar, out error);
-            if (state.readFileByteCount + sentBytes < state.fileInfo.Length)
+            var sentBytes = state.Connection.EndSend(ar, out error);
+            state.Count++;
+            Logging.Debug(
+                string.Format("Client:ReadCount:{0},Dealed:{1}，Error:{2}",
+                    state.Count, state.TransmitedByteCount, sentBytes));
+            if (state.TransmitedByteCount + sentBytes < state.FileInfo.Length)
             {
-                state.fileStream.BeginRead(state.fileBytes, state.readFileByteCount,
-                    state.fileBytes.Length, AfterReadFileToBuffer, state);
-                state.readFileByteCount += sentBytes;
+                state.FileStream.BeginRead(state.FileBytes, 0,
+                    state.FileBytes.Length, AfterReadFileToBuffer, state);
+                state.TransmitedByteCount += sentBytes;
             }
             else
             {
-                state.clientSocket.Close();
+                state.Connection.BeginReceive(state.FileBytes, 0, state.FileBytes.Length, SocketFlags.None,
+                    CloseConnectionCallBack, state);
+
             }
         }
 
-        public int BufferSize { get; set; }
+        private void CloseConnectionCallBack(IAsyncResult ar)
+        {
+            var state = (SendFileState)ar.AsyncState;
+            state.Connection.EndReceive(ar);
+            if (state.FileBytes[1] != 0x20) throw new Exception("服务端没有正常关闭");
+            state.Close();
+            Logging.Debug(state.FileName + " Send completed！");
+            var sw = Logging.sw;
+            sw.Stop();
+            Logging.Info(
+                $"FileSize:{state.FileSize / 1024 / 1024}M,Spend:{sw.Elapsed} second,speed:{state.FileSize / sw.Elapsed.Seconds / 1024 / 1024} m/s");
+        }
+
+
 
         private void RetryConnect()
         {

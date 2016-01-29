@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Sockets;
 
 namespace J9Updater.FileTransferSvc
@@ -10,11 +9,11 @@ namespace J9Updater.FileTransferSvc
     class TcpBinding : IService
     {
         private DateTime lastSweepTime;
-        public List<TcpHandler> Handlers { get; set; }
+        //public List<TcpHandler> Handlers { get; set; }
         public TcpBinding()
         {
             lastSweepTime = DateTime.Now;
-            this.Handlers = new List<TcpHandler>();
+            //this.Handlers = new List<TcpHandler>();
         }
 
         public bool Handle(byte[] firstPacket, int length, Socket socket, object state)
@@ -36,28 +35,29 @@ namespace J9Updater.FileTransferSvc
             handler.Start(firstPacket, length);
 
             //轮询的方式关闭超时的连接 
-            IList<TcpHandler> handlersToClose = new List<TcpHandler>();
-            lock (Handlers)
-            {
-                Handlers.Add(handler);
-                DateTime now = DateTime.Now;
-                if (now - lastSweepTime > TimeSpan.FromSeconds(1))
-                {
-                    lastSweepTime = now;
-                    foreach (var handlerNeedsToBeClosed in Handlers)
-                    {
-                        if (now - handlerNeedsToBeClosed.lastActivity > TimeSpan.FromSeconds(900))
-                        {
-                            handlersToClose.Add(handlerNeedsToBeClosed);
-                        }
-                    }
-                }
-            }
-            foreach (var closingHandler in handlersToClose)
-            {
-                Logging.Debug("Closing timed out TCP connection.");
-                closingHandler.Close();
-            }
+            //IList<TcpHandler> handlersToClose = new List<TcpHandler>();
+            //lock (Handlers)
+            //{
+            //    Handlers.Add(handler);
+            //    Logging.Debug("Adding Handler...");
+            //    DateTime now = DateTime.Now;
+            //    if (now - lastSweepTime > TimeSpan.FromSeconds(1))
+            //    {
+            //        lastSweepTime = now;
+            //        foreach (var handlerNeedsToBeClosed in Handlers)
+            //        {
+            //            if (now - handlerNeedsToBeClosed.lastActivity > TimeSpan.FromSeconds(900))
+            //            {
+            //                handlersToClose.Add(handlerNeedsToBeClosed);
+            //            }
+            //        }
+            //    }
+            //}
+            //foreach (var closingHandler in handlersToClose)
+            //{
+            //    Logging.Debug("Closing timed out TCP connection.");
+            //    closingHandler.Close();
+            //}
             return true;
         }
 

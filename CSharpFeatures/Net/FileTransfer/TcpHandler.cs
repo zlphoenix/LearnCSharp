@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
@@ -14,12 +13,12 @@ namespace J9Updater.FileTransferSvc
         private byte[] handshakeMsg;
         private int handshakeMsgLength;
         private bool closed;
-        const int RecvSize = 8192;
+        //const int RecvSize = 8192;
         //const int RecvReserveSize = IVEncryptor.ONETIMEAUTH_BYTES + IVEncryptor.AUTH_BYTES; // reserve for one-time auth
 
         public TcpHandler(TcpBinding tcpBinding)
         {
-            BufferSize = RecvSize + RecvSize + 32;
+            BufferSize = new FileTransferServiceConfig().BufferSize;
             binding = tcpBinding;
         }
 
@@ -37,54 +36,66 @@ namespace J9Updater.FileTransferSvc
             {
                 return;
             }
+            if (handshakeMsgLength <= 1)
+            {
+                Close();
+                return;
+            }
+            var state = new SendFileState
+            {
+                Connection = Connection,
+            };
             try
             {
-                var bytesRead = handshakeMsgLength;
 
-                if (bytesRead > 1)
+
+
+                // +-----+-----+-------+------+-------------------+---------------------+
+                // | VER | OPT |  RSV  |Type   | UpLoad/Download   |  fileName|fileLength |
+                // +-----+-----+-------+------+-------------------+---------------------+
+                // |  1  |  2  | X'00' |   1   | 1                 |    Variable          |
+                // +-----+-----+-------+------+-------------------+---------------------+
+
+                var ver = handshakeMsg[0];
+                if (ver != 1)
                 {
+                    //TODO Versioning
+                    Logging.Error("Service Version Check Failed,Expect ver=1 actual is " + ver);
+                }
 
-                    // +-----+-----+-------+------+-------------------+---------------------+
-                    // | VER | OPT |  RSV  |Type   | UpLoad/Download   |  fileName|fileLength |
-                    // +-----+-----+-------+------+-------------------+---------------------+
-                    // |  1  |  2  | X'00' |   1   | 1                 |    Variable          |
-                    // +-----+-----+-------+------+-------------------+---------------------+
+                byte[] response = { 1, 0x10, 0 };//Succeed msg
+                var fileInfoStr = Encoding.UTF8.GetString(handshakeMsg, 6, handshakeMsgLength - 6);
 
-                    var ver = handshakeMsg[0];
-                    if (ver != 1)
-                    {
-                        Logging.Error("Service Version Check Failed,Expect ver=1 actual is " + ver);
-                    }
-
-                    byte[] response = { 1, 0x10, 0 };
-                    var convert = new ByteConverter();
-                    var fileInfoStr = Encoding.UTF8.GetString(handshakeMsg, 6, handshakeMsgLength - 6);
-                    Object state = null;
-                    if (string.IsNullOrEmpty(fileInfoStr))
-                        response[2] = 0x40;//Client Msg Error
-                    else
-                    {
-                        var fileInfoArray = fileInfoStr.Split('|');
-                        if (fileInfoArray.Length != 2) response[2] = 0x40;//Client Msg Error
-                        else
-                        {
-                            var fileInfo = new Tuple<Socket, string, int>(Connection, fileInfoArray[0], Convert.ToInt32(fileInfoArray[1]));
-                            state = fileInfo;
-                        }
-                    }
-
-
-                    Connection.BeginSend(response, 0, response.Length, 0, HandshakeSendCallback, state);
+                if (string.IsNullOrEmpty(fileInfoStr))
+                {
+                    Logging.Error("FileInfo Error,response X'40'");
+                    response[2] = 0x40; //Client Msg Error
                 }
                 else
                 {
-                    Close();
+                    var fileInfoArray = fileInfoStr.Split('|');
+                    if (fileInfoArray.Length != 2)
+                    {
+                        Logging.Error("FileInfo Error,response X'40'");
+                        response[2] = 0x40; //Client Msg Error
+                    }
+                    else
+                    {
+
+                        state.DealingByteCount = 0;
+                        state.FileBytes = null;
+                        state.FileName = fileInfoArray[0];
+                        state.FileSize = Convert.ToInt32(fileInfoArray[1]);
+
+                    }
                 }
+                Connection.BeginSend(response, 0, response.Length, 0, HandshakeSendCallback, state);
             }
             catch (Exception e)
             {
+                Logging.Debug("握手过程中发生异常");
                 Logging.LogUsefulException(e);
-                Close();
+                Close(state);
             }
         }
 
@@ -92,7 +103,6 @@ namespace J9Updater.FileTransferSvc
 
         private void HandshakeSendCallback(IAsyncResult ar)
         {
-            var state = (Tuple<Socket, string, int>)ar.AsyncState;
             if (closed)
             {
                 return;
@@ -100,14 +110,19 @@ namespace J9Updater.FileTransferSvc
             try
             {
                 Connection.EndSend(ar);
+                //握手失败的场景
+                if (ar.AsyncState == null)
+                {
+                    Logging.Debug("握手失败");
+                    Close();
+                    return;
+                }
+                var state = (SendFileState)ar.AsyncState;
+                state.FileBytes = new byte[BufferSize];
 
-                byte[] connetionRecvBuffer = new byte[BufferSize];
-                Connection.BeginReceive(connetionRecvBuffer,
+                Connection.BeginReceive(state.FileBytes,
                     0, BufferSize, SocketFlags.None,
-                    ReceiveFileCallback, new object[]
-                    {
-                        state.Item2, state.Item3, connetionRecvBuffer
-                    });
+                    ReceiveFileCallback, state);
 
 
             }
@@ -120,69 +135,106 @@ namespace J9Updater.FileTransferSvc
 
         private void ReceiveFileCallback(IAsyncResult ar)
         {
-            var state = (object[])ar.AsyncState;
-            var fileName = state[0] as string;
-            var fileBytes = state[2] as byte[];
+            var state = (SendFileState)ar.AsyncState;
             try
             {
-                int bytesRead = Connection.EndReceive(ar);
+                var bytesRead = Connection.EndReceive(ar);
                 if (bytesRead > 0)
                 {
-                    var filePath = Path.Combine(@"R:\ReceivedFiles\", fileName);
-                    var writer = File.Open(filePath,
-                        FileMode.Create);
-                    writer.BeginWrite(fileBytes, 0,
-                        bytesRead, WriteFileCallBack, new SendFileState
-                        {
-                            clientSocket = Connection,
-                            fileBytes = fileBytes,
-                            fileInfo = new FileInfo(filePath),
-                            fileStream = writer,
-                            readFileByteCount = 0,
-                            filseSize = (int)state[1],
-                            actualByteCount = bytesRead
-                        });
+                    var filePath = Path.Combine(@"R:\ReceivedFiles\", state.FileName);
+                    var writer = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.Write, BufferSize, FileOptions.Asynchronous);
+                    state.FileInfo = new FileInfo(filePath);
+                    state.FileStream = writer;
+                    state.DealingByteCount = bytesRead;
+                    writer.BeginWrite(state.FileBytes, 0,
+                        bytesRead, WriteFileCallBack, state);
+                }
+                else
+                {
+                    Close(state);
                 }
             }
             catch (Exception e)
             {
 
                 Logging.LogUsefulException(e);
-                Close();
+                Close(state);
             }
         }
+
+
 
         private void WriteFileCallBack(IAsyncResult ar)
         {
             var state = (SendFileState)ar.AsyncState;
+            try
+            {
+                state.FileStream.EndWrite(ar);
+                state.Count++;
+                Logging.Debug(
+                    string.Format("Server:WriteCount:{0},Dealed:{1}",
+                    state.Count, state.TransmitedByteCount));
+                if (state.FileSize >
+                    (state.DealingByteCount + state.TransmitedByteCount))
+                {
 
-            state.fileStream.EndWrite(ar);
-            if (state.filseSize >
-                (state.actualByteCount + state.readFileByteCount))
-            {
-                state.clientSocket.BeginReceive(state.fileBytes,
-                    state.readFileByteCount, BufferSize, SocketFlags.None,
-                    CountinueReceiveFileCallback, state);
-                state.readFileByteCount += state.actualByteCount;//写入成功后,累计已写入字节数
+                    state.Connection.BeginReceive(state.FileBytes,
+                        0, BufferSize, SocketFlags.None,
+                        CountinueReceiveFileCallback, state);
+                    state.TransmitedByteCount += state.DealingByteCount;//写入成功后,累计已写入字节数
+                }
+                else
+                {
+                    state.FileBytes = new byte[] { 1, 0x20 };
+                    state.Connection.BeginSend(state.FileBytes, 0, state.FileBytes.Length,
+                        SocketFlags.None, FinishingCallBack, state);
+
+
+                }
             }
-            else
+            catch (Exception ex)
             {
-                state.fileStream.Close();
-                state.clientSocket.Close();
-                Console.WriteLine(state.fileInfo.Name + " write completed！");
+                Logging.LogUsefulException(ex);
+                Close(state);
+                //throw;
             }
+
+        }
+
+        private void FinishingCallBack(IAsyncResult ar)
+        {
+            var state = (SendFileState)ar.AsyncState;
+            state.Connection.EndSend(ar);
+            state.Close();
+            Logging.Debug(state.FileName + " write completed！");
         }
 
         private void CountinueReceiveFileCallback(IAsyncResult ar)
         {
             var state = (SendFileState)ar.AsyncState;
-
-            var bytesRead = state.clientSocket.EndReceive(ar);
-            if (bytesRead > 0)
+            try
             {
-                state.fileStream.BeginWrite(state.fileBytes,
-                    state.readFileByteCount, bytesRead, WriteFileCallBack, state);
+                SocketError error;
+                var bytesRead = state.Connection.EndReceive(ar, out error);
+                Logging.Debug(
+                   string.Format("Server:Count:{0},Receive:{1},SocketError:{2}",
+                   state.Count, bytesRead, error));
+                if (bytesRead > 0)
+                {
+                    state.FileStream.BeginWrite(state.FileBytes,
+                        0, bytesRead, WriteFileCallBack, state);
+                }
+                else
+                {
+                    Console.WriteLine("WTF!");
+                }
             }
+            catch (Exception ex)
+            {
+                Logging.LogUsefulException(ex);
+                Close(state);
+            }
+
         }
 
         private void HandshakeReceive2Callback(IAsyncResult ar)
@@ -247,13 +299,21 @@ namespace J9Updater.FileTransferSvc
 
 
         public int BufferSize { get; private set; }
-
+        private void Close(SendFileState state)
+        {
+            lock (this)
+            {
+                if (closed)
+                {
+                    return;
+                }
+                closed = true;
+            }
+            state?.Close();
+        }
         public void Close()
         {
-            lock (binding.Handlers)
-            {
-                binding.Handlers.Remove(this);
-            }
+
             lock (this)
             {
                 if (closed)
@@ -266,6 +326,7 @@ namespace J9Updater.FileTransferSvc
             {
                 try
                 {
+                    Logging.Debug("Closing Connection...");
                     Connection.Shutdown(SocketShutdown.Both);
                     Connection.Close();
                 }

@@ -51,7 +51,8 @@ namespace J9Updater.FileTransferSvc
             }
             catch (Exception ex)
             {
-
+                Logging.LogUsefulException(ex);
+                listener.Close();
             }
 
         }
@@ -113,7 +114,7 @@ namespace J9Updater.FileTransferSvc
         }
         public void LabelWriter()
         {
-            Console.WriteLine("Data has been received");
+            Logging.Debug("Data has been received");
         }
         private void ReadCallbackFileRecive(IAsyncResult ar)
         {
@@ -146,7 +147,7 @@ namespace J9Updater.FileTransferSvc
                     }
                     catch (Exception error)
                     {
-                        Console.WriteLine(error.Message);
+                        Logging.Debug(error.Message);
                         Thread.Sleep(30);
                     }
                     finally

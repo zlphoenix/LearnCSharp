@@ -18,7 +18,8 @@ namespace FileTransferServer
                 {
                     Console.WriteLine("FilePath:");
                     var path = Console.ReadLine();
-
+                    Logging.sw.Reset();
+                    Logging.sw.Start();
                     client.SendFile(path);
                 }
                 catch (Exception ex)
