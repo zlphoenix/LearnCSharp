@@ -20,7 +20,7 @@ namespace J9Updater.FileTransferSvc
 
         public static void Debug(string msg)
         {
-            //Write(msg);
+            Write(msg);
         }
 
         public static void Error(string msg)

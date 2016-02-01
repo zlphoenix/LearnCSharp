@@ -1,4 +1,5 @@
 ﻿using J9Updater.FileTransferSvc;
+using J9Updater.FileTransferSvc.Ver1;
 using System;
 
 namespace FileTransferServer
@@ -11,7 +12,7 @@ namespace FileTransferServer
             var service = new ServiceHost();
             service.Start();
 
-            var client = new ServiceClient();
+            var client = new TcpFileTransmitServiceClient();
             while (true)
             {
                 try
@@ -20,7 +21,7 @@ namespace FileTransferServer
                     var path = Console.ReadLine();
                     Logging.sw.Reset();
                     Logging.sw.Start();
-                    client.SendFile(path);
+                    client.Upload(path, null);
                 }
                 catch (Exception ex)
                 {
