@@ -53,6 +53,7 @@
     <Compile Include="ServiceHost.cs" />
     <Compile Include="Ver1\TcpHandler.cs" />
     <Compile Include="Ver1\TcpFileTransmitService.cs" />
+    <Compile Include="Ver1\Util.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

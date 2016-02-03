@@ -9,6 +9,8 @@ namespace J9Updater.FileTransferSvc.Ver1
 {
     public class TcpFileTransmitServiceClient
     {
+        #region Properties
+
         private bool closed;
         public FileTransferServiceConfig Config { get; set; }
         private string DownloadFileDir { get; } = @"R:\DownloadFiles";
@@ -22,6 +24,11 @@ namespace J9Updater.FileTransferSvc.Ver1
             };
             BufferSize = Config.BufferSize;
         }
+        #endregion
+
+        #region Upload
+
+
         public void Upload(string filePath, Action<FileTransmitState> callback)
         {
             if (string.IsNullOrEmpty(filePath)) filePath = GetFileName();
@@ -282,8 +289,7 @@ namespace J9Updater.FileTransferSvc.Ver1
 
 
                 state.Connection.EndReceive(ar);
-                //执行CallBack
-                state.AfterTransmitCallback?.Invoke(state);
+
 
                 //如果在Callback中没有处理掉异常，需要抛出
                 if (state.Buffer[1] != 0x20) throw new Exception("服务端没有正常关闭");
@@ -293,6 +299,8 @@ namespace J9Updater.FileTransferSvc.Ver1
                 sw.Stop();
                 Logging.Info(
                     $"FileSize:{state.FileSize / 1024 / 1024 }K,Spend:{sw.Elapsed} second,speed:{(decimal)state.FileSize / sw.Elapsed.Milliseconds / 1024} k/s");
+                //执行CallBack
+                state.AfterTransmitCallback?.Invoke(state);
             }
             catch (Exception e)
             {
@@ -301,7 +309,9 @@ namespace J9Updater.FileTransferSvc.Ver1
                 state.Close();
             }
         }
+        #endregion
 
+        #region DownLoad
 
         public void DownLoad(string filePath, Action<FileTransmitState> callback)
         {
@@ -361,9 +371,8 @@ namespace J9Updater.FileTransferSvc.Ver1
                 //Ver1,Opt2,RSV1,MethodType1
                 //var handshakeMessage = new MessageHandler();
 
-                var fileInfo = state.FileInfo;
                 //协议中消息体部分使用{目标文件路径}
-                var fileInfoBuffer = Encoding.UTF8.GetBytes(fileInfo.Name);
+                var fileInfoBuffer = Encoding.UTF8.GetBytes(state.FileName);
                 byte[] header = { 1, 0, 0, 0, 1, 1 /*最后一位表示下载请求*/ };
                 byte[] handshakeMsg = new byte[header.Length + fileInfoBuffer.Length];
                 header.CopyTo(handshakeMsg, 0);
@@ -386,9 +395,9 @@ namespace J9Updater.FileTransferSvc.Ver1
             try
             {
                 SocketError error;
-                var responseBytes = state.Connection.EndSend(ar, out error);
+                var requestBytes = state.Connection.EndSend(ar, out error);
 
-                if (responseBytes <= 0) throw new Exception("连接失败," + error);
+                if (requestBytes <= 0) throw new Exception("连接失败," + error);
 
 
                 state.Connection.BeginReceive(state.Buffer, 0, BufferSize, SocketFlags.None,
@@ -412,25 +421,26 @@ namespace J9Updater.FileTransferSvc.Ver1
                 var responseBytes = state.Connection.EndReceive(ar, out error);
 
                 if (responseBytes <= 0) throw new Exception("连接失败," + error);
+
                 //Validation
                 //1.ver
                 //2.Status
                 if (state.Buffer[0] != 1) throw new Exception("服务端传输协议版本与客户端不一致");
                 if (state.Buffer[1] != 0x10) throw new Exception("发送文件过程中发生异常" + state.Buffer[1].ToString("X"));
                 //state.DealingByteCount = responseBytes;
+
+
                 GetDownloadFileSize(state);
-                if (state.FileSize >= 0)
+                //TODO 本地磁盘容量检查
+                var response = new byte[] { 1, 0x10, 0 };
+                if (!Util.CheckDiskSpace(state.FileInfo.FullName, state.FileSize))
                 {
-                    WriteFile(state);
+                    response[1] = 0x40;
                 }
-                else
-                {
-                    Logging.Debug("文件长度没有收到");
-                }
-                if (state.FileStream.Position != state.FileStream.Length)
-                {
-                    state.Connection.BeginReceive(state.Buffer, 0, BufferSize, SocketFlags.None, ContinueReceiveDownloadFileCallback, state);
-                }
+                state.Connection.BeginSend(response, 0, 3, 0, After2ndHandshakeCallback, state);
+
+
+
             }
             catch (Exception e)
             {
@@ -439,6 +449,28 @@ namespace J9Updater.FileTransferSvc.Ver1
                 state.Close();
             }
         }
+
+        private void After2ndHandshakeCallback(IAsyncResult ar)
+        {
+            var state = (FileTransmitState)ar.AsyncState;
+            try
+            {
+
+                SocketError error;
+                var requestBytes = state.Connection.EndSend(ar, out error);
+                if (requestBytes <= 0) throw new Exception("连接失败," + error);
+
+
+                state.Connection.BeginReceive(state.Buffer, 0, state.FileSize < BufferSize ? (int)state.FileSize : BufferSize, SocketFlags.None,
+                    ContinueReceiveDownloadFileCallback, state);
+            }
+            catch (Exception ex)
+            {
+                Logging.LogUsefulException(ex);
+                state.Close();
+            }
+        }
+
         private void GetDownloadFileSize(FileTransmitState state)
         {
             var split = Encoding.UTF8.GetBytes("|")[0];
@@ -493,8 +525,6 @@ namespace J9Updater.FileTransferSvc.Ver1
             }
         }
 
-
-
         private void WriteFile(FileTransmitState state)
         {
 
@@ -509,8 +539,6 @@ namespace J9Updater.FileTransferSvc.Ver1
             }
             state.FileStream.BeginWrite(state.Buffer, 0,
                 state.DealingByteCount, DownLoadWriteFileCallBack, state);
-
-
         }
 
         private void CreateDir(string filePath)
@@ -562,7 +590,9 @@ namespace J9Updater.FileTransferSvc.Ver1
             Console.WriteLine("DownLoad {0} completed!", state.FileName);
             state.Close();
         }
+        #endregion
 
+        #region Methods
 
         /// <summary>
         /// 执行失败的重传处理
@@ -581,6 +611,8 @@ namespace J9Updater.FileTransferSvc.Ver1
         {
             return "R:\\J9Updater.FileTransferSvc.dll";
         }
+        #endregion
+
     }
 
     /// <summary>

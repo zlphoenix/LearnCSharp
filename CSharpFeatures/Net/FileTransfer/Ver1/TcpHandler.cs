@@ -20,6 +20,9 @@ namespace J9Updater.FileTransferSvc.Ver1
             BufferSize = new FileTransferServiceConfig().BufferSize;
         }
 
+        #region Upload
+
+
         public void Upload(Socket connection, byte[] handshakeMsg, int handshakeMsgLength)
         {
             if (closed)
@@ -56,7 +59,7 @@ namespace J9Updater.FileTransferSvc.Ver1
                         state.Buffer = null;
                         state.FileName = fileInfoArray[0];
                         state.FileSize = Convert.ToInt32(fileInfoArray[1]);
-                        if (!CheckDiskSpace(FileServerDir, state.FileSize))
+                        if (!Util.CheckDiskSpace(FileServerDir, state.FileSize))
                         {
                             response[1] = 0x51; //Not enough diskspace Msg Error
                         }
@@ -76,15 +79,6 @@ namespace J9Updater.FileTransferSvc.Ver1
                 Logging.LogUsefulException(e);
                 state.Close();
             }
-        }
-
-        private bool CheckDiskSpace(string fileServerDir, long fileSize)
-        {
-            //TODO DriveSpace
-            DriveInfo r = new DriveInfo("R");
-            long cAvailableSpace = r.AvailableFreeSpace;
-
-            return cAvailableSpace > fileSize;
         }
 
         private void UploadHandshakeSendCallback(IAsyncResult ar)
@@ -228,6 +222,9 @@ namespace J9Updater.FileTransferSvc.Ver1
             }
             transmitState?.Close();
         }
+        #endregion
+
+        #region Download
 
         /// <summary>
         /// 文件下载服务处理
@@ -270,32 +267,30 @@ namespace J9Updater.FileTransferSvc.Ver1
                         state.FileInfo = new FileInfo(path);
                         state.FileSize = state.FileInfo.Length;
                         state.DealingByteCount = 0;
-                        state.Buffer = new byte[BufferSize];
+
+
                         state.FileName = state.FileInfo.Name;
                         //使用“|做分隔符”
                         var fileLengthBytes = Encoding.UTF8.GetBytes(state.FileInfo.Length + "|");
                         response.AddRange(fileLengthBytes);
+                        state.Buffer = new byte[BufferSize];
                     }
 
                     //state.FileSize = Convert.ToInt32(fileInfoArray[1]);
 
                 }
+                state.Connection.Send(response.ToArray());
                 if (response[1] != 0x10)
                 {
                     //Error
-                    state.Connection.Send(response.ToArray());
+
                     state.Close();
                 }
                 else
                 {
-                    state.FileStream = new FileStream(state.FileInfo.FullName, FileMode.Open, FileAccess.Read, FileShare.Read, BufferSize, FileOptions.Asynchronous);
-                    state.TransmitedByteCount = 0;
 
-                    response.CopyTo(state.Buffer);
-
-                    state.FileStream.BeginRead(state.Buffer, response.Count, BufferSize - response.Count,
-                        AfterReadFileToBuffer, state);
-                    response.Clear();
+                    state.Connection.BeginReceive(state.Buffer, 0, state.Buffer.Length, SocketFlags.None,
+                        After2ndHandshakeCallback, state);
                 }
             }
             catch (Exception e)
@@ -305,6 +300,36 @@ namespace J9Updater.FileTransferSvc.Ver1
                 state.Close();
             }
         }
+
+        private void After2ndHandshakeCallback(IAsyncResult ar)
+        {
+            var state = (FileTransmitState)ar.AsyncState;
+            try
+            {
+                var seconndHandshakeBytes = state.Connection.EndReceive(ar);
+                if (seconndHandshakeBytes == 0)
+                {
+                    throw new Exception("第二次握手连接中断");
+                }
+                if (state.Buffer[1] != 0x10) throw new Exception("客户端出错:" + state.Buffer[1].ToString("X"));
+
+
+                state.FileStream = new FileStream(state.FileInfo.FullName, FileMode.Open, FileAccess.Read, FileShare.Read, BufferSize, FileOptions.Asynchronous);
+                state.TransmitedByteCount = 0;
+
+
+                state.FileStream.BeginRead(state.Buffer, 0, state.Buffer.Length, AfterReadFileToBuffer, state);
+
+            }
+            catch (Exception e)
+            {
+                Logging.LogUsefulException(e);
+                Close(state);
+            }
+
+
+        }
+
         /// <summary>
         ///   读取文件到Buffer，并发起文件传送
         /// </summary>
@@ -318,7 +343,7 @@ namespace J9Updater.FileTransferSvc.Ver1
                 Logging.Debug(string.Format("Client:ReadBytesFromFile:{0}", readingBytes));
                 //TransmitedByteCount
                 state.Connection.BeginSend(state.Buffer, 0,
-                    readingBytes, SocketFlags.None, SendFileCallBack, state);
+                    state.Buffer.Length, SocketFlags.None, SendFileCallBack, state);
 
 
                 if (state.FileStream.Position < state.FileStream.Length)
@@ -410,5 +435,8 @@ namespace J9Updater.FileTransferSvc.Ver1
                 state.Close();
             }
         }
+
+        #endregion
+
     }
 }
