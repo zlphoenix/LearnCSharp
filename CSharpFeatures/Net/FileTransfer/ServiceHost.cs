@@ -38,7 +38,7 @@ namespace J9Updater.FileTransferSvc
                 // Bind the socket to the local endpoint and listen for incoming connections.
                 tcpSocket.Bind(localEndPoint);
                 tcpSocket.Listen(1024);
-                // Start an asynchronous socket to listen for connections.
+                // Upload an asynchronous socket to listen for connections.
                 Logging.Info("Shadowsocks started");
                 tcpSocket.BeginAccept(AcceptCallback, tcpSocket);
             }

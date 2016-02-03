@@ -57,7 +57,11 @@ namespace J9Updater.FileTransferSvc.Ver1
             socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
             var handler = new TcpHandler();
             //handler.controller = _controller;
-            handler.Start(socket, handshakeMsg, length);
+            //
+            if (handshakeMsg[5] == 0x00)
+                handler.Upload(socket, handshakeMsg, length);
+            else
+                handler.Download(socket, handshakeMsg, length);
 
             //轮询的方式关闭超时的连接 
             //IList<TcpHandler> handlersToClose = new List<TcpHandler>();
@@ -71,7 +75,7 @@ namespace J9Updater.FileTransferSvc.Ver1
             //        lastSweepTime = now;
             //        foreach (var handlerNeedsToBeClosed in Handlers)
             //        {
-            //            if (now - handlerNeedsToBeClosed.lastActivity > TimeSpan.FromSeconds(900))
+            //            if (now - handlerNeedsToBeClosed.LastActivity > TimeSpan.FromSeconds(900))
             //            {
             //                handlersToClose.Add(handlerNeedsToBeClosed);
             //            }

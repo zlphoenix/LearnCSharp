@@ -21,7 +21,9 @@ namespace FileTransferServer
                     var path = Console.ReadLine();
                     Logging.sw.Reset();
                     Logging.sw.Start();
-                    client.Upload(path, null);
+                    client.Upload(path, (state) => client.DownLoad(state.FileName, null));
+
+                    ;
                 }
                 catch (Exception ex)
                 {

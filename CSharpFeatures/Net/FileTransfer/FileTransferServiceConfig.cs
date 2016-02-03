@@ -29,7 +29,7 @@
 
         public FileTransferServiceConfig()
         {
-            BufferSize = 8192;
+            BufferSize = 81920;
         }
     }
 }

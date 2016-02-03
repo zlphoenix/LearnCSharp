@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -10,6 +11,7 @@ namespace J9Updater.FileTransferSvc.Ver1
     {
         private bool closed;
         public FileTransferServiceConfig Config { get; set; }
+        private string DownloadFileDir { get; } = @"R:\DownloadFiles";
         public int BufferSize { get; set; }
         public TcpFileTransmitServiceClient()
         {
@@ -158,7 +160,7 @@ namespace J9Updater.FileTransferSvc.Ver1
                 //1.ver
                 //2.Status
                 if (state.Buffer[0] != 1) throw new Exception("服务端传输协议版本与客户端不一致");
-                if (state.Buffer[1] != 0x10) throw new Exception("服务端异常" + state.Buffer[1]);
+                if (state.Buffer[1] != 0x10) throw new Exception("发送文件过程中发生异常" + state.Buffer[1].ToString("X"));
 
 
                 BeginTransmit(state);
@@ -167,6 +169,7 @@ namespace J9Updater.FileTransferSvc.Ver1
             {
 
                 Logging.LogUsefulException(e);
+                state.Close();
             }
 
         }
@@ -184,8 +187,9 @@ namespace J9Updater.FileTransferSvc.Ver1
                     FileOptions.Asynchronous);
                 state.TransmitedByteCount = readFileBytes;
                 state.FileStream = fileStream;
+                state.Buffer = new byte[BufferSize];
                 //TODO buffer size
-                fileStream.BeginRead(new byte[BufferSize], 0, new byte[BufferSize].Length, AfterReadFileToBuffer,
+                fileStream.BeginRead(state.Buffer, 0, BufferSize, AfterReadFileToBuffer,
                     //new FileTransmitState()
                     //{
                     //    FileStream = fileStream,
@@ -288,7 +292,7 @@ namespace J9Updater.FileTransferSvc.Ver1
                 var sw = Logging.sw;
                 sw.Stop();
                 Logging.Info(
-                    $"FileSize:{state.FileSize / 1024 }K,Spend:{sw.Elapsed} second,speed:{(decimal)state.FileSize / sw.Elapsed.Milliseconds / 1024 / 1000} k/s");
+                    $"FileSize:{state.FileSize / 1024 / 1024 }K,Spend:{sw.Elapsed} second,speed:{(decimal)state.FileSize / sw.Elapsed.Milliseconds / 1024} k/s");
             }
             catch (Exception e)
             {
@@ -296,7 +300,267 @@ namespace J9Updater.FileTransferSvc.Ver1
                 Logging.LogUsefulException(e);
                 state.Close();
             }
+        }
 
+
+        public void DownLoad(string filePath, Action<FileTransmitState> callback)
+        {
+            if (string.IsNullOrEmpty(filePath)) filePath = GetFileName();
+            FileTransmitState state = null;
+            try
+            {
+                IPAddress ipAddress;
+                bool parsed = IPAddress.TryParse(Config.ServerAddress, out ipAddress);
+                if (!parsed)
+                {
+                    IPHostEntry ipHostInfo = Dns.GetHostEntry(Config.ServerAddress);
+                    ipAddress = ipHostInfo.AddressList[0];
+                }
+                var clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                var ipEndPoint = new IPEndPoint(ipAddress, Config.ServerPort);
+                var fileInfo = new FileInfo(filePath);
+                state = new FileTransmitState
+                {
+                    Connection = clientSocket,
+                    FileInfo = fileInfo,
+                    //FileSize = fileInfo.Length,
+                    FileName = fileInfo.Name,
+                    AfterTransmitCallback = callback
+                };
+                state.Connection.BeginConnect(ipEndPoint, SendDownloadHandshakeMsg, state);
+            }
+            catch (Exception ex)
+            {
+                Logging.LogUsefulException(ex);
+                if (state != null)
+                {
+                    try
+                    {
+                        state.Connection.Shutdown(SocketShutdown.Both);
+                        state.Connection.Close();
+                    }
+                    catch (Exception e)
+                    {
+                        Logging.LogUsefulException(e);
+                    }
+                }
+            }
+        }
+
+        private void SendDownloadHandshakeMsg(IAsyncResult ar)
+        {
+            if (closed)
+            {
+                return;
+            }
+            var state = (FileTransmitState)ar.AsyncState;
+            var clientSocket = state.Connection;
+            try
+            {
+                clientSocket.EndConnect(ar);
+                //Ver1,Opt2,RSV1,MethodType1
+                //var handshakeMessage = new MessageHandler();
+
+                var fileInfo = state.FileInfo;
+                //协议中消息体部分使用{目标文件路径}
+                var fileInfoBuffer = Encoding.UTF8.GetBytes(fileInfo.Name);
+                byte[] header = { 1, 0, 0, 0, 1, 1 /*最后一位表示下载请求*/ };
+                byte[] handshakeMsg = new byte[header.Length + fileInfoBuffer.Length];
+                header.CopyTo(handshakeMsg, 0);
+                state.Buffer = new byte[BufferSize];
+                fileInfoBuffer.CopyTo(handshakeMsg, header.Length);
+
+                clientSocket.BeginSend(handshakeMsg, 0, handshakeMsg.Length, 0,
+                    AfterSendDownloadRequest, state);
+            }
+            catch (Exception e)
+            {
+                Logging.LogUsefulException(e);
+            }
+
+        }
+
+        private void AfterSendDownloadRequest(IAsyncResult ar)
+        {
+            var state = (FileTransmitState)ar.AsyncState;
+            try
+            {
+                SocketError error;
+                var responseBytes = state.Connection.EndSend(ar, out error);
+
+                if (responseBytes <= 0) throw new Exception("连接失败," + error);
+
+
+                state.Connection.BeginReceive(state.Buffer, 0, BufferSize, SocketFlags.None,
+                    ReceiveDownloadHandshakeCallback, state);
+            }
+            catch (Exception e)
+            {
+
+                Logging.LogUsefulException(e);
+                state.Close();
+            }
+        }
+
+        private void ReceiveDownloadHandshakeCallback(IAsyncResult ar)
+        {
+            var state = (FileTransmitState)ar.AsyncState;
+            try
+            {
+
+                SocketError error;
+                var responseBytes = state.Connection.EndReceive(ar, out error);
+
+                if (responseBytes <= 0) throw new Exception("连接失败," + error);
+                //Validation
+                //1.ver
+                //2.Status
+                if (state.Buffer[0] != 1) throw new Exception("服务端传输协议版本与客户端不一致");
+                if (state.Buffer[1] != 0x10) throw new Exception("发送文件过程中发生异常" + state.Buffer[1].ToString("X"));
+                //state.DealingByteCount = responseBytes;
+                GetDownloadFileSize(state);
+                if (state.FileSize >= 0)
+                {
+                    WriteFile(state);
+                }
+                else
+                {
+                    Logging.Debug("文件长度没有收到");
+                }
+                if (state.FileStream.Position != state.FileStream.Length)
+                {
+                    state.Connection.BeginReceive(state.Buffer, 0, BufferSize, SocketFlags.None, ContinueReceiveDownloadFileCallback, state);
+                }
+            }
+            catch (Exception e)
+            {
+
+                Logging.LogUsefulException(e);
+                state.Close();
+            }
+        }
+        private void GetDownloadFileSize(FileTransmitState state)
+        {
+            var split = Encoding.UTF8.GetBytes("|")[0];
+
+            for (var i = 0; i < state.Buffer.Length; i++)
+            {
+                if (state.Buffer[i] == split)
+                {
+                    //前三个字节分别是版本，响应代码，保留位
+                    var fileLengthStr = Encoding.UTF8.GetString(state.Buffer, 3, i - 3);
+                    int filelength;
+                    if (int.TryParse(fileLengthStr, out filelength))
+                    {
+                        state.FileSize = filelength;
+                        //重置Buffer为文件数据，去掉头部
+                        //var newBuffer = new byte[state.Buffer.Length - i - 1];
+                        var newBuffer = new byte[BufferSize];
+                        var currBuffer = state.Buffer.Skip(i + 1).ToArray();
+                        state.DealingByteCount = currBuffer.Length;
+                        currBuffer.CopyTo(newBuffer, 0);
+                        state.Buffer = newBuffer;
+
+                        break;
+                    }
+                    else
+                    {
+                        throw new Exception("响应格式不正确");
+                    }
+                }
+            }
+        }
+        private void ContinueReceiveDownloadFileCallback(IAsyncResult ar)
+        {
+            var state = (FileTransmitState)ar.AsyncState;
+            try
+            {
+
+                SocketError error;
+                var responseBytes = state.Connection.EndReceive(ar, out error);
+
+                if (responseBytes <= 0) throw new Exception("连接失败," + error);
+
+                state.DealingByteCount = responseBytes;
+
+                WriteFile(state);
+            }
+            catch (Exception e)
+            {
+
+                Logging.LogUsefulException(e);
+                state.Close();
+            }
+        }
+
+
+
+        private void WriteFile(FileTransmitState state)
+        {
+
+            if (state.FileStream == null)
+            {
+                var filePath = Path.Combine(DownloadFileDir, state.FileName);
+                CreateDir(filePath);
+                var writer = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.Write, BufferSize,
+                    FileOptions.Asynchronous);
+                state.FileInfo = new FileInfo(filePath);
+                state.FileStream = writer;
+            }
+            state.FileStream.BeginWrite(state.Buffer, 0,
+                state.DealingByteCount, DownLoadWriteFileCallBack, state);
+
+
+        }
+
+        private void CreateDir(string filePath)
+        {
+
+            var fileNameIndex = filePath.LastIndexOf("\\", StringComparison.Ordinal);
+
+            if (fileNameIndex > 0)
+            {
+                var dir = filePath.Substring(0, fileNameIndex);
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+            }
+        }
+
+        private void DownLoadWriteFileCallBack(IAsyncResult ar)
+        {
+            var state = (FileTransmitState)ar.AsyncState;
+            try
+            {
+                state.FileStream.EndWrite(ar);
+                state.Count++;
+                //写入成功后,累计已写入字节数
+                state.TransmitedByteCount += state.DealingByteCount;
+                Logging.Debug(string.Format("Client:WriteCount:{0},Dealed:{1}",
+                state.Count, state.TransmitedByteCount));
+                //Finished
+                if (state.FileSize == state.FileStream.Position)
+                {
+                    state.Buffer = new byte[] { 1, 0x20 };
+                    state.Connection.BeginSend(state.Buffer, 0, state.Buffer.Length,
+                        SocketFlags.None, DownLoadFinishingCallBack, state);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.LogUsefulException(ex);
+                state.Close();
+                //throw;
+            }
+        }
+
+        private void DownLoadFinishingCallBack(IAsyncResult ar)
+        {
+            var state = (FileTransmitState)ar.AsyncState;
+            state.Connection.EndSend(ar);
+            Console.WriteLine("DownLoad {0} completed!", state.FileName);
+            state.Close();
         }
 
 
