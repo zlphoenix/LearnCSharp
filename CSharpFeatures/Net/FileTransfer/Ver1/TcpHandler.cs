@@ -337,10 +337,10 @@ namespace J9Updater.FileTransferSvc.Ver1
             try
             {
                 var readingBytes = state.FileStream.EndRead(ar);
-                Logging.Debug(string.Format("Client:ReadBytesFromFile:{0}", readingBytes));
+                Logging.Debug(string.Format("Server:ReadBytesFromFile:{0}", readingBytes));
                 //TransmitedByteCount
                 state.Connection.BeginSend(state.Buffer, 0,
-                    state.Buffer.Length, SocketFlags.None, SendFileCallBack, state);
+                   Math.Min(state.Buffer.Length, readingBytes), SocketFlags.None, SendFileCallBack, state);
 
 
                 if (state.FileStream.Position < state.FileStream.Length)
@@ -398,6 +398,7 @@ namespace J9Updater.FileTransferSvc.Ver1
                         state.Count, state.TransmitedByteCount, sentBytes, error));
                 if (state.FileStream.Position >= state.FileStream.Length)
                 {
+                    Logging.Debug("Server Listen Complete Response。。。");
                     state.Connection.BeginReceive(state.Buffer, 0, state.Buffer.Length, SocketFlags.None,
                         CloseConnectionCallBack, state);
                 }

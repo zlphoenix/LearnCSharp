@@ -312,7 +312,6 @@ namespace J9Updater.FileTransferSvc.Ver1
         #endregion
 
         #region DownLoad
-
         public void DownLoad(string filePath, Action<FileTransmitState> callback)
         {
             if (string.IsNullOrEmpty(filePath)) filePath = GetFileName();
@@ -356,7 +355,6 @@ namespace J9Updater.FileTransferSvc.Ver1
                 }
             }
         }
-
         private void SendDownloadHandshakeMsg(IAsyncResult ar)
         {
             if (closed)
@@ -388,7 +386,6 @@ namespace J9Updater.FileTransferSvc.Ver1
             }
 
         }
-
         private void AfterSendDownloadRequest(IAsyncResult ar)
         {
             var state = (FileTransmitState)ar.AsyncState;
@@ -410,7 +407,6 @@ namespace J9Updater.FileTransferSvc.Ver1
                 state.Close();
             }
         }
-
         private void ReceiveDownloadHandshakeCallback(IAsyncResult ar)
         {
             var state = (FileTransmitState)ar.AsyncState;
@@ -449,7 +445,6 @@ namespace J9Updater.FileTransferSvc.Ver1
                 state.Close();
             }
         }
-
         private void After2ndHandshakeCallback(IAsyncResult ar)
         {
             var state = (FileTransmitState)ar.AsyncState;
@@ -470,7 +465,6 @@ namespace J9Updater.FileTransferSvc.Ver1
                 state.Close();
             }
         }
-
         private void GetDownloadFileSize(FileTransmitState state)
         {
             var split = Encoding.UTF8.GetBytes("|")[0];
@@ -514,8 +508,13 @@ namespace J9Updater.FileTransferSvc.Ver1
                 if (responseBytes <= 0) throw new Exception("连接失败," + error);
 
                 state.DealingByteCount = responseBytes;
-
+                state.TransmitedByteCount += responseBytes;
                 WriteFile(state);
+
+                if (state.FileSize > state.TransmitedByteCount)
+                    state.Connection.BeginReceive(state.Buffer, 0,
+                        BufferSize, SocketFlags.None,
+                        ContinueReceiveDownloadFileCallback, state);
             }
             catch (Exception e)
             {
@@ -524,7 +523,6 @@ namespace J9Updater.FileTransferSvc.Ver1
                 state.Close();
             }
         }
-
         private void WriteFile(FileTransmitState state)
         {
 
@@ -540,7 +538,6 @@ namespace J9Updater.FileTransferSvc.Ver1
             state.FileStream.BeginWrite(state.Buffer, 0,
                 state.DealingByteCount, DownLoadWriteFileCallBack, state);
         }
-
         private void CreateDir(string filePath)
         {
 
@@ -555,7 +552,6 @@ namespace J9Updater.FileTransferSvc.Ver1
                 }
             }
         }
-
         private void DownLoadWriteFileCallBack(IAsyncResult ar)
         {
             var state = (FileTransmitState)ar.AsyncState;
@@ -564,12 +560,18 @@ namespace J9Updater.FileTransferSvc.Ver1
                 state.FileStream.EndWrite(ar);
                 state.Count++;
                 //写入成功后,累计已写入字节数
-                state.TransmitedByteCount += state.DealingByteCount;
+                //state.TransmitedByteCount += state.DealingByteCount;
                 Logging.Debug(string.Format("Client:WriteCount:{0},Dealed:{1}",
                 state.Count, state.TransmitedByteCount));
                 //Finished
-                if (state.FileSize == state.FileStream.Position)
+                if (state.FileSize <= state.FileStream.Position)
                 {
+                    if (state.FileSize < state.FileStream.Position)
+                    {
+                        Logging.Debug("Send overflow: FileSize:{0},Send:{1}");
+
+                    }
+                    Logging.Debug("Client send Complete Response。。。");
                     state.Buffer = new byte[] { 1, 0x20 };
                     state.Connection.BeginSend(state.Buffer, 0, state.Buffer.Length,
                         SocketFlags.None, DownLoadFinishingCallBack, state);
@@ -582,7 +584,6 @@ namespace J9Updater.FileTransferSvc.Ver1
                 //throw;
             }
         }
-
         private void DownLoadFinishingCallBack(IAsyncResult ar)
         {
             var state = (FileTransmitState)ar.AsyncState;
