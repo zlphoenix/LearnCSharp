@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -25,12 +26,28 @@ namespace J9Updater.AppUpgradeClient
                 client.Upload(fileInfo, null);
             }
         }
-        private IndexFile GenerateIndexFile(string appName, Version ver, string appBasePath)
+
+        public IList<AppInfo> GetServerApps()
+        {
+            var client = new FileTransferSvc.Ver1.TcpFileTransmitServiceClient();
+
+            client.DownLoad("index.xml", null);
+            var serializer = new XmlSerializer(typeof(AppInfo), new Type[] { typeof(FileDetail) });
+            var indexFileName = Path.Combine(@"R:\DownloadFiles", "index.xml");
+            using (var fileReader = File.OpenRead(indexFileName))
+            {
+                var appInfo = serializer.Deserialize(fileReader);
+                return new List<AppInfo>() { appInfo as AppInfo };
+            }
+        }
+
+
+        private AppInfo GenerateIndexFile(string appName, Version ver, string appBasePath)
         {
             var dir = new DirectoryInfo(appBasePath);
             var files = dir.GetFiles();
             if (files.Length == 0) return null;
-            var indexFile = new IndexFile()
+            var indexFile = new AppInfo()
             {
                 AppBasePath = appBasePath,
                 AppName = appName,
@@ -42,7 +59,7 @@ namespace J9Updater.AppUpgradeClient
                 indexFile.Files.Add(fileDetail);
             }
 
-            var serializer = new XmlSerializer(typeof(IndexFile), new Type[] { typeof(FileDetail) });
+            var serializer = new XmlSerializer(typeof(AppInfo), new Type[] { typeof(FileDetail) });
             var indexFileName = Path.Combine(appBasePath, "index.xml");
             using (var file = File.OpenWrite(indexFileName))
             {

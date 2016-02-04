@@ -43,7 +43,7 @@
     <Compile Include="AppUpgradeManager.cs" />
     <Compile Include="FileDetail.cs" />
     <Compile Include="FileType.cs" />
-    <Compile Include="IndexFile.cs" />
+    <Compile Include="AppInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

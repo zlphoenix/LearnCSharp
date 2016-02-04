@@ -1,7 +1,7 @@
-﻿using J9Updater.FileTransferSvc;
+﻿using J9Updater.AppUpgradeClient;
+using J9Updater.FileTransferSvc;
 using J9Updater.FileTransferSvc.Ver1;
 using System;
-using J9Updater.AppUpgradeClient;
 
 namespace FileTransferServer
 {
@@ -22,6 +22,7 @@ namespace FileTransferServer
 
             var manager = new AppUpgradeManager();
             manager.Upload("Test", new Version(1, 0), @"R:\Uploader");
+            var fileInfos = manager.GetServerApps();
 
             while (true)
             {
