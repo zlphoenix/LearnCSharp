@@ -609,7 +609,7 @@ namespace J9Updater.FileTransferSvc.Ver1
 
         private string GetFileName()
         {
-            return "R:\\J9Updater.FileTransferSvc.dll";
+            return "R:\\lantern-android-beta.apk";
         }
         #endregion
 

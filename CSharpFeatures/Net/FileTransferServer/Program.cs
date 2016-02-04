@@ -1,5 +1,4 @@
-﻿using J9Updater.AppUpgradeClient;
-using J9Updater.FileTransferSvc;
+﻿using J9Updater.FileTransferSvc;
 using J9Updater.FileTransferSvc.Ver1;
 using System;
 
@@ -13,7 +12,16 @@ namespace FileTransferServer
             var service = new ServiceHost();
             service.Start();
 
-            var client = new TcpFileTransmitServiceClient();
+
+
+
+            Logging.sw.Reset();
+            Logging.sw.Start();
+
+
+            //var manager = new AppUpgradeManager();
+            //manager.Upload("Test", new Version(1, 0), @"R:\Uploader");
+
             while (true)
             {
                 try
@@ -23,10 +31,9 @@ namespace FileTransferServer
                     Logging.sw.Reset();
                     Logging.sw.Start();
 
-
-                    var manager = new AppUpgradeManager();
-                    manager.Upload("Test", new Version(1, 0), @"R:\Uploader");
-                    //client.Upload(path, (state) => client.DownLoad(state.FileName, null));
+                    var client = new TcpFileTransmitServiceClient();
+                    client.Upload(path, (state) => client.DownLoad(state.FileName, null));
+                    //client.Upload(path, null);
 
                     ;
                 }

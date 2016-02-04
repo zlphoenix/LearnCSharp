@@ -150,8 +150,7 @@ namespace J9Updater.FileTransferSvc.Ver1
                 Logging.Debug(
                     string.Format("Server:WriteCount:{0},Dealed:{1}",
                     state.Count, state.TransmitedByteCount));
-                if (state.FileSize >
-                    (state.DealingByteCount + state.FileStream.Position))
+                if (state.FileSize > state.FileStream.Position)
                 {
 
                     state.Connection.BeginReceive(state.Buffer,
@@ -164,8 +163,6 @@ namespace J9Updater.FileTransferSvc.Ver1
                     state.Buffer = new byte[] { 1, 0x20 };
                     state.Connection.BeginSend(state.Buffer, 0, state.Buffer.Length,
                         SocketFlags.None, UploadFinishingCallBack, state);
-
-
                 }
             }
             catch (Exception ex)
