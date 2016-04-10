@@ -616,33 +616,6 @@ namespace J9Updater.FileTransferSvc.Ver1
 
     }
 
-    /// <summary>
-    /// 消息处理器
-    /// </summary>
-    internal class MessageHandler
-    {
 
-        public HandshakeMessage GetHandshakeMessage()
-        {
-            return null;
-        }
-
-    }
-    /// <summary>
-    /// 握手消息处理器
-    /// </summary>
-    internal class HandshakeMessage : TransmitMessage
-    {
-
-    }
-
-    internal class TransmitMessage
-    {
-
-        public byte[] GetMsg()
-        {
-            return null;
-        }
-    }
 
 }

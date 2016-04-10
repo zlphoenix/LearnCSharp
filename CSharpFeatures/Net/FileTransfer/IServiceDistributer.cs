@@ -4,7 +4,7 @@ using System.Net.Sockets;
 namespace J9Updater.FileTransferSvc
 {
 
-    public interface IService : IDisposable
+    public interface IServiceDistributer : IDisposable
     {
         /// <summary>
         /// 服务路由匹配

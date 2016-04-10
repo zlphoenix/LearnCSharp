@@ -6,7 +6,7 @@ using System.Text;
 
 namespace J9Updater.FileTransferSvc.Ver1
 {
-    internal class TcpHandler
+    internal class FileTransmitService
     {
         private DateTime lastActivity;
         private const string FileServerDir = @"R:\ReceivedFiles\";
@@ -15,7 +15,7 @@ namespace J9Updater.FileTransferSvc.Ver1
         //const int RecvSize = 8192;
         //const int RecvReserveSize = IVEncryptor.ONETIMEAUTH_BYTES + IVEncryptor.AUTH_BYTES; // reserve for one-time auth
         public int BufferSize { get; private set; }
-        public TcpHandler()
+        public FileTransmitService()
         {
             BufferSize = new FileTransferServiceConfig().BufferSize;
         }
@@ -68,7 +68,6 @@ namespace J9Updater.FileTransferSvc.Ver1
                 if (response[1] != 0x10)
                 {
                     state.Connection.BeginSend(response, 0, response.Length, 0, UploadFinishingCallBack, state);
-                    state.Close();
                     return;
                 }
                 state.Connection.BeginSend(response, 0, response.Length, 0, UploadHandshakeSendCallback, state);
@@ -272,15 +271,12 @@ namespace J9Updater.FileTransferSvc.Ver1
                         response.AddRange(fileLengthBytes);
                         state.Buffer = new byte[BufferSize];
                     }
-
-                    //state.FileSize = Convert.ToInt32(fileInfoArray[1]);
-
+                    //config.FileSize = Convert.ToInt32(fileInfoArray[1]);
                 }
                 state.Connection.Send(response.ToArray());
                 if (response[1] != 0x10)
                 {
                     //Error
-
                     state.Close();
                 }
                 else

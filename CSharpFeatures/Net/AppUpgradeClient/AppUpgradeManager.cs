@@ -27,6 +27,7 @@ namespace J9Updater.AppUpgradeClient
             }
         }
 
+
         public IList<AppInfo> GetServerApps()
         {
             var client = new FileTransferSvc.Ver1.TcpFileTransmitServiceClient();
@@ -66,7 +67,7 @@ namespace J9Updater.AppUpgradeClient
                 serializer.Serialize(file, indexFile);
             }
 
-            indexFile.Files.Insert(0, new FileDetail(new FileInfo(indexFileName)));
+            //indexFile.Files.Insert(0, new FileDetail(new FileInfo(indexFileName)));
 
 
             return indexFile;

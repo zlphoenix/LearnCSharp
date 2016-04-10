@@ -9,12 +9,12 @@ namespace J9Updater.FileTransferSvc
     public class ServiceHost : IDisposable
     {
         private readonly FileTransferServiceConfig config;
-        private readonly List<IService> services;
+        private readonly List<IServiceDistributer> services;
         private Socket tcpSocket;
 
         public ServiceHost()
         {
-            services = new List<IService> { new TcpFileTransmitService() };
+            services = new List<IServiceDistributer> { new TcpFileTransmitServiceDistributer() };
             config = new FileTransferServiceConfig()
             {
                 LocalPort = 9050,
@@ -39,7 +39,7 @@ namespace J9Updater.FileTransferSvc
                 tcpSocket.Bind(localEndPoint);
                 tcpSocket.Listen(1024);
                 // Upload an asynchronous socket to listen for connections.
-                Logging.Info("Shadowsocks started");
+                Logging.Info("ServiceHost started");
                 tcpSocket.BeginAccept(AcceptCallback, tcpSocket);
             }
             catch (SocketException ex)

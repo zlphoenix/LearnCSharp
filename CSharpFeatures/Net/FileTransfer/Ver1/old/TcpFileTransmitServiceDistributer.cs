@@ -6,14 +6,14 @@ namespace J9Updater.FileTransferSvc.Ver1
     /// <summary>
     /// TCP文件传输服务 Ver 1
     /// </summary>
-    internal class TcpFileTransmitService : IService
+    internal class TcpFileTransmitServiceDistributer : IServiceDistributer
     {
         private DateTime lastSweepTime;
-        //public List<TcpHandler> Handlers { get; set; }
-        public TcpFileTransmitService()
+        //public List<FileTransmitService> Handlers { get; set; }
+        public TcpFileTransmitServiceDistributer()
         {
             lastSweepTime = DateTime.Now;
-            //this.Handlers = new List<TcpHandler>();
+            //this.Handlers = new List<FileTransmitService>();
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace J9Updater.FileTransferSvc.Ver1
         {
 
             socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
-            var handler = new TcpHandler();
+            var handler = new FileTransmitService();
             //handler.controller = _controller;
             //
             if (handshakeMsg[5] == 0x00)
@@ -64,7 +64,7 @@ namespace J9Updater.FileTransferSvc.Ver1
                 handler.Download(socket, handshakeMsg, length);
 
             //轮询的方式关闭超时的连接 
-            //IList<TcpHandler> handlersToClose = new List<TcpHandler>();
+            //IList<FileTransmitService> handlersToClose = new List<FileTransmitService>();
             //lock (Handlers)
             //{
             //    Handlers.Add(handler);

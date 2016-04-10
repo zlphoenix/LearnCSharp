@@ -14,7 +14,8 @@ namespace FileTransferServer
             service.Start();
 
 
-
+            var types = typeof(Logging).Assembly.GetTypes();
+            Console.WriteLine(types.Length);
 
             Logging.sw.Reset();
             Logging.sw.Start();

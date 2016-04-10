@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Security.Cryptography;
-using System.Text;
 
 namespace J9Updater.AppUpgradeClient
 {
@@ -61,7 +60,7 @@ namespace J9Updater.AppUpgradeClient
             {
                 using (var stream = File.OpenRead(fileInfo.FullName))
                 {
-                    return Encoding.Default.GetString(md5.ComputeHash(stream));
+                    return Convert.ToBase64String(md5.ComputeHash(stream));
                 }
             }
         }
