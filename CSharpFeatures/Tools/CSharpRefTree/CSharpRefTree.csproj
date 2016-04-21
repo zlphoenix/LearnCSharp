@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{08DFC162-A264-410A-A958-FF7981E8789A}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Allen.Util.CSharpRefTree</RootNamespace>
     <AssemblyName>Allen.Util.CSharpRefTree</AssemblyName>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
