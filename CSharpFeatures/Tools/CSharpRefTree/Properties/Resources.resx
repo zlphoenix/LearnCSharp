@@ -114,4 +114,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Program_Main_Total_aasembly_count__0_" xml:space="preserve">
+    <value>Total aasembly count {0}</value>
+  </data>
+  <data name="Program_Main_Total_file_count__0__" xml:space="preserve">
+    <value>Total file count {0} </value>
+  </data>
 </root>

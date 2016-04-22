@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Allen.Util.CSharpRefTree.Properties;
+using SolutionMaker.Core;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace Allen.Util.CSharpRefTree
 {
@@ -17,20 +19,22 @@ namespace Allen.Util.CSharpRefTree
         public static List<PrjInfo> root;
         public static List<string> AssemblyPath;
         public static List<string> LostAssembly = new List<string>();
-
+        private static string InitPath = @"D:\Work\GSP\GSP6.1\Draft";
+        private static string SlnPath = @"R:\Sln";
 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
 
-            AssemblyPath = EverythingFileSearcher.Searcher.Search(@"D:\Work\GSP\GSP6.1\Draft\Ref\bin !D:\Work\GSP\GSP6.1\Draft\Ref\bin\3rd (.dll|.exe)").ToList();
-            Console.WriteLine("Total file count {0} ", AssemblyPath.Count);
+            //AssemblyPath = EverythingFileSearcher.Searcher.Search(string.Format(@"{0}\Ref\bin !{0}\Ref\bin\3rd (.dll|.exe)", InitPath)).ToList();
+            AssemblyPath = SampleFileSearcher.SearchFiles($@"{InitPath}\Ref\Bin\Lib|{InitPath}\Ref\Bin\Impl", "*.dll|*.exe");
+            Console.WriteLine(Resources.Program_Main_Total_file_count__0__, AssemblyPath.Count);
             prjInfoDic = new Dictionary<string, PrjInfo>();
             prjInfoFileNameDic = new Dictionary<string, PrjInfo>();
             errorPrjInfo = new List<PrjInfo>();
@@ -41,9 +45,38 @@ namespace Allen.Util.CSharpRefTree
                 CreatePrjInfo(assPath);
             }
             );
-            Console.WriteLine("Total aas count {0}", prjInfoDic.Count);
+            Console.WriteLine(Resources.Program_Main_Total_aasembly_count__0_, prjInfoDic.Count);
             RebuildRef();
+
+
+            var csprojFilePathList = SampleFileSearcher.SearchFiles($"{InitPath}\\Src", "*.csproj");
+
+
+            foreach (var csprjFile in csprojFilePathList)
+            {
+                var analyzer = new ProjectAnalyzer(csprjFile);
+                var assName = analyzer.GetAssemblyName();
+
+                if (string.IsNullOrEmpty(assName))
+                {
+                    Console.WriteLine($"Prj File {csprjFile} could not output a assembly");
+                    continue;
+                }
+                if (!prjInfoFileNameDic.ContainsKey(assName))
+                {
+                    Console.WriteLine($"Prj File {csprjFile} output assembly：{assName} did not registed");
+                    continue;
+                }
+                var pf = new FileInfo(csprjFile);
+                var prjInfo = prjInfoFileNameDic[assName];
+                prjInfo.PrjFilePath = pf.DirectoryName;
+                prjInfo.PrjFileName = pf.Name;
+
+
+            }
             PrintAss();
+
+
         }
 
         private static void PrintAss()
@@ -56,7 +89,7 @@ namespace Allen.Util.CSharpRefTree
             Console.WriteLine(LostAssembly.OutputList("Lost Assemblies"));
 
             int level = 0;
-            Console.WriteLine(root.OutputList($"-------------Level {level}-------------\n", item => item.AssemblyName + "\n"));
+            Console.WriteLine(root.OutputList($"-------------Level {level}-------------\n", item => $"{item.AssemblyName},{item.PrjFullName}\n"));
             root.OrderBy(item => item.Module).ToList().ForEach(item => prjInfoDic.Remove(item.AssemblyName));
             level++;
             while (prjInfoDic.Count > 0)
@@ -68,19 +101,28 @@ namespace Allen.Util.CSharpRefTree
                     .Where(item => (!item.PrjRef.Exists(refItem => !root.Contains(refItem))))
                     .OrderBy(item => item.Module)
                     .ToList();
-                Console.WriteLine(thisLevel.OutputList($"-------------Level {level}-------------\n", item => item.AssemblyName + "\n"));
-                root.AddRange(thisLevel);
-                thisLevel.ForEach(item => prjInfoDic.Remove(item.AssemblyName));
-
-                if (count == prjInfoDic.Count)
+                if (thisLevel.Count == 0)
                 {
-                    DealRecursiveRef();
-                    if (count == prjInfoDic.Count)
+                    var recursivePrj = DealRecursiveRef();
+
+                    if (recursivePrj == null)
                     {
                         Console.WriteLine("Failed to remove cycle!");
                         break;
                     }
+                    else
+                    {
+                        thisLevel.Add(recursivePrj);
+                    }
                 }
+                Console.WriteLine(thisLevel.OutputList($"-------------Level {level}-------------\n", item => $"{item.AssemblyName},{item.PrjFullName}\n"));
+                root.AddRange(thisLevel);
+                thisLevel.ForEach(item => prjInfoDic.Remove(item.AssemblyName));
+
+
+                GenSln(thisLevel, level);
+
+
                 level++;
             }
 
@@ -99,7 +141,31 @@ namespace Allen.Util.CSharpRefTree
 
         }
 
-        private static void DealRecursiveRef()
+        private static void GenSln(List<PrjInfo> thisLevel, int level)
+        {
+            var prjs = thisLevel.Where(item => !string.IsNullOrEmpty(item.PrjFilePath)).ToList();
+            if (prjs.Count == 0) return;
+            var generator = new SolutionGenerator(new ConsoleLogger());
+            var slnOpt = new SolutionOptions();
+            slnOpt.SolutionFolderPath = SlnPath + level.ToString().PadLeft(3, '0');
+            slnOpt.ProjectRootFolderPath = prjs.FirstOrDefault().PrjFilePath;
+            generator.GenerateSolution(slnOpt.SolutionFolderPath, slnOpt);
+
+            prjs.RemoveAt(0);
+
+            foreach (var prj in prjs)
+            {
+                slnOpt.UpdateMode = SolutionUpdateMode.Add;
+                //slnOpt.
+                //TODO Add prj
+            }
+
+
+
+
+        }
+
+        private static PrjInfo DealRecursiveRef()
         {
             var path = new Stack<PrjInfo>(prjInfoDic.Count);
             foreach (var prjInfo in prjInfoDic.Values.ToList())
@@ -107,18 +173,21 @@ namespace Allen.Util.CSharpRefTree
                 //内部会打断循环引用，会影响到集合的成员
                 if (root.Contains(prjInfo))
                     continue;
-                if (Deal(prjInfo, path))
+                var prj = Deal(prjInfo, path);
+                if (prj != null)
                 {
                     path.Clear();
+                    return prj;
                 }
             }
+            return null;
         }
         /// <summary>
         /// 深度优先探测环
         /// </summary>
         /// <param name="prjInfo"></param>
         /// <param name="path"></param>
-        public static bool Deal(PrjInfo prjInfo, Stack<PrjInfo> path)
+        public static PrjInfo Deal(PrjInfo prjInfo, Stack<PrjInfo> path)
         {
             foreach (var refAssembly in prjInfo.PrjRef.Where(item => (!root.Contains(item))))
             {
@@ -135,17 +204,18 @@ namespace Allen.Util.CSharpRefTree
                     //var decide = Console.ReadLine();
                     //if (decide == "Y")
                     //{
-                    root.Add(refAssembly);
-                    prjInfoDic.Remove(refAssembly.AssemblyName);
-                    return true;
+                    //root.Add(refAssembly);
+                    //prjInfoDic.Remove(refAssembly.AssemblyName);
+                    return refAssembly;
                     //}
                 }
                 path.Push(refAssembly);
-                if (Deal(refAssembly, path)) return true;
+                var dealedPrj = Deal(refAssembly, path);
+                if (dealedPrj != null) return dealedPrj;
                 path.Pop();
 
             }
-            return false;
+            return null;
         }
         private static void RebuildRef()
         {
@@ -178,8 +248,10 @@ namespace Allen.Util.CSharpRefTree
             {
                 prjInfoDic.Add(prjInfo.AssemblyName, prjInfo);
             }
-            //prjInfoFileNameDic.Add(prjInfo.PrjFileName, prjInfo);
-            if (prjInfo.OriginalRef.Count == 0) root.Add(prjInfo);
+            prjInfoFileNameDic.Add(prjInfo.AssemblyName, prjInfo);
+
+            if (prjInfo.OriginalRef.Count == 0)
+                root.Add(prjInfo);
         }
 
 
@@ -206,131 +278,4 @@ namespace Allen.Util.CSharpRefTree
             return fileName.Substring(0, fileName.Length - 4);
         }
     }
-
-    internal class PrjInfo
-    {
-        public PrjInfo()
-        {
-            PrjRef = new List<PrjInfo>();
-            OriginalRef = new List<string>();
-            RefError = new List<string>();
-            BeRefBy = new List<PrjInfo>();
-        }
-
-        public PrjInfo(Assembly ass) : this()
-        {
-
-            this.AssemblyName = ass.GetName().Name;
-
-            var refAssemblies = ass.GetReferencedAssemblies().Where(IsMatch);
-            if (refAssemblies.Count() == 0) return;
-            foreach (var refAss in refAssemblies)
-            {
-                this.OriginalRef.Add(refAss.Name);
-            }
-
-
-        }
-
-        private PrjInfo LoadAssByRefName(AssemblyName refAss)
-        {
-            var assPath = Program.AssemblyPath.FirstOrDefault(path => path.Contains(refAss.Name));
-            if (string.IsNullOrEmpty(assPath))
-            {
-                this.RefError.Add($"Ref：{assPath} not found ");
-                return null;
-            }
-            else
-            {
-                return Program.CreatePrjInfo(assPath);
-
-            }
-        }
-
-        public static bool IsMatch(AssemblyName assemblyName)
-        {
-            var excludeNames = new string[] { "mscorlib", "DevExpress", "Newtonsoft" };
-            if (excludeNames.Any(item => assemblyName.Name.StartsWith(item))
-                || assemblyName.Name.StartsWith("System") || assemblyName.Name.StartsWith("Microsoft")) return false;
-            if (assemblyName.Name.StartsWith("Inspur") || assemblyName.Name.StartsWith("Genersoft") || assemblyName.Name.Contains("GSP")) return true;
-
-
-            //Console.WriteLine("AssName：{0} Could Not be recognized", assemblyName.Name);
-            return false;
-        }
-
-        public string Module { get; set; }
-        private string assemblyName;
-
-        public string AssemblyName
-        {
-            get { return assemblyName; }
-            set
-            {
-                assemblyName = value;
-                if (assemblyName.StartsWith("Inspur") || assemblyName.StartsWith("Genersoft"))
-                {
-                    Module = assemblyName.Split('.')[2];
-                }
-                //else if (assemblyName.StartsWith("Genersoft"))
-                //{
-                //    Module = assemblyName.Split('.')[2]
-                //}
-            }
-        }
-
-
-        public string PrjFileName { get; set; }
-        public string PrjFilePath { get; set; }
-        public string AssemblyPath { get; set; }
-        /// <summary>
-        /// 项目引用
-        /// </summary>
-        public List<PrjInfo> PrjRef { get; set; }
-        /// <summary>
-        /// 原始引用字符串
-        /// </summary>
-        public List<string> OriginalRef { get; set; }
-        /// <summary>
-        /// 错误的引用
-        /// </summary>
-        public List<string> RefError { get; set; }
-
-        public List<PrjInfo> BeRefBy { get; set; }
-
-        /// <summary>
-        /// Returns a string that represents the current object.
-        /// </summary>
-        /// <returns>
-        /// A string that represents the current object.
-        /// </returns>
-        public override string ToString()
-        {
-            return $"Ass:{AssemblyName};" +
-                   //$"\t{OriginalRef.OutputList("Ref")};" +
-                   $"\t{RefError.OutputList("Error")}";
-        }
-        public string ToString(string str)
-        {
-            return $"Ass:{AssemblyName};" +
-                   $"\t{OriginalRef.OutputList("Ref:")};" +
-                   $"\t{RefError.OutputList("Error: ")}" +
-                   "\n";
-        }
-    }
-
-    public static class Util
-    {
-        public static StringBuilder OutputList<T>(this List<T> collection, string title, Func<T, string> print = null)
-        {
-            if (print == null)
-                print = arg => arg.ToString() + ",";
-            if (collection.Count == 0) return null;
-            var refs = new StringBuilder(title);
-
-            collection.ForEach(item => refs.Append(print(item)));
-            return refs;
-        }
-    }
-
 }

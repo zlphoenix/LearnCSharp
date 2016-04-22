@@ -59,5 +59,23 @@ namespace Allen.Util.CSharpRefTree.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total aasembly count {0}.
+        /// </summary>
+        internal static string Program_Main_Total_aasembly_count__0_ {
+            get {
+                return ResourceManager.GetString("Program_Main_Total_aasembly_count__0_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total file count {0} .
+        /// </summary>
+        internal static string Program_Main_Total_file_count__0__ {
+            get {
+                return ResourceManager.GetString("Program_Main_Total_file_count__0__", resourceCulture);
+            }
+        }
     }
 }

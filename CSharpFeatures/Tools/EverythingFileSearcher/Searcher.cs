@@ -110,7 +110,7 @@ namespace Allen.Util.EverythingFileSearcher
             int i;
             const int bufsize = 260;
             var buf = new StringBuilder(bufsize);
-
+            Everything_Reset();
             // set the search
             Everything_SetSearchW(queryStr);
 
