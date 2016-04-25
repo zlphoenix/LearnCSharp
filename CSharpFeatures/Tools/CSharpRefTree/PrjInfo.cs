@@ -30,6 +30,11 @@ namespace Allen.Util.CSharpRefTree
 
         }
 
+        public PrjInfo(string csprjPath)
+        {
+
+        }
+
         private PrjInfo LoadAssByRefName(AssemblyName refAss)
         {
             var assPath = Program.AssemblyPath.FirstOrDefault(path => path.Contains(refAss.Name));
@@ -82,7 +87,7 @@ namespace Allen.Util.CSharpRefTree
 
         public string PrjFileName { get; set; }
         public string PrjFilePath { get; set; }
-        public string PrjFullName => Path.Combine(PrjFilePath, PrjFileName);
+        public string PrjFullName => Path.Combine(PrjFilePath ?? "", PrjFileName ?? "");
         public string AssemblyPath { get; set; }
         /// <summary>
         /// 项目引用

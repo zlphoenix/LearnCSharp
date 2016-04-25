@@ -1,5 +1,6 @@
 ﻿using Allen.Util.CSharpRefTree.Properties;
 using SolutionMaker.Core;
+using SolutionMaker.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,7 +21,7 @@ namespace Allen.Util.CSharpRefTree
         public static List<string> AssemblyPath;
         public static List<string> LostAssembly = new List<string>();
         private static string InitPath = @"D:\Work\GSP\GSP6.1\Draft";
-        private static string SlnPath = @"R:\Sln";
+        private static string SlnPath = @"D:\Sln\";
 
         /// <summary>
         /// The main entry point for the application.
@@ -147,7 +148,8 @@ namespace Allen.Util.CSharpRefTree
             if (prjs.Count == 0) return;
             var generator = new SolutionGenerator(new ConsoleLogger());
             var slnOpt = new SolutionOptions();
-            slnOpt.SolutionFolderPath = SlnPath + level.ToString().PadLeft(3, '0');
+            slnOpt.SolutionFolderPath = SlnPath + "buildSln" + level.ToString().PadLeft(3, '0') + ".sln";
+            slnOpt.SolutionFileVersion = SolutionFileVersion.VisualStudio2012;
             slnOpt.ProjectRootFolderPath = prjs.FirstOrDefault().PrjFilePath;
             generator.GenerateSolution(slnOpt.SolutionFolderPath, slnOpt);
 
@@ -156,8 +158,9 @@ namespace Allen.Util.CSharpRefTree
             foreach (var prj in prjs)
             {
                 slnOpt.UpdateMode = SolutionUpdateMode.Add;
-                //slnOpt.
-                //TODO Add prj
+                slnOpt.ProjectRootFolderPath = prj.PrjFilePath;
+                generator.GenerateSolution(slnOpt.SolutionFolderPath, slnOpt);
+
             }
 
 
@@ -257,7 +260,7 @@ namespace Allen.Util.CSharpRefTree
 
         public static PrjInfo CreatePrjInfo(string prj)
         {
-            string dllName = GetFileName(prj);
+            string dllName = GetFileNameWithoutExt(prj);
             if (prjInfoDic.ContainsKey(dllName))
             {
 
@@ -272,7 +275,7 @@ namespace Allen.Util.CSharpRefTree
             return prjInfo;
         }
 
-        private static string GetFileName(string prj)
+        private static string GetFileNameWithoutExt(string prj)
         {
             var fileName = prj.Split('\\').LastOrDefault();
             return fileName.Substring(0, fileName.Length - 4);
