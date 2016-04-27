@@ -1,11 +1,12 @@
-﻿using Allen.Util.CSharpRefTree.Properties;
-using SolutionMaker.Core;
+﻿using SolutionMaker.Core;
 using SolutionMaker.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
+using static System.String;
 
 namespace Allen.Util.CSharpRefTree
 {
@@ -18,97 +19,278 @@ namespace Allen.Util.CSharpRefTree
         public static Dictionary<string, PrjInfo> prjInfoFileNameDic;
         public static List<PrjInfo> errorPrjInfo;
         public static List<PrjInfo> root;
-        public static List<string> AssemblyPath;
+        public static List<string> ProjectPath;
+        public static List<string> CycleRef = new List<string>();
+        public static List<string> RefStageError = new List<string>();
+
         public static List<string> LostAssembly = new List<string>();
-        private static string InitPath = @"D:\Work\GSP\GSP6.1\Draft";
-        private static string SlnPath = @"D:\Sln\";
+        public static string InitPath = @"D:\Work\GSP\GSP6.1\Draft";
+        private static string SlnPath = Path.Combine(InitPath, "BuildSln");
+        private static string CIProjectListConfigPath = ".\\CI.csv";
+        private static readonly List<string> IgnoreRefPrefix = new List<string>
+        {
+            "Microsoft", "System",
+            "stdole","Accessibility",
+            "sysglobl","UIAutomationClient",
+            "PresentationCore","PresentationFramework","WindowsBase","adodb"
+        };
+
 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
 
-            //AssemblyPath = EverythingFileSearcher.Searcher.Search(string.Format(@"{0}\Ref\bin !{0}\Ref\bin\3rd (.dll|.exe)", InitPath)).ToList();
-            AssemblyPath = SampleFileSearcher.SearchFiles($@"{InitPath}\Ref\Bin\Lib|{InitPath}\Ref\Bin\Impl", "*.dll|*.exe");
-            Console.WriteLine(Resources.Program_Main_Total_file_count__0__, AssemblyPath.Count);
+            //ProjectPath = EverythingFileSearcher.Searcher.Search(string.Format(@"{0}\Ref\bin !{0}\Ref\bin\3rd (.dll|.exe)", InitPath)).ToList();
+            Init();
+            //GenPrjFromRefBin();
+
+
+
+            var ciPrjs = GetPrjGroupFromConfig(CIProjectListConfigPath);
+
+            foreach (var group in ciPrjs)
+            {
+                RebuildRef(group);
+            }
+
+            foreach (var group in ciPrjs)
+            {
+                Util.Log($"++++++++Stage:{group.Key},Prj Count:{group.Count()}++++++++");
+                PrintAssembly(group);
+            }
+
+            if (RefStageError.Count != 0)
+            {
+                Util.Log(RefStageError.OutputList("Find Ref Stage Error:"));
+                //return 2;
+            }
+            if (LostAssembly.Count != 0)
+            {
+                Util.Log(LostAssembly.OrderBy(item => item).ToList().OutputList("Find LostRef Error:\n"));
+                //return 2;
+            }
+            if (CycleRef.Count != 0)
+            {
+                Util.Log(CycleRef.OutputList("Find CycleRef:"));
+                return 1;
+            }
+            return 0;
+
+        }
+
+        private static void RebuildRef(IGrouping<string, PrjInfo> @group)
+        {
+            foreach (var prjInfo in @group)
+            {
+                if (prjInfo.OriginalRef.Count == 0)
+                    root.Add(prjInfo);
+
+                foreach (var originalRef in prjInfo.OriginalRef)
+                {
+                    if (originalRef.EndsWith(".csproj"))
+                    {
+                        var refPrjPath = Path.GetFullPath(Path.Combine(prjInfo.PrjFilePath, originalRef));
+                        var refPrj = GetPrjByPath(refPrjPath);
+                        if (refPrj == null)
+                        {
+                            var errorMsg = $" {refPrjPath} prj file Not found,\t ref by {prjInfo.ShortPrjPath}";
+                            prjInfo.RefError.Add(errorMsg);
+                            Util.Log(errorMsg);
+                            if (!LostAssembly.Contains(errorMsg))
+                            {
+                                LostAssembly.Add(errorMsg);
+                            }
+                        }
+                        else
+                        {
+                            RefPrj(refPrj, prjInfo);
+                        }
+                    }
+                    else
+                    {
+                        var refAssembly = originalRef.Split(',').FirstOrDefault();
+
+                        //ignore well known ref
+                        if (IgnoreRefPrefix.Any(item => refAssembly.StartsWith(item, StringComparison.OrdinalIgnoreCase)) || IsNullOrEmpty(refAssembly))
+                        {
+                            continue;
+                        }
+                        var refPrj = GetPrjByAssembly(refAssembly);
+                        if (refPrj == null)
+                        {
+
+                            var errorMsg = $"{refAssembly} dll file Not found,\t ref by {prjInfo.ShortPrjPath}";
+                            prjInfo.RefError.Add(errorMsg);
+                            Util.Log($"Prj {prjInfo.ShortPrjPath}\t{errorMsg}", LogLevel.Error);
+
+                            if (!LostAssembly.Contains(errorMsg))
+                            {
+                                LostAssembly.Add(errorMsg);
+                            }
+                        }
+                        else
+                        {
+                            RefPrj(refPrj, prjInfo);
+                        }
+                    }
+                }
+            }
+        }
+
+        private static PrjInfo GetPrjByPath(string refPrjPath)
+        {
+
+            PrjInfo prjInfo = null;
+            prjInfoFileNameDic.TryGetValue(refPrjPath.ToLower(), out prjInfo);
+            return prjInfo;
+        }
+
+        private static PrjInfo GetPrjByAssembly(string assemblyName)
+        {
+
+            PrjInfo prjInfo = null;
+            prjInfoDic.TryGetValue(assemblyName.ToLower(), out prjInfo);
+            return prjInfo;
+        }
+        private static void RefPrj(PrjInfo refPrj, PrjInfo prjInfo)
+        {
+            if (CompareOrdinal(refPrj.BuildStage, prjInfo.BuildStage) > 0)
+            {
+                var errorMsg =
+                    $" Prj on stage: {prjInfo.BuildStage.PadRight(13, ' ')} ref {refPrj.BuildStage.PadRight(13, ' ')}.\tSrc:\t{prjInfo.PrjFullName},RefPrj:\t{refPrj.PrjFullName}";
+                Util.Log($"Ref Stage Error:{errorMsg}", LogLevel.Error);
+                RefStageError.Add(errorMsg);
+            }
+            else
+            {
+                prjInfo.Ref(refPrj);
+            }
+        }
+
+
+        private static void Init()
+        {
             prjInfoDic = new Dictionary<string, PrjInfo>();
             prjInfoFileNameDic = new Dictionary<string, PrjInfo>();
             errorPrjInfo = new List<PrjInfo>();
             root = new List<PrjInfo>();
-            AssemblyPath.ForEach(assPath =>
-            {
-                if (!assPath.EndsWith("dll") && !assPath.EndsWith("exe")) return;
-                CreatePrjInfo(assPath);
-            }
-            );
-            Console.WriteLine(Resources.Program_Main_Total_aasembly_count__0_, prjInfoDic.Count);
-            RebuildRef();
-
-
-            var csprojFilePathList = SampleFileSearcher.SearchFiles($"{InitPath}\\Src", "*.csproj");
-
-
-            foreach (var csprjFile in csprojFilePathList)
-            {
-                var analyzer = new ProjectAnalyzer(csprjFile);
-                var assName = analyzer.GetAssemblyName();
-
-                if (string.IsNullOrEmpty(assName))
-                {
-                    Console.WriteLine($"Prj File {csprjFile} could not output a assembly");
-                    continue;
-                }
-                if (!prjInfoFileNameDic.ContainsKey(assName))
-                {
-                    Console.WriteLine($"Prj File {csprjFile} output assembly：{assName} did not registed");
-                    continue;
-                }
-                var pf = new FileInfo(csprjFile);
-                var prjInfo = prjInfoFileNameDic[assName];
-                prjInfo.PrjFilePath = pf.DirectoryName;
-                prjInfo.PrjFileName = pf.Name;
-
-
-            }
-            PrintAss();
-
-
+            IgnoreRefPrefix.AddRange(SampleFileSearcher.SearchFiles($@"{InitPath}\Ref\Bin\3rd", "*.dll")
+           .Select(item => item.Split('\\').Last().Split('.').First()));
         }
 
-        private static void PrintAss()
+        /// <summary>
+        /// 以BuildStage分组的PrjInfo
+        /// </summary>
+        /// <param name="ciProjectListConfigPath"></param>
+        /// <returns></returns>
+        private static List<IGrouping<string, PrjInfo>> GetPrjGroupFromConfig(string ciProjectListConfigPath)
         {
-            foreach (var prjInfo in prjInfoDic.Values.Where(item => item.RefError.Count > 0))
+
+            if (!File.Exists(ciProjectListConfigPath))
+                throw new Exception($"CI Project List File not found from Path:{ciProjectListConfigPath}！");
+
+            var prjGroup = File.ReadAllLines(ciProjectListConfigPath)
+                       .Skip(1)
+                       .Select(x => x.Split(','))
+                       .Select(CreatPrjInfoFromCiConfig)
+                       .Where(item => item != null)
+                       .GroupBy(prj => prj.BuildStage)
+                       .OrderBy(item => item.Key)
+                       .ToList();
+
+            return prjGroup;
+        }
+
+        private static PrjInfo CreatPrjInfoFromCiConfig(string[] x)
+        {
+            //不需要参与Build
+            if (x[5] != "True")
+                return null;
+            var prjFullPath = Path.Combine(InitPath, x[2]);
+            if (!File.Exists(prjFullPath))
             {
-                Console.WriteLine(prjInfo.ToString());
+                Util.Log($"Project File {prjFullPath} Not Exsits", LogLevel.Error);
+                return null;
             }
 
-            Console.WriteLine(LostAssembly.OutputList("Lost Assemblies"));
-
-            int level = 0;
-            Console.WriteLine(root.OutputList($"-------------Level {level}-------------\n", item => $"{item.AssemblyName},{item.PrjFullName}\n"));
-            root.OrderBy(item => item.Module).ToList().ForEach(item => prjInfoDic.Remove(item.AssemblyName));
-            level++;
-            while (prjInfoDic.Count > 0)
+            var prj = new PrjInfo()
             {
-                var count = prjInfoDic.Count;
+                DevGroup = x[0],
+                Module = x[1],
+                PrjFullName = prjFullPath,
+                AssemblyName = x[3],
+                BuildStage = x[4],
+            };
+            GetRef(prj);
+            AddToDic(prj);
+            return prj;
+        }
 
+        private static void AddToDic(PrjInfo prj)
+        {
+            prjInfoDic.Add(prj.AssemblyName.ToLower(), prj);
+            prjInfoFileNameDic.Add(prj.PrjFullName.ToLower(), prj);
 
-                var thisLevel = prjInfoDic.Values
+            if (prj.OriginalRef.Count == 0)
+                root.Add(prj);
+        }
+
+        private static void GetRef(PrjInfo prj)
+        {
+            //var pa = new ProjectAnalyzer(prj.PrjFullName);
+            //prj.ProjectId = pa.GetProjectId().ToString();
+            //prj.OriginalRef = pa.GetProjectReferences()?.Select(item => item.Name).ToList();
+            var refFilter = new Regex("<.*Reference Include=\"(.*)\"", RegexOptions.IgnoreCase);
+            using (var reader = File.OpenText(prj.PrjFullName))
+            {
+                while (!reader.EndOfStream)
+                {
+                    var text = reader.ReadLine();
+                    var match = refFilter.Match(text);
+
+                    if (!match.Success) continue;
+
+                    prj.OriginalRef.Add(match.Groups[1].Value);
+
+                }
+            }
+        }
+
+        private static void PrintAssembly(IGrouping<string, PrjInfo> @group)
+        {
+            string buildStage = @group.Key;
+            //Error
+            foreach (var prjInfo in @group.Where(item => item.RefError.Count > 0))
+            {
+                Util.Log(prjInfo.ToString());
+            }
+
+            Util.Log(LostAssembly.OutputList("Lost Assemblies:\n"), LogLevel.Error);
+            var thisStagelDic = @group.ToDictionary(item => item.AssemblyName, item => item);
+            int level = 0;
+            //Console.WriteLine(root.OutputList($"-------------Level {level}-------------\n", item => $"{item.AssemblyName},{item.PrjFullName}\n"));
+            //root.OrderBy(item => item.Module).ToList().ForEach(item => prjInfoDic.Remove(item.AssemblyName));
+            //level++;
+            while (thisStagelDic.Count > 0)
+            {
+                //var count = prjInfoDic.Count;
+                var thisLevel = thisStagelDic.Values
                     .Where(item => (!item.PrjRef.Exists(refItem => !root.Contains(refItem))))
                     .OrderBy(item => item.Module)
                     .ToList();
                 if (thisLevel.Count == 0)
                 {
-                    var recursivePrj = DealRecursiveRef();
+                    var recursivePrj = DealRecursiveRef(thisStagelDic);
 
                     if (recursivePrj == null)
                     {
-                        Console.WriteLine("Failed to remove cycle!");
+                        Util.Log("Failed to remove cycle!", LogLevel.Error);
                         break;
                     }
                     else
@@ -116,41 +298,46 @@ namespace Allen.Util.CSharpRefTree
                         thisLevel.Add(recursivePrj);
                     }
                 }
-                Console.WriteLine(thisLevel.OutputList($"-------------Level {level}-------------\n", item => $"{item.AssemblyName},{item.PrjFullName}\n"));
+                Util.Log(thisLevel.OutputList($"-------------{buildStage}.Level {level},Count:{thisLevel.Count}-------------\n", item => $"{item.AssemblyName},{item.PrjFullName}\n"));
                 root.AddRange(thisLevel);
-                thisLevel.ForEach(item => prjInfoDic.Remove(item.AssemblyName));
-
-
-                GenSln(thisLevel, level);
-
-
+                thisLevel.ForEach(item => thisStagelDic.Remove(item.AssemblyName));
+                GenSln(thisLevel, level, buildStage == null ? null : Path.Combine(SlnPath, buildStage));
                 level++;
             }
 
-            Console.WriteLine(prjInfoDic.Values.ToList().OrderBy(item => item.Module).ToList().OutputList("-------------Not Reachable-------------\n"
+            Util.Log(thisStagelDic.Values.ToList().OrderBy(item => item.Module).ToList().OutputList($"-------------Not Reachable,Count:{thisStagelDic.Count}-------------\n"
             , item => item.AssemblyName + "\n"));
-            foreach (var notReachableAss in prjInfoDic)
+            foreach (var notReachableAss in thisStagelDic)
             {
-                Console.WriteLine(
+                Util.Log(
               notReachableAss.Value.PrjRef
                     .Where(item => !root.Contains(item))
                     .Select(item => item.AssemblyName)
                     .ToList()
                     .OutputList(notReachableAss.Key + " Ref not in builded list\n", item => "\t" + item + "\n")
-                    );
+                    , LogLevel.Error);
             }
 
         }
 
-        private static void GenSln(List<PrjInfo> thisLevel, int level)
+
+        private static void GenSln(List<PrjInfo> thisLevel, int level, string slnDir = null)
         {
-            var prjs = thisLevel.Where(item => !string.IsNullOrEmpty(item.PrjFilePath)).ToList();
+            if (IsNullOrEmpty(slnDir)) slnDir = SlnPath;
+            if (!Directory.Exists(slnDir)) Directory.CreateDirectory(slnDir);
+
+            var prjs = thisLevel.Where(item => !IsNullOrEmpty(item.PrjFilePath)).ToList();
             if (prjs.Count == 0) return;
             var generator = new SolutionGenerator(new ConsoleLogger());
-            var slnOpt = new SolutionOptions();
-            slnOpt.SolutionFolderPath = SlnPath + "buildSln" + level.ToString().PadLeft(3, '0') + ".sln";
-            slnOpt.SolutionFileVersion = SolutionFileVersion.VisualStudio2012;
-            slnOpt.ProjectRootFolderPath = prjs.FirstOrDefault().PrjFilePath;
+            var firstPrj = prjs.First();
+            var slnOpt = new SolutionOptions
+            {
+                SolutionFolderPath = Path.Combine(slnDir,
+                    $"{firstPrj.BuildStage}BuildSln{level.ToString().PadLeft(3, '0')}.sln"),
+                SolutionFileVersion = SolutionFileVersion.VisualStudio2012,
+                ProjectRootFolderPath = firstPrj.PrjFilePath
+            };
+
             generator.GenerateSolution(slnOpt.SolutionFolderPath, slnOpt);
 
             prjs.RemoveAt(0);
@@ -162,16 +349,12 @@ namespace Allen.Util.CSharpRefTree
                 generator.GenerateSolution(slnOpt.SolutionFolderPath, slnOpt);
 
             }
-
-
-
-
         }
 
-        private static PrjInfo DealRecursiveRef()
+        private static PrjInfo DealRecursiveRef(Dictionary<string, PrjInfo> thisStageDic)
         {
-            var path = new Stack<PrjInfo>(prjInfoDic.Count);
-            foreach (var prjInfo in prjInfoDic.Values.ToList())
+            var path = new Stack<PrjInfo>(thisStageDic.Count);
+            foreach (var prjInfo in thisStageDic.Values.ToList())
             {
                 //内部会打断循环引用，会影响到集合的成员
                 if (root.Contains(prjInfo))
@@ -198,12 +381,18 @@ namespace Allen.Util.CSharpRefTree
                 if (path.Contains(refAssembly))
                 {
                     //发现环
-                    Console.Write(refAssembly.AssemblyName + "<-");
+                    var cycleRefError = new StringBuilder();
+                    cycleRefError.Append(refAssembly.AssemblyName).Append("<-");
                     while (path.Peek() != refAssembly)
                     {
-                        Console.Write(path.Pop().AssemblyName + "<-");
+                        cycleRefError.Append(path.Pop().AssemblyName).Append("<-");
                     }
-                    Console.Write(refAssembly.AssemblyName + "\t Resolve it?[Y/n]\n");
+
+                    cycleRefError.Append(refAssembly.AssemblyName);
+                    CycleRef.Add(cycleRefError.ToString());
+                    cycleRefError.Append("\t Resolve it?[Y/n]\n");
+                    Util.Log(cycleRefError, LogLevel.Error);
+
                     //var decide = Console.ReadLine();
                     //if (decide == "Y")
                     //{
@@ -220,65 +409,58 @@ namespace Allen.Util.CSharpRefTree
             }
             return null;
         }
-        private static void RebuildRef()
-        {
-            foreach (var prjInfo in prjInfoDic.Values)
-            {
-                if (prjInfo.OriginalRef.Count == 0)
-                    continue;
 
-                foreach (var refAssName in prjInfo.OriginalRef)
-                {
-                    if (prjInfoDic.ContainsKey(refAssName))
-                    {
-                        var refAss = prjInfoDic[refAssName];
-                        prjInfo.PrjRef.Add(refAss);
-                        refAss.BeRefBy.Add(prjInfo);
-                    }
-                    else
-                    {
-                        if (!LostAssembly.Contains(refAssName))
-                            LostAssembly.Add(refAssName);
-                        prjInfo.RefError.Add(refAssName);
-                    }
-                }
-            }
-        }
+        //private static void AddToDics(PrjInfo prjInfo)
+        //{
+        //    if (!prjInfoDic.ContainsKey(prjInfo.AssemblyName))
+        //    {
+        //        prjInfoDic.Add(prjInfo.AssemblyName, prjInfo);
+        //    }
+        //    prjInfoFileNameDic.Add(prjInfo.AssemblyName, prjInfo);
 
-        private static void AddToDics(PrjInfo prjInfo)
-        {
-            if (!prjInfoDic.ContainsKey(prjInfo.AssemblyName))
-            {
-                prjInfoDic.Add(prjInfo.AssemblyName, prjInfo);
-            }
-            prjInfoFileNameDic.Add(prjInfo.AssemblyName, prjInfo);
-
-            if (prjInfo.OriginalRef.Count == 0)
-                root.Add(prjInfo);
-        }
+        //    if (prjInfo.OriginalRef.Count == 0)
+        //        root.Add(prjInfo);
+        //}
 
 
-        public static PrjInfo CreatePrjInfo(string prj)
-        {
-            string dllName = GetFileNameWithoutExt(prj);
-            if (prjInfoDic.ContainsKey(dllName))
-            {
+        //public static PrjInfo CreatePrjInfoFromAssemblyPath(string prj)
+        //{
+        //    string dllName = GetFileNameWithoutExt(prj);
+        //    if (prjInfoDic.ContainsKey(dllName))
+        //    {
 
-                Console.WriteLine($"{dllName}\t{prj} load\t {prjInfoDic[dllName].AssemblyPath} before ");
-                return null; //已经添加过
-            }
-            var ass = Assembly.ReflectionOnlyLoadFrom(prj);
-            var prjInfo = new PrjInfo(ass);
-            prjInfo.AssemblyPath = prj;
-            AddToDics(prjInfo);
+        //        Console.WriteLine($"{dllName}\t{prj} load\t {prjInfoDic[dllName].AssemblyPath} before ");
+        //        return null; //已经添加过
+        //    }
+        //    var ass = Assembly.ReflectionOnlyLoadFrom(prj);
+        //    var prjInfo = new PrjInfo(ass);
+        //    prjInfo.AssemblyPath = prj;
+        //    AddToDics(prjInfo);
 
-            return prjInfo;
-        }
+        //    return prjInfo;
+        //}
+        //public static PrjInfo CreatePrjInfoFromCsproj(string prj)
+        //{
+        //    var pa = new ProjectAnalyzer(prj);
 
-        private static string GetFileNameWithoutExt(string prj)
-        {
-            var fileName = prj.Split('\\').LastOrDefault();
-            return fileName.Substring(0, fileName.Length - 4);
-        }
+        //    string dllName = pa.GetAssemblyName();
+        //    if (prjInfoDic.ContainsKey(dllName))
+        //    {
+
+        //        Console.WriteLine($"{dllName}\t{prj} load\t {prjInfoDic[dllName].AssemblyPath} before ");
+        //        return null; //已经添加过
+        //    }
+        //    //var ass = Assembly.ReflectionOnlyLoadFrom(prj);
+        //    var prjInfo = new PrjInfo(pa) { AssemblyPath = prj };
+        //    AddToDic(prjInfo);
+        //    return prjInfo;
+        //}
+
+        //private static string GetFileNameWithoutExt(string prj)
+        //{
+        //    var fileName = prj.Split('\\').LastOrDefault();
+        //    return fileName.Substring(0, fileName.Length - 4);
+        //}
     }
+
 }

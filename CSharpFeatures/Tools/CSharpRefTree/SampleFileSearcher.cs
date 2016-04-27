@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -26,7 +25,7 @@ namespace Allen.Util.CSharpRefTree
             {
                 if (!Directory.Exists(dir))
                 {
-                    Console.WriteLine($"File Searching Paht ：{dir} not exist");
+                    Util.Log($"File Searching Path ：{dir} not exist", LogLevel.Error);
                     continue;
                 }
                 var rootDir = new DirectoryInfo(dir);
