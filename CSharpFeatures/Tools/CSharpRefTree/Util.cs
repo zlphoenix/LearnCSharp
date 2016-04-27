@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Allen.Util.CSharpRefTree
+namespace Inspur.GSP.Bom.Builder
 {
     public static class Util
     {

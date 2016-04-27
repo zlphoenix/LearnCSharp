@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace Allen.Util.CSharpRefTree
+namespace Inspur.GSP.Bom.Builder
 {
     internal class PrjInfo
     {
@@ -95,7 +95,7 @@ namespace Allen.Util.CSharpRefTree
         /// </summary>
         public string PrjFilePath { get; set; }
 
-        public string ShortPrjPath => string.IsNullOrEmpty(PrjFullName) ? null : PrjFullName.Substring(Program.InitPath.Length);
+        public string ShortPrjPath => string.IsNullOrEmpty(PrjFullName) ? null : PrjFullName.Substring(Program.BomBuildOption.InitPath.Length);
         /// <summary>
         /// csproj 文件绝对路径
         /// </summary>
@@ -107,7 +107,7 @@ namespace Allen.Util.CSharpRefTree
             }
             set
             {
-                var absolutPrjPath = Path.Combine(Program.InitPath, value);
+                var absolutPrjPath = Path.Combine(Program.BomBuildOption.InitPath, value);
                 if (!File.Exists(absolutPrjPath))
                     throw new FileNotFoundException("Project File Not found.",
                         absolutPrjPath);

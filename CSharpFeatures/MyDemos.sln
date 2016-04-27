@@ -133,7 +133,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FileSearch", "FileSearch", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EverythingFileSearcher", "Tools\EverythingFileSearcher\EverythingFileSearcher.csproj", "{22A7C8CC-C3B8-41E3-8913-80A8DF9B669A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpRefTree", "Tools\CSharpRefTree\CSharpRefTree.csproj", "{08DFC162-A264-410A-A958-FF7981E8789A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bom.Builder", "Tools\CSharpRefTree\Bom.Builder.csproj", "{08DFC162-A264-410A-A958-FF7981E8789A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionMaker.Core", "Tools\SolutionMaker.Core\SolutionMaker.Core.csproj", "{CECE6250-4F31-42A2-8A95-B81D763D1A0B}"
 EndProject

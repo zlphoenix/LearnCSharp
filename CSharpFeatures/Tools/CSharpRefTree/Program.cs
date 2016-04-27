@@ -8,25 +8,22 @@ using System.Text;
 using System.Text.RegularExpressions;
 using static System.String;
 
-namespace Allen.Util.CSharpRefTree
+namespace Inspur.GSP.Bom.Builder
 {
     /// <summary>
     /// 希望通过解析项目文件中的引用关系,建立build顺序
     /// </summary>
     static class Program
     {
-        public static Dictionary<string, PrjInfo> prjInfoDic;
-        public static Dictionary<string, PrjInfo> prjInfoFileNameDic;
-        public static List<PrjInfo> errorPrjInfo;
-        public static List<PrjInfo> root;
-        public static List<string> ProjectPath;
+        public static Dictionary<string, PrjInfo> PrjInfoDic;
+        public static Dictionary<string, PrjInfo> PrjInfoFileNameDic;
+        public static List<PrjInfo> ErrorPrjInfo;
+        public static List<PrjInfo> Root;
         public static List<string> CycleRef = new List<string>();
         public static List<string> RefStageError = new List<string>();
 
         public static List<string> LostAssembly = new List<string>();
-        public static string InitPath = @"D:\Work\GSP\GSP6.1\Draft";
-        private static string SlnPath = Path.Combine(InitPath, "BuildSln");
-        private static string CIProjectListConfigPath = ".\\CI.csv";
+        public static BomBuildOption BomBuildOption;
         private static readonly List<string> IgnoreRefPrefix = new List<string>
         {
             "Microsoft", "System",
@@ -42,17 +39,19 @@ namespace Allen.Util.CSharpRefTree
         [STAThread]
         static int Main(string[] args)
         {
+
+
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
 
             //ProjectPath = EverythingFileSearcher.Searcher.Search(string.Format(@"{0}\Ref\bin !{0}\Ref\bin\3rd (.dll|.exe)", InitPath)).ToList();
-            Init();
+            Init(args);
             //GenPrjFromRefBin();
 
 
 
-            var ciPrjs = GetPrjGroupFromConfig(CIProjectListConfigPath);
+            var ciPrjs = GetPrjGroupFromConfig(BomBuildOption.CiProjectListConfigPath);
 
             foreach (var group in ciPrjs)
             {
@@ -84,12 +83,24 @@ namespace Allen.Util.CSharpRefTree
 
         }
 
+        private static void Init(string[] args)
+        {
+            BomBuildOption = new BomBuildOption(args);
+
+            PrjInfoDic = new Dictionary<string, PrjInfo>();
+            PrjInfoFileNameDic = new Dictionary<string, PrjInfo>();
+            ErrorPrjInfo = new List<PrjInfo>();
+            Root = new List<PrjInfo>();
+            IgnoreRefPrefix.AddRange(SampleFileSearcher.SearchFiles($@"{BomBuildOption.InitPath}\Ref\Bin\3rd", "*.dll")
+           .Select(item => item.Split('\\').Last().Split('.').First()));
+        }
+
         private static void RebuildRef(IGrouping<string, PrjInfo> @group)
         {
             foreach (var prjInfo in @group)
             {
                 if (prjInfo.OriginalRef.Count == 0)
-                    root.Add(prjInfo);
+                    Root.Add(prjInfo);
 
                 foreach (var originalRef in prjInfo.OriginalRef)
                 {
@@ -146,16 +157,16 @@ namespace Allen.Util.CSharpRefTree
         private static PrjInfo GetPrjByPath(string refPrjPath)
         {
 
-            PrjInfo prjInfo = null;
-            prjInfoFileNameDic.TryGetValue(refPrjPath.ToLower(), out prjInfo);
+            PrjInfo prjInfo;
+            PrjInfoFileNameDic.TryGetValue(refPrjPath.ToLower(), out prjInfo);
             return prjInfo;
         }
 
         private static PrjInfo GetPrjByAssembly(string assemblyName)
         {
 
-            PrjInfo prjInfo = null;
-            prjInfoDic.TryGetValue(assemblyName.ToLower(), out prjInfo);
+            PrjInfo prjInfo;
+            PrjInfoDic.TryGetValue(assemblyName.ToLower(), out prjInfo);
             return prjInfo;
         }
         private static void RefPrj(PrjInfo refPrj, PrjInfo prjInfo)
@@ -173,16 +184,6 @@ namespace Allen.Util.CSharpRefTree
             }
         }
 
-
-        private static void Init()
-        {
-            prjInfoDic = new Dictionary<string, PrjInfo>();
-            prjInfoFileNameDic = new Dictionary<string, PrjInfo>();
-            errorPrjInfo = new List<PrjInfo>();
-            root = new List<PrjInfo>();
-            IgnoreRefPrefix.AddRange(SampleFileSearcher.SearchFiles($@"{InitPath}\Ref\Bin\3rd", "*.dll")
-           .Select(item => item.Split('\\').Last().Split('.').First()));
-        }
 
         /// <summary>
         /// 以BuildStage分组的PrjInfo
@@ -212,7 +213,7 @@ namespace Allen.Util.CSharpRefTree
             //不需要参与Build
             if (x[5] != "True")
                 return null;
-            var prjFullPath = Path.Combine(InitPath, x[2]);
+            var prjFullPath = Path.Combine(BomBuildOption.InitPath, x[2]);
             if (!File.Exists(prjFullPath))
             {
                 Util.Log($"Project File {prjFullPath} Not Exsits", LogLevel.Error);
@@ -234,11 +235,11 @@ namespace Allen.Util.CSharpRefTree
 
         private static void AddToDic(PrjInfo prj)
         {
-            prjInfoDic.Add(prj.AssemblyName.ToLower(), prj);
-            prjInfoFileNameDic.Add(prj.PrjFullName.ToLower(), prj);
+            PrjInfoDic.Add(prj.AssemblyName.ToLower(), prj);
+            PrjInfoFileNameDic.Add(prj.PrjFullName.ToLower(), prj);
 
             if (prj.OriginalRef.Count == 0)
-                root.Add(prj);
+                Root.Add(prj);
         }
 
         private static void GetRef(PrjInfo prj)
@@ -274,14 +275,14 @@ namespace Allen.Util.CSharpRefTree
             Util.Log(LostAssembly.OutputList("Lost Assemblies:\n"), LogLevel.Error);
             var thisStagelDic = @group.ToDictionary(item => item.AssemblyName, item => item);
             int level = 0;
-            //Console.WriteLine(root.OutputList($"-------------Level {level}-------------\n", item => $"{item.AssemblyName},{item.PrjFullName}\n"));
-            //root.OrderBy(item => item.Module).ToList().ForEach(item => prjInfoDic.Remove(item.AssemblyName));
+            //Console.WriteLine(Root.OutputList($"-------------Level {level}-------------\n", item => $"{item.AssemblyName},{item.PrjFullName}\n"));
+            //Root.OrderBy(item => item.Module).ToList().ForEach(item => PrjInfoDic.Remove(item.AssemblyName));
             //level++;
             while (thisStagelDic.Count > 0)
             {
-                //var count = prjInfoDic.Count;
+                //var count = PrjInfoDic.Count;
                 var thisLevel = thisStagelDic.Values
-                    .Where(item => (!item.PrjRef.Exists(refItem => !root.Contains(refItem))))
+                    .Where(item => (!item.PrjRef.Exists(refItem => !Root.Contains(refItem))))
                     .OrderBy(item => item.Module)
                     .ToList();
                 if (thisLevel.Count == 0)
@@ -299,19 +300,19 @@ namespace Allen.Util.CSharpRefTree
                     }
                 }
                 Util.Log(thisLevel.OutputList($"-------------{buildStage}.Level {level},Count:{thisLevel.Count}-------------\n", item => $"{item.AssemblyName},{item.PrjFullName}\n"));
-                root.AddRange(thisLevel);
+                Root.AddRange(thisLevel);
                 thisLevel.ForEach(item => thisStagelDic.Remove(item.AssemblyName));
-                GenSln(thisLevel, level, buildStage == null ? null : Path.Combine(SlnPath, buildStage));
+                GenSln(thisLevel, level, buildStage == null ? null : Path.Combine(BomBuildOption.SlnPath, buildStage));
                 level++;
             }
 
-            Util.Log(thisStagelDic.Values.ToList().OrderBy(item => item.Module).ToList().OutputList($"-------------Not Reachable,Count:{thisStagelDic.Count}-------------\n"
+            Util.Log(thisStagelDic.Values.ToList().OrderBy(item => item.Module).ToList().OutputList($"-------------{buildStage},Not Reachable,Count:{thisStagelDic.Count}-------------\n"
             , item => item.AssemblyName + "\n"));
             foreach (var notReachableAss in thisStagelDic)
             {
                 Util.Log(
               notReachableAss.Value.PrjRef
-                    .Where(item => !root.Contains(item))
+                    .Where(item => !Root.Contains(item))
                     .Select(item => item.AssemblyName)
                     .ToList()
                     .OutputList(notReachableAss.Key + " Ref not in builded list\n", item => "\t" + item + "\n")
@@ -319,11 +320,9 @@ namespace Allen.Util.CSharpRefTree
             }
 
         }
-
-
-        private static void GenSln(List<PrjInfo> thisLevel, int level, string slnDir = null)
+        public static void GenSln(List<PrjInfo> thisLevel, int level, string slnDir = null)
         {
-            if (IsNullOrEmpty(slnDir)) slnDir = SlnPath;
+            if (IsNullOrEmpty(slnDir)) slnDir = BomBuildOption.SlnPath;
             if (!Directory.Exists(slnDir)) Directory.CreateDirectory(slnDir);
 
             var prjs = thisLevel.Where(item => !IsNullOrEmpty(item.PrjFilePath)).ToList();
@@ -357,7 +356,7 @@ namespace Allen.Util.CSharpRefTree
             foreach (var prjInfo in thisStageDic.Values.ToList())
             {
                 //内部会打断循环引用，会影响到集合的成员
-                if (root.Contains(prjInfo))
+                if (Root.Contains(prjInfo))
                     continue;
                 var prj = Deal(prjInfo, path);
                 if (prj != null)
@@ -375,7 +374,7 @@ namespace Allen.Util.CSharpRefTree
         /// <param name="path"></param>
         public static PrjInfo Deal(PrjInfo prjInfo, Stack<PrjInfo> path)
         {
-            foreach (var refAssembly in prjInfo.PrjRef.Where(item => (!root.Contains(item))))
+            foreach (var refAssembly in prjInfo.PrjRef.Where(item => (!Root.Contains(item))))
             {
 
                 if (path.Contains(refAssembly))
@@ -396,8 +395,8 @@ namespace Allen.Util.CSharpRefTree
                     //var decide = Console.ReadLine();
                     //if (decide == "Y")
                     //{
-                    //root.Add(refAssembly);
-                    //prjInfoDic.Remove(refAssembly.AssemblyName);
+                    //Root.Add(refAssembly);
+                    //PrjInfoDic.Remove(refAssembly.AssemblyName);
                     return refAssembly;
                     //}
                 }
@@ -412,24 +411,24 @@ namespace Allen.Util.CSharpRefTree
 
         //private static void AddToDics(PrjInfo prjInfo)
         //{
-        //    if (!prjInfoDic.ContainsKey(prjInfo.AssemblyName))
+        //    if (!PrjInfoDic.ContainsKey(prjInfo.AssemblyName))
         //    {
-        //        prjInfoDic.Add(prjInfo.AssemblyName, prjInfo);
+        //        PrjInfoDic.Add(prjInfo.AssemblyName, prjInfo);
         //    }
-        //    prjInfoFileNameDic.Add(prjInfo.AssemblyName, prjInfo);
+        //    PrjInfoFileNameDic.Add(prjInfo.AssemblyName, prjInfo);
 
         //    if (prjInfo.OriginalRef.Count == 0)
-        //        root.Add(prjInfo);
+        //        Root.Add(prjInfo);
         //}
 
 
         //public static PrjInfo CreatePrjInfoFromAssemblyPath(string prj)
         //{
         //    string dllName = GetFileNameWithoutExt(prj);
-        //    if (prjInfoDic.ContainsKey(dllName))
+        //    if (PrjInfoDic.ContainsKey(dllName))
         //    {
 
-        //        Console.WriteLine($"{dllName}\t{prj} load\t {prjInfoDic[dllName].AssemblyPath} before ");
+        //        Console.WriteLine($"{dllName}\t{prj} load\t {PrjInfoDic[dllName].AssemblyPath} before ");
         //        return null; //已经添加过
         //    }
         //    var ass = Assembly.ReflectionOnlyLoadFrom(prj);
@@ -444,10 +443,10 @@ namespace Allen.Util.CSharpRefTree
         //    var pa = new ProjectAnalyzer(prj);
 
         //    string dllName = pa.GetAssemblyName();
-        //    if (prjInfoDic.ContainsKey(dllName))
+        //    if (PrjInfoDic.ContainsKey(dllName))
         //    {
 
-        //        Console.WriteLine($"{dllName}\t{prj} load\t {prjInfoDic[dllName].AssemblyPath} before ");
+        //        Console.WriteLine($"{dllName}\t{prj} load\t {PrjInfoDic[dllName].AssemblyPath} before ");
         //        return null; //已经添加过
         //    }
         //    //var ass = Assembly.ReflectionOnlyLoadFrom(prj);

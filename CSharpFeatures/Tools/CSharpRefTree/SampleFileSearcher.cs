@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace Allen.Util.CSharpRefTree
+namespace Inspur.GSP.Bom.Builder
 {
     /// <summary>
     /// 简单文件搜索
