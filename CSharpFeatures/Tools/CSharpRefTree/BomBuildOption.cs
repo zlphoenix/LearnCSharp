@@ -18,6 +18,8 @@ namespace Inspur.GSP.Bom.Builder
             set { slnPath = value; }
         }
         public string CiProjectListConfigPath = ".\\CI.csv";
+        public bool NeedReport { get; set; }
+        public bool TestPrjInclude { get; set; }
 
         internal BomBuildOption(string[] args)
         {
@@ -55,23 +57,33 @@ namespace Inspur.GSP.Bom.Builder
                         {
                             throw new IOException($"Build start path:{s} not found!");
                         }
-                        InitPath = s;
+                        InitPath = Path.GetFullPath(s);
                         break;
                     }
                 case BomBuildOptionType.CiFilePath:
-                    if (!Directory.Exists(s))
+                    if (!File.Exists(s))
                     {
                         throw new IOException($"Build Sln target path:{s} not found!");
                     }
+                    CiProjectListConfigPath = s;
+                    break;
+                case BomBuildOptionType.SlnTargetPath:
                     SlnPath = s;
                     break;
-
+                case BomBuildOptionType.NeedReport:
+                    throw new NotSupportedException("arg Error after /n no detail ");
+                //NeedReport = true;
+                //break;
+                case BomBuildOptionType.TestPrjInclude:
+                    throw new NotSupportedException("arg Error after /t no detail ");
+                //TestPrjInclude = true;
+                //break;
                 default:
                     break;
             }
         }
 
-        private static BomBuildOptionType Parse(string argPrefix)
+        private BomBuildOptionType Parse(string argPrefix)
         {
             switch (argPrefix)
             {
@@ -81,6 +93,17 @@ namespace Inspur.GSP.Bom.Builder
                 case "C":
                 case "c":
                     return BomBuildOptionType.CiFilePath;
+                case "S":
+                case "s":
+                    return BomBuildOptionType.SlnTargetPath;
+                case "T":
+                case "t":
+                    TestPrjInclude = true;
+                    return BomBuildOptionType.TestPrjInclude;
+                case "N":
+                case "n":
+                    NeedReport = true;
+                    return BomBuildOptionType.NeedReport;
                 default:
                     return BomBuildOptionType.None;
             }
@@ -91,6 +114,9 @@ namespace Inspur.GSP.Bom.Builder
             None = 0,
             BuildPath = 1,
             CiFilePath = 2,
+            SlnTargetPath = 3,
+            NeedReport = 4,
+            TestPrjInclude = 5,
         }
     }
 }

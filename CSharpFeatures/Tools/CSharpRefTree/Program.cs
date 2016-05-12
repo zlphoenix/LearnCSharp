@@ -21,7 +21,7 @@ namespace Inspur.GSP.Bom.Builder
         public static List<PrjInfo> Root;
         public static List<string> CycleRef = new List<string>();
         public static List<string> RefStageError = new List<string>();
-
+        public static List<string> PrjFileNotFound = new List<string>();
         public static List<string> LostAssembly = new List<string>();
         public static BomBuildOption BomBuildOption;
         private static readonly List<string> IgnoreRefPrefix = new List<string>
@@ -40,6 +40,7 @@ namespace Inspur.GSP.Bom.Builder
         static int Main(string[] args)
         {
 
+            args.ToList().OutputList("args:");
 
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
@@ -64,21 +65,43 @@ namespace Inspur.GSP.Bom.Builder
                 PrintAssembly(group);
             }
 
+            var errorCode = 0;
+            if (PrjFileNotFound.Count != 0)
+            {
+                Util.Log(PrjFileNotFound.OutputListWithReturn("项目文件不存在:"), LogLevel.Error);
+                errorCode += 8;
+            }
             if (RefStageError.Count != 0)
             {
-                Util.Log(RefStageError.OutputList("Find Ref Stage Error:"));
-                //return 2;
+                Util.Log(RefStageError.OutputListWithReturn("项目层次引用错误:"), LogLevel.Error);
+                errorCode += 4;
             }
             if (LostAssembly.Count != 0)
             {
-                Util.Log(LostAssembly.OrderBy(item => item).ToList().OutputList("Find LostRef Error:\n"));
-                //return 2;
+                Util.Log(LostAssembly.OrderBy(item => item).ToList().OutputListWithReturn("缺少引用:\n"), LogLevel.Error);
+                errorCode += 2;
             }
             if (CycleRef.Count != 0)
             {
-                Util.Log(CycleRef.OutputList("Find CycleRef:"));
-                return 1;
+                Util.Log(CycleRef.OutputList("循环依赖:"), LogLevel.Error);
+                errorCode += 1;
             }
+            Util.Log(PrjInfoDic.Values
+                .GroupBy(item => item.PrjFileName)
+                .Where(item => item.Count() > 1)
+                .ToList().OutputList("同名项目:", item => $"\n{item.Key}:{item.ToList().OutputList("", prj => "\n\t" + prj.ShortPrjPath)}"), LogLevel.Error);
+
+
+            if (BomBuildOption.NeedReport)
+            {
+                Util.Log("++++++++All Prj Reprot++++++++");
+                foreach (var prjInfo in ciPrjs.SelectMany(@group => @group))
+                {
+                    Util.Log(prjInfo.ToReportString());
+                }
+            }
+
+            Util.Log($"BOM Tool Execution Succeed at {DateTime.Now.ToString()} , Code:{errorCode}");
             return 0;
 
         }
@@ -110,7 +133,7 @@ namespace Inspur.GSP.Bom.Builder
                         var refPrj = GetPrjByPath(refPrjPath);
                         if (refPrj == null)
                         {
-                            var errorMsg = $" {refPrjPath} prj file Not found,\t ref by {prjInfo.ShortPrjPath}";
+                            var errorMsg = $"\t 被引用的项目{GetShortPath(refPrjPath)} 没有找到，出错的项目 {prjInfo.ShortPrjPath}";
                             prjInfo.RefError.Add(errorMsg);
                             Util.Log(errorMsg);
                             if (!LostAssembly.Contains(errorMsg))
@@ -136,7 +159,7 @@ namespace Inspur.GSP.Bom.Builder
                         if (refPrj == null)
                         {
 
-                            var errorMsg = $"{refAssembly} dll file Not found,\t ref by {prjInfo.ShortPrjPath}";
+                            var errorMsg = $"\t被引用的dll:{refAssembly} 没有找到，出错的项目： {prjInfo.ShortPrjPath}";
                             prjInfo.RefError.Add(errorMsg);
                             Util.Log($"Prj {prjInfo.ShortPrjPath}\t{errorMsg}", LogLevel.Error);
 
@@ -152,6 +175,14 @@ namespace Inspur.GSP.Bom.Builder
                     }
                 }
             }
+        }
+
+        private static string GetShortPath(string refPrjPath)
+        {
+            var shortPath = string.IsNullOrEmpty(refPrjPath)
+                ? null
+                : refPrjPath.Substring(Program.BomBuildOption.InitPath.Length);
+            return shortPath;
         }
 
         private static PrjInfo GetPrjByPath(string refPrjPath)
@@ -174,7 +205,7 @@ namespace Inspur.GSP.Bom.Builder
             if (CompareOrdinal(refPrj.BuildStage, prjInfo.BuildStage) > 0)
             {
                 var errorMsg =
-                    $" Prj on stage: {prjInfo.BuildStage.PadRight(13, ' ')} ref {refPrj.BuildStage.PadRight(13, ' ')}.\tSrc:\t{prjInfo.PrjFullName},RefPrj:\t{refPrj.PrjFullName}";
+                    $"\t{prjInfo.BuildStage.PadRight(13, ' ')} 层的项目 {prjInfo.ShortPrjPath},引用 {refPrj.BuildStage.PadRight(13, ' ')}层的项目{refPrj.ShortPrjPath}";
                 Util.Log($"Ref Stage Error:{errorMsg}", LogLevel.Error);
                 RefStageError.Add(errorMsg);
             }
@@ -216,7 +247,9 @@ namespace Inspur.GSP.Bom.Builder
             var prjFullPath = Path.Combine(BomBuildOption.InitPath, x[2]);
             if (!File.Exists(prjFullPath))
             {
-                Util.Log($"Project File {prjFullPath} Not Exsits", LogLevel.Error);
+                var msg = $"Project File {prjFullPath} Not Exsits";
+                Util.Log(msg, LogLevel.Error);
+                PrjFileNotFound.Add(msg);
                 return null;
             }
 
@@ -248,16 +281,28 @@ namespace Inspur.GSP.Bom.Builder
             //prj.ProjectId = pa.GetProjectId().ToString();
             //prj.OriginalRef = pa.GetProjectReferences()?.Select(item => item.Name).ToList();
             var refFilter = new Regex("<.*Reference Include=\"(.*)\"", RegexOptions.IgnoreCase);
+            var idFilter = new Regex(".*ProjectGuid>({.*})", RegexOptions.IgnoreCase);
+            //< ProjectGuid >{ 4E3DAB94 - 04CC - 4F86 - ABB2 - C913680FBDAE}</ ProjectGuid >
+            //< ProjectGuid >({.*})
             using (var reader = File.OpenText(prj.PrjFullName))
             {
                 while (!reader.EndOfStream)
                 {
+
                     var text = reader.ReadLine();
+                    if (string.IsNullOrEmpty(prj.ProjectId))
+                    {
+                        var idMatch = idFilter.Match(text);
+                        if (!idMatch.Success) continue;
+
+                        prj.ProjectId = idMatch.Groups[1].Value;
+                    }
+
                     var match = refFilter.Match(text);
-
                     if (!match.Success) continue;
-
                     prj.OriginalRef.Add(match.Groups[1].Value);
+
+
 
                 }
             }
@@ -299,6 +344,25 @@ namespace Inspur.GSP.Bom.Builder
                         thisLevel.Add(recursivePrj);
                     }
                 }
+
+                var repeat = thisLevel
+                    .GroupBy(item => item.PrjFileName)
+                    .Where(g => g.Count() > 1);
+
+                if (repeat.Any())
+                {
+                    foreach (var r in repeat)
+                    {
+                        Util.Log($"去掉重名的项目{r.Key}");
+                        foreach (var prjInfo in r)
+                        {
+                            if (prjInfo.Equals(r.FirstOrDefault()))
+                                continue;
+                            thisLevel.Remove(prjInfo);
+                        }
+                    }
+                }
+
                 Util.Log(thisLevel.OutputList($"-------------{buildStage}.Level {level},Count:{thisLevel.Count}-------------\n", item => $"{item.AssemblyName},{item.PrjFullName}\n"));
                 Root.AddRange(thisLevel);
                 thisLevel.ForEach(item => thisStagelDic.Remove(item.AssemblyName));
@@ -327,12 +391,22 @@ namespace Inspur.GSP.Bom.Builder
 
             var prjs = thisLevel.Where(item => !IsNullOrEmpty(item.PrjFilePath)).ToList();
             if (prjs.Count == 0) return;
+
+
             var generator = new SolutionGenerator(new ConsoleLogger());
             var firstPrj = prjs.First();
+
+            var slnFilePath = Path.Combine(slnDir,
+              $"{firstPrj.BuildStage}BuildSln{level.ToString().PadLeft(3, '0')}");
+            //创建一个空解决方案,否则第一个项目的相对路径会出错
+            using (var fs = File.Create(slnFilePath))
+            {
+            }
+
+
             var slnOpt = new SolutionOptions
             {
-                SolutionFolderPath = Path.Combine(slnDir,
-                    $"{firstPrj.BuildStage}BuildSln{level.ToString().PadLeft(3, '0')}.sln"),
+                SolutionFolderPath = slnFilePath,
                 SolutionFileVersion = SolutionFileVersion.VisualStudio2012,
                 ProjectRootFolderPath = firstPrj.PrjFilePath
             };
@@ -346,9 +420,51 @@ namespace Inspur.GSP.Bom.Builder
                 slnOpt.UpdateMode = SolutionUpdateMode.Add;
                 slnOpt.ProjectRootFolderPath = prj.PrjFilePath;
                 generator.GenerateSolution(slnOpt.SolutionFolderPath, slnOpt);
-
             }
+            //添加build所需的Section
+
+            AdjustBuildSln(slnOpt.SolutionFolderPath, prjs);
         }
+
+        public static void AdjustBuildSln(string slnAPath, List<PrjInfo> prjs)
+        {
+
+            using (StreamWriter writer = new StreamWriter(slnAPath + ".sln"))
+            {
+                foreach (string s in File.ReadLines(slnAPath))
+                {
+                    if (s.Trim().Equals("Global"))
+                    {
+                        writer.WriteLine(s);
+                        writer.WriteLine(@"
+                            GlobalSection(SolutionConfigurationPlatforms) = preSolution
+                                Debug|Any CPU = Debug|Any CPU
+                                Release|Any CPU = Release|Any CPU
+                            EndGlobalSection
+                        ");
+
+                        writer.WriteLine("\tGlobalSection(ProjectConfigurationPlatforms) = postSolution");
+
+                        foreach (var project in prjs)
+                        {
+
+                            writer.WriteLine("\t\t{0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU", project.ProjectId.ToUpper());
+                            writer.WriteLine("\t\t{0}.Debug|Any CPU.Build.0 = Debug|Any CPU", project.ProjectId.ToUpper());
+                            writer.WriteLine("\t\t{0}.Release|Any CPU.ActiveCfg = Release|Any CPU", project.ProjectId.ToUpper());
+                            writer.WriteLine("\t\t{0}.Release|Any CPU.Build.0 = Release|Any CPU", project.ProjectId.ToUpper());
+
+                        }
+                        writer.WriteLine("\tEndGlobalSection");
+                    }
+                    else
+                    {
+                        writer.WriteLine(s);
+                    }
+                }
+            }
+
+        }
+
 
         private static PrjInfo DealRecursiveRef(Dictionary<string, PrjInfo> thisStageDic)
         {

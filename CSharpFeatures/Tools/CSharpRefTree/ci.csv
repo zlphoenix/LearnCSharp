@@ -6,7 +6,7 @@ SCF,GSF,Src\GSF\Controls\Gsf.Controls.ActiveXControls\ActiveXControls.csproj,Ins
 SCF,GSF,Src\GSF\Controls\Gsf.Controls.HtmlEditor\HtmlEditorControl.csproj,Inspur.GSP.Gsf.Controls.HTMLEditorControl,10Framework,True
 SCF,GSF,Src\GSF\Controls\Gsf.Controls.SyntaxData\SyntaxData.csproj,Inspur.GSP.Gsf.Controls.SyntaxData,10Framework,True
 SCF,GSF,Src\GSF\Controls\Gsf.Controls.SyntaxRichEdit\SyntaxRichEdit.csproj,Inspur.GSP.Gsf.Controls.SyntaxRichEdit,10Framework,True
-SCF,GSF,Src\GSF\Controls\Gsf.Controls.WinForms\Genersoft.Platform.Controls.WinForms.csproj,Inspur.GSP.Gsf.Controls.WinForms,10Framework,True
+SCF,GSF,Src\GSF\Controls\Gsf.Controls.WinForms\Controls.WinForm.csproj,Inspur.GSP.Gsf.Controls.WinForms,10Framework,True
 SCF,GSF,Src\GSF\DataAccess\DataAccess.csproj,Inspur.GSP.Gsf.DataAccess,10Framework,True
 SCF,GSF,Src\GSF\Event\Event.csproj,Inspur.GSP.Gsf.Event,10Framework,True
 SCF,GSF,Src\GSF\Exception\Old\Exception\Exception.csproj,Inspur.GSP.Gsf.Exception,10Framework,True
@@ -44,7 +44,7 @@ ADP,DAS,Src\DAS\DataModel\Api\DataModelApi.csproj,Inspur.GSP.Das.DataModel.Api,2
 ADP,DAS,Src\DAS\DataModel\Spi\DataModelSpi.csproj,Inspur.GSP.Das.DataModel.Spi,20Interface,True
 ADP,DAS,Src\DAS\DataObject\Api\DataObjectApi.csproj,Inspur.GSP.Das.DataObject.Api,20Interface,True
 ADP,DAS,Src\DAS\DataObject\Spi\DataObjectSpi.csproj,Inspur.GSP.Das.DataObject.Spi,20Interface,True
-DIP,DIP,Src\DIP\Common\DipApi\DipApi.csproj,Inspur.GSP.Dip.Api,20Interface,True
+DIP,DIP,Src\DIP\Common\DipApi\DipApi.csproj,Inspur.GSP.Dip.Common.Api,20Interface,True
 DIP,DIP,Src\DIP\DataImportExport\DesignerApi\DesignApi.csproj,Inspur.GSP.Dip.IED.Design.Api,20Interface,True
 DIP,DIP,Src\DIP\DataImportExport\EngineApi\EngineApi.csproj,Inspur.GSP.Dip.IED.Engine.Api,20Interface,True
 DIP,DIP,Src\DIP\DipAdmin\DIPackageManagement\PkgMgrApi\PkgMgrApi.csproj,Inspur.Gsp.Dip.PkgMgr.Api,20Interface,True
@@ -83,7 +83,7 @@ SCF,QDP,Src\QDP\Web\MobileBillQuery\Qdp.MobileBillQuery.Api\Qdp.MobileBillQuery.
 SCF,QDP,Src\QDP\Web\MobileBillQuery\Qdp.MobileBillQuery.BizAdapter\Qdp.MobileBillQuery.BizAdapter.csproj,Inspur.GSP.Qdp.MobileBillQuery.BizAdapter,20Interface,True
 SCF,QDP,Src\QDP\Web\MobileBillQuery\Qdp.MobileBillQuery.SPI\Qdp.MobileBillQuery.Spi.csproj,Inspur.GSP.Qdp.MobileBillQuery.Spi,20Interface,True
 SCF,QDP,Src\QDP\Web\MobileBillQuery\Qdp.MobileBillQuery.Utils\Qdp.MobileBillQuery.Utils.csproj,Inspur.GSP.Qdp.MobileBillQuery.Utils,20Interface,True
-SCF,QDP,Src\QDP\Web\WebQuery\Api\WebQuery.Api.csproj,Inspur.GSP.Qdp.WebQuery.Api,20Interface,True
+SCF,QDP,Src\QDP\Web\WebQuery\Api\WebQuery.Entity.csproj,Inspur.GSP.Qdp.WebQuery.Entity,40DomainImpl,True
 SCF,QDP,Src\QDP\Win\Designer\Qdp.Designer.Spi\Qdp.Designer.Spi.csproj,Inspur.GSP.Qdp.Designer.Spi,20Interface,True
 SCF,QDP,Src\QDP\Win\Designer\Qdp.Entity\Qdp.Entity.csproj,Inspur.GSP.Qdp.Entity,20Interface,True
 SCF,QDP,Src\QDP\Win\Runtime\Qdp.Runtime.Api\Qdp.Runtime.Api.csproj,Inspur.GSP.Qdp.Runtime.Api,20Interface,True
@@ -109,7 +109,7 @@ SCF,RTF,Src\RTF\SmartClient\ClientUpdate\ClientUpdate.Api\ClientUpdate.Api.cspro
 SCF,RTF,Src\RTF\SmartClient\SmartClient.Api\SmartClient.Api.csproj,Inspur.GSP.Rtf.SmartClient.Api,20Interface,True
 SCF,RTF,Src\RTF\SmartClient\SmartClient.GuiBase\SmartClient.GuiBase.csproj,Inspur.GSP.Rtf.SmartClient.GuiBase,20Interface,True
 DIP,SVC,Src\SVC\Asynch\AsynchronousApi\AsynApi.csproj,Inspur.GSP.Svc.Asynch.Api,20Interface,True
-DIP,SVC,Src\SVC\Asynch\AsynchronousEpi\AsynEpi.csproj,Inspur.GSP.Svc.Asynch.Epi,20Interface,True
+DIP,SVC,Src\SVC\Asynch\AsynchronousSpi\AsynSpi.csproj,Inspur.GSP.Svc.Asynch.Spi,20Interface,True
 SCF,SVC,Src\SVC\BillPrint\Svc.BillPrint.Api\Svc.BillPrint.Api.csproj,Inspur.GSP.Svc.BillPrint.Api,20Interface,True
 SCF,SVC,Src\SVC\BillPrint\Svc.PrintService.Api\Svc.PrintService.Api.csproj,Inspur.GSP.Svc.PrintService.Api,20Interface,True
 SCF,SVC,Src\SVC\BizChangeLogging\Api\BizChangeLogging.Api.csproj,Inspur.GSP.Svc.BizChangeLogging.Api,20Interface,True
@@ -420,13 +420,13 @@ SCF,RTF,Src\RTF\RTFCore\SSO\UnInstallApplication\UnInstallApplication.csproj,Ins
 SCF,RTF,Src\RTF\SmartClient\ClientUpdate.ClientSPI\ClientUpdate.ClientApi.csproj,Inspur.GSP.Rtf.ClientUpdate.ClientApi,40DomainImpl,True
 SCF,RTF,Src\RTF\SmartClient\ClientUpdate.UpdateComponet\ClientUpdate.DownloadComponet.csproj,Inspur.GSP.Rtf.ClientUpdate.DownloadComponet,40DomainImpl,True
 SCF,RTF,Src\RTF\SmartClient\ClientUpdate\ClientUpdate.Deploy\ClientUpdate.Deploy.csproj,Inspur.GSP.Rtf.ClientUpdate.Deploy,40DomainImpl,True
-SCF,RTF,Src\RTF\SmartClient\ClientUpdate\ClientUpdate.DownLoad\ClientUpdate.DownLoad.csproj,Inspur.GSP.Rtf.ClientUpdate.DownLoad,40DomainImpl,True
+SCF,RTF,Src\RTF\SmartClient\ClientUpdate\ClientUpdate.DownLoad\ClientUpdate.Download.csproj,Inspur.GSP.Rtf.ClientUpdate.Download,40DomainImpl,True
 SCF,RTF,Src\RTF\SmartClient\ClientUpdate\ClientUpdate.RemoteClient\ClientUpdate.RemoteClient.csproj,Inspur.GSP.Rtf.ClientUpdate.RemoteClient,40DomainImpl,True
 SCF,RTF,Src\RTF\SmartClient\ClientUpdate\ClientUpdate\ClientUpdate.csproj,Inspur.GSP.Rtf.SmartClient.ClientUpdate,40DomainImpl,True
 SCF,RTF,Src\RTF\SmartClient\ClientUpdate\DeployerTool\ClientUpdate.DeployerTool.csproj,Inspur.GSP.Rtf.ClientUpdate.DeployerTool,40DomainImpl,True
 SCF,RTF,Src\RTF\SmartClient\ClientUpdate\GSPFastDownloader\ClientUpdate.GSPFastDownloader.csproj,Inspur.GSP.Rtf.ClientUpdate.GSPFastDownloader,40DomainImpl,True
 SCF,RTF,Src\RTF\SmartClient\ClientUpdate\Update.ClientService\ClientUpdate.ClientService.csproj,Inspur.GSP.Rtf.ClientUpdate.ClientService,40DomainImpl,True
-SCF,RTF,Src\RTF\SmartClient\ClientUpdate\Update.DownLoad\ClientUpdate.DownLoadStrategy.csproj,Inspur.GSP.Rtf.ClientUpdate.DownLoadStrategy,40DomainImpl,True
+SCF,RTF,Src\RTF\SmartClient\ClientUpdate\Update.DownLoad\ClientUpdate.DownloadStrategy.csproj,Inspur.GSP.Rtf.ClientUpdate.DownloadStrategy,40DomainImpl,True
 SCF,RTF,Src\RTF\SmartClient\ClientUpdate\Update.SelfUpdater\ClientUpdate.SelfUpdater.csproj,Inspur.GSP.Rtf.ClientUpdate.SelfUpdater,40DomainImpl,True
 SCF,RTF,Src\RTF\SmartClient\ClientUpdate\Update.ServerCore\ClientUpdate.ServerCore.csproj,Inspur.GSP.Rtf.ClientUpdate.ServerCore,40DomainImpl,True
 SCF,RTF,Src\RTF\SmartClient\LoginClient\GSFramework\GSFramework.csproj,GSFramework,40DomainImpl,True
@@ -532,10 +532,10 @@ SCF,SVC,Src\SVC\Schedule\GSPSchedulerLogService\GSPSchedulerLogService.csproj,In
 SCF,SVC,Src\SVC\Schedule\GSPSchedulerServerAPI\GSPSchedulerServerAPI.csproj,Inspur.GSP.Svc.Schedule.ServerApi,40DomainImpl,True
 SCF,SVC,Src\SVC\Schedule\GSPSchedulerService\GSPSchedulerService.csproj,Inspur.GSP.Svc.Schedule.Service,40DomainImpl,True
 SCF,SVC,Src\SVC\Schedule\GSPSchedulerSPI\GSPSchedulerServiceApi.csproj,Inspur.GSP.Svc.Scheduler.ServiceApi,40DomainImpl,True
-SCF,SVC,Src\SVC\Schedule\GSPSchedulerWebServiceClient\GSPSchedulerRemoteClient.csproj,Inspur.GSP.Svc.Scheduler.RemoteClient,40DomainImpl,True
+SCF,SVC,Src\SVC\Schedule\GSPSchedulerWebServiceClient\GSPSchedulerRemoteClient.csproj,Inspur.GSP.Svc.Scheduler.RemoteClient,40DomainImpl,False
 SCF,SVC,Src\SVC\Schedule\GSPScheduleServiceConsole\GSPScheduleServiceConsole.csproj,Inspur.GSP.Svc.Scheduler.Console,40DomainImpl,True
 SCF,SVC,Src\SVC\Schedule\GSPScheduleServiceWebServiceClient\GSPScheduleServiceRemoteClient.csproj,Inspur.GSP.Svc.Schedule.ServiceRemoteClient,40DomainImpl,True
-SCF,SVC,Src\SVC\Schedule\GSPScheduleWebService\GSPScheduleWebService.csproj,Inspur.GSP.Svc.Schedule.WebService,40DomainImpl,True
+SCF,SVC,Src\SVC\Schedule\GSPScheduleWebService\GSPScheduleWebService.csproj,Inspur.GSP.Svc.Schedule.WebService,40DomainImpl,False
 SCF,SVC,Src\SVC\TempObject\TempObjectImpl\TempObjectImpl.csproj,Inspur.GSP.Svc.TempObject.Manager,40DomainImpl,True
 SCF,SVC,Src\SVC\UniFileManager\Svc.UniFileMgr.Core\Svc.UniFileMgr.Core.csproj,Inspur.GSP.Svc.UniFileMgr.Core,40DomainImpl,True
 SCF,SVC,Src\SVC\UniFileManager\Svc.UniFileMgr.LocalClient\Svc.UniFileMgr.LocalClient.csproj,Inspur.GSP.Svc.UniFileMgr.LocalClient,40DomainImpl,True

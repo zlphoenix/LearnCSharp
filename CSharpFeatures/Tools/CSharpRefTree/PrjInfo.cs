@@ -1,4 +1,3 @@
-using SolutionMaker.Core;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,14 +26,9 @@ namespace Inspur.GSP.Bom.Builder
             {
                 this.OriginalRef.Add(refAss.Name);
             }
-
-
         }
 
-        public PrjInfo(ProjectAnalyzer prjAnalyzer)
-        {
 
-        }
 
         public static bool IsMatch(AssemblyName assemblyName)
         {
@@ -65,26 +59,11 @@ namespace Inspur.GSP.Bom.Builder
         /// </summary>
         public string ProjectId { get; set; }
 
-        private string assemblyName;
         /// <summary>
         /// 输出的程序集名称
         /// </summary>
-        public string AssemblyName
-        {
-            get { return assemblyName; }
-            set
-            {
-                assemblyName = value;
-                if (assemblyName.StartsWith("Inspur") || assemblyName.StartsWith("Genersoft"))
-                {
-                    Module = assemblyName.Split('.')[2];
-                }
-                //else if (assemblyName.StartsWith("Genersoft"))
-                //{
-                //    Module = assemblyName.Split('.')[2]
-                //}
-            }
-        }
+        public string AssemblyName { get; set; }
+
         /// <summary>
         /// csproj 文件名
         /// </summary>
@@ -109,7 +88,7 @@ namespace Inspur.GSP.Bom.Builder
             {
                 var absolutPrjPath = Path.Combine(Program.BomBuildOption.InitPath, value);
                 if (!File.Exists(absolutPrjPath))
-                    throw new FileNotFoundException("Project File Not found.",
+                    throw new FileNotFoundException($"Project File {absolutPrjPath} Not found.",
                         absolutPrjPath);
                 var prjFile = new FileInfo(absolutPrjPath);
                 PrjFilePath = prjFile.DirectoryName;
@@ -157,7 +136,10 @@ namespace Inspur.GSP.Bom.Builder
                    $"\t{RefError.OutputList("Error: ")}" +
                    "\n";
         }
-
+        public string ToReportString()
+        {
+            return $"{DevGroup},{Module},{ShortPrjPath},{AssemblyName},{BuildStage},{PrjRef.OutputList("\"", item => "\n" + item.AssemblyName)}\",{BeRefBy.OutputList("\"", item => "\n" + item.AssemblyName)}";
+        }
         public void Ref(PrjInfo refPrj)
         {
             PrjRef.Add(refPrj);

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using SolutionMaker.Core.Model;
+using System;
 using System.IO;
-
-using SolutionMaker.Core.Model;
+using System.Text;
 
 namespace SolutionMaker.Core
 {
@@ -68,6 +65,35 @@ namespace SolutionMaker.Core
         private void WriteGlobal(StreamWriter writer)
         {
             writer.WriteLine("Global");
+
+
+
+            //GlobalSection(ProjectConfigurationPlatforms) = postSolution
+            //{A1CBDFA2-2DEC-4541-A218-BC9CD2957733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+            //{A1CBDFA2-2DEC-4541-A218-BC9CD2957733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+            //{A1CBDFA2-2DEC-4541-A218-BC9CD2957733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+            //{A1CBDFA2-2DEC-4541-A218-BC9CD2957733}.Release|Any CPU.Build.0 = Release|Any CPU
+            //EndGlobalSection
+
+            //writer.WriteLine(@"
+            //    GlobalSection(SolutionConfigurationPlatforms) = preSolution
+            //        Debug|Any CPU = Debug|Any CPU
+            //        Release|Any CPU = Release|Any CPU
+            //    EndGlobalSection
+            //");
+
+            //writer.WriteLine("\tGlobalSection(ProjectConfigurationPlatforms) = postSolution");
+
+            //foreach (var project in this._solution.Projects)
+            //{
+
+            //    writer.WriteLine("\t\t{{{0}}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU", project.ProjectId.ToString().ToUpper());
+            //    writer.WriteLine("\t\t{{{0}}}.Debug|Any CPU.Build.0 = Debug|Any CPU", project.ProjectId.ToString().ToUpper());
+            //    writer.WriteLine("\t\t{{{0}}}.Release|Any CPU.ActiveCfg = Release|Any CPU", project.ProjectId.ToString().ToUpper());
+            //    writer.WriteLine("\t\t{{{0}}}.Release|Any CPU.Build.0 = Release|Any CPU", project.ProjectId.ToString().ToUpper());
+
+            //}
+            //writer.WriteLine("\tEndGlobalSection");
             foreach (var section in this._solution.Global.Sections)
             {
                 writer.WriteLine(string.Format("\tGlobalSection({0}) = {1}", section.SectionName, section.PrePostSolution));
