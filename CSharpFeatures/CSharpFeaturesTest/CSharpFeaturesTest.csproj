@@ -83,7 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CallContextDemoTest.cs" />
-    <Compile Include="CanvasTestTest.cs" />
     <Compile Include="ConstAndReadOnly\ContsTest.cs" />
     <Compile Include="Container\CollectionsTest.cs" />
     <Compile Include="Container\SortedListTest.cs" />
@@ -94,6 +93,7 @@
     <Compile Include="Lambda\CollectionTraversingTest.cs" />
     <Compile Include="GenericsNotTemplatesTest.cs" />
     <Compile Include="Lambda\CustomLinqProviderTest.cs" />
+    <Compile Include="Lambda\FunctionalTest.cs" />
     <Compile Include="LazyInitTest.cs" />
     <Compile Include="MEF\MEFTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

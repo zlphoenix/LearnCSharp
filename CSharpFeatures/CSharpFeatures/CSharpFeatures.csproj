@@ -67,7 +67,6 @@
     <Compile Include="Iterators\Iterator.cs" />
     <Compile Include="MemoryCache\MemCacheTest.cs" />
     <Compile Include="NewFeatures.cs" />
-    <Compile Include="DebugCanvas\CanvasTest.cs" />
     <Compile Include="Delegate\CacheHelper.cs" />
     <Compile Include="Delegate\Event.cs" />
     <Compile Include="Diagnostics\StackTrace.cs" />

@@ -139,6 +139,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionMaker.Core", "Tools
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionMaker.Command", "Tools\SolutionMaker.Command\SolutionMaker.Command.csproj", "{BCCF11B6-7717-43C4-9199-761FA43B089B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallContextText", "CallContextText\CallContextText.csproj", "{00A415D0-1D00-4B20-B55B-13372FA71AE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -621,6 +623,18 @@ Global
 		{BCCF11B6-7717-43C4-9199-761FA43B089B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{BCCF11B6-7717-43C4-9199-761FA43B089B}.Release|x86.ActiveCfg = Release|Any CPU
 		{BCCF11B6-7717-43C4-9199-761FA43B089B}.Release|x86.Build.0 = Release|Any CPU
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3}.Debug|x86.Build.0 = Debug|Any CPU
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3}.Release|x86.ActiveCfg = Release|Any CPU
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -679,6 +693,7 @@ Global
 		{08DFC162-A264-410A-A958-FF7981E8789A} = {42142C19-4552-433A-918A-FEB5D035051F}
 		{CECE6250-4F31-42A2-8A95-B81D763D1A0B} = {42142C19-4552-433A-918A-FEB5D035051F}
 		{BCCF11B6-7717-43C4-9199-761FA43B089B} = {42142C19-4552-433A-918A-FEB5D035051F}
+		{00A415D0-1D00-4B20-B55B-13372FA71AE3} = {1FF7BBBA-DF5B-4D94-B047-CAC7CA79B210}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.PolicyInjection.5.0.505.0\lib\NET35;packages\EntLibContrib.PolicyInjection.5.0.505.0\lib\NET35
