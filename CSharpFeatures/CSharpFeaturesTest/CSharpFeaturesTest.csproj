@@ -94,6 +94,7 @@
     <Compile Include="GenericsNotTemplatesTest.cs" />
     <Compile Include="Lambda\CustomLinqProviderTest.cs" />
     <Compile Include="Lambda\FunctionalTest.cs" />
+    <Compile Include="Lambda\ClosureTest.cs" />
     <Compile Include="LazyInitTest.cs" />
     <Compile Include="MEF\MEFTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
