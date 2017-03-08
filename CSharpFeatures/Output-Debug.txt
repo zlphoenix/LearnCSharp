@@ -1,0 +1,6 @@
+﻿'Allen.Util.CSharpRefTree.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll'. Cannot find or open the PDB file.
+'Allen.Util.CSharpRefTree.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'D:\Work\GitRepo\LearnCSharp\Build\Allen.Util.CSharpRefTree.exe'. Symbols loaded.
+'Allen.Util.CSharpRefTree.exe' (CLR v4.0.30319: Allen.Util.CSharpRefTree.exe): Loaded 'D:\Work\GitRepo\LearnCSharp\Build\Allen.Util.EverythingFileSearcher.dll'. Symbols loaded.
+'Allen.Util.CSharpRefTree.exe' (CLR v4.0.30319: Allen.Util.CSharpRefTree.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll'. Cannot find or open the PDB file.
+'Allen.Util.CSharpRefTree.exe' (CLR v4.0.30319: Allen.Util.CSharpRefTree.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll'. Cannot find or open the PDB file.
+The program '[2352] Allen.Util.CSharpRefTree.exe' has exited with code 0 (0x0).

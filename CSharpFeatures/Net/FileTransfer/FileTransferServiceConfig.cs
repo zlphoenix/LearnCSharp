@@ -8,18 +8,28 @@
         /// <summary>
         /// 本地端口
         /// </summary>
-        public int LocalPort
-        { get; set; }
-
+        public int LocalPort { get; set; }
 
         /// <summary>
         /// 服务端口号
         /// </summary>
-        public string ServerPort { get; set; }
+        public int ServerPort { get; set; }
+
+        /// <summary>
+        /// 服务端地址
+        /// </summary>
+        public string ServerAddress { get; set; }
 
         /// <summary>
         /// 连接超时时间
         /// </summary>
         public long ConnectionTimeout { get; set; }
+
+        public int BufferSize { get; set; }
+
+        public FileTransferServiceConfig()
+        {
+            BufferSize = 81920;
+        }
     }
 }

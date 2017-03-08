@@ -41,7 +41,7 @@ namespace J9Updater.FileTransferSvc
 
 
             clientSocket.Connect("127.0.0.1", 9050); //target machine's ip address and the port number
-            //clientSocket.Send(clientData);
+            //Connection.Send(clientData);
             clientSocket.SendFile(filePath, clientData, null, TransmitFileOptions.WriteBehind);
             clientSocket.Close();
         }

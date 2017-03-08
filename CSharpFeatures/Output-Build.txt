@@ -1,0 +1,5 @@
+﻿1>------ Build started: Project: FileTransferSvc, Configuration: Debug Any CPU ------
+1>D:\Work\GitRepo\LearnCSharp\CSharpFeatures\Net\FileTransfer\Simple\Server.cs(52,30,52,32): warning CS0168: The variable 'ex' is declared but never used
+1>D:\Work\GitRepo\LearnCSharp\CSharpFeatures\Net\FileTransfer\ServiceClient.cs(11,22,11,28): warning CS0649: Field 'ServiceClient.closed' is never assigned to, and will always have its default value false
+1>  FileTransferSvc -> D:\Work\GitRepo\LearnCSharp\CSharpFeatures\Net\FileTransfer\bin\Debug\J9Updater.FileTransferSvc.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

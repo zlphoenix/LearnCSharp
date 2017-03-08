@@ -40,17 +40,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ver1\ApplicationUpdateService.cs" />
+    <Compile Include="Ver1\ApplicationUpdateServiceDistributer.cs" />
+    <Compile Include="Ver1\Channel.cs" />
+    <Compile Include="Ver1\Msgs\Direction.cs" />
+    <Compile Include="Ver1\Msgs\HandshakeMessage.cs" />
+    <Compile Include="Ver1\Msgs\RequestMessage.cs" />
+    <Compile Include="Ver1\Msgs\TransmitOption.cs" />
+    <Compile Include="Ver1\old\FileTransmitState.cs" />
+    <Compile Include="Ver1\Msgs\Message.cs" />
+    <Compile Include="Ver1\Msgs\MessageType.cs" />
+    <Compile Include="Ver1\Receiver.cs" />
+    <Compile Include="Ver1\Msgs\ResponseMessage.cs" />
+    <Compile Include="Ver1\ResponseStatus.cs" />
+    <Compile Include="Ver1\Sender.cs" />
+    <Compile Include="Ver1\State\StreamTransmitState.cs" />
+    <Compile Include="Ver1\old\TcpFileTransmitServiceClient.cs" />
     <Compile Include="Simple\Client.cs" />
-    <Compile Include="IService.cs" />
+    <Compile Include="IServiceDistributer.cs" />
     <Compile Include="Logging.cs" />
     <Compile Include="Simple\Server.cs" />
     <Compile Include="Simple\FileTransferService.cs" />
-    <Compile Include="Simple\FileTransferServiceConfig.cs" />
+    <Compile Include="FileTransferServiceConfig.cs" />
     <Compile Include="Simple\IFileTransferService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service.cs" />
-    <Compile Include="TcpHandler.cs" />
-    <Compile Include="TcpRelay.cs" />
+    <Compile Include="ServiceHost.cs" />
+    <Compile Include="Ver1\old\FileTransmitService.cs" />
+    <Compile Include="Ver1\old\TcpFileTransmitServiceDistributer.cs" />
+    <Compile Include="Ver1\TransmitConfig.cs" />
+    <Compile Include="Ver1\State\MsgTransmitState.cs" />
+    <Compile Include="Ver1\old\Util.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

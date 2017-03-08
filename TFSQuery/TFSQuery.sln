@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFSQuery", "TFSQuery\TFSQuery.csproj", "{54D16D84-ACB6-4BE2-9405-976FEA5E76DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFSQueryTest", "TFSQueryTest\TFSQueryTest.csproj", "{BBDEF0F1-1BC6-42BE-B030-DD899251977A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlnPrjRef", "SlnPrjRef\SlnPrjRef.csproj", "{A89FC14A-9ADF-4AD4-BF43-1CFA4CE7C738}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54D16D84-ACB6-4BE2-9405-976FEA5E76DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54D16D84-ACB6-4BE2-9405-976FEA5E76DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54D16D84-ACB6-4BE2-9405-976FEA5E76DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54D16D84-ACB6-4BE2-9405-976FEA5E76DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBDEF0F1-1BC6-42BE-B030-DD899251977A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBDEF0F1-1BC6-42BE-B030-DD899251977A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBDEF0F1-1BC6-42BE-B030-DD899251977A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBDEF0F1-1BC6-42BE-B030-DD899251977A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A89FC14A-9ADF-4AD4-BF43-1CFA4CE7C738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A89FC14A-9ADF-4AD4-BF43-1CFA4CE7C738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A89FC14A-9ADF-4AD4-BF43-1CFA4CE7C738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A89FC14A-9ADF-4AD4-BF43-1CFA4CE7C738}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,48 +1,45 @@
-﻿using System;
+﻿using J9Updater.FileTransferSvc.Ver1;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 
 namespace J9Updater.FileTransferSvc
 {
-    public class Service
+    public class ServiceHost : IDisposable
     {
         private readonly FileTransferServiceConfig config;
-        private List<IService> services;
+        private readonly List<IServiceDistributer> services;
+        private Socket tcpSocket;
 
-        public Service()
+        public ServiceHost()
         {
-            services = new List<IService>();
-
+            services = new List<IServiceDistributer> { new TcpFileTransmitServiceDistributer() };
             config = new FileTransferServiceConfig()
             {
-                LocalPort = 8090,
+                LocalPort = 9050,
             };
         }
-
+        /// <summary>
+        /// 启动服务，打开TCP监听端口
+        /// </summary>
         public void Start()
         {
-            var tcpSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            tcpSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
                 // Create a TCP/IP socket.
-
                 tcpSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 IPEndPoint localEndPoint = null;
-                //if (_shareOverLAN)
-                //{
-                localEndPoint = new IPEndPoint(IPAddress.Any, config.LocalPort); //监听所有IP地址
-                //}
-                //else
-                //{
-                //    localEndPoint = new IPEndPoint(IPAddress.Loopback, config.LocalPort);
-                //}
+                //Listen Connection from All IP 
+                localEndPoint = new IPEndPoint(IPAddress.Any, config.LocalPort);
+
 
                 // Bind the socket to the local endpoint and listen for incoming connections.
                 tcpSocket.Bind(localEndPoint);
                 tcpSocket.Listen(1024);
-                // Start an asynchronous socket to listen for connections.
-                Logging.Info("Shadowsocks started");
+                // Upload an asynchronous socket to listen for connections.
+                Logging.Info("ServiceHost started");
                 tcpSocket.BeginAccept(AcceptCallback, tcpSocket);
             }
             catch (SocketException ex)
@@ -52,7 +49,10 @@ namespace J9Updater.FileTransferSvc
                 throw;
             }
         }
-
+        /// <summary>
+        /// 建立来自客户端的请求连接
+        /// </summary>
+        /// <param name="ar"></param>
         public void AcceptCallback(IAsyncResult ar)
         {
             var listener = (Socket)ar.AsyncState;
@@ -63,7 +63,6 @@ namespace J9Updater.FileTransferSvc
                 var buf = new byte[4096];
                 var state = new Tuple<Socket, byte[]>(conn,
                     buf);
-
 
                 conn.BeginReceive(buf, 0, buf.Length, 0,
                     ReceiveCallback, state);
@@ -92,6 +91,10 @@ namespace J9Updater.FileTransferSvc
             }
         }
 
+        /// <summary>
+        /// 接受握手请求的回调方法，进行服务路由匹配
+        /// </summary>
+        /// <param name="ar"></param>
         private void ReceiveCallback(IAsyncResult ar)
         {
             var state = (Tuple<Socket, byte[]>)ar.AsyncState;
@@ -100,17 +103,21 @@ namespace J9Updater.FileTransferSvc
             var buf = state.Item2;
             try
             {
-                var bytesRead = conn.EndReceive(ar);
 
+                var bytesRead = conn.EndReceive(ar);
+                //TODO 轮询路由，不适合配置，可改进
+                //Router
+                var serviceMach = false;
                 foreach (var service in services)
                 {
-                    if (service.Handle(buf, bytesRead, conn, null))
+                    if (service.Handshake(buf, bytesRead, conn))
                     {
-                        return;
+                        service.Handle(buf, bytesRead, conn, null);
+                        serviceMach = true;
                     }
                 }
-                // no service found for this
-                if (conn.ProtocolType == ProtocolType.Tcp)
+                //// no service found for this
+                if (!serviceMach)
                 {
                     conn.Close();
                 }
@@ -120,6 +127,25 @@ namespace J9Updater.FileTransferSvc
                 Logging.LogUsefulException(e);
                 conn.Close();
             }
+        }
+
+        public void Close()
+        {
+            foreach (var service in services)
+            {
+                service.Dispose();
+            }
+            if (this.tcpSocket != null && tcpSocket.Connected)
+            {
+                tcpSocket.Dispose();
+            }
+        }
+        /// <summary>
+        /// 执行与释放或重置非托管资源相关的应用程序定义的任务。
+        /// </summary>
+        public void Dispose()
+        {
+            this.Close();
         }
     }
 }
