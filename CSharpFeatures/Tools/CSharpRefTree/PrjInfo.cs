@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace Allen.Util.CSharpRefTree
+namespace Inspur.GSP.Bom.Builder
 {
     internal class PrjInfo
     {
@@ -26,29 +26,9 @@ namespace Allen.Util.CSharpRefTree
             {
                 this.OriginalRef.Add(refAss.Name);
             }
-
-
         }
 
-        public PrjInfo(string csprjPath)
-        {
 
-        }
-
-        private PrjInfo LoadAssByRefName(AssemblyName refAss)
-        {
-            var assPath = Program.AssemblyPath.FirstOrDefault(path => path.Contains(refAss.Name));
-            if (string.IsNullOrEmpty(assPath))
-            {
-                this.RefError.Add($"Ref：{assPath} not found ");
-                return null;
-            }
-            else
-            {
-                return Program.CreatePrjInfo(assPath);
-
-            }
-        }
 
         public static bool IsMatch(AssemblyName assemblyName)
         {
@@ -62,32 +42,63 @@ namespace Allen.Util.CSharpRefTree
             return false;
         }
 
+        /// <summary>
+        /// 生成层次
+        /// </summary>
+        public string BuildStage { get; set; }
+        /// <summary>
+        /// 模块
+        /// </summary>
         public string Module { get; set; }
+        /// <summary>
+        /// 开发组
+        /// </summary>
+        public string DevGroup { get; set; }
+        /// <summary>
+        /// ProjectGuid
+        /// </summary>
         public string ProjectId { get; set; }
-        private string assemblyName;
 
+        /// <summary>
+        /// 输出的程序集名称
+        /// </summary>
+        public string AssemblyName { get; set; }
 
-        public string AssemblyName
-        {
-            get { return assemblyName; }
-            set
-            {
-                assemblyName = value;
-                if (assemblyName.StartsWith("Inspur") || assemblyName.StartsWith("Genersoft"))
-                {
-                    Module = assemblyName.Split('.')[2];
-                }
-                //else if (assemblyName.StartsWith("Genersoft"))
-                //{
-                //    Module = assemblyName.Split('.')[2]
-                //}
-            }
-        }
-
+        /// <summary>
+        /// csproj 文件名
+        /// </summary>
 
         public string PrjFileName { get; set; }
+        /// <summary>
+        /// csproj 文件路径(不包含文件名)
+        /// </summary>
         public string PrjFilePath { get; set; }
-        public string PrjFullName => Path.Combine(PrjFilePath ?? "", PrjFileName ?? "");
+
+        public string ShortPrjPath => string.IsNullOrEmpty(PrjFullName) ? null : PrjFullName.Substring(Program.BomBuildOption.InitPath.Length);
+        /// <summary>
+        /// csproj 文件绝对路径
+        /// </summary>
+        public string PrjFullName
+        {
+            get
+            {
+                return Path.Combine(PrjFilePath ?? "", PrjFileName ?? "");
+            }
+            set
+            {
+                var absolutPrjPath = Path.Combine(Program.BomBuildOption.InitPath, value);
+                if (!File.Exists(absolutPrjPath))
+                    throw new FileNotFoundException($"Project File {absolutPrjPath} Not found.",
+                        absolutPrjPath);
+                var prjFile = new FileInfo(absolutPrjPath);
+                PrjFilePath = prjFile.DirectoryName;
+                PrjFileName = prjFile.Name;
+            }
+
+        }
+        /// <summary>
+        /// 程序集输出路径
+        /// </summary>
         public string AssemblyPath { get; set; }
         /// <summary>
         /// 项目引用
@@ -101,7 +112,9 @@ namespace Allen.Util.CSharpRefTree
         /// 错误的引用
         /// </summary>
         public List<string> RefError { get; set; }
-
+        /// <summary>
+        /// 引用当前项目的项目列表
+        /// </summary>
         public List<PrjInfo> BeRefBy { get; set; }
 
         /// <summary>
@@ -114,7 +127,7 @@ namespace Allen.Util.CSharpRefTree
         {
             return $"Ass:{AssemblyName};" +
                    //$"\t{OriginalRef.OutputList("Ref")};" +
-                   $"\t{RefError.OutputList("Error")}";
+                   $"\t{RefError.OutputList("Error:\t")}";
         }
         public string ToString(string str)
         {
@@ -122,6 +135,15 @@ namespace Allen.Util.CSharpRefTree
                    $"\t{OriginalRef.OutputList("Ref:")};" +
                    $"\t{RefError.OutputList("Error: ")}" +
                    "\n";
+        }
+        public string ToReportString()
+        {
+            return $"{DevGroup},{Module},{ShortPrjPath},{AssemblyName},{BuildStage},{PrjRef.OutputList("\"", item => "\n" + item.AssemblyName)}\",{BeRefBy.OutputList("\"", item => "\n" + item.AssemblyName)}";
+        }
+        public void Ref(PrjInfo refPrj)
+        {
+            PrjRef.Add(refPrj);
+            refPrj.BeRefBy.Add(this);
         }
     }
 }
