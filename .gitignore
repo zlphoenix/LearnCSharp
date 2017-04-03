@@ -111,3 +111,4 @@ UpgradeLog*.XML
 #Allen's ignored file config
 log.txt*
 /Build
+/.vs
