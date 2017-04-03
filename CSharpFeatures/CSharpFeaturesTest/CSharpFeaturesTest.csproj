@@ -106,6 +106,7 @@
     <Compile Include="RoundTest.cs" />
     <Compile Include="Serialize\SerializableTest.cs" />
     <Compile Include="Serialize\DataContractResoverTest.cs" />
+    <Compile Include="Serialize\ProtobufTests.cs" />
     <Compile Include="SortingTest.cs" />
     <Compile Include="StringExtenedUseDynamicTypeTest.cs" />
     <Compile Include="ThreadStatic\StaticPropertyInMultiThreads.cs" />

@@ -56,6 +56,10 @@
       <HintPath>..\packages\Microsoft.CodeAnalysis.Scripting.Common.1.2.2\lib\dotnet\Microsoft.CodeAnalysis.Scripting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="protobuf-net, Version=2.1.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>..\packages\protobuf-net.2.1.0\lib\net451\protobuf-net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.AppContext.4.3.0\lib\net46\System.AppContext.dll</HintPath>
@@ -152,6 +156,7 @@
     <Compile Include="CallContext\CallContextcs.cs" />
     <Compile Include="Data\DataSetMerge.cs" />
     <Compile Include="Dynamic\InvokeMethod.cs" />
+    <Compile Include="FileSystem\FindFile.cs" />
     <Compile Include="Generics\StaticActionInGenericClass.cs" />
     <Compile Include="Iterators\Iterator.cs" />
     <Compile Include="MemoryCache\MemCacheTest.cs" />
@@ -184,6 +189,7 @@
     <Compile Include="Reflactor\ReflectorPerformance.cs" />
     <Compile Include="Roslyn\RoslynDemo.cs" />
     <Compile Include="Serialization\MyDataContractResolver.cs" />
+    <Compile Include="Serialization\ProtoBufSerializer.cs" />
     <Compile Include="Serialization\Serializable.cs" />
     <Compile Include="Serialization\Serializer.cs" />
     <Compile Include="Serialization\Types.cs" />
