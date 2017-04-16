@@ -58,6 +58,10 @@
     <Compile Include="Migrations\201512281750409_ADDAge.Designer.cs">
       <DependentUpon>201512281750409_ADDAge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704030607372_WTF.cs" />
+    <Compile Include="Migrations\201704030607372_WTF.Designer.cs">
+      <DependentUpon>201704030607372_WTF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OrderDBContext.cs" />
     <Compile Include="SalesOrder.cs" />
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201512281750409_ADDAge.resx">
       <DependentUpon>201512281750409_ADDAge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704030607372_WTF.resx">
+      <DependentUpon>201704030607372_WTF.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

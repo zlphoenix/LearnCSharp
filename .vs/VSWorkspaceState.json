@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CSharpFeatures"
+    "\\CSharpFeatures",
+    "\\CSharpFeatures\\PL",
+    "\\CSharpFeatures\\PL\\EFDemo",
+    "\\CSharpFeatures\\PL\\EFDemoTest",
+    "\\CSharpFeatures\\PL\\EFDemo\\bin\\Release",
+    "\\CSharpFeatures\\PL\\EFDemo\\Migrations"
   ],
+  "SelectedNode": "\\CSharpFeatures\\PL\\EFDemoTest\\EntityCRUDTests.cs",
   "PreviewInSolutionExplorer": false
 }
