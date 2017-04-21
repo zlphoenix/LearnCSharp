@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D17ACC39-A60C-4870-9126-8C7BB32D0962}"
 	ProjectSection(SolutionItems) = preProject
@@ -146,6 +146,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "Core\WebApp\WebApp.csproj", "{3B3A35C1-C274-42B2-A160-6F44A0556CAA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Disposable", "Disposable\Disposable.csproj", "{F92268DF-A649-4163-B738-5F1453592DEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ETW", "ETW", "{3BFDF015-34AD-4A5C-B817-19701E811353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFuncEventsTrace", "ETW\MyFuncEventsTrace\MyFuncEventsTrace.csproj", "{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -665,6 +669,18 @@ Global
 		{F92268DF-A649-4163-B738-5F1453592DEA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F92268DF-A649-4163-B738-5F1453592DEA}.Release|x86.ActiveCfg = Release|Any CPU
 		{F92268DF-A649-4163-B738-5F1453592DEA}.Release|x86.Build.0 = Release|Any CPU
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}.Debug|x86.Build.0 = Debug|Any CPU
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}.Release|x86.ActiveCfg = Release|Any CPU
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -726,6 +742,8 @@ Global
 		{00A415D0-1D00-4B20-B55B-13372FA71AE3} = {1FF7BBBA-DF5B-4D94-B047-CAC7CA79B210}
 		{3B3A35C1-C274-42B2-A160-6F44A0556CAA} = {05B3764D-87EA-43B5-8D45-DE3F67D28765}
 		{F92268DF-A649-4163-B738-5F1453592DEA} = {1FF7BBBA-DF5B-4D94-B047-CAC7CA79B210}
+		{3BFDF015-34AD-4A5C-B817-19701E811353} = {42142C19-4552-433A-918A-FEB5D035051F}
+		{8CDDFE0A-CF3E-4FE5-B360-49074007AB60} = {3BFDF015-34AD-4A5C-B817-19701E811353}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.PolicyInjection.5.0.505.0\lib\NET35;packages\EntLibContrib.PolicyInjection.5.0.505.0\lib\NET35

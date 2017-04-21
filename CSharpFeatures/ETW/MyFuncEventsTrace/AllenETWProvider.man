@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<instrumentationManifest xsi:schemaLocation="http://schemas.microsoft.com/win/2004/08/events eventman.xsd" xmlns="http://schemas.microsoft.com/win/2004/08/events" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:trace="http://schemas.microsoft.com/win/2004/08/events/trace">
+	<instrumentation>
+		<events>
+			<provider name="Allen-Provider" guid="{F1BCAF2B-6B78-4D67-809D-4CFC1832A9B6}" symbol="AllenProvider" resourceFileName="R:\DemoBuild\MyFuncEventsTrace.exe" messageFileName="R:\DemoBuild\MyFuncEventsTrace.exe">
+				<events>
+					<event symbol="FunctionEntry" value="1" version="0" channel="Allen-Provider-Debug" level="win:Informational" task="FunctionTracing" opcode="Entry" template="_template_function_trace" keywords="Function_Tracing_Entry " message="$(string.Allen-Provider.event.1.message)"></event>
+					<event symbol="FuntionExit" value="2" version="0" channel="Allen-Provider-Debug" level="win:Informational" task="FunctionTracing" opcode="Exit" template="_template_function_result" keywords="Function_Tracing_Exit " message="$(string.Allen-Provider.event.2.message)"></event>
+				</events>
+				<levels></levels>
+				<tasks>
+					<task name="FunctionTracing" symbol="_task_function" value="1" eventGUID="{671935B6-70A0-47D7-A115-B2E427994066}" message="$(string.Allen-Provider.task._task_function.message)"></task>
+				</tasks>
+				<opcodes>
+					<opcode name="Entry" symbol="_opcode_entry_function" value="10" message="$(string.Allen-Provider.opcode._opcode_entry_function.message)"></opcode>
+					<opcode name="Exit" symbol="_opcode_exit_function" value="11" message="$(string.Allen-Provider.opcode._opcode_exit_function.message)"></opcode>
+				</opcodes>
+				<channels>
+					<channel name="Allen-Provider-Debug" chid="Allen-Provider-Debug" symbol="AllenProviderDebug" type="Debug" enabled="false" message="$(string.Allen-Provider.channel.AllenProviderDebug.message)"></channel>
+				</channels>
+				<keywords>
+					<keyword name="Function_Tracing_Entry" symbol="_keyword_function_entry" mask="0x1" message="$(string.Allen-Provider.Keyword._keyword_function_entry.message)"></keyword>
+					<keyword name="Function_Tracing_Exit" symbol="_keyword_function_exit" mask="0x2" message="$(string.Allen-Provider.Keyword._keyword_function_exit.message)"></keyword>
+				</keywords>
+				<templates>
+					<template tid="_template_function_trace">
+						<data name="funcName" inType="win:UnicodeString" outType="xs:string"></data>
+						<data name="paramCount" inType="win:Int32" outType="xs:int"></data>
+					</template>
+					<template tid="_template_function_result">
+						<data name="hasReturnValue" inType="win:Boolean" outType="xs:boolean"></data>
+					</template>
+				</templates>
+			</provider>
+		</events>
+		<counters schemaVersion="1.1" xmlns="http://schemas.microsoft.com/win/2005/12/counters">
+			<provider providerName="DiskProvider" symbol="DiskProvider" providerGuid="{a3888682-72ae-40ef-82be-84d5db397548}" applicationIdentity="DiskDriver.sys" resourceBase="1" providerType="userMode" callback="default">
+				<counterSet name="Disk Counters" symbol="Disk_Counters" guid="{ab4645a8-6085-41d7-b647-1935645fc935}" uri="DiskDriver.DiskCounterset" description="This counterset contains two counters: one which tells the number of bytes read from the disk and the other the number of bytes written to the disk" instances="globalAggregate">
+					<counter name="Number of Bytes Read" symbol="NumberofBytesRead" uri="DiskDriver.DiskCounterset.BytesRead" description="This counter represents the number of bytes read by this instance of the counter" id="1" type="perf_counter_counter" detailLevel="standard" aggregate="sum"></counter>
+					<counter name="Number of Bytes Written" symbol="NumberofBytesWritten" uri="DiskDriver.DiskCounterset.BytesWritten" description="This counter represents the number of bytes written by this instance of the counter" id="2" type="perf_counter_counter" detailLevel="standard" aggregate="sum"></counter>
+				</counterSet>
+			</provider>
+		</counters>
+	</instrumentation>
+	<localization>
+		<resources culture="en-US">
+			<stringTable>
+				<string id="level.Informational" value="Information"></string>
+				<string id="Allen-Provider.task._task_function.message" value="This task has events that describe elements of tracing functions like entry and exit"></string>
+				<string id="Allen-Provider.opcode._opcode_exit_function.message" value="This opcode describes function exit points"></string>
+				<string id="Allen-Provider.opcode._opcode_entry_function.message" value="This keyword enables events that trace function entry"></string>
+				<string id="Allen-Provider.event.2.message" value="This event is logged when a function is exited"></string>
+				<string id="Allen-Provider.event.1.message" value="This event is logged when a function is entered"></string>
+				<string id="Allen-Provider.channel.AllenProviderDebug.message" value="Allen‘s Trace channel"></string>
+				<string id="Allen-Provider.Keyword._keyword_function_exit.message" value="This keyword enables events that trace function exit"></string>
+				<string id="Allen-Provider.Keyword._keyword_function_entry.message" value="Function_Tracing_Entry Key Word"></string>
+			</stringTable>
+		</resources>
+	</localization>
+</instrumentationManifest>
