@@ -34,8 +34,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Analyzers\AvoidCallingLcpMethodsInLoopsAnalyzer.cs" />
     <Compile Include="CodeFixProvider.cs" />
-    <Compile Include="DiagnosticAnalyzer.cs" />
+    <Compile Include="Analyzers\RegexAnalyzerAnalyzer.cs" />
+    <Compile Include="Extensions\ContextExtensions.cs" />
+    <Compile Include="Extensions\NodeExtensions.cs" />
+    <Compile Include="Extensions\SymbolExtensions.cs" />
+    <Compile Include="Helper\SyntaxFactoryHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>

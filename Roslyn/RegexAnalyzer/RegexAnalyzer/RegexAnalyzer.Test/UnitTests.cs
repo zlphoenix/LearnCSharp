@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TestHelper;
 using RegexAnalyzer;
+using RegexAnalyzer.Analyzers;
 
 namespace RegexAnalyzer.Test
 {

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexAnalyzer.Test", "Regex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexAnalyzer.Vsix", "RegexAnalyzer\RegexAnalyzer.Vsix\RegexAnalyzer.Vsix.csproj", "{831EE568-AA50-40D2-93A7-BB50F3F51A97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "..\DemoApp\DemoApp.csproj", "{4AB42DFD-3C84-404D-BDE4-DCEAFA99A899}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{831EE568-AA50-40D2-93A7-BB50F3F51A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{831EE568-AA50-40D2-93A7-BB50F3F51A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{831EE568-AA50-40D2-93A7-BB50F3F51A97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AB42DFD-3C84-404D-BDE4-DCEAFA99A899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AB42DFD-3C84-404D-BDE4-DCEAFA99A899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AB42DFD-3C84-404D-BDE4-DCEAFA99A899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AB42DFD-3C84-404D-BDE4-DCEAFA99A899}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
