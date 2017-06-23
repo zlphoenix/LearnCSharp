@@ -16,7 +16,6 @@ namespace MyFuncEventsTrace
                 var isContinue = Console.ReadLine();
                 if (isContinue != "Q")
                     Do();
-
             }
         }
 

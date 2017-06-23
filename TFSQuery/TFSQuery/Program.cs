@@ -9,6 +9,7 @@ namespace TFSQuery
             while (true)
             {
                 DoQuerying();
+                Console.WriteLine("Finished");
                 Console.ReadLine();
             }
         }

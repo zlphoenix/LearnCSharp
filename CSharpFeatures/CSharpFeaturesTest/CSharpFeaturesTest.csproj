@@ -109,8 +109,9 @@
     <Compile Include="Serialize\ProtobufTests.cs" />
     <Compile Include="SortingTest.cs" />
     <Compile Include="StringExtenedUseDynamicTypeTest.cs" />
-    <Compile Include="ThreadStatic\StaticPropertyInMultiThreads.cs" />
-    <Compile Include="TPL\AsyncTest.cs" />
+    <Compile Include="Threading\MutexTests.cs" />
+    <Compile Include="Threading\ThreadStatic\StaticPropertyInMultiThreads.cs" />
+    <Compile Include="Threading\TPL\AsyncTest.cs" />
     <Compile Include="WCF\Binding\BindingTest.cs" />
   </ItemGroup>
   <ItemGroup>

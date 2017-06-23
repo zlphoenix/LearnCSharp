@@ -132,6 +132,7 @@
       <HintPath>..\packages\System.Threading.Thread.4.3.0\lib\net46\System.Threading.Thread.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -166,6 +167,7 @@
     <Compile Include="Generics\StaticActionInGenericClass.cs" />
     <Compile Include="Iterators\Iterator.cs" />
     <Compile Include="MemoryCache\MemCacheTest.cs" />
+    <Compile Include="Network\ConnectionStatusCheck.cs" />
     <Compile Include="NewFeatures.cs" />
     <Compile Include="Delegate\CacheHelper.cs" />
     <Compile Include="Delegate\Event.cs" />
@@ -204,9 +206,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="ThreadStatic\StaticPropertyInMutliThreads.cs" />
-    <Compile Include="TPL\AsyncFeatrue.cs" />
-    <Compile Include="TPL\TaskFeature.cs" />
+    <Compile Include="Threading\Mutex.cs" />
+    <Compile Include="Threading\ThreadStatic\StaticPropertyInMutliThreads.cs" />
+    <Compile Include="Threading\TPL\AsyncFeatrue.cs" />
+    <Compile Include="Threading\TPL\TaskFeature.cs" />
     <Compile Include="TypeInit\CtorAndIniter.cs" />
     <Compile Include="WCF\Binding\Client.cs" />
     <Compile Include="WCF\Binding\Server.cs" />
