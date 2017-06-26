@@ -14,7 +14,7 @@ namespace DemoApp
         {
 
 
-            Regex.Match("my text"   , @"\pXXX");
+            //Regex.Match("my text", @"\pXXX");
 
             foreach (var i in new List<int> { 1, 2, 3, 4, 5, 6, 7 })
             {
@@ -23,13 +23,32 @@ namespace DemoApp
 
             for (int i = 0; i < 100; i++)
             {
+                ILcp ilcp = new Lcp();
+                //ilcp.Modify();
 
+
+
+                var lcp = new Lcp();
+                //lcp.Modify();
             }
             while (true)
             {
 
             }
 
+        }
+    }
+
+
+    public interface ILcp
+    {
+        void Modify();
+    }
+    public class Lcp : ILcp
+    {
+        public void Modify()
+        {
+            throw new NotImplementedException();
         }
     }
 }

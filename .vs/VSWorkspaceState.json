@@ -1,13 +1,19 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CSharpFeatures",
-    "\\CSharpFeatures\\PL",
-    "\\CSharpFeatures\\PL\\EFDemo",
-    "\\CSharpFeatures\\PL\\EFDemoTest",
-    "\\CSharpFeatures\\PL\\EFDemo\\bin\\Release",
-    "\\CSharpFeatures\\PL\\EFDemo\\Migrations"
+    "\\Roslyn",
+    "\\Roslyn\\DemoApp",
+    "\\Roslyn\\DemoApp\\Properties",
+    "\\Roslyn\\RegexAnalyzer",
+    "\\Roslyn\\RegexAnalyzer\\RegexAnalyzer",
+    "\\Roslyn\\RegexAnalyzer\\RegexAnalyzer\\RegexAnalyzer",
+    "\\Roslyn\\RegexAnalyzer\\RegexAnalyzer\\RegexAnalyzer.Test",
+    "\\Roslyn\\RegexAnalyzer\\RegexAnalyzer\\RegexAnalyzer.Test\\Verifiers",
+    "\\Roslyn\\RegexAnalyzer\\RegexAnalyzer\\RegexAnalyzer\\Analyzers",
+    "\\Roslyn\\RegexAnalyzer\\RegexAnalyzer\\RegexAnalyzer\\Extensions",
+    "\\Roslyn\\RegexAnalyzer\\RegexAnalyzer\\RegexAnalyzer\\Helper",
+    "\\Roslyn\\RegexAnalyzer\\RegexAnalyzer\\RegexAnalyzer\\tools"
   ],
-  "SelectedNode": "\\CSharpFeatures\\PL\\EFDemoTest\\EntityCRUDTests.cs",
+  "SelectedNode": "\\Roslyn\\RegexAnalyzer\\RegexAnalyzer\\RegexAnalyzer\\Analyzers\\AvoidCallingLcpMethodsInLoopsAnalyzer.cs",
   "PreviewInSolutionExplorer": false
 }
