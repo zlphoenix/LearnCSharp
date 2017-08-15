@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyName>Allen.Core.lib</AssemblyName>
+    <RootNamespace>Allen.Core.lib</RootNamespace>
+    <PackageId>Allen.Core.lib</PackageId>
+    <Authors>Allen</Authors>
+    <Company>M$</Company>
+    <Product>Learn Dot net Core</Product>
+    <Description>learn dotnet core,about class lib</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\build</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Huitian.PowerCollections" Version="1.0.0">
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.2" />
+  </ItemGroup>
+
+</Project>

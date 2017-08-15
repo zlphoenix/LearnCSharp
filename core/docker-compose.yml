@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  web:
+    image: web
+    build:
+      context: ./src/app/web
+      dockerfile: Dockerfile
