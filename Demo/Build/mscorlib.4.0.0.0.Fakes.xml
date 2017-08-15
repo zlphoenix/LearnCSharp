@@ -1,0 +1,944 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>mscorlib.4.0.0.0.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.QualityTools.Testing.Fakes.Delegates.MscorlibDelegates">
+            <summary>Contains custom delegates used for the stubs and shims of mscorlib</summary>
+        </member>
+        <member name="T:System.Fakes.ShimDateTime">
+            <summary>Shim type of System.DateTime</summary>
+        </member>
+        <member name="M:System.Fakes.ShimDateTime.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.AdditionOpDateTimeTimeSpan">
+            <summary>Sets the shim of DateTime.op_Addition(DateTime d, TimeSpan t)</summary>
+        </member>
+        <member name="T:System.Fakes.ShimDateTime.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:System.Fakes.ShimDateTime.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:System.Fakes.ShimDateTime.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.CompareDateTimeDateTime">
+            <summary>Sets the shim of DateTime.Compare(DateTime t1, DateTime t2)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.DateToTicksInt32Int32Int32">
+            <summary>Sets the shim of DateTime.DateToTicks(Int32 year, Int32 month, Int32 day)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.DaysInMonthInt32Int32">
+            <summary>Sets the shim of DateTime.DaysInMonth(Int32 year, Int32 month)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.DoubleDateToTicksDouble">
+            <summary>Sets the shim of DateTime.DoubleDateToTicks(Double value)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.EqualityOpDateTimeDateTime">
+            <summary>Sets the shim of DateTime.op_Equality(DateTime d1, DateTime d2)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.EqualsDateTimeDateTime">
+            <summary>Sets the shim of DateTime.Equals(DateTime t1, DateTime t2)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.FromBinaryInt64">
+            <summary>Sets the shim of DateTime.FromBinary(Int64 dateData)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.FromBinaryRawInt64">
+            <summary>Sets the shim of DateTime.FromBinaryRaw(Int64 dateData)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.FromFileTimeInt64">
+            <summary>Sets the shim of DateTime.FromFileTime(Int64 fileTime)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.FromFileTimeUtcInt64">
+            <summary>Sets the shim of DateTime.FromFileTimeUtc(Int64 fileTime)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.FromOADateDouble">
+            <summary>Sets the shim of DateTime.FromOADate(Double d)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.GreaterThanOpDateTimeDateTime">
+            <summary>Sets the shim of DateTime.op_GreaterThan(DateTime t1, DateTime t2)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.GreaterThanOrEqualOpDateTimeDateTime">
+            <summary>Sets the shim of DateTime.op_GreaterThanOrEqual(DateTime t1, DateTime t2)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.InequalityOpDateTimeDateTime">
+            <summary>Sets the shim of DateTime.op_Inequality(DateTime d1, DateTime d2)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.IsLeapYearInt32">
+            <summary>Sets the shim of DateTime.IsLeapYear(Int32 year)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.LessThanOpDateTimeDateTime">
+            <summary>Sets the shim of DateTime.op_LessThan(DateTime t1, DateTime t2)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.LessThanOrEqualOpDateTimeDateTime">
+            <summary>Sets the shim of DateTime.op_LessThanOrEqual(DateTime t1, DateTime t2)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.NowGet">
+            <summary>Sets the shim of DateTime.get_Now()</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.ParseExactStringStringArrayIFormatProviderDateTimeStyles">
+            <summary>Sets the shim of DateTime.ParseExact(String s, String[] formats, IFormatProvider provider, DateTimeStyles style)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.ParseExactStringStringIFormatProvider">
+            <summary>Sets the shim of DateTime.ParseExact(String s, String format, IFormatProvider provider)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.ParseExactStringStringIFormatProviderDateTimeStyles">
+            <summary>Sets the shim of DateTime.ParseExact(String s, String format, IFormatProvider provider, DateTimeStyles style)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.ParseString">
+            <summary>Sets the shim of DateTime.Parse(String s)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.ParseStringIFormatProvider">
+            <summary>Sets the shim of DateTime.Parse(String s, IFormatProvider provider)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.ParseStringIFormatProviderDateTimeStyles">
+            <summary>Sets the shim of DateTime.Parse(String s, IFormatProvider provider, DateTimeStyles styles)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.SpecifyKindDateTimeDateTimeKind">
+            <summary>Sets the shim of DateTime.SpecifyKind(DateTime value, DateTimeKind kind)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.StaticConstructor">
+            <summary>Sets the shim of DateTime.DateTime()</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.SubtractionOpDateTimeDateTime">
+            <summary>Sets the shim of DateTime.op_Subtraction(DateTime d1, DateTime d2)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.SubtractionOpDateTimeTimeSpan">
+            <summary>Sets the shim of DateTime.op_Subtraction(DateTime d, TimeSpan t)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.TicksToOADateInt64">
+            <summary>Sets the shim of DateTime.TicksToOADate(Int64 value)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.TimeToTicksInt32Int32Int32">
+            <summary>Sets the shim of DateTime.TimeToTicks(Int32 hour, Int32 minute, Int32 second)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.TodayGet">
+            <summary>Sets the shim of DateTime.get_Today()</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.TryCreateInt32Int32Int32Int32Int32Int32Int32DateTimeOut">
+            <summary>Sets the shim of DateTime.TryCreate(Int32 year, Int32 month, Int32 day, Int32 hour, Int32 minute, Int32 second, Int32 millisecond, DateTime&amp; result)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.TryParseExactStringStringArrayIFormatProviderDateTimeStylesDateTimeOut">
+            <summary>Sets the shim of DateTime.TryParseExact(String s, String[] formats, IFormatProvider provider, DateTimeStyles style, DateTime&amp; result)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.TryParseExactStringStringIFormatProviderDateTimeStylesDateTimeOut">
+            <summary>Sets the shim of DateTime.TryParseExact(String s, String format, IFormatProvider provider, DateTimeStyles style, DateTime&amp; result)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.TryParseStringDateTimeOut">
+            <summary>Sets the shim of DateTime.TryParse(String s, DateTime&amp; result)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.TryParseStringIFormatProviderDateTimeStylesDateTimeOut">
+            <summary>Sets the shim of DateTime.TryParse(String s, IFormatProvider provider, DateTimeStyles styles, DateTime&amp; result)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTime.UtcNowGet">
+            <summary>Sets the shim of DateTime.get_UtcNow()</summary>
+        </member>
+        <member name="T:System.Fakes.ShimDateTimeOffset">
+            <summary>Shim type of System.DateTimeOffset</summary>
+        </member>
+        <member name="M:System.Fakes.ShimDateTimeOffset.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.AdditionOpDateTimeOffsetTimeSpan">
+            <summary>Sets the shim of DateTimeOffset.op_Addition(DateTimeOffset dateTimeOffset, TimeSpan timeSpan)</summary>
+        </member>
+        <member name="T:System.Fakes.ShimDateTimeOffset.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:System.Fakes.ShimDateTimeOffset.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:System.Fakes.ShimDateTimeOffset.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.CompareDateTimeOffsetDateTimeOffset">
+            <summary>Sets the shim of DateTimeOffset.Compare(DateTimeOffset first, DateTimeOffset second)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.EqualityOpDateTimeOffsetDateTimeOffset">
+            <summary>Sets the shim of DateTimeOffset.op_Equality(DateTimeOffset left, DateTimeOffset right)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.EqualsDateTimeOffsetDateTimeOffset">
+            <summary>Sets the shim of DateTimeOffset.Equals(DateTimeOffset first, DateTimeOffset second)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.FromFileTimeInt64">
+            <summary>Sets the shim of DateTimeOffset.FromFileTime(Int64 fileTime)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.FromUnixTimeMillisecondsInt64">
+            <summary>Sets the shim of DateTimeOffset.FromUnixTimeMilliseconds(Int64 milliseconds)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.FromUnixTimeSecondsInt64">
+            <summary>Sets the shim of DateTimeOffset.FromUnixTimeSeconds(Int64 seconds)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.GreaterThanOpDateTimeOffsetDateTimeOffset">
+            <summary>Sets the shim of DateTimeOffset.op_GreaterThan(DateTimeOffset left, DateTimeOffset right)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.GreaterThanOrEqualOpDateTimeOffsetDateTimeOffset">
+            <summary>Sets the shim of DateTimeOffset.op_GreaterThanOrEqual(DateTimeOffset left, DateTimeOffset right)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.ImplicitOpDateTimeDateTimeOffset">
+            <summary>Sets the shim of DateTimeOffset.op_Implicit(DateTime dateTime)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.InequalityOpDateTimeOffsetDateTimeOffset">
+            <summary>Sets the shim of DateTimeOffset.op_Inequality(DateTimeOffset left, DateTimeOffset right)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.LessThanOpDateTimeOffsetDateTimeOffset">
+            <summary>Sets the shim of DateTimeOffset.op_LessThan(DateTimeOffset left, DateTimeOffset right)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.LessThanOrEqualOpDateTimeOffsetDateTimeOffset">
+            <summary>Sets the shim of DateTimeOffset.op_LessThanOrEqual(DateTimeOffset left, DateTimeOffset right)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.NowGet">
+            <summary>Sets the shim of DateTimeOffset.get_Now()</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.ParseExactStringStringArrayIFormatProviderDateTimeStyles">
+            <summary>Sets the shim of DateTimeOffset.ParseExact(String input, String[] formats, IFormatProvider formatProvider, DateTimeStyles styles)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.ParseExactStringStringIFormatProvider">
+            <summary>Sets the shim of DateTimeOffset.ParseExact(String input, String format, IFormatProvider formatProvider)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.ParseExactStringStringIFormatProviderDateTimeStyles">
+            <summary>Sets the shim of DateTimeOffset.ParseExact(String input, String format, IFormatProvider formatProvider, DateTimeStyles styles)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.ParseString">
+            <summary>Sets the shim of DateTimeOffset.Parse(String input)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.ParseStringIFormatProvider">
+            <summary>Sets the shim of DateTimeOffset.Parse(String input, IFormatProvider formatProvider)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.ParseStringIFormatProviderDateTimeStyles">
+            <summary>Sets the shim of DateTimeOffset.Parse(String input, IFormatProvider formatProvider, DateTimeStyles styles)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.StaticConstructor">
+            <summary>Sets the shim of DateTimeOffset.DateTimeOffset()</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.SubtractionOpDateTimeOffsetDateTimeOffset">
+            <summary>Sets the shim of DateTimeOffset.op_Subtraction(DateTimeOffset left, DateTimeOffset right)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.SubtractionOpDateTimeOffsetTimeSpan">
+            <summary>Sets the shim of DateTimeOffset.op_Subtraction(DateTimeOffset dateTimeOffset, TimeSpan timeSpan)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.TryParseExactStringStringArrayIFormatProviderDateTimeStylesDateTimeOffsetOut">
+            <summary>Sets the shim of DateTimeOffset.TryParseExact(String input, String[] formats, IFormatProvider formatProvider, DateTimeStyles styles, DateTimeOffset&amp; result)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.TryParseExactStringStringIFormatProviderDateTimeStylesDateTimeOffsetOut">
+            <summary>Sets the shim of DateTimeOffset.TryParseExact(String input, String format, IFormatProvider formatProvider, DateTimeStyles styles, DateTimeOffset&amp; result)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.TryParseStringDateTimeOffsetOut">
+            <summary>Sets the shim of DateTimeOffset.TryParse(String input, DateTimeOffset&amp; result)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.TryParseStringIFormatProviderDateTimeStylesDateTimeOffsetOut">
+            <summary>Sets the shim of DateTimeOffset.TryParse(String input, IFormatProvider formatProvider, DateTimeStyles styles, DateTimeOffset&amp; result)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.UtcNowGet">
+            <summary>Sets the shim of DateTimeOffset.get_UtcNow()</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.ValidateDateDateTimeTimeSpan">
+            <summary>Sets the shim of DateTimeOffset.ValidateDate(DateTime dateTime, TimeSpan offset)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.ValidateOffsetTimeSpan">
+            <summary>Sets the shim of DateTimeOffset.ValidateOffset(TimeSpan offset)</summary>
+        </member>
+        <member name="P:System.Fakes.ShimDateTimeOffset.ValidateStylesDateTimeStylesString">
+            <summary>Sets the shim of DateTimeOffset.ValidateStyles(DateTimeStyles style, String parameterName)</summary>
+        </member>
+        <member name="T:System.Globalization.Fakes.ShimDateTimeFormatInfo">
+            <summary>Shim type of System.Globalization.DateTimeFormatInfo</summary>
+        </member>
+        <member name="M:System.Globalization.Fakes.ShimDateTimeFormatInfo.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:System.Globalization.Fakes.ShimDateTimeFormatInfo.#ctor(System.Globalization.DateTimeFormatInfo)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AMDesignatorGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AMDesignator()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AMDesignatorSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_AMDesignator(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AbbreviatedDayNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AbbreviatedDayNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AbbreviatedDayNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_AbbreviatedDayNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AbbreviatedEnglishEraNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AbbreviatedEnglishEraNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AbbreviatedEraNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AbbreviatedEraNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AbbreviatedMonthGenitiveNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AbbreviatedMonthGenitiveNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AbbreviatedMonthGenitiveNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_AbbreviatedMonthGenitiveNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AbbreviatedMonthNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AbbreviatedMonthNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AbbreviatedMonthNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_AbbreviatedMonthNames(String[] value)</summary>
+        </member>
+        <member name="T:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AMDesignatorGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AMDesignator()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AMDesignatorSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_AMDesignator(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AbbreviatedDayNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AbbreviatedDayNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AbbreviatedDayNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_AbbreviatedDayNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AbbreviatedEnglishEraNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AbbreviatedEnglishEraNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AbbreviatedEraNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AbbreviatedEraNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AbbreviatedMonthGenitiveNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AbbreviatedMonthGenitiveNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AbbreviatedMonthGenitiveNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_AbbreviatedMonthGenitiveNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AbbreviatedMonthNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AbbreviatedMonthNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AbbreviatedMonthNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_AbbreviatedMonthNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AllLongDatePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AllLongDatePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AllLongTimePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AllLongTimePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AllShortDatePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AllShortDatePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AllShortTimePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AllShortTimePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.AllYearMonthPatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AllYearMonthPatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.CalendarGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_Calendar()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.CalendarSetCalendar">
+            <summary>Sets the shim of DateTimeFormatInfo.set_Calendar(Calendar value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.CalendarWeekRuleGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_CalendarWeekRule()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.CalendarWeekRuleSetCalendarWeekRule">
+            <summary>Sets the shim of DateTimeFormatInfo.set_CalendarWeekRule(CalendarWeekRule value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.ClearTokenHashTable">
+            <summary>Sets the shim of DateTimeFormatInfo.ClearTokenHashTable()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.Clone">
+            <summary>Sets the shim of DateTimeFormatInfo.Clone()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.CompareInfoGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_CompareInfo()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.CultureGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_Culture()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.CultureNameGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_CultureName()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.DateSeparatorGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_DateSeparator()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.DateSeparatorSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_DateSeparator(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.DateTimeOffsetPatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_DateTimeOffsetPattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.DayNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_DayNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.DayNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_DayNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.EraNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_EraNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.FirstDayOfWeekGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_FirstDayOfWeek()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.FirstDayOfWeekSetDayOfWeek">
+            <summary>Sets the shim of DateTimeFormatInfo.set_FirstDayOfWeek(DayOfWeek value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.FullDateTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_FullDateTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.FullDateTimePatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_FullDateTimePattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.FullTimeSpanNegativePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_FullTimeSpanNegativePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.FullTimeSpanPositivePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_FullTimeSpanPositivePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GeneralLongTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_GeneralLongTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GeneralShortTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_GeneralShortTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GetAbbreviatedDayNameDayOfWeek">
+            <summary>Sets the shim of DateTimeFormatInfo.GetAbbreviatedDayName(DayOfWeek dayofweek)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GetAbbreviatedEraNameInt32">
+            <summary>Sets the shim of DateTimeFormatInfo.GetAbbreviatedEraName(Int32 era)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GetAbbreviatedMonthNameInt32">
+            <summary>Sets the shim of DateTimeFormatInfo.GetAbbreviatedMonthName(Int32 month)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GetAllDateTimePatterns">
+            <summary>Sets the shim of DateTimeFormatInfo.GetAllDateTimePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GetAllDateTimePatternsChar">
+            <summary>Sets the shim of DateTimeFormatInfo.GetAllDateTimePatterns(Char format)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GetDayNameDayOfWeek">
+            <summary>Sets the shim of DateTimeFormatInfo.GetDayName(DayOfWeek dayofweek)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GetEraNameInt32">
+            <summary>Sets the shim of DateTimeFormatInfo.GetEraName(Int32 era)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GetEraString">
+            <summary>Sets the shim of DateTimeFormatInfo.GetEra(String eraName)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GetFormatType">
+            <summary>Sets the shim of DateTimeFormatInfo.GetFormat(Type formatType)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GetMonthNameInt32">
+            <summary>Sets the shim of DateTimeFormatInfo.GetMonthName(Int32 month)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.GetShortestDayNameDayOfWeek">
+            <summary>Sets the shim of DateTimeFormatInfo.GetShortestDayName(DayOfWeek dayOfWeek)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.HasForceTwoDigitYearsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_HasForceTwoDigitYears()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.HasSpacesInDayNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_HasSpacesInDayNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.HasSpacesInMonthNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_HasSpacesInMonthNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.HasYearMonthAdjustmentGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_HasYearMonthAdjustment()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.IsReadOnlyGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_IsReadOnly()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.LanguageNameGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_LanguageName()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.LongDatePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_LongDatePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.LongDatePatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_LongDatePattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.LongTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_LongTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.LongTimePatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_LongTimePattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.MonthDayPatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_MonthDayPattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.MonthDayPatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_MonthDayPattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.MonthGenitiveNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_MonthGenitiveNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.MonthGenitiveNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_MonthGenitiveNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.MonthNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_MonthNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.MonthNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_MonthNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.NativeCalendarNameGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_NativeCalendarName()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.OnDeserializedStreamingContext">
+            <summary>Sets the shim of DateTimeFormatInfo.OnDeserialized(StreamingContext ctx)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.OnSerializingStreamingContext">
+            <summary>Sets the shim of DateTimeFormatInfo.OnSerializing(StreamingContext ctx)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.OptionalCalendarsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_OptionalCalendars()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.PMDesignatorGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_PMDesignator()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.PMDesignatorSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_PMDesignator(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.RFC1123PatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_RFC1123Pattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.SetAllDateTimePatternsStringArrayChar">
+            <summary>Sets the shim of DateTimeFormatInfo.SetAllDateTimePatterns(String[] patterns, Char format)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.ShortDatePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_ShortDatePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.ShortDatePatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_ShortDatePattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.ShortTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_ShortTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.ShortTimePatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_ShortTimePattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.ShortestDayNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_ShortestDayNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.ShortestDayNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_ShortestDayNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.SortableDateTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_SortableDateTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.TimeSeparatorGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_TimeSeparator()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.TimeSeparatorSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_TimeSeparator(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.UnclonedLongDatePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_UnclonedLongDatePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.UnclonedLongTimePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_UnclonedLongTimePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.UnclonedShortDatePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_UnclonedShortDatePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.UnclonedShortTimePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_UnclonedShortTimePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.UnclonedYearMonthPatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_UnclonedYearMonthPatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.UniversalSortableDateTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_UniversalSortableDateTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.YearMonthAdjustmentInt32RefInt32RefBoolean">
+            <summary>Sets the shim of DateTimeFormatInfo.YearMonthAdjustment(Int32&amp; year, Int32&amp; month, Boolean parsedMonthName)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.YearMonthPatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_YearMonthPattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.YearMonthPatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_YearMonthPattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.internalGetAbbreviatedDayOfWeekNames">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetAbbreviatedDayOfWeekNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.internalGetAbbreviatedMonthNames">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetAbbreviatedMonthNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.internalGetDayOfWeekNames">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetDayOfWeekNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.internalGetGenitiveMonthNamesBoolean">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetGenitiveMonthNames(Boolean abbreviated)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.internalGetLeapYearMonthNames">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetLeapYearMonthNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.internalGetMonthNames">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetMonthNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllInstances.internalGetSuperShortDayNames">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetSuperShortDayNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllLongDatePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AllLongDatePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllLongTimePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AllLongTimePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllShortDatePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AllShortDatePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllShortTimePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AllShortTimePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.AllYearMonthPatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_AllYearMonthPatterns()</summary>
+        </member>
+        <member name="M:System.Globalization.Fakes.ShimDateTimeFormatInfo.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:System.Globalization.Fakes.ShimDateTimeFormatInfo.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:System.Globalization.Fakes.ShimDateTimeFormatInfo.Bind(System.ICloneable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:System.Globalization.Fakes.ShimDateTimeFormatInfo.Bind(System.IFormatProvider)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.CalendarGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_Calendar()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.CalendarSetCalendar">
+            <summary>Sets the shim of DateTimeFormatInfo.set_Calendar(Calendar value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.CalendarWeekRuleGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_CalendarWeekRule()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.CalendarWeekRuleSetCalendarWeekRule">
+            <summary>Sets the shim of DateTimeFormatInfo.set_CalendarWeekRule(CalendarWeekRule value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.CheckNullValueStringArrayInt32">
+            <summary>Sets the shim of DateTimeFormatInfo.CheckNullValue(String[] values, Int32 length)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.ClearTokenHashTable">
+            <summary>Sets the shim of DateTimeFormatInfo.ClearTokenHashTable()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.Clone">
+            <summary>Sets the shim of DateTimeFormatInfo.Clone()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.CompareInfoGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_CompareInfo()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.Constructor">
+            <summary>Sets the shim of DateTimeFormatInfo.DateTimeFormatInfo()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.CultureGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_Culture()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.CultureNameGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_CultureName()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.CurrentInfoGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_CurrentInfo()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.DateSeparatorGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_DateSeparator()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.DateSeparatorSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_DateSeparator(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.DateTimeOffsetPatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_DateTimeOffsetPattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.DayNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_DayNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.DayNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_DayNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.EraNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_EraNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.FirstDayOfWeekGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_FirstDayOfWeek()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.FirstDayOfWeekSetDayOfWeek">
+            <summary>Sets the shim of DateTimeFormatInfo.set_FirstDayOfWeek(DayOfWeek value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.FullDateTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_FullDateTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.FullDateTimePatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_FullDateTimePattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.FullTimeSpanNegativePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_FullTimeSpanNegativePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.FullTimeSpanPositivePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_FullTimeSpanPositivePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GeneralLongTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_GeneralLongTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GeneralShortTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_GeneralShortTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetAbbreviatedDayNameDayOfWeek">
+            <summary>Sets the shim of DateTimeFormatInfo.GetAbbreviatedDayName(DayOfWeek dayofweek)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetAbbreviatedEraNameInt32">
+            <summary>Sets the shim of DateTimeFormatInfo.GetAbbreviatedEraName(Int32 era)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetAbbreviatedMonthNameInt32">
+            <summary>Sets the shim of DateTimeFormatInfo.GetAbbreviatedMonthName(Int32 month)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetAllDateTimePatterns">
+            <summary>Sets the shim of DateTimeFormatInfo.GetAllDateTimePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetAllDateTimePatternsChar">
+            <summary>Sets the shim of DateTimeFormatInfo.GetAllDateTimePatterns(Char format)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetCombinedPatternsStringArrayStringArrayString">
+            <summary>Sets the shim of DateTimeFormatInfo.GetCombinedPatterns(String[] patterns1, String[] patterns2, String connectString)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetDayNameDayOfWeek">
+            <summary>Sets the shim of DateTimeFormatInfo.GetDayName(DayOfWeek dayofweek)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetEraNameInt32">
+            <summary>Sets the shim of DateTimeFormatInfo.GetEraName(Int32 era)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetEraString">
+            <summary>Sets the shim of DateTimeFormatInfo.GetEra(String eraName)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetFormatType">
+            <summary>Sets the shim of DateTimeFormatInfo.GetFormat(Type formatType)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetInstanceIFormatProvider">
+            <summary>Sets the shim of DateTimeFormatInfo.GetInstance(IFormatProvider provider)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetJapaneseCalendarDTFI">
+            <summary>Sets the shim of DateTimeFormatInfo.GetJapaneseCalendarDTFI()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetMergedPatternsStringArrayString">
+            <summary>Sets the shim of DateTimeFormatInfo.GetMergedPatterns(String[] patterns, String defaultPattern)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetMonthNameInt32">
+            <summary>Sets the shim of DateTimeFormatInfo.GetMonthName(Int32 month)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetShortestDayNameDayOfWeek">
+            <summary>Sets the shim of DateTimeFormatInfo.GetShortestDayName(DayOfWeek dayOfWeek)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.GetTaiwanCalendarDTFI">
+            <summary>Sets the shim of DateTimeFormatInfo.GetTaiwanCalendarDTFI()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.HasForceTwoDigitYearsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_HasForceTwoDigitYears()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.HasSpacesInDayNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_HasSpacesInDayNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.HasSpacesInMonthNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_HasSpacesInMonthNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.HasYearMonthAdjustmentGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_HasYearMonthAdjustment()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.InitPreferExistingTokens">
+            <summary>Sets the shim of DateTimeFormatInfo.InitPreferExistingTokens()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.InvariantInfoGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_InvariantInfo()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.IsHebrewCharChar">
+            <summary>Sets the shim of DateTimeFormatInfo.IsHebrewChar(Char ch)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.IsReadOnlyGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_IsReadOnly()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.LanguageNameGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_LanguageName()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.LongDatePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_LongDatePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.LongDatePatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_LongDatePattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.LongTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_LongTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.LongTimePatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_LongTimePattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.MonthDayPatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_MonthDayPattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.MonthDayPatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_MonthDayPattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.MonthGenitiveNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_MonthGenitiveNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.MonthGenitiveNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_MonthGenitiveNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.MonthNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_MonthNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.MonthNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_MonthNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.NativeCalendarNameGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_NativeCalendarName()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.OnDeserializedStreamingContext">
+            <summary>Sets the shim of DateTimeFormatInfo.OnDeserialized(StreamingContext ctx)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.OnSerializingStreamingContext">
+            <summary>Sets the shim of DateTimeFormatInfo.OnSerializing(StreamingContext ctx)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.OptionalCalendarsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_OptionalCalendars()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.PMDesignatorGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_PMDesignator()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.PMDesignatorSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_PMDesignator(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.RFC1123PatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_RFC1123Pattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.ReadOnlyDateTimeFormatInfo">
+            <summary>Sets the shim of DateTimeFormatInfo.ReadOnly(DateTimeFormatInfo dtfi)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.SetAllDateTimePatternsStringArrayChar">
+            <summary>Sets the shim of DateTimeFormatInfo.SetAllDateTimePatterns(String[] patterns, Char format)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.ShortDatePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_ShortDatePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.ShortDatePatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_ShortDatePattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.ShortTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_ShortTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.ShortTimePatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_ShortTimePattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.ShortestDayNamesGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_ShortestDayNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.ShortestDayNamesSetStringArray">
+            <summary>Sets the shim of DateTimeFormatInfo.set_ShortestDayNames(String[] value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.SortableDateTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_SortableDateTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.StaticConstructor">
+            <summary>Sets the shim of DateTimeFormatInfo.DateTimeFormatInfo()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.TimeSeparatorGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_TimeSeparator()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.TimeSeparatorSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_TimeSeparator(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.UnclonedLongDatePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_UnclonedLongDatePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.UnclonedLongTimePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_UnclonedLongTimePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.UnclonedShortDatePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_UnclonedShortDatePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.UnclonedShortTimePatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_UnclonedShortTimePatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.UnclonedYearMonthPatternsGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_UnclonedYearMonthPatterns()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.UniversalSortableDateTimePatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_UniversalSortableDateTimePattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.ValidateStylesDateTimeStylesString">
+            <summary>Sets the shim of DateTimeFormatInfo.ValidateStyles(DateTimeStyles style, String parameterName)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.YearMonthPatternGet">
+            <summary>Sets the shim of DateTimeFormatInfo.get_YearMonthPattern()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.YearMonthPatternSetString">
+            <summary>Sets the shim of DateTimeFormatInfo.set_YearMonthPattern(String value)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.internalGetAbbreviatedDayOfWeekNames">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetAbbreviatedDayOfWeekNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.internalGetAbbreviatedMonthNames">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetAbbreviatedMonthNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.internalGetDayOfWeekNames">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetDayOfWeekNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.internalGetGenitiveMonthNamesBoolean">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetGenitiveMonthNames(Boolean abbreviated)</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.internalGetLeapYearMonthNames">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetLeapYearMonthNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.internalGetMonthNames">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetMonthNames()</summary>
+        </member>
+        <member name="P:System.Globalization.Fakes.ShimDateTimeFormatInfo.internalGetSuperShortDayNames">
+            <summary>Sets the shim of DateTimeFormatInfo.internalGetSuperShortDayNames()</summary>
+        </member>
+        <member name="T:System.Runtime.Remoting.Metadata.W3cXsd2001.Fakes.ShimSoapDateTime">
+            <summary>Shim type of System.Runtime.Remoting.Metadata.W3cXsd2001.SoapDateTime</summary>
+        </member>
+        <member name="M:System.Runtime.Remoting.Metadata.W3cXsd2001.Fakes.ShimSoapDateTime.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:System.Runtime.Remoting.Metadata.W3cXsd2001.Fakes.ShimSoapDateTime.#ctor(System.Runtime.Remoting.Metadata.W3cXsd2001.SoapDateTime)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:System.Runtime.Remoting.Metadata.W3cXsd2001.Fakes.ShimSoapDateTime.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:System.Runtime.Remoting.Metadata.W3cXsd2001.Fakes.ShimSoapDateTime.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:System.Runtime.Remoting.Metadata.W3cXsd2001.Fakes.ShimSoapDateTime.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:System.Runtime.Remoting.Metadata.W3cXsd2001.Fakes.ShimSoapDateTime.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:System.Runtime.Remoting.Metadata.W3cXsd2001.Fakes.ShimSoapDateTime.Constructor">
+            <summary>Sets the shim of SoapDateTime.SoapDateTime()</summary>
+        </member>
+        <member name="P:System.Runtime.Remoting.Metadata.W3cXsd2001.Fakes.ShimSoapDateTime.ParseString">
+            <summary>Sets the shim of SoapDateTime.Parse(String value)</summary>
+        </member>
+        <member name="P:System.Runtime.Remoting.Metadata.W3cXsd2001.Fakes.ShimSoapDateTime.StaticConstructor">
+            <summary>Sets the shim of SoapDateTime.SoapDateTime()</summary>
+        </member>
+        <member name="P:System.Runtime.Remoting.Metadata.W3cXsd2001.Fakes.ShimSoapDateTime.ToStringDateTime">
+            <summary>Sets the shim of SoapDateTime.ToString(DateTime value)</summary>
+        </member>
+        <member name="P:System.Runtime.Remoting.Metadata.W3cXsd2001.Fakes.ShimSoapDateTime.XsdTypeGet">
+            <summary>Sets the shim of SoapDateTime.get_XsdType()</summary>
+        </member>
+    </members>
+</doc>
