@@ -18,7 +18,7 @@ namespace TFSQuery
             //Criteria used to limit results
             var maxChangesToConsider = 1000;
             var maxResults = 10;
-            var fromDate = DateTime.Now.AddDays(-182);
+            var fromDate = DateTime.Now.AddDays(-10);
             var toDate = DateTime.Now;
             var maxResultsPerPath = 100;
 

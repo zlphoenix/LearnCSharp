@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Customer]
+(
+	[Seq] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Gender] INT NULL
+)

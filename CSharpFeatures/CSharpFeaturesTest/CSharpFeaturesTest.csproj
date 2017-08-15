@@ -12,6 +12,7 @@
     <RootNamespace>CSharpFeaturesTest</RootNamespace>
     <AssemblyName>CSharpFeaturesTest</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkProfile />
@@ -83,7 +84,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CallContextDemoTest.cs" />
-    <Compile Include="CanvasTestTest.cs" />
     <Compile Include="ConstAndReadOnly\ContsTest.cs" />
     <Compile Include="Container\CollectionsTest.cs" />
     <Compile Include="Container\SortedListTest.cs" />
@@ -94,6 +94,8 @@
     <Compile Include="Lambda\CollectionTraversingTest.cs" />
     <Compile Include="GenericsNotTemplatesTest.cs" />
     <Compile Include="Lambda\CustomLinqProviderTest.cs" />
+    <Compile Include="Lambda\FunctionalTest.cs" />
+    <Compile Include="Lambda\ClosureTest.cs" />
     <Compile Include="LazyInitTest.cs" />
     <Compile Include="MEF\MEFTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,10 +107,12 @@
     <Compile Include="RoundTest.cs" />
     <Compile Include="Serialize\SerializableTest.cs" />
     <Compile Include="Serialize\DataContractResoverTest.cs" />
+    <Compile Include="Serialize\ProtobufTests.cs" />
     <Compile Include="SortingTest.cs" />
     <Compile Include="StringExtenedUseDynamicTypeTest.cs" />
-    <Compile Include="ThreadStatic\StaticPropertyInMultiThreads.cs" />
-    <Compile Include="TPL\AsyncTest.cs" />
+    <Compile Include="Threading\MutexTests.cs" />
+    <Compile Include="Threading\ThreadStatic\StaticPropertyInMultiThreads.cs" />
+    <Compile Include="Threading\TPL\AsyncTest.cs" />
     <Compile Include="WCF\Binding\BindingTest.cs" />
   </ItemGroup>
   <ItemGroup>
