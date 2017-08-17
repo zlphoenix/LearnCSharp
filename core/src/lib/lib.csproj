@@ -16,12 +16,14 @@
     <OutputPath>..\build</OutputPath>
   </PropertyGroup>
 
+  <!--<ItemGroup>
+    <Compile Include="CustomerDAO.cs" />
+  </ItemGroup>-->
+
   <ItemGroup>
-    <PackageReference Include="Huitian.PowerCollections" Version="1.0.0">
-      <NoWarn>NU1701</NoWarn>
-    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
   </ItemGroup>
 
 </Project>

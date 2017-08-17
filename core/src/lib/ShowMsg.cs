@@ -1,6 +1,6 @@
 ﻿namespace lib
 {
-    public class Class1
+    public class ShowMsg
     {
         public static string GetMessage() => "Hello from .NET Standard!";
     }

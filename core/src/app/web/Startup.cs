@@ -28,7 +28,7 @@ namespace web
 
             app.Run(async (context) =>
             {
-                var message = Class1.GetMessage();
+                var message = ShowMsg.GetMessage();
                 await context.Response.WriteAsync(message);
             });
         }

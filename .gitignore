@@ -289,6 +289,6 @@ __pycache__/
 
 #Allen's ignored file config
 log.txt*
-[Bb]uild/
+**/[Bb]uild/
 /core/.vs/core/v15/sqlite3
 /core/data

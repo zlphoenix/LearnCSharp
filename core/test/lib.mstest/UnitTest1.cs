@@ -1,3 +1,4 @@
+using Allen.Core.lib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace test
@@ -8,6 +9,10 @@ namespace test
         [TestMethod]
         public void TestMethod1()
         {
+            var dao = new CustomerDAO();
+            var dt = dao.GetAllCustomers();
+            Assert.IsTrue(dt.Rows.Count > 0);
+
         }
     }
 }
