@@ -8,8 +8,9 @@
     <PackageId>Allen.Core.lib</PackageId>
     <Authors>Allen</Authors>
     <Company>M$</Company>
-    <Product>Learn Dot net Core</Product>
+    <Product>Learn dotnet core</Product>
     <Description>learn dotnet core,about class lib</Description>
+    <PackageTags>allen learn demo lib</PackageTags>    
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
