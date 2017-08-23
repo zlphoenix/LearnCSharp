@@ -76,6 +76,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>Xcopy $(TargetPath) R:\output\*.*  /F/Y/C</PostBuildEvent>
+    <PostBuildEvent>rem Xcopy $(TargetPath) R:\output\*.*  /F/Y/C</PostBuildEvent>
   </PropertyGroup>
 </Project>

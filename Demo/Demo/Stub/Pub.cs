@@ -6,7 +6,7 @@ using Inspur.Gsp.CSharpIntroduction.DemoLib.StubLib;
 namespace Inspur.Gsp.CSharpIntroduction.Demo.Stub
 {
     /// <summary>
-    /// #.3.4 测试桩： 被测试类:俱乐部
+    /// #.3.4 测试桩： 被测试类:酒吧
     /// </summary>
     public class Pub
     {
@@ -41,8 +41,8 @@ namespace Inspur.Gsp.CSharpIntroduction.Demo.Stub
                 //女生免費入場
                 if (isFemale)
                     //#.3.4.4 Shim 
-                    //if (isLadyNight) 
-                    continue;
+                    if (isLadyNight)
+                        continue;
 
 
                 //for stub, validate status: income value

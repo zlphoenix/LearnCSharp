@@ -70,6 +70,7 @@ namespace Inspur.Gsp.CSharpIntroduction.Demo.OO
                 //#.1.1.5 属性封装逻辑
                 if (value < 0)
                 {
+                    //shoutNum = value;
                     throw new NotSupportedException("Are you kidding (⊙ˍ⊙)");
                 }
                 shoutNum = value <= 10 ? value : 10;

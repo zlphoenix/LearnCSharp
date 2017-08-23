@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Inspur.Gsp.CSharpIntroduction.Demo.Exception
 {
-    class FileAccess
+    public class FileAccess
     {
 
         public void ReadFile()
