@@ -18,6 +18,7 @@
 unit test for core prjs
 package of prjs
 publish of prjs</PackageReleaseNotes>    
+    <NuspecFile>$(MSBuildThisFileDirectory)$(MSBuildProjectName).nuspec</NuspecFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,5 +29,4 @@ publish of prjs</PackageReleaseNotes>
    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>..\..\build</OutputPath>
   </PropertyGroup>
-
 </Project>
