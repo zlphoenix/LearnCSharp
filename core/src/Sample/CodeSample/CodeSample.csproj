@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyName>Allen.Core.CodeSample</AssemblyName>
+    <RootNamespace>Allen.Core.CodeSample</RootNamespace>
+    <PackageId>Allen.Core.CodeSample</PackageId>
+    <Authors>Allen</Authors>
+    <Company>M$</Company>
+    <Product>Learn dotnet core</Product>
+    <Description>learn dotnet core,about package Samples</Description>
+    <PackageTags>allen learn demo Impl</PackageTags>
+    <PackageLicenseUrl>http://opensource.org/licenses/MS-PL</PackageLicenseUrl>
+    <PackageProjectUrl>zlphoenix.github.io</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/zlphoenix/LearnCSharp</RepositoryUrl>
+    <PackageReleaseNotes>dot net core prj types
+unit test for core prjs
+package of prjs
+publish of prjs</PackageReleaseNotes>    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\lib\Api\Api.csproj" />
+    <ProjectReference Include="..\..\lib\Impl\Impl.csproj" />
+  </ItemGroup>
+  
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\build</OutputPath>
+  </PropertyGroup>
+
+</Project>

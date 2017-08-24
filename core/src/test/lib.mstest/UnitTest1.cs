@@ -1,4 +1,3 @@
-using Allen.Core.lib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace test

@@ -9,16 +9,16 @@
     <OutputPath>..\..\build</OutputPath>
   </PropertyGroup>
 
-  <ItemGroup>
+  <!-- <ItemGroup>
     <Folder Include="wwwroot\" />
-  </ItemGroup>
+  </ItemGroup> -->
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\lib.csproj" />
+    <ProjectReference Include="..\..\lib\Api\Api.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace Allen.Core.lib
+namespace Allen.Core.Api
 {
     public class CustomerDAO
     {
