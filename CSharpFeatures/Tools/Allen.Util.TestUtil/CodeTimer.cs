@@ -17,7 +17,14 @@ namespace Allen.Util.TestUtil
             Thread.CurrentThread.Priority = ThreadPriority.Highest;
             Time("", 1, () => { });
         }
-
+        /// <summary>
+        /// 按照倍增系数批量执行循环测试
+        /// </summary>
+        /// <param name="name">测试名称</param>
+        /// <param name="iterationMax">最大执行迭代数，如果小于min，直接返回，不执行</param>
+        /// <param name="iterationMin">最第一轮轮执行迭代数</param>
+        /// <param name="multiple">每轮倍增系数</param>
+        /// <param name="action">需要测试执行的Action</param>
         public static void Time(string name, int iterationMax, int iterationMin, int multiple, Action action)
         {
             for (; iterationMin < iterationMax; iterationMin *= multiple)
@@ -64,7 +71,13 @@ namespace Allen.Util.TestUtil
 
             //Console.WriteLine();
         }
-
+        public static void Time<TParam, TResult>(string name, int iterationMax, int iterationMin, int multiple, Func<TParam, TResult> action, TParam param) where TResult : class
+        {
+            for (; iterationMin < iterationMax; iterationMin *= multiple)
+            {
+                Time(string.Format("action,{0},{1}", name, iterationMin), iterationMin, action, param);
+            }
+        }
         public static TResult Time<TParam, TResult>(string name, int iteration, Func<TParam, TResult> action, TParam param) where TResult : class
         {
             if (String.IsNullOrEmpty(name)) return null;
