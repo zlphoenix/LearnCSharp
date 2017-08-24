@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>api.nuspec</id>
+    <version>1.0.0</version>
+    <authors>zhoulun</authors>
+    <owners>zhoulun</owners>
+    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package description</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Tag1 Tag2</tags>
+    <!-- <dependencies>
+      <dependency id="SampleDependency" version="1.0" />
+    </dependencies> -->
+  </metadata>
+  <files>
+    <!-- Cross-platform reference assemblies -->
+    <file src="..\build\netstandard2.0\Allen.Core.Api.dll" target="lib\netstandard2.0\Allen.Core.Api.dll" />
+    <file src="..\build\netstandard2.0\Allen.Core.Impl.dll" target="lib\netstandard2.0\Allen.Core.Impl.dll" />
+    </files>
+</package>

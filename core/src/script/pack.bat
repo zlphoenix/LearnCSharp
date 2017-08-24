@@ -1,0 +1,1 @@
+nuget pack api.nuspec -OutputDirectory ..\build

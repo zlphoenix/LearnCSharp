@@ -1,21 +1,28 @@
 using System.Data.Services;
 using System.ServiceModel.Activation;
 using System.Web.Routing;
-using Ninject;
 using NuGet.Server;
 using NuGet.Server.DataServices;
-using NuGet.Server.Infrastructure;
+using NuGet.Server.Publishing;
 using RouteMagic;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(NuGetServer.NuGetRoutes), "Start")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NuGetServer.NuGetRoutes), "Start")]
 
 namespace NuGetServer {
     public static class NuGetRoutes {
         public static void Start() {
+			ServiceResolver.SetServiceResolver(new DefaultServiceResolver());
+
             MapRoutes(RouteTable.Routes);
         }
 
         private static void MapRoutes(RouteCollection routes) {
+            // Route to create a new package(http://{root}/nuget)
+            routes.MapDelegate("CreatePackageNuGet",
+                               "nuget",
+                               new { httpMethod = new HttpMethodConstraint("PUT") },
+                               context => CreatePackageService().CreatePackage(context.HttpContext));
+
             // The default route is http://{root}/nuget/Packages
             var factory = new DataServiceHostFactory();
             var serviceRoute = new ServiceRoute("nuget", factory, typeof(Packages));
@@ -24,8 +31,9 @@ namespace NuGetServer {
             routes.Add("nuget", serviceRoute);
         }
 
-        private static PackageService CreatePackageService() {
-            return NinjectBootstrapper.Kernel.Get<PackageService>();
+        private static IPackageService CreatePackageService()
+        {
+            return ServiceResolver.Resolve<IPackageService>();
         }
     }
 }

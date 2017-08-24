@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyName>Allen.Core.Api</AssemblyName>
+    <RootNamespace>Allen.Core.Api</RootNamespace>
+    <PackageId>Allen.Core.Api</PackageId>
+    <Authors>Allen</Authors>
+    <Company>M$</Company>
+    <Product>Learn dotnet core</Product>
+    <Description>learn dotnet core,about class Api</Description>
+    <PackageTags>allen learn demo Api</PackageTags>
+    <PackageLicenseUrl>http://opensource.org/licenses/MS-PL</PackageLicenseUrl>
+    <PackageProjectUrl>zlphoenix.github.io</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/zlphoenix/LearnCSharp</RepositoryUrl>
+    <PackageReleaseNotes>dot net core prj types
+unit test for core prjs
+package of prjs
+publish of prjs</PackageReleaseNotes>    
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\build</OutputPath>
+  </PropertyGroup>
+
+  <!--<ItemGroup>
+    <Compile Include="CustomerDAO.cs" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
+  </ItemGroup>
+
+</Project>

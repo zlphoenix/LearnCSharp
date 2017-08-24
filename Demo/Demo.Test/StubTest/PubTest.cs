@@ -44,13 +44,39 @@ namespace Inspur.Gsp.CSharpIntroduction.Demo.Test.StubTest
         [TestMethod]
         public void ChargeCustomerCountTest()
         {
+            using (ShimsContext.Create())
+            {
+                System.Fakes.ShimDateTime.TodayGet = () => new DateTime(2017, 8, 18);
+                Console.WriteLine("test is begine...");
+                //准备测试桩
+                var stubCheckInFee = new StubICheckInFee
+                {
+                    //需要注入的方法:方法名<参数列表>
+                    GetFeeCustomer =
+                        customer => 100m
+                };
 
-            var actual = DoTest();
+                //用Stub装配Pub实例
+                var target = new Pub(stubCheckInFee);
 
-            decimal expected = 1;
+                //准备测试数据
+                var customers = new List<Customer>
+                {
+                    new Customer {Gender = Gender.Male},
+                    new Customer {Gender = Gender.Female},
+                    new Customer {Gender = Gender.Transgender},
+                };
 
-            //assert
-            Assert.AreEqual(expected, actual);
+
+                //act
+                var actual1 = target.CheckIn(customers);
+                var actual = actual1;
+
+                decimal expected = 1;
+
+                //assert
+                Assert.AreEqual(expected, actual);
+            }
         }
         /// <summary>
         /// #3.4.4 Shim
@@ -69,28 +95,22 @@ namespace Inspur.Gsp.CSharpIntroduction.Demo.Test.StubTest
                 Assert.AreEqual(expected, actual);
                 //#.3.4.5 到这里就可以了吗？
 
-                //System.Fakes.ShimDateTime.TodayGet = () =>new DateTime(2017, 8, 14);
+                System.Fakes.ShimDateTime.TodayGet = () => new DateTime(2017, 8, 14);
 
-                //actual = DoTest();
-                //expected = 3;
-                ////assert
-                //Assert.AreEqual(expected, actual);
+                actual = DoTest();
+                expected = 3;
+                //assert
+                Assert.AreEqual(expected, actual);
             }
         }
 
-
-        [TestMethod]
-        public void UseContext()
-        {
-            Assert.AreEqual("Hello", TestContext.Properties["My Property"]);
-        }
         private static int DoTest()
         {
             //准备测试桩
             var stubCheckInFee = new StubICheckInFee
             {
                 //需要注入的方法:方法名<参数列表>
-                GetFeeCustomer = customer => 100
+                GetFeeCustomer = GetFeeCustomer
             };
 
             //用Stub装配Pub实例
@@ -106,8 +126,21 @@ namespace Inspur.Gsp.CSharpIntroduction.Demo.Test.StubTest
 
 
             //act
-            var actual = target.CheckIn(customers);
+            var actual1 = target.CheckIn(customers);
+            var actual = actual1;
             return actual;
+        }
+
+
+        [TestMethod]
+        public void UseContext()
+        {
+            Assert.AreEqual("Hello", TestContext.Properties["My Property"]);
+        }
+
+        private static decimal GetFeeCustomer(Customer customer)
+        {
+            return 100;
         }
 
         /// <summary>
