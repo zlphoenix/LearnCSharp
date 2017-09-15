@@ -167,6 +167,7 @@
     <Compile Include="FileSystem\FindFile.cs" />
     <Compile Include="Generics\StaticActionInGenericClass.cs" />
     <Compile Include="Iterators\Iterator.cs" />
+    <Compile Include="Lambda\Closure.cs" />
     <Compile Include="MemoryCache\MemCacheTest.cs" />
     <Compile Include="Network\ConnectionStatusCheck.cs" />
     <Compile Include="NewFeatures.cs" />
