@@ -37,7 +37,6 @@ namespace Inspur.Gsp.CSharpIntroduction.Demo.Stub
                 var isFemale = customer.Gender != Gender.Male;
                 var isLadyNight = DateTime.Today.DayOfWeek == DayOfWeek.Friday;
 
-
                 //女生免費入場
                 if (isFemale)
                     //#.3.4.4 Shim 

@@ -57,7 +57,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StubTest\UnitTest1.cs" />
     <Compile Include="Stub\PubTest.cs" />
     <Compile Include="Syntax\AnimalTest.cs" />
     <Compile Include="Syntax\GenericTests.cs" />
