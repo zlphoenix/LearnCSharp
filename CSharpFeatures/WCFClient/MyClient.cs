@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using WCFClient.MyService;
-using System.ServiceModel;
-using TelChina.AF.Util.TestUtil;
-using WCFClient.MyService2;
-using TelChina.AF.Util.Logging;
 using WCFService.OuterLab;
 using System.ServiceModel.Description;
 using CSharpFeatures.Serialization;
+using Allen.Util.Logging;
 
 namespace WCFClient
 {

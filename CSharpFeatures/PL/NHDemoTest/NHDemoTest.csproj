@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\DemoAssemblies\</OutputPath>
+    <OutputPath>..\..\Build\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -53,12 +53,6 @@
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="TelChina.AF.Util.Logging">
-      <HintPath>..\..\Assembly\TelChina.AF.Util.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="TelChina.AF.Util.TestUtil, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\Work\Doc\Products\code\Build\Platform\TelChina.AF.Util.TestUtil.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -75,9 +69,13 @@
       <Project>{5909BFE7-93CF-4E5F-BE22-6293368AF01D}</Project>
       <Name>NHibernate</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NHDemo\NHDemo.csproj">
-      <Project>{F77022A6-E49F-4951-ADB0-4B07139E8489}</Project>
-      <Name>NHDemo</Name>
+    <ProjectReference Include="..\..\Tools\Allen.Util.Logging\Allen.Util.Logging.csproj">
+      <Project>{4542480b-c0b1-442c-985f-f63114f1c817}</Project>
+      <Name>Allen.Util.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tools\Allen.Util.TestUtil\Allen.Util.TestUtil.csproj">
+      <Project>{372b6ab2-ecc1-475d-98e3-9e43256e8e93}</Project>
+      <Name>Allen.Util.TestUtil</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -85,7 +83,12 @@
       <Link>App.config</Link>
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="TelChina.TRF.Util.Logging.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -20,7 +20,8 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        
+#region Component Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -51,7 +52,6 @@
         }
 
         #endregion
-
         private System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller1;
         private System.ServiceProcess.ServiceInstaller serviceInstaller1;
     }
